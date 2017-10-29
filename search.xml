@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[Java面向对象特性]]></title>
+      <url>/2017/10/29/second/</url>
+      <content type="html"><![CDATA[<p>这是我的第二篇文章</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Java </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[函数式编程初探]]></title>
+      <url>/2017/10/29/FuncProgExp/</url>
+      <content type="html"><![CDATA[<p>这是我的第一篇文章</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Haskell </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Haskell </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
+</search>
