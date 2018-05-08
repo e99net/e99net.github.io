@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Win7系统全部浏览器被篡改主页成123.sogou.com等问题的一点思路 | 99°</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Water" />
+  
+  
+  
+  
+  <meta name="description" content="本人win7系统，曾经有两次中招，系统中的Google Chrome、Firefox、IE三个浏览器主页全部被篡改成123.sogou.com。第一次以为下载的软件有毒，运行之后马上导致浏览器首页被篡改，查注册表、改快捷方式……自认为该试的方法都试了，期间还用360安全卫士查杀过，但是依然没有解决。此时觉得病毒应该写到dll文件里面去了，那我没辙了，只能重装操作系统。一直到现在，最近几天卸载360">
+<meta name="keywords" content="Water">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Win7系统全部浏览器被篡改主页成123.sogou.com等问题的一点思路">
+<meta property="og:url" content="http://yoursite.com/2018/04/13/ProblemofHomePage/index.html">
+<meta property="og:site_name" content="99°">
+<meta property="og:description" content="本人win7系统，曾经有两次中招，系统中的Google Chrome、Firefox、IE三个浏览器主页全部被篡改成123.sogou.com。第一次以为下载的软件有毒，运行之后马上导致浏览器首页被篡改，查注册表、改快捷方式……自认为该试的方法都试了，期间还用360安全卫士查杀过，但是依然没有解决。此时觉得病毒应该写到dll文件里面去了，那我没辙了，只能重装操作系统。一直到现在，最近几天卸载360">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-02T03:40:42.201Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Win7系统全部浏览器被篡改主页成123.sogou.com等问题的一点思路">
+<meta name="twitter:description" content="本人win7系统，曾经有两次中招，系统中的Google Chrome、Firefox、IE三个浏览器主页全部被篡改成123.sogou.com。第一次以为下载的软件有毒，运行之后马上导致浏览器首页被篡改，查注册表、改快捷方式……自认为该试的方法都试了，期间还用360安全卫士查杀过，但是依然没有解决。此时觉得病毒应该写到dll文件里面去了，那我没辙了，只能重装操作系统。一直到现在，最近几天卸载360">
+  
+    <link rel="alternate" href="/atom.xml" title="99°" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="99°" rel="home"> 99° </a>
+            
+          </h1>
+          
+          
+            <div class="site-description">万事俱备，不欠东风</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-ProblemofHomePage" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Win7系统全部浏览器被篡改主页成123.sogou.com等问题的一点思路
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/04/13/ProblemofHomePage/" class="article-date">
+	  <time datetime="2018-04-13T04:50:18.461Z" itemprop="datePublished">April 13, 2018</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Water/">Water</a>
+ 
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本人win7系统，曾经有两次中招，系统中的Google Chrome、Firefox、IE三个浏览器主页全部被篡改成123.sogou.com。第一次以为下载的软件有毒，运行之后马上导致浏览器首页被篡改，查注册表、改快捷方式……自认为该试的方法都试了，期间还用360安全卫士查杀过，但是依然没有解决。<strong>此时觉得病毒应该写到dll文件里面去了</strong>，那我没辙了，只能重装操作系统。<br>一直到现在，最近几天卸载360安全卫士之后，没多久，浏览器主页又被全部篡改了，好像和上次的主页一样，这时想到：“上一次好像也是卸载360安全卫士之后被篡改的主页”，所以初步分析<strong>应该是360安全卫士搞的鬼</strong>，TMD，临死前还要放一炮！！！<br>其实，我卸载360安全卫士只是觉得没有必要再用它了，并无瞧不起它的意思，嘿嘿。为什么它要这么对待我！！！<br>好了，说到这其实问题还并没有解决。即然查注册表、改快捷方式都没用，而我又不想重装系统，那只能采用网上的黑科技，在所有浏览器可执行文件文件名后加一个空格。这样凑合了好几天，实在是不舒服了。昨天晚上临睡前想起这个问题，我实在是不甘心，就在手机的浏览器上查解决办法。中国的网友们真是无所不知，眼前一亮，突然发现了一些好办法，心想明天试一下。<br>今天，我按照如下方法操作了一遍，竟然莫名其妙的就好了，好开心！虽然和昨天网上看到的方法有些许出入，但我认为本质是一样的。特记录于此。<br><a id="more"></a></p>
+<h3 id="Win7系统全部浏览器的主页被篡改成123-sogou-com问题的一个解决方法"><a href="#Win7系统全部浏览器的主页被篡改成123-sogou-com问题的一个解决方法" class="headerlink" title="Win7系统全部浏览器的主页被篡改成123.sogou.com问题的一个解决方法"></a>Win7系统全部浏览器的主页被篡改成123.sogou.com问题的一个解决方法</h3><ul>
+<li><p>取消“隐藏系统文件”<br>（1）打开“计算机”－点击菜单“组织”－点击“文件夹和搜索选项”－点击“查看”－点选“隐藏受保护的系统文件”（把前面的勾去掉）－弹出提示选择“是”<br>（2）点选下面“显示隐藏的文件、文件夹和驱动器”</p>
+</li>
+<li><p>找到“C:\Users\用户名\AppData\Roaming”路径，删除此路径下所有和“360”有关的文件夹！！！</p>
+</li>
+<li><p>检验修正结果</p>
+</li>
+</ul>
+<p>网文链接：<a href="https://jingyan.baidu.com/article/d2b1d1027314df5c7e37d4ce.html" target="_blank" rel="noopener">解决“123.sogou.com/?*”浏览器起始页恶意跳转</a></p>
+<p>我表示以后再也不会装360安全卫士了！！！</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/Water/">Water</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Water/">Water</a></li></ul>
+
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/13/Questions/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          技术面试
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/13/NoteofBook3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">《演化计算》_读书笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Win7系统全部浏览器的主页被篡改成123-sogou-com问题的一个解决方法"><span class="nav-number">1.</span> <span class="nav-text">Win7系统全部浏览器的主页被篡改成123.sogou.com问题的一个解决方法</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2018 99° All Rights Reserved.
+        
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
