@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>xxx | 99°</title>
+  <title>Powershell执行脚本文件 | 99°</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="Water" />
@@ -11,18 +11,18 @@
   
   
   
-  <meta name="description" content="ceshi">
+  <meta name="description" content="Powershell拥有自己的脚本，扩展名为“.ps1”">
 <meta name="keywords" content="Water">
 <meta property="og:type" content="article">
-<meta property="og:title" content="xxx">
-<meta property="og:url" content="http://yoursite.com/2018/05/08/test/index.html">
+<meta property="og:title" content="Powershell执行脚本文件">
+<meta property="og:url" content="http://yoursite.com/2018/05/08/Powershell/index.html">
 <meta property="og:site_name" content="99°">
-<meta property="og:description" content="ceshi">
+<meta property="og:description" content="Powershell拥有自己的脚本，扩展名为“.ps1”">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-08T10:25:52.334Z">
+<meta property="og:updated_time" content="2018-05-08T11:35:35.715Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xxx">
-<meta name="twitter:description" content="ceshi">
+<meta name="twitter:title" content="Powershell执行脚本文件">
+<meta name="twitter:description" content="Powershell拥有自己的脚本，扩展名为“.ps1”">
   
     <link rel="alternate" href="/atom.xml" title="99°" type="application/atom+xml">
   
@@ -107,7 +107,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-test" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-Powershell" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -115,7 +115,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      xxx
+      Powershell执行脚本文件
     </h1>
   
 
@@ -123,7 +123,7 @@
     
     <div class="article-meta">
       
-	<a href="/2018/05/08/test/" class="article-date">
+	<a href="/2018/05/08/Powershell/" class="article-date">
 	  <time datetime="2018-05-08T10:25:29.987Z" itemprop="datePublished">May 8, 2018</time>
 	</a>
 
@@ -139,7 +139,12 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ceshi</p>
+        <p>Powershell拥有自己的脚本，扩展名为“.ps1”</p>
+<a id="more"></a>
+<p>默认情况下ps1文件不能被执行，这导致在初次执行脚本时可能会碰到一个异常。原因是powershell的默认安全设置禁用了执行脚本，要启用这个功能必须要拥有管理员的权限。<br>在powershell中执行以下命令方可执行本地的ps1脚本文件：</p>
+<blockquote>
+<p>set-executionpolicy remotesigned</p>
+</blockquote>
 
       
     </div>
