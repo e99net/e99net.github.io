@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>99°</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="MATLAB 神经网络技术前戏加载MATLAB自带的噪声信号进行绘图。1234&amp;gt;&amp;gt; clear all&amp;gt;&amp;gt; close all&amp;gt;&amp;gt; load noisdopp&amp;gt;&amp;gt; plot(noisdopp) 绘制三元函数s=x²+y²+z²的可视化图形。12345678&amp;gt;&amp;gt; clear all;&amp;gt;&amp;gt; x=linspace(-2,2,40);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="99°">
+<meta property="og:url" content="http://yoursite.com/2018/03/28/Matlab/index.html">
+<meta property="og:site_name" content="99°">
+<meta property="og:description" content="MATLAB 神经网络技术前戏加载MATLAB自带的噪声信号进行绘图。1234&amp;gt;&amp;gt; clear all&amp;gt;&amp;gt; close all&amp;gt;&amp;gt; load noisdopp&amp;gt;&amp;gt; plot(noisdopp) 绘制三元函数s=x²+y²+z²的可视化图形。12345678&amp;gt;&amp;gt; clear all;&amp;gt;&amp;gt; x=linspace(-2,2,40);">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-17T03:33:29.398Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="99°">
+<meta name="twitter:description" content="MATLAB 神经网络技术前戏加载MATLAB自带的噪声信号进行绘图。1234&amp;gt;&amp;gt; clear all&amp;gt;&amp;gt; close all&amp;gt;&amp;gt; load noisdopp&amp;gt;&amp;gt; plot(noisdopp) 绘制三元函数s=x²+y²+z²的可视化图形。12345678&amp;gt;&amp;gt; clear all;&amp;gt;&amp;gt; x=linspace(-2,2,40);">
+  
+    <link rel="alternate" href="/atom.xml" title="99°" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="99°" rel="home"> 99° </a>
+            
+          </h1>
+          
+          
+            <div class="site-description">万事俱备，不欠东风</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Matlab" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+    <div class="article-meta">
+      
+	<a href="/2018/03/28/Matlab/" class="article-date">
+	  <time datetime="2018-03-28T09:07:15.401Z" itemprop="datePublished">March 28, 2018</time>
+	</a>
+
+       
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MATLAB-神经网络技术"><a href="#MATLAB-神经网络技术" class="headerlink" title="MATLAB 神经网络技术"></a>MATLAB 神经网络技术</h1><h2 id="前戏"><a href="#前戏" class="headerlink" title="前戏"></a>前戏</h2><h3 id="加载MATLAB自带的噪声信号进行绘图。"><a href="#加载MATLAB自带的噪声信号进行绘图。" class="headerlink" title="加载MATLAB自带的噪声信号进行绘图。"></a>加载MATLAB自带的噪声信号进行绘图。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; clear all</span><br><span class="line">&gt;&gt; close all</span><br><span class="line">&gt;&gt; load noisdopp</span><br><span class="line">&gt;&gt; plot(noisdopp)</span><br></pre></td></tr></table></figure>
+<h3 id="绘制三元函数s-x²-y²-z²的可视化图形。"><a href="#绘制三元函数s-x²-y²-z²的可视化图形。" class="headerlink" title="绘制三元函数s=x²+y²+z²的可视化图形。"></a>绘制三元函数s=x²+y²+z²的可视化图形。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; clear all;</span><br><span class="line">&gt;&gt; x=linspace(-2,2,40);</span><br><span class="line">&gt;&gt; y=x;</span><br><span class="line">&gt;&gt; z=x;</span><br><span class="line">&gt;&gt; [X,Y,Z]=meshgrid(x,y,z);</span><br><span class="line">&gt;&gt; s=X.^2+Y.^2+Z.^2;</span><br><span class="line">&gt;&gt; slice(X,Y,Z,s,[-1,0,1],[-1,0,1],[-1,0,1]);</span><br><span class="line">&gt;&gt; colorbar</span><br></pre></td></tr></table></figure>
+<p>在MATLAB的命令窗口中输入help nnet，即可得到神经网络工具箱的有关版本信息及函数列表。</p>
+<h2 id="感知器神经网络"><a href="#感知器神经网络" class="headerlink" title="感知器神经网络"></a>感知器神经网络</h2><h3 id="单层感知器网络不能模拟异或问题，这里用二层感知器神经网络模拟异或函数"><a href="#单层感知器网络不能模拟异或问题，这里用二层感知器神经网络模拟异或函数" class="headerlink" title="单层感知器网络不能模拟异或问题，这里用二层感知器神经网络模拟异或函数"></a>单层感知器网络不能模拟异或问题，这里用二层感知器神经网络模拟异或函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; clear all;</span><br><span class="line">%初始化随机感知器层</span><br><span class="line">&gt;&gt; pr1=[0 1;0 1];   %设置随机感知器层输入问题每个元素的值域</span><br><span class="line">&gt;&gt; net1=newp(pr1,3);%定义随机感知器层</span><br><span class="line">%指定随机感知器层权值初始化函数为随机函数</span><br><span class="line">&gt;&gt; net1.inputWeights&#123;1&#125;.initFcn=&apos;rands&apos;;</span><br><span class="line">%指定随机感知器层阈值初始化函数为随机函数</span><br><span class="line">&gt;&gt; net1.biases&#123;1&#125;.initFcn=&apos;rands&apos;;</span><br><span class="line">&gt;&gt; net1=init(net1);%初始化随机感知器层</span><br><span class="line">&gt;&gt; iw1=net1.iw&#123;1&#125;;%随机感知器层的权值向量</span><br><span class="line">&gt;&gt; b1=net1.b&#123;1&#125;;%随机感知器层的阈值向量</span><br><span class="line">%随机感知器层仿真</span><br><span class="line">&gt;&gt; p1=[0 0;0 1;1 0;1 1]&apos;;%随机感知器输入向量(训练样本)</span><br><span class="line">&gt;&gt; [a1,pf]=sim(net1,p1);%随机感知器层仿真</span><br><span class="line">%初始化第二感知器层</span><br><span class="line">&gt;&gt; pr2=[0 1;0 1;0 1];%设置第二感知器层输入向量每个元素的值域</span><br><span class="line">&gt;&gt; net2=newp(pr2,1);%定义第二感知器层</span><br><span class="line">%训练第二感知器层</span><br><span class="line">&gt;&gt; net2.trainParam.epochs=10;</span><br><span class="line">&gt;&gt; net2.trainParam.show=1;</span><br><span class="line">&gt;&gt; p2=ones(3,4);%初始化第二感知器层的输入向量</span><br><span class="line">&gt;&gt; p2=p2.*a1;%随机感知器层的仿真输出结果作为第二感知器层的输入向量</span><br><span class="line">&gt;&gt; t2=[0 1 1 0];%第二感知器层的目标向量</span><br><span class="line">%训练第二感知器层</span><br><span class="line">&gt;&gt; [net2,tr2]=train(net2,p2,t2);</span><br><span class="line">&gt;&gt; disp(&apos;输出训练过程经过的每一步长为：&apos;)</span><br><span class="line">输出训练过程经过的每一步长为：</span><br><span class="line">&gt;&gt; epoch2=tr2.epoch   %输出训练过程经过的每一步长</span><br><span class="line"></span><br><span class="line">epoch2 =</span><br><span class="line"></span><br><span class="line">     0     1     2     3     4     5     6     7     8     9    10</span><br><span class="line"></span><br><span class="line">&gt;&gt; disp(&apos;输出每一步训练结果的误差为：&apos;)</span><br><span class="line">输出每一步训练结果的误差为：</span><br><span class="line">&gt;&gt; perf2=tr2.perf   %输出每一步训练结果的误差</span><br><span class="line"></span><br><span class="line">perf2 =</span><br><span class="line"></span><br><span class="line">  Columns 1 through 9</span><br><span class="line"></span><br><span class="line">    0.5000    0.5000    0.5000    0.2500    0.2500    0.2500    0.2500    0.2500    0.2500</span><br><span class="line"></span><br><span class="line">  Columns 10 through 11</span><br><span class="line"></span><br><span class="line">    0.2500    0.2500</span><br><span class="line"></span><br><span class="line">&gt;&gt; disp(&apos;第二感知器层的权值向量为：&apos;)</span><br><span class="line">第二感知器层的权值向量为：</span><br><span class="line">&gt;&gt; iw2=net2.iw&#123;1&#125;</span><br><span class="line"></span><br><span class="line">iw2 =</span><br><span class="line"></span><br><span class="line">    -1    -1     3</span><br><span class="line"></span><br><span class="line">&gt;&gt; disp(&apos;第二感知器层的阈值向量为：&apos;)</span><br><span class="line">第二感知器层的阈值向量为：</span><br><span class="line">&gt;&gt; b2=net2.b&#123;1&#125;</span><br><span class="line"></span><br><span class="line">b2 =</span><br><span class="line"></span><br><span class="line">    -1</span><br><span class="line">%存储训练后的网络</span><br><span class="line">&gt;&gt; save net36 net1 net2</span><br><span class="line">%下面的代码实现二层感知器网络的仿真</span><br><span class="line">&gt;&gt; clear all;   %清除工作空间中的变量</span><br><span class="line">&gt;&gt; load net36 net1 net2   %加载训练后的网络</span><br><span class="line">%随机感知器仿真</span><br><span class="line">&gt;&gt; p1=[0 0;0 1;1 0;1 1]&apos;;   %随机感知器层输入向量</span><br><span class="line">&gt;&gt; a1=sim(net1,p1); %随机感知器层仿真结果</span><br><span class="line">%输出感知器层仿真，并输出仿真结果</span><br><span class="line">&gt;&gt; p2=ones(3,4);%初始化第二感知器层的输入向量</span><br><span class="line">&gt;&gt; p2=p2.*a1;%随机感知器层的仿真输出结果作为第二感知器层的输入向量</span><br><span class="line">&gt;&gt; a2=sim(net2,p2)</span><br><span class="line">%运行程序，输出如下</span><br><span class="line">a2 =</span><br><span class="line"></span><br><span class="line">     0     1     0     0</span><br><span class="line">%由以上结果可看出所设计的网络可正确模拟“异或”函数的功能</span><br></pre></td></tr></table></figure>
+<h3 id="设计一个感知器神经网络，完成下列分类，已知：p1-0-5-1-T，t1-0-p2-1-0-5-T-t2-1-p3-1-0-5-T-t3-1-p4-1-1-t4-0。"><a href="#设计一个感知器神经网络，完成下列分类，已知：p1-0-5-1-T，t1-0-p2-1-0-5-T-t2-1-p3-1-0-5-T-t3-1-p4-1-1-t4-0。" class="headerlink" title="设计一个感知器神经网络，完成下列分类，已知：p1=(0.5 -1)T，t1=0; p2=(1 0.5)T,t2=1;p3=(-1 0.5)T,t3=1;p4=(-1 -1),t4=0。"></a>设计一个感知器神经网络，完成下列分类，已知：p1=(0.5 -1)T，t1=0; p2=(1 0.5)T,t2=1;p3=(-1 0.5)T,t3=1;p4=(-1 -1),t4=0。</h3><p>此单层感知器神经网络的结构：1个输入向量，包括2个元素、1个神经元，神经元的传输函数为hardlim。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; clear all;</span><br><span class="line">&gt;&gt; pr=[-1 1;-1 1];</span><br><span class="line">&gt;&gt; net=newp(pr,1);</span><br><span class="line">&gt;&gt; p=[0.5 -1;1 0.5;-1 0.5;-1 -1]&apos;;</span><br><span class="line">&gt;&gt; t=[0 1 1 0];</span><br><span class="line">&gt;&gt; [net,tr]=train(net,p,t);</span><br><span class="line">&gt;&gt; a = sim(net,p)</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">     0     1     1     0</span><br><span class="line"></span><br><span class="line">&gt;&gt; v=[-2 2 -2 2];</span><br><span class="line">&gt;&gt; plotpv(p,a,v);</span><br><span class="line">&gt;&gt; plotpc(net.iw&#123;1&#125;,net.b&#123;1&#125;);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/13/BlackTechOfChrome/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          谷歌浏览器的黑科技
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MATLAB-神经网络技术"><span class="nav-number">1.</span> <span class="nav-text">MATLAB 神经网络技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前戏"><span class="nav-number">1.1.</span> <span class="nav-text">前戏</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加载MATLAB自带的噪声信号进行绘图。"><span class="nav-number">1.1.1.</span> <span class="nav-text">加载MATLAB自带的噪声信号进行绘图。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制三元函数s-x²-y²-z²的可视化图形。"><span class="nav-number">1.1.2.</span> <span class="nav-text">绘制三元函数s=x²+y²+z²的可视化图形。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感知器神经网络"><span class="nav-number">1.2.</span> <span class="nav-text">感知器神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单层感知器网络不能模拟异或问题，这里用二层感知器神经网络模拟异或函数"><span class="nav-number">1.2.1.</span> <span class="nav-text">单层感知器网络不能模拟异或问题，这里用二层感知器神经网络模拟异或函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计一个感知器神经网络，完成下列分类，已知：p1-0-5-1-T，t1-0-p2-1-0-5-T-t2-1-p3-1-0-5-T-t3-1-p4-1-1-t4-0。"><span class="nav-number">1.2.2.</span> <span class="nav-text">设计一个感知器神经网络，完成下列分类，已知：p1=(0.5 -1)T，t1=0; p2=(1 0.5)T,t2=1;p3=(-1 0.5)T,t3=1;p4=(-1 -1),t4=0。</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2018 99° All Rights Reserved.
+        
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
