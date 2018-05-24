@@ -3,26 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>函数式编程初探 | 99°</title>
+  <title>XeLatex在window上编译很慢的解决方法 | 99°</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="Haskell" />
+  <meta name="keywords" content="Latex" />
   
   
   
   
-  <meta name="description" content="函数式编程的应用虽然在很长时间内都处于不温不火的状态，但他们的用途却非常广泛，常见的领域有人工智能、定理证明、无线通信、金融数据分析系统等。">
-<meta name="keywords" content="Haskell">
+  <meta name="description" content="环境：win7 + texlive 2017 + TeXstudio">
+<meta name="keywords" content="Latex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="函数式编程初探">
-<meta property="og:url" content="http://yoursite.com/2018/04/13/FuncProgExp/index.html">
+<meta property="og:title" content="XeLatex在window上编译很慢的解决方法">
+<meta property="og:url" content="http://yoursite.com/2018/05/24/texslow/index.html">
 <meta property="og:site_name" content="99°">
-<meta property="og:description" content="函数式编程的应用虽然在很长时间内都处于不温不火的状态，但他们的用途却非常广泛，常见的领域有人工智能、定理证明、无线通信、金融数据分析系统等。">
+<meta property="og:description" content="环境：win7 + texlive 2017 + TeXstudio">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-09T03:00:42.224Z">
+<meta property="og:updated_time" content="2018-05-24T12:58:38.731Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="函数式编程初探">
-<meta name="twitter:description" content="函数式编程的应用虽然在很长时间内都处于不温不火的状态，但他们的用途却非常广泛，常见的领域有人工智能、定理证明、无线通信、金融数据分析系统等。">
+<meta name="twitter:title" content="XeLatex在window上编译很慢的解决方法">
+<meta name="twitter:description" content="环境：win7 + texlive 2017 + TeXstudio">
   
     <link rel="alternate" href="/atom.xml" title="99°" type="application/atom+xml">
   
@@ -107,7 +107,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-FuncProgExp" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-texslow" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -115,7 +115,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      函数式编程初探
+      XeLatex在window上编译很慢的解决方法
     </h1>
   
 
@@ -123,8 +123,8 @@
     
     <div class="article-meta">
       
-	<a href="/2018/04/13/FuncProgExp/" class="article-date">
-	  <time datetime="2018-04-13T04:50:18.367Z" itemprop="datePublished">April 13, 2018</time>
+	<a href="/2018/05/24/texslow/" class="article-date">
+	  <time datetime="2018-05-24T12:57:03.015Z" itemprop="datePublished">May 24, 2018</time>
 	</a>
 
       
@@ -139,11 +139,12 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>函数式编程的应用虽然在很长时间内都处于不温不火的状态，但他们的用途却非常广泛，常见的领域有人工智能、定理证明、无线通信、金融数据分析系统等。</p>
+        <p>环境：win7 + texlive 2017 + TeXstudio</p>
 <a id="more"></a>
-<p>面向对象语言有很大的优势，各种设计模式在商业开发的路上也发展得非常成熟，而函数式编程的优势在于程序的严谨与可靠性，程序正确性的证明与测试时的简易型，另外，还有开发周期相对短，编写并发程序十分简洁且运行稳定。</p>
-<p>Haskell实现了很多软件中的精品，如窗口管理器XMonad、Perl6的Haskell实现Pugs以及高性能的网页框架Yesod、Snap等。</p>
-<p>map-reduce框架的灵感就来自于函数式编程语言，Erlang的分布式编程模型也利用了很多诸如不可变数据、高阶函数等函数式编程的特性。</p>
+<p>解决方法：</p>
+<p>A. 以管理员身份运行fc-cache</p>
+<p>B. 在texlive安装路径bin/win32下，设置xelatex.exe以管理员身份启动。</p>
+<p>C. 启动TeXstudio时以管理员身份启动</p>
 
       
     </div>
@@ -154,7 +155,7 @@
 
       
   <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Haskell/">Haskell</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Latex/">Latex</a></li></ul>
 
       
     </footer>
@@ -164,19 +165,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/04/13/FontsizeofLatex/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Latex中设置字体大小
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/13/canteen/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/05/24/esconn/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">食堂</div>
+      <div class="article-nav-title">“ES连不上电脑了，一直卡在登陆界面”问题的解决方案</div>
     </a>
   
 </nav>
