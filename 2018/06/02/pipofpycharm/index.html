@@ -3,26 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>函数式编程初探 | 99°</title>
+  <title>pip3版本8升级到版本10后，Pycharm装包出错的解决方案 | 99°</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="Haskell" />
+  <meta name="keywords" content="Water" />
   
   
   
   
-  <meta name="description" content="函数式编程的应用虽然在很长时间内都处于不温不火的状态，但他们的用途却非常广泛，常见的领域有人工智能、定理证明、无线通信、金融数据分析系统等。">
-<meta name="keywords" content="Haskell">
+  <meta name="description" content="Python3的pip从版本8升级到版本10之后，在Pycharm中安装package，会出现如下问题:  AttributeError: module ‘pip’ has no attribute ‘main’  解决方案如下：找到安装目录下的helpers/packaging_tool.py文件，将如下代码">
+<meta name="keywords" content="Water">
 <meta property="og:type" content="article">
-<meta property="og:title" content="函数式编程初探">
-<meta property="og:url" content="http://yoursite.com/2018/04/13/FuncProgExp/index.html">
+<meta property="og:title" content="pip3版本8升级到版本10后，Pycharm装包出错的解决方案">
+<meta property="og:url" content="http://yoursite.com/2018/06/02/pipofpycharm/index.html">
 <meta property="og:site_name" content="99°">
-<meta property="og:description" content="函数式编程的应用虽然在很长时间内都处于不温不火的状态，但他们的用途却非常广泛，常见的领域有人工智能、定理证明、无线通信、金融数据分析系统等。">
+<meta property="og:description" content="Python3的pip从版本8升级到版本10之后，在Pycharm中安装package，会出现如下问题:  AttributeError: module ‘pip’ has no attribute ‘main’  解决方案如下：找到安装目录下的helpers/packaging_tool.py文件，将如下代码">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-09T03:00:42.224Z">
+<meta property="og:updated_time" content="2018-06-02T06:23:44.889Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="函数式编程初探">
-<meta name="twitter:description" content="函数式编程的应用虽然在很长时间内都处于不温不火的状态，但他们的用途却非常广泛，常见的领域有人工智能、定理证明、无线通信、金融数据分析系统等。">
+<meta name="twitter:title" content="pip3版本8升级到版本10后，Pycharm装包出错的解决方案">
+<meta name="twitter:description" content="Python3的pip从版本8升级到版本10之后，在Pycharm中安装package，会出现如下问题:  AttributeError: module ‘pip’ has no attribute ‘main’  解决方案如下：找到安装目录下的helpers/packaging_tool.py文件，将如下代码">
   
     <link rel="alternate" href="/atom.xml" title="99°" type="application/atom+xml">
   
@@ -107,7 +107,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-FuncProgExp" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-pipofpycharm" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -115,7 +115,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      函数式编程初探
+      pip3版本8升级到版本10后，Pycharm装包出错的解决方案
     </h1>
   
 
@@ -123,8 +123,8 @@
     
     <div class="article-meta">
       
-	<a href="/2018/04/13/FuncProgExp/" class="article-date">
-	  <time datetime="2018-04-13T04:50:18.367Z" itemprop="datePublished">April 13, 2018</time>
+	<a href="/2018/06/02/pipofpycharm/" class="article-date">
+	  <time datetime="2018-06-02T06:15:43.535Z" itemprop="datePublished">June 2, 2018</time>
 	</a>
 
       
@@ -139,11 +139,12 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>函数式编程的应用虽然在很长时间内都处于不温不火的状态，但他们的用途却非常广泛，常见的领域有人工智能、定理证明、无线通信、金融数据分析系统等。</p>
-<a id="more"></a>
-<p>面向对象语言有很大的优势，各种设计模式在商业开发的路上也发展得非常成熟，而函数式编程的优势在于程序的严谨与可靠性，程序正确性的证明与测试时的简易型，另外，还有开发周期相对短，编写并发程序十分简洁且运行稳定。</p>
-<p>Haskell实现了很多软件中的精品，如窗口管理器XMonad、Perl6的Haskell实现Pugs以及高性能的网页框架Yesod、Snap等。</p>
-<p>map-reduce框架的灵感就来自于函数式编程语言，Erlang的分布式编程模型也利用了很多诸如不可变数据、高阶函数等函数式编程的特性。</p>
+        <p>Python3的pip从版本8升级到版本10之后，在Pycharm中安装package，会出现如下问题:</p>
+<blockquote>
+<p>AttributeError: module ‘pip’ has no attribute ‘main’</p>
+</blockquote>
+<p>解决方案如下：<br>找到安装目录下的helpers/packaging_tool.py文件，将如下代码<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def do_install(pkgs):</span><br><span class="line">	try:</span><br><span class="line">		import pip</span><br><span class="line">	except ImportError:</span><br><span class="line">		error_no_pip()</span><br><span class="line">	return pip.main([&apos;install&apos;] + pkgs)</span><br><span class="line"></span><br><span class="line">def do_uninstall(pkgs):</span><br><span class="line">	try:</span><br><span class="line">		import pip</span><br><span class="line">	except ImportError:</span><br><span class="line">		error_no_pip()</span><br><span class="line">	return pip.main([&apos;uninstall&apos;, &apos;-y&apos;] + pkgs)</span><br></pre></td></tr></table></figure></p>
+<p>修改为如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">def do_install(pkgs):</span><br><span class="line">	try:</span><br><span class="line">		# import pip</span><br><span class="line">		try:</span><br><span class="line">			from pip._internal import main</span><br><span class="line">		except Exception:</span><br><span class="line">			from pip import main</span><br><span class="line">	except ImportError:</span><br><span class="line">		error_no_pip()</span><br><span class="line">	return main([&apos;install&apos;] + pkgs)</span><br><span class="line"></span><br><span class="line">def do_uninstall(pkgs):</span><br><span class="line">	try:</span><br><span class="line">		# import pip</span><br><span class="line">		try:</span><br><span class="line">			from pip._internal import main</span><br><span class="line">		except Exception:</span><br><span class="line">			from pip import main</span><br><span class="line">		import pip</span><br><span class="line">	except ImportError:</span><br><span class="line">		error_no_pip()</span><br><span class="line">	return main([&apos;uninstall&apos;, &apos;-y&apos;] + pkgs)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -154,7 +155,7 @@
 
       
   <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Haskell/">Haskell</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Water/">Water</a></li></ul>
 
       
     </footer>
@@ -164,19 +165,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/04/13/FontsizeofLatex/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Latex中设置字体大小
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/13/canteen/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/05/27/define_rightmenu_byself/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">食堂</div>
+      <div class="article-nav-title">自定义右键菜单</div>
     </a>
   
 </nav>
