@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>在Ubuntu上完美安装oh-my-zsh | 99°</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Water" />
+  
+  
+  
+  
+  <meta name="description" content="前戏查看系统当前使用的shell12$ echo $SHELL/bin/bash 查看系统是否安装了zsh12345$ cat /etc/shells/bin/sh/bin/bash/usr/bin/sh/usr/bin/bash 安装zsh一般来说，直接运行">
+<meta name="keywords" content="Water">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Ubuntu上完美安装oh-my-zsh">
+<meta property="og:url" content="http://yoursite.com/2018/06/07/install_oh-my-zsh_of_ubuntu/index.html">
+<meta property="og:site_name" content="99°">
+<meta property="og:description" content="前戏查看系统当前使用的shell12$ echo $SHELL/bin/bash 查看系统是否安装了zsh12345$ cat /etc/shells/bin/sh/bin/bash/usr/bin/sh/usr/bin/bash 安装zsh一般来说，直接运行">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-07T13:06:37.232Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在Ubuntu上完美安装oh-my-zsh">
+<meta name="twitter:description" content="前戏查看系统当前使用的shell12$ echo $SHELL/bin/bash 查看系统是否安装了zsh12345$ cat /etc/shells/bin/sh/bin/bash/usr/bin/sh/usr/bin/bash 安装zsh一般来说，直接运行">
+  
+    <link rel="alternate" href="/atom.xml" title="99°" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="99°" rel="home"> 99° </a>
+            
+          </h1>
+          
+          
+            <div class="site-description">万事俱备，不欠东风</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-install_oh-my-zsh_of_ubuntu" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      在Ubuntu上完美安装oh-my-zsh
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/06/07/install_oh-my-zsh_of_ubuntu/" class="article-date">
+	  <time datetime="2018-06-07T12:25:27.582Z" itemprop="datePublished">June 7, 2018</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/memo/">memo</a>
+ 
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前戏"><a href="#前戏" class="headerlink" title="前戏"></a>前戏</h3><p>查看系统当前使用的shell<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ echo $SHELL</span><br><span class="line">/bin/bash</span><br></pre></td></tr></table></figure></p>
+<p>查看系统是否安装了zsh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/shells</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/bash</span><br><span class="line">/usr/bin/sh</span><br><span class="line">/usr/bin/bash</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a>安装zsh</h3><p>一般来说，直接运行<br><a id="more"></a></p>
+<blockquote>
+<p>sudo apt-get install zsh<br>即可。当然也可以下载源<a href="http://zsh.sourceforge.net/Arc/source.html" target="_blank" rel="noopener">Download zsh source</a>，使用curl安装<br>curl -L <a href="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh" target="_blank" rel="noopener">https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh</a> | sh</p>
+</blockquote>
+<h3 id="把zsh设为默认终端"><a href="#把zsh设为默认终端" class="headerlink" title="把zsh设为默认终端"></a>把zsh设为默认终端</h3><blockquote>
+<p>chsh -s $(which zsh)<br>重启系统，可使用<br>reboot<br>重启后，查看当前shell<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ echo $SHELL</span><br><span class="line">/bin/zsh</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br></pre></td></tr></table></figure>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vim ~/.zshrc</span><br><span class="line">ZSH_THEME=&quot;agnoster&quot;</span><br><span class="line">$ source ~/.zshrc</span><br></pre></td></tr></table></figure>
+<h3 id="agnoster主题终端乱码的解决方案"><a href="#agnoster主题终端乱码的解决方案" class="headerlink" title="agnoster主题终端乱码的解决方案"></a>agnoster主题终端乱码的解决方案</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/powerline/fonts</span><br><span class="line">$ cd ~/fonts</span><br><span class="line">$ ./install.sh</span><br></pre></td></tr></table></figure>
+<p>然后在配置终端，依次选择“编辑”-&gt;“配置文件首选项”，选择“自定义字体”，字体为“Ubuntu Mono derivative Powerline Regular”即可。</p>
+<p>另外一种解决方案来自csdn：<a href="https://blog.csdn.net/CoderMannul/article/details/69802968" target="_blank" rel="noopener">CoderMannul的博客</a><br>还有一种解决方案是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.zshrc</span><br></pre></td></tr></table></figure></p>
+<p>在文件中添加内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export LC_ALL=en_US.UTF-8</span><br></pre></td></tr></table></figure></p>
+<p>并解除注释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export LANG=en_US.UTF-8</span><br></pre></td></tr></table></figure></p>
+<p>接着重启终端，或输入</p>
+<blockquote>
+<p>source ~/.zshrc<br>即可。<br>以上两种解决方案不用，只有在第一种方案不行时才尝试一下。</p>
+</blockquote>
+<p>小彩蛋：在~/.zshrc中添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export DEFAULT_USER=&quot;[你的username]&quot;</span><br></pre></td></tr></table></figure></p>
+<p>即可隐藏固定的username@hostname信息。<br>另外，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim ~/.oh-my-zsh/themes/agnoster.zsh-theme</span><br></pre></td></tr></table></figure></p>
+<p>注释掉最下面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">## Main prompt</span><br><span class="line">build_prompt() &#123;</span><br><span class="line"> RETVAL=$?</span><br><span class="line"> prompt_status</span><br><span class="line"> prompt_virtualenv</span><br><span class="line"> prompt_context</span><br><span class="line"> prompt_dir</span><br><span class="line"> prompt_git</span><br><span class="line"> prompt_hg</span><br><span class="line"> prompt_end</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>中的一句</p>
+<blockquote>
+<p>prompt_context<br>也能实现相同的效果。（一般不采用此方法）</p>
+</blockquote>
+<h3 id="启用插件"><a href="#启用插件" class="headerlink" title="启用插件"></a>启用插件</h3><p>oh-my-zsh自带了一些默认主题，存放在~/.oh-my-zsh/plugins目录中，我们可以查看这些插件。<br>oh-my-zsh默认只启用git插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=(git)</span><br></pre></td></tr></table></figure></p>
+<p>如需启用更多插件，只需加入需启用的插件名称即可，如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=(git history-substring-search)</span><br></pre></td></tr></table></figure></p>
+<h3 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h3><p>设置自动更新oh-my-zsh。默认情况下，当oh-my-zsh有更新时，都会给你提示。如果希望让oh-my-zsh自动更新，在~/.zshrc 中添加下面这句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DISABLE_UPDATE_PROMPT=true</span><br></pre></td></tr></table></figure></p>
+<p>要手动更新，可以执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ upgrade_oh_my_zsh</span><br></pre></td></tr></table></figure></p>
+<p>卸载oh-my-zsh，直接在终端中运行如下命令即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uninstall_oh_my_zsh</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装没带的插件"><a href="#安装没带的插件" class="headerlink" title="安装没带的插件"></a>安装没带的插件</h3><p>1.安装zsh-syntax-highlighting语法高亮插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git</span><br><span class="line">$ echo &quot;source $&#123;(q-)PWD&#125;/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&quot; &gt;&gt; $&#123;ZDOTDIR:-$HOME&#125;/.zshrc</span><br><span class="line">$ source ~/.zshrc</span><br></pre></td></tr></table></figure></p>
+<p>2.安装zsh-autosuggestions语法历史记录插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</span><br><span class="line">$ vim ~/.zshrc</span><br><span class="line">plugins=(git zsh-autosuggestions)</span><br><span class="line">source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh（加在zshrc文件最后一行）</span><br><span class="line">$ source ~/.zshrc</span><br></pre></td></tr></table></figure></p>
+<p>3.安装incr补全插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://mimosa-pudica.net/src/incr-0.2.zsh</span><br><span class="line">$ mv ~/incr-0.2.zsh ~/.oh-my-zsh/plugins/</span><br></pre></td></tr></table></figure></p>
+<p>将</p>
+<blockquote>
+<p>source ~/.oh-my-zsh/plugins/incr/incr*.zsh<br>一句加在zshrc文件末尾，然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ source ~/.zshrc</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="与vim的提示冲突的解决方案"><a href="#与vim的提示冲突的解决方案" class="headerlink" title="与vim的提示冲突的解决方案"></a>与vim的提示冲突的解决方案</h3><p>使用自动补全插件可能会与vim的提示功能相冲突，如会报以下错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vim t</span><br><span class="line">_arguments:451: _vim_files: function definition file not found</span><br></pre></td></tr></table></figure></p>
+<p>此时，将~/.zcompdump*删除即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf ~/.zcompdump*</span><br><span class="line">$ exec zsh</span><br></pre></td></tr></table></figure></p>
+<h3 id="让Windows下的putty、secureCRT等工具支持Powerline，使得oh-my-zsh正常显示、不出现乱码"><a href="#让Windows下的putty、secureCRT等工具支持Powerline，使得oh-my-zsh正常显示、不出现乱码" class="headerlink" title="让Windows下的putty、secureCRT等工具支持Powerline，使得oh-my-zsh正常显示、不出现乱码"></a>让Windows下的putty、secureCRT等工具支持Powerline，使得oh-my-zsh正常显示、不出现乱码</h3><p>1.将这些工具的编码改为UTF-8<br>2.下载支持Powerline的字体（DejaVu for Powerline.zip），将解压后的tty文件拖入“C:\Windows\Fonts”下，重启工具更改设置，选择终端窗口使用的字体为“DejaVu for Powerline”即可。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/memo/">memo</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Water/">Water</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/02/pipofpycharm/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">pip3版本8升级到版本10后，Pycharm装包出错的解决方案</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前戏"><span class="nav-number">1.</span> <span class="nav-text">前戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装zsh"><span class="nav-number">2.</span> <span class="nav-text">安装zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把zsh设为默认终端"><span class="nav-number">3.</span> <span class="nav-text">把zsh设为默认终端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装oh-my-zsh"><span class="nav-number">4.</span> <span class="nav-text">安装oh-my-zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">5.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#agnoster主题终端乱码的解决方案"><span class="nav-number">6.</span> <span class="nav-text">agnoster主题终端乱码的解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启用插件"><span class="nav-number">7.</span> <span class="nav-text">启用插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小技巧"><span class="nav-number">8.</span> <span class="nav-text">小技巧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装没带的插件"><span class="nav-number">9.</span> <span class="nav-text">安装没带的插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与vim的提示冲突的解决方案"><span class="nav-number">10.</span> <span class="nav-text">与vim的提示冲突的解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#让Windows下的putty、secureCRT等工具支持Powerline，使得oh-my-zsh正常显示、不出现乱码"><span class="nav-number">11.</span> <span class="nav-text">让Windows下的putty、secureCRT等工具支持Powerline，使得oh-my-zsh正常显示、不出现乱码</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+          <div class="site-info">
+              &copy; 2018 99° All Rights Reserved.
+            
+                <span id="busuanzi_container_site_uv">
+                  本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+                  本站总访问量<span id="busuanzi_value_site_pv"></span>次
+                </span>
+              
+          </div>
+      <!-- <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
+      </div> -->
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
