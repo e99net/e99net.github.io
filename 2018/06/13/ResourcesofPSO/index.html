@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="99°">
 <meta property="og:description" content="【转载前辈的好博文】粒子群算法资源合辑[zz]">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-13T13:04:04.303Z">
+<meta property="og:updated_time" content="2018-06-13T13:31:45.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="粒子群算法的一些相关资源">
 <meta name="twitter:description" content="【转载前辈的好博文】粒子群算法资源合辑[zz]">
@@ -140,100 +140,142 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>【转载前辈的好博文】粒子群算法资源合辑[zz]<br><a id="more"></a><br>发信人: logpie (Yuxuan), 信区: Circuit<br>标  题: 粒子群算法资源合辑<br>发信站: 紫金飞鸿 (Mon Oct 16 00:22:10 2006)</p>
-<p>忙了大半年的big paper昨天终于投掉了.写下这个合集,一方面是对这一年零星资料的总结<br>,另一方面是为方便有兴趣的Echoer们尽早入门,少走弯路,以加快我们合作的速度.下面列<br>出的大部分是领域经典paper以及重要资源汇总.如有遗漏,我会不断增加的.</p>
-<p>希望这个collecion能对大家有帮助,更渴望Echoer之间能尽早合作.望各位笑纳.<br>Any question, plz mailto:<a href="mailto:logpie@gmail.com" target="_blank" rel="noopener">logpie@gmail.com</a>.</p>
-<p>//////////////////////////////////////////////////////////////////////////////<br>///////////////////////////////////////////////////</p>
-<p>0.Books and dissertations:<br>Kennedy, J., Eberhart, R. C., and Shi, Y., Swarm intelligence San Francisco: M<br>organ Kaufmann Publishers, 2001. (PSO的founders所著)</p>
-<p>van den Bergh, Frans, “An analysis of particle swarm optimizers.” PhD’s Disser<br>tation Department of Computer Science, University of Pretoria, South Africa, 2</p>
-<ol start="2">
-<li>(Dr.Bergh的博士论文,详尽的给出了他对PSO的分析和改进,建议通读)</li>
-</ol>
-<p>1.Papers<br>1)原始论文:<br>Kennedy J,Eberhart R C. Particle Swarm Optimization [C]. Proceedings of IEEE I<br>nternational Conference on Neural Networks, Perth, Australia, 1995.1942-1948.</p>
-<p>R. C. Eberhart and J. Kennedy, “A new optimizer using particle swarm theory,”<br>in Proc. 6th Int. Symp. Micromachine Human Sci., Nagoya,Japan, 1995</p>
-<p>2)理论基础:<br>Clerc, M. and Kennedy, J., “The particle swarm-explosion, stability, and conve<br>rgence in a multidimensional complex space,” IEEE Transactions on Evolutionary<br>Computation, vol. 6, no. 1, pp. 58-73, 2002. (较完整的给出了PSO的收敛性,并发现<br>使用压缩因子可以保证收敛,04年IEEE Trans. EVC Best paper award,必读)</p>
-<p>Ozcan, E. and Mohan, C. K. Particle swarm optimization: surfing the waves. Pro<br>ceedings of the IEEE Congress on Evolutionary Computation (CEC 1999), Washingt<br>on, DC, USA. 1999</p>
-<p>Trelea, I. C., “The particle swarm optimization algorithm: convergence analysi<br>s and parameter selection,” Information Processing Letters, vol. 85, no. 6, pp<br>. 317-325, Mar.2003.  (另一个较小的收敛分析)</p>
-<p>3)参数设置:<br>Shi, Y. and Eberhart, R. C. Parameter selection in particle swarm optimization<br>. Evolutionary Programming VII: Proceedings of the Seventh Annual Conference o<br>n Evolutionary Programming, New York. pp. 591-600, 1998</p>
-<p>Shi, Y. and Eberhart, R. C. Empirical study of particle swarm optimization. Pr<br>oceedings of the IEEE Congress on Evolutionary Computation (CEC 1999), Piscata<br>way, NJ. pp. 1945-1950, 1999  (主要是对惯性权重的试验)</p>
-<p>Carlisle, A. and Dozier, G. An off-the-shelf PSO. Proceedings of the Workshop<br>on Particle Swarm Optimization 2001, Indianapolis, IN. 2001 (各个参数设置的比较<br>,必读)</p>
-<p>4)综述:<br>Eberhart, R. C. and Shi, Y. Comparison between genetic algorithms and particle<br>swarm optimization. Evolutionary Programming VII: Proceedings of the Seventh<br>Annual Conference on Evolutionary Programming, San Diego, CA. 1998  (GA与PSO比<br>较)</p>
-<p>Eberhart, R. C. and Shi, Y. Particle swarm optimization: developments, applica<br>tions and resources. Proceedings of the IEEE Congress on Evolutionary Computat<br>ion (CEC 2001), Seoul, Korea. 2001</p>
-<p>Parsopoulos, K. E. and Vrahatis, M. N., “Recent approaches to global optimizat<br>ion problems through particle swarm optimization,” Natural Computing, vol. 1,<br>no. 2-3, pp. 235-306, 2002. (很长的综述,但是比较偏重作者自己提出的几个改进,呵呵<br>)</p>
-<p>5)应用:<br>Ismail, A. and Engelbrecht, A. P. Training Product Units in Feedforward Neural<br>Networks using Particle Swarm Optimization. Proceedings of the International<br>Conference on Artificial Intelligence, Durban, South Africa. pp. 36-40, 1999</p>
-<p>van den Bergh, F. and Engelbrecht, A. P., “Cooperative learning in neural netw<br>orks using particle swarm optimizers,” South African Computer Journal, vol. 26<br>pp. 84-90, 2000.</p>
-<p>L. Messerschmidt and A. P. Engelbrecht, “Learning to play games using a PSO-b<br>ased competitive learning approach,” IEEE Trans. Evol.Comput., vol. 8, pp. 28<br>0–288, Jun. 2004.</p>
-<p>Settles, M. and Rylander, B. Neural network learning using particle swarm opti<br>mizers. Advances in Information Science and Soft Computing, pp. 224-226, 2002</p>
-<p>Tillett, J. C., Rao, R., Sahin, F., and Rao, T. M. Cluster-head identification<br>in ad hoc sensor networks using particle swarm optimization. Proceedings of 2<br>002 IEEE International Conference on Personal Wireless Communications, pp. 201<br>-205, 2002</p>
-<p>Coello Coello, C. A., Luna, E. H. n., and Aguirre, A. H. n. Use of particle sw<br>arm optimization to design combinational logic circuits. Lecture Notes in Comp<br>uter Science(LNCS) No. 2606, pp. 398-409, 2003</p>
-<h1 id="Tillett-J-C-Rao-R-M-Sahin-F-and-Rao-T-M-Particle-swarm-optimiz"><a href="#Tillett-J-C-Rao-R-M-Sahin-F-and-Rao-T-M-Particle-swarm-optimiz" class="headerlink" title="Tillett, J. C., Rao, R. M., Sahin, F., and Rao, T. M. Particle swarm optimiz"></a>Tillett, J. C., Rao, R. M., Sahin, F., and Rao, T. M. Particle swarm optimiz</h1><p>ation for the clustering of wireless sensors. Procedings of SPIE Vol. 5100: Di<br>gital Wireless Communications V, pp. 73-83, 2003</p>
-<p>6)改进与分析_离散域拓展及组合优化:<br>Kennedy, J. and Eberhart, R. C. A discrete binary version of the particle swar<br>m algorithm. Proceedings of the World Multiconference on Systemics,Cybernetics<br>and Informatics 1997, Piscataway, NJ. pp. 4104-4109, 1997  (最早的离散PSO,非常<br>聪明的改进,值得一看)</p>
-<p>Mohan, C. K. and Al-kazemi, B. Discrete particle swarm optimization. Proceedin<br>gs of the Workshop on Particle Swarm Optimization 2001, Indianapolis, IN. 2001</p>
-<p>Laskari, E. C., Parsopoulos, K. E., and Vrahatis, M. N. Particle swarm optimiz<br>ation for integer programming. Proceedings of the IEEE Congress on Evolutionar<br>y Computation (CEC 2002), Honolulu, Hawaii USA. 2002 (PSO for 整数规划)</p>
-<p>Schoofs, L. and Naudts, B. Swarm intelligence on the binary constraint satisfa<br>ction problem. Proceedings of the IEEE Congress on Evolutionary Computation (C<br>EC 2002), Honolulu, Hawaii USA. 2002 </p>
-<p>Wang, K.-P., Huang, L., Zhou, C.-G., and Pang, W. Particle swarm optimization<br>for traveling salesman problem. Proceedings of International Conference on Mac<br>hine Learning and Cybernetics 2003, pp. 1583-1585, 2003  (引入几个新算子,解决T<br>SP问题)</p>
-<p>Clerc, M., “Discrete Particle Swarm Optimization,” New Optimization Techniques<br>in Engineering Springer-Verlag, 2004. (Clerc大拿的DPSO,同样引入了新算子)</p>
-<p>7)改进与分析_参数:<br>Shi, Y. and Eberhart, R. C. A modified particle swarm optimizer. Proceedings o<br>f the IEEE Congress on Evolutionary Computation (CEC 1998), Piscataway, NJ. pp<br>. 69-73, 1998  (惯性权重在此文中提出)</p>
-<p>Clerc, M. The swarm and the queen: towards a deterministic and adaptive partic<br>le swarm optimization. Proceedings of the IEEE Congress on Evolutionary Comput<br>ation (CEC 1999), pp. 1951-1957, 1999  (提出了queen的思想,里面还有个重力场,比较<br>有意思)</p>
-<p>Eberhart, R. C. and Shi, Y. Comparing inertia weigthts and constriction factor<br>s in particle swarm optimization. Proceedings of the IEEE Congress on Evolutio<br>nary Computation (CEC 2000), San Diego, CA. pp. 84-88, 2000 (惯性权重与压缩因子<br>)</p>
-<p>Shi, Y. and Eberhart, R. C. Particle swarm optimization with fuzzy adaptive in<br>erita weight. Proceedings of the Workshop on Particle Swarm Optimization 2001,<br>Indianapolis, IN. 2001  (为适应动态环境,提出模糊惯性权重)</p>
-<p>A. Ratnaweera, S. Halgamuge, and H. Watson, “Self-organizing hierarchical par<br>ticle swarm optimizer with time varying accelerating coefficients,”IEEE Trans<br>. Evol. Comput., vol. 8, pp. 240–255, Jun. 2004. (对几个参数做了拓展以及非常详<br>尽的分析)</p>
-<p>8)改进与分析_粒子拓扑方向:</p>
-<h1 id="Kennedy-J-Small-worlds-and-mega-minds-effects-of-neighborhood-topology-on"><a href="#Kennedy-J-Small-worlds-and-mega-minds-effects-of-neighborhood-topology-on" class="headerlink" title="Kennedy, J. Small worlds and mega-minds: effects of neighborhood topology on"></a>Kennedy, J. Small worlds and mega-minds: effects of neighborhood topology on</h1><p>particle swarm performance. Proceedings of IEEE Congress on Evolutionary Comp<br>utation (CEC 1999), Piscataway, NJ. pp. 1931-1938, 1999  (小世界拓扑对结果的影<br>响)</p>
-<p>Suganthan, P. N. Particle swarm optimiser with neighbourhood operator. Proceed<br>ings of the IEEE Congress on Evolutionary Computation (CEC 1999), Piscataway,<br>NJ. pp. 1958-1962, 1999  (引入领域算子)</p>
-<p>Kennedy, J. Stereotyping: improving particle swarm performance with cluster an<br>alysis. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2000<br>), San Diego, CA. pp. 1507-1512, 2000</p>
-<p>Kennedy, J. and Mendes, R. Population structure and particle swarm performance<br>. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Hon<br>olulu, Hawaii USA. 2002</p>
-<p>Krink, T., Vesterstroem, J. S., and Riget, J. Particle swarm optimisation with<br>spatial particle extension. Proceedings of the IEEE Congress on Evolutionary<br>Computation (CEC 2002), Honolulu, Hawaii USA. 2002 </p>
-<p>Janson, S. and Middendorf, M. A hierarchical particle swarm optimizer. Proceed<br>ings of IEEE Congress on Evolutionary Computation 2003 (CEC 2003), Canbella, A<br>ustralia. pp. 770-776, 2003  (使粒子动态的按照树型排列)</p>
-<p>Kennedy, J. and Mendes, R. Neighborhood topologies in fully-informed and best-<br>of-neighborhood particle swarms. Proceedings of the 2003 IEEE International Wo<br>rkshop on Soft Computing in Industrial Applications 2003 (SMCia/03), pp. 45-50<br>, 2003</p>
-<p>R. Mendes, J. Kennedy, and J. Neves, “The fully informed particle swarm: Simp<br>ler, maybe better,” IEEE Trans. Evol. Comput., vol. 8, pp. 204–210, Jun. 200</p>
-<ol start="4">
-<li>(重要的FIPs模型,所有粒子的信息用来更新一个粒子的信息)</li>
-</ol>
-<p>9)改进与分析_多样性提升方向:</p>
-<p>Blackwell, T. M. and Bentley, P. J. Don’t push me! collision-avoiding swarms.<br>Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honol<br>ulu, Hawaii USA. 2002 </p>
-<p>Riget, J. and Vesterstroem, J. S. A diversity-guided particle swarm optimizer</p>
-<ul>
-<li>the ARPSO. Technical Report No. 2002-02. 2002. Dept. of Computer Science, Un<br>iversity of Aarhus, EVALife.</li>
+<p>忙了大半年的big paper昨天终于投掉了。写下这个合集，一方面是对这一年零星资料的总结，另一方面是为方便有兴趣的Echoer们尽早入门，少走弯路，以加快我们合作的速度。下面列出的大部分是领域经典paper以及重要资源汇总。如有遗漏，我会不断增加的。</p>
+<p>希望这个collecion能对大家有帮助，更渴望Echoer之间能尽早合作，望各位笑纳。<br>Any question, plz mailto:<a href="mailto:logpie@gmail.com" target="_blank" rel="noopener">logpie@gmail.com</a>.</p>
+<h3 id="Books-and-dissertations"><a href="#Books-and-dissertations" class="headerlink" title="Books and dissertations:"></a>Books and dissertations:</h3><ul>
+<li>Kennedy, J., Eberhart, R. C., and Shi, Y., Swarm intelligence San Francisco: Morgan Kaufmann Publishers, 2001. (PSO的founders所著)</li>
+<li>van den Bergh, Frans, “An analysis of particle swarm optimizers.” PhD’s Dissertation Department of Computer Science, University of Pretoria, South Africa, 2002.  (Dr.Bergh的博士论文,详尽的给出了他对PSO的分析和改进,建议通读)</li>
 </ul>
-<p>Peram, T., Veeramachaneni, K., and Mohan, C. K. Fitness-distance-ratio based p<br>article swarm optimization. Proceedings of the IEEE Swarm Intelligence Symposi<br>um 2003 (SIS 2003), Indianapolis, Indiana, USA. pp. 174-181, 2003</p>
-<p>comments:很多其他类里的paper都可以规类到这来.</p>
-<p>10)改进与分析_结合其他算法思想方向:<br>Angeline, P. J. Using selection to improve particle swarm optimization. Procee<br>dings of the IEEE Congress on Evolutionary Computation (CEC 1998), Anchorage,<br>Alaska, USA. 1998  (借鉴GA里的选择优秀染色体思想)</p>
-<p>L?vbjerg, M., Rasmussen, T. K., and Krink, T. Hybrid particle swarm optimiser<br>with breeding and subpopulations. Proceedings of the Genetic and Evolutionary<br>Computation Conference 2001 (GECCO 2001), 2001 </p>
-<h1 id="Higashi-N-and-Iba-H-Particle-swarm-optimization-with-gaussian-mutation"><a href="#Higashi-N-and-Iba-H-Particle-swarm-optimization-with-gaussian-mutation" class="headerlink" title="Higashi, N. and Iba, H. Particle swarm optimization with gaussian mutation."></a>Higashi, N. and Iba, H. Particle swarm optimization with gaussian mutation.</h1><p>Proceedings of the IEEE Swarm Intelligence Symposium 2003 (SIS 2003), Indianap<br>olis, Indiana, USA. pp. 72-79, 2003  (同样也是GA里的思想)</p>
-<p>Y.X.Wang, Z.D.Zhao, R.Ren. Hybrid Particle swarm optimizer with tabu strategy.<br>In submission. (禁忌搜索的思想)</p>
-<h1 id="Juang-C-F-“A-hybrid-of-genetic-algorithm-and-particle-swarm-optimization"><a href="#Juang-C-F-“A-hybrid-of-genetic-algorithm-and-particle-swarm-optimization" class="headerlink" title="Juang, C.-F., “A hybrid of genetic algorithm and particle swarm optimization"></a>Juang, C.-F., “A hybrid of genetic algorithm and particle swarm optimization</h1><p>for recurrent network design,” IEEE Transactions on Systems, Man, and Cuberne<br>tics - Part B: Cybernetics, vol. accepted 2003.</p>
-<p>SHi, X., Lu, Y., Zhou, C., Lee, H., Lin, W., and Liang, Y. Hybrid evolutionary<br>algorithms based on PSO and GA. Proceedings of IEEE Congress on Evolutionary<br>Computation 2003 (CEC 2003), Canbella, Australia. pp. 2393-2399, 2003</p>
-<p>Stacey, A., Jancic, M., and Grundy, I. Particle swarm optimization with mutati<br>on. Proceedings of IEEE Congress on Evolutionary Computation 2003 (CEC 2003),<br>Canbella, Australia. pp. 1425-1430, 2003  (GA also)</p>
-<p>11)改进与分析_其他<br>K. E. Parsopoulos, V. P. Plagianakos, G. D. Magoulas, and M. N. Vrahatis, “St<br>retching technique for obtaining global minimizers through particle swarm opti<br>mization,” in Proc. Particle Swarm Optimization Workshop, Indianapolis, IN, 2<br>001, pp. 22–29.(对目标函数的变换)</p>
-<p>K.E. Parsopoulos, M.N. Vrahatis, On the computation of all global minimizers t<br>hrough particle swarm optimization. IEEE Trans. on Evolutionary Computation, 2<br>004,8(3):211-224. (上文的拓展,可以检测多全局最优,如Nash均衡点)</p>
-<p>—, “UPSO—A unified particle swarm optimization scheme,” in Lecture Series<br>on Computational Sciences, 2004, pp. 868–873. (将全局拓扑和局部拓扑结合)</p>
-<p>Al-kazemi, B. and Mohan, C. K. Multi-phase generalization of the particle swar<br>m optimization algorithm. Proceedings of the IEEE Congress on Evolutionary Com<br>putation (CEC 2002), Honolulu, Hawaii USA. 2002  (搜索方向改进)</p>
-<p>Xie, X., Zhang, W., and Yang, Z. A dissipative particle swarm optimization. Pr<br>oceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolul<br>u, Hawaii USA. 2002  (类比为耗散系统,加入负熵使系统脱离平衡态)</p>
-<p>Van den Bergh F, Engelbrecht A P. A Cooperative Approach to Particle Swarm Opt<br>imization [J]. IEEE Transaction on Evolutionary Computation,2004, 8(3):225-239<br>.<br>(多粒子群协同优化)</p>
-<p>J. J. Liang, A. K. Qin, P. N. Suganthan and S. Baskar, “Comprehensive Learning<br>Particle Swarm Optimizer for Global Optimization of Multimodal Functions”, IE<br>EE Trans. on Evolutionary Computation, Vol. 10, No. 3, pp. 281-295, June 2006.</p>
-<h2 id="新的粒子搜索及合作策略"><a href="#新的粒子搜索及合作策略" class="headerlink" title="  (新的粒子搜索及合作策略)"></a>  (新的粒子搜索及合作策略)</h2><hr>
-<p>comments:PSO的应用以及改进方向并不止我列出的这些,比如多目标优化这里就没有给出.<br>但这些paper已经足够入门了,各位如有兴趣可以自己搜索.04年之前一个比较全的bibliog<br>raphy在<a href="http://www.swarmintelligence.org/bibliography.php可以找到,大约300多篇" target="_blank" rel="noopener">http://www.swarmintelligence.org/bibliography.php可以找到,大约300多篇</a>.</p>
-<p>2.Websites:<br><a href="http://www.swarmintelligence.org/" target="_blank" rel="noopener">http://www.swarmintelligence.org/</a><br><a href="http://www.particleswarm.info/" target="_blank" rel="noopener">http://www.particleswarm.info/</a></p>
-<h2 id="http-clerc-maurice-free-fr-pso"><a href="#http-clerc-maurice-free-fr-pso" class="headerlink" title="http://clerc.maurice.free.fr/pso/"></a><a href="http://clerc.maurice.free.fr/pso/" target="_blank" rel="noopener">http://clerc.maurice.free.fr/pso/</a></h2><hr>
-<p>comments:这三个网站关于PSO的资源非常丰富.第3个是clerc大拿的,里面更偏重对算法数<br>学上的分析.</p>
-<p>3.Leading Journals and Confs:<br>Evolutionary Computation (MIT press)<br>IEEE Transactions on Evolutionary Computation<br>IEEE Transactions on Neural Network<br>IEEE Transactions on Systems, Man, and Cubernetics Part:A,B</p>
-<p>Genetic and Evolutionary Computation Conference (GECCO, ACM SIGEVO)<br>IEEE Congress on Evolutionary Computation(CEC)<br>Parallel Problem Solving from Nature (PPSN)</p>
-<p>4.Homepages<br><a href="http://www.adaptivebox.net/research/" target="_blank" rel="noopener">http://www.adaptivebox.net/research/</a> (Dr.Xiaofeng Xie, TSU)<br><a href="http://www.ntu.edu.sg/home/EPNSugan/" target="_blank" rel="noopener">http://www.ntu.edu.sg/home/EPNSugan/</a> (Prof.Suganthan, NYU)<br><a href="http://goanna.cs.rmit.edu.au/~xiaodong/" target="_blank" rel="noopener">http://goanna.cs.rmit.edu.au/~xiaodong/</a> (Prof. XiaoDong, RMIT)<br><a href="http://clerc.maurice.free.fr/" target="_blank" rel="noopener">http://clerc.maurice.free.fr/</a> (Dr.Clerc, France Telecom, Strongly recommend)</p>
-<hr>
-<hr>
-<p>comments:上面是我常去的一些page,主要的PSO学者在<a href="http://www.particleswarm.info/p" target="_blank" rel="noopener">http://www.particleswarm.info/p</a><br>eople.html上可以找到</p>
-<p>5.Benchmarks<br><a href="http://www-optima.amp.i.kyoto-u.ac.jp/member/student/hedar/Hedar_files/TestGO" target="_blank" rel="noopener">http://www-optima.amp.i.kyoto-u.ac.jp/member/student/hedar/Hedar_files/TestGO</a>_<br>files/Page364.htm<br><a href="http://www2.imm.dtu.dk/~km/GlobOpt/testex/testproblems.html#07" target="_blank" rel="noopener">http://www2.imm.dtu.dk/~km/GlobOpt/testex/testproblems.html#07</a><br><a href="http://www.cs.cmu.edu/afs/cs/project/jair/pub/volume24/ortizboyer05a-html/node" target="_blank" rel="noopener">http://www.cs.cmu.edu/afs/cs/project/jair/pub/volume24/ortizboyer05a-html/node</a><br>6.html<br><a href="http://www.geatbx.com/docu/fcnindex.html" target="_blank" rel="noopener">http://www.geatbx.com/docu/fcnindex.html</a><br><a href="http://www.maths.uq.edu.au/CEToolBox/node2.html" target="_blank" rel="noopener">http://www.maths.uq.edu.au/CEToolBox/node2.html</a></p>
-<p>J. G. DIGALAKIS and K. G. MARGARITIS. ON BENCHMARKING FUNCTIONS OR GENETIC ALG<br>ORITHMS. Inter J Computer Math., Vol. 00, pp. 1-27 (给出了大多数标准无约束测试</p>
-<h2 id="函数的性态分析"><a href="#函数的性态分析" class="headerlink" title="函数的性态分析)"></a>函数的性态分析)</h2><hr>
-<p>Comments:改进或提出一个优化算法需要对其作出性能评测,这里提供一些标准的测试集,包<br>括DeJong系列函数,Rastrigin系列函数等,以及其他有约束,离散,组合优化标准测试问题.</p>
-<p>最近Prof.Suganthan等提出了一套Composition functions,具体参见他的homepage,同样C<br>EC05上也提出了大约30个测试函数.对这些函数进行rotate,shift,distortion等操作可以<br>变换为更复杂的函数,具体请参加相关paper.</p>
-<p>6.code/software/projects/implementations<br><a href="http://xps-swarm.essex.ac.uk" target="_blank" rel="noopener">http://xps-swarm.essex.ac.uk</a>  (有些类似与以前的EVALife project, 同样有Santa F<br>e的参与, 重视学科交叉)<br><a href="http://cilib.sourceforge.net" target="_blank" rel="noopener">http://cilib.sourceforge.net</a> (计算智能库, written in java)<br><a href="http://clerc.maurice.free.fr/pso/" target="_blank" rel="noopener">http://clerc.maurice.free.fr/pso/</a><br><a href="http://www.particleswarm.info/Programs.html#Standard_PSO_2006" target="_blank" rel="noopener">http://www.particleswarm.info/Programs.html#Standard_PSO_2006</a> (一些PSO的项目)</p>
-<p><a href="http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=7506" target="_blank" rel="noopener">http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=7506</a><br>(pso matlab toolbox)<br><a href="ftp://www.china2china.com/" target="_blank" rel="noopener">ftp://www.china2china.com/</a> user:pso, passwd:pso   (一些paper可以在这里直接下载</p>
-<h2 id=""><a href="#" class="headerlink" title=")"></a>)</h2><hr>
-<p>comments:各位如果需要几个重要PSO改进的matlab实现,请联系prof.suganthan或直接发邮<br>件给我.</p>
-<p>7.Future work<br>2004 年IEEE Transactions on Evolutionary Computation出版了Special issue on PSO<br>,卷首语中指出了当前研究的几个主要方向及热点:<br>(1) 算法分析. PSO在实际应用中被证明是有效的, 但目前还没有给出完整收敛性、收敛速<br>度估计等方面的数学证明,已有的工作还远远不够。<br>(2) 粒子群拓扑结构.不同的粒子群邻居拓扑结构是对不同类型社会的模拟,研究不同拓扑<br>结构的适用范围,对PSO算法推广和使用有重要意义。<br>(3) 参数选择与优化.参数w、φ1、φ2的选择分别关系粒子速度的3个部分:惯性部分、社<br>会部分和感知部分在搜索中的作用.如何选择、优化和调整参数,使得算法既能避免早熟又<br>能比较快速地收敛,对工程实践有着重要意义.<br>(4) 与其他演化计算的融合.如何将其它演化的优点和PSO的优点相结合,构造出新的混合算<br>法是当前算法改进的一个重要方向.<br>(5) 算法应用.算法的有效性必须在应用中才能体现,广泛地开拓PSO的应用领域,也对深化<br>研究PSO算法非常有意义.</p>
-<p>我在以前的帖子里曾经提到过,PSO是很适合演化计算方向入门的.特别是其算法实现非常简<br>单,因此建议大家能够先实现基础算法.如果想进一步了解乃至研究,上面列出的除了应用的<br>几十篇paper基本都是需要看的.PSO从提出到现在已经11年了,大小坑挖的也不少了,各位如<br>果想在这个领域出新,出好结果,还是需要有一定功力的.对于我们目前的情况,我认为大家<br>可以主要将精力集中在第(5)点.<a href="http://www.particleswarm.info/Problems.html也列出了" target="_blank" rel="noopener">http://www.particleswarm.info/Problems.html也列出了</a><br>一些有意思的open problems,当然,都是有一定难度的 :-)</p>
-<p>对于PSO的改进与分析,如何有能力的话,我仍然坚持认为一个突破口是学科交叉,比如粒子<br>搜索的混沌行为,粒子进化以及合作策略中的博弈,统计物理学在群智能中的应用等等.这也<br>是我接下来的研究内容.另外Clerc大拿网站上也有一篇经常更新的paper,”Some ideas ab<br>out Particle Swarm Optimisation”,里面记录了很多他对PSO的理解,同样非常值得一看.</p>
+<h3 id="Papers"><a href="#Papers" class="headerlink" title="Papers"></a>Papers</h3><ul>
+<li>原始论文:<br>** Kennedy J,Eberhart R C. Particle Swarm Optimization [C]. Proceedings of IEEE International Conference on Neural Networks, Perth, Australia, 1995.1942-1948.</li>
+</ul>
+<p>** R. C. Eberhart and J. Kennedy, “A new optimizer using particle swarm theory,”<br>in Proc. 6th Int. Symp. Micromachine Human Sci., Nagoya,Japan, 1995</p>
+<ul>
+<li>理论基础:<br>** Clerc, M. and Kennedy, J., “The particle swarm-explosion, stability, and convergence in a multidimensional complex space,” IEEE Transactions on Evolutionary Computation, vol. 6, no. 1, pp. 58-73, 2002. (较完整的给出了PSO的收敛性,并发现使用压缩因子可以保证收敛,04年IEEE Trans. EVC Best paper award,必读)</li>
+</ul>
+<p>** Ozcan, E. and Mohan, C. K. Particle swarm optimization: surfing the waves. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1999), Washington, DC, USA. 1999</p>
+<p>** relea, I. C., “The particle swarm optimization algorithm: convergence analysis and parameter selection,” Information Processing Letters, vol. 85, no. 6, pp. 317-325, Mar.2003.  (另一个较小的收敛分析)</p>
+<ul>
+<li>参数设置:<br>** Shi, Y. and Eberhart, R. C. Parameter selection in particle swarm optimization. Evolutionary Programming VII: Proceedings of the Seventh Annual Conference on Evolutionary Programming, New York. pp. 591-600, 1998</li>
+</ul>
+<p>** Shi, Y. and Eberhart, R. C. Empirical study of particle swarm optimization. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1999), Piscataway, NJ. pp. 1945-1950, 1999  (主要是对惯性权重的试验)</p>
+<p>** Carlisle, A. and Dozier, G. An off-the-shelf PSO. Proceedings of the Workshop on Particle Swarm Optimization 2001, Indianapolis, IN. 2001 (各个参数设置的比较,必读)</p>
+<ul>
+<li>综述:<br>** Eberhart, R. C. and Shi, Y. Comparison between genetic algorithms and particle swarm optimization. Evolutionary Programming VII: Proceedings of the Seventh Annual Conference on Evolutionary Programming, San Diego, CA. 1998  (GA与PSO比较)</li>
+</ul>
+<p>** Eberhart, R. C. and Shi, Y. Particle swarm optimization: developments, applications and resources. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2001), Seoul, Korea. 2001</p>
+<p>** Parsopoulos, K. E. and Vrahatis, M. N., “Recent approaches to global optimization problems through particle swarm optimization,” Natural Computing, vol. 1, no. 2-3, pp. 235-306, 2002. (很长的综述,但是比较偏重作者自己提出的几个改进,呵呵)</p>
+<ul>
+<li>应用:<br>** Ismail, A. and Engelbrecht, A. P. Training Product Units in Feedforward Neural Networks using Particle Swarm Optimization. Proceedings of the International Conference on Artificial Intelligence, Durban, South Africa. pp. 36-40, 1999</li>
+</ul>
+<p>** van den Bergh, F. and Engelbrecht, A. P., “Cooperative learning in neural networks using particle swarm optimizers,” South African Computer Journal, vol. 26 pp. 84-90, 2000.</p>
+<p>** L. Messerschmidt and A. P. Engelbrecht, “Learning to play games using a PSO-based competitive learning approach,” IEEE Trans. Evol.Comput., vol. 8, pp. 280–288, Jun. 2004.</p>
+<p>** Settles, M. and Rylander, B. Neural network learning using particle swarm optimizers. Advances in Information Science and Soft Computing, pp. 224-226, 2002</p>
+<p>** Tillett, J. C., Rao, R., Sahin, F., and Rao, T. M. Cluster-head identification in ad hoc sensor networks using particle swarm optimization. Proceedings of 2002 IEEE International Conference on Personal Wireless Communications, pp. 201-205, 2002</p>
+<p>** Coello Coello, C. A., Luna, E. H. n., and Aguirre, A. H. n. Use of particle swarm optimization to design combinational logic circuits. Lecture Notes in Computer Science(LNCS) No. 2606, pp. 398-409, 2003</p>
+<p>** Tillett, J. C., Rao, R. M., Sahin, F., and Rao, T. M. Particle swarm optimization for the clustering of wireless sensors. Procedings of SPIE Vol. 5100: Digital Wireless Communications V, pp. 73-83, 2003</p>
+<ul>
+<li>改进与分析_离散域拓展及组合优化:<br>** Kennedy, J. and Eberhart, R. C. A discrete binary version of the particle swarm algorithm. Proceedings of the World Multiconference on Systemics,Cybernetics and Informatics 1997, Piscataway, NJ. pp. 4104-4109, 1997  (最早的离散PSO,非常聪明的改进,值得一看)</li>
+</ul>
+<p>** Mohan, C. K. and Al-kazemi, B. Discrete particle swarm optimization. Proceedings of the Workshop on Particle Swarm Optimization 2001, Indianapolis, IN. 2001</p>
+<p>** Laskari, E. C., Parsopoulos, K. E., and Vrahatis, M. N. Particle swarm optimization for integer programming. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002 (PSO for 整数规划)</p>
+<p>** Schoofs, L. and Naudts, B. Swarm intelligence on the binary constraint satisfaction problem. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002 </p>
+<p>** Wang, K.-P., Huang, L., Zhou, C.-G., and Pang, W. Particle swarm optimization for traveling salesman problem. Proceedings of International Conference on Machine Learning and Cybernetics 2003, pp. 1583-1585, 2003  (引入几个新算子,解决TSP问题)</p>
+<p>** Clerc, M., “Discrete Particle Swarm Optimization,” New Optimization Techniques in Engineering Springer-Verlag, 2004. (Clerc大拿的DPSO,同样引入了新算子)</p>
+<ul>
+<li>改进与分析_参数:<br>** Shi, Y. and Eberhart, R. C. A modified particle swarm optimizer. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1998), Piscataway, NJ. pp. 69-73, 1998  (惯性权重在此文中提出)</li>
+</ul>
+<p>** Clerc, M. The swarm and the queen: towards a deterministic and adaptive particle swarm optimization. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1999), pp. 1951-1957, 1999  (提出了queen的思想,里面还有个重力场,比较有意思)</p>
+<p>** Eberhart, R. C. and Shi, Y. Comparing inertia weigthts and constriction factors in particle swarm optimization. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2000), San Diego, CA. pp. 84-88, 2000 (惯性权重与压缩因子)</p>
+<p>** Shi, Y. and Eberhart, R. C. Particle swarm optimization with fuzzy adaptive inerita weight. Proceedings of the Workshop on Particle Swarm Optimization 2001, Indianapolis, IN. 2001  (为适应动态环境,提出模糊惯性权重)</p>
+<p>** A. Ratnaweera, S. Halgamuge, and H. Watson, “Self-organizing hierarchical particle swarm optimizer with time varying accelerating coefficients,”IEEE Trans. Evol. Comput., vol. 8, pp. 240–255, Jun. 2004. (对几个参数做了拓展以及非常详尽的分析)</p>
+<ul>
+<li>改进与分析_粒子拓扑方向:<br>** Kennedy, J. Small worlds and mega-minds: effects of neighborhood topology on particle swarm performance. Proceedings of IEEE Congress on Evolutionary Computation (CEC 1999), Piscataway, NJ. pp. 1931-1938, 1999  (小世界拓扑对结果的影响)</li>
+</ul>
+<p>** Suganthan, P. N. Particle swarm optimiser with neighbourhood operator. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1999), Piscataway, NJ. pp. 1958-1962, 1999  (引入领域算子)</p>
+<p>** Kennedy, J. Stereotyping: improving particle swarm performance with cluster analysis. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2000), San Diego, CA. pp. 1507-1512, 2000</p>
+<p>** Kennedy, J. and Mendes, R. Population structure and particle swarm performance. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002</p>
+<p>** Krink, T., Vesterstroem, J. S., and Riget, J. Particle swarm optimisation with spatial particle extension. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002 </p>
+<p>** Janson, S. and Middendorf, M. A hierarchical particle swarm optimizer. Proceedings of IEEE Congress on Evolutionary Computation 2003 (CEC 2003), Canbella, Australia. pp. 770-776, 2003  (使粒子动态的按照树型排列)</p>
+<p>** Kennedy, J. and Mendes, R. Neighborhood topologies in fully-informed and best-of-neighborhood particle swarms. Proceedings of the 2003 IEEE International Workshop on Soft Computing in Industrial Applications 2003 (SMCia/03), pp. 45-50, 2003</p>
+<p>** R. Mendes, J. Kennedy, and J. Neves, “The fully informed particle swarm: Simpler, maybe better,” IEEE Trans. Evol. Comput., vol. 8, pp. 204–210, Jun. 2004.  (重要的FIPs模型,所有粒子的信息用来更新一个粒子的信息)</p>
+<ul>
+<li>改进与分析_多样性提升方向:</li>
+</ul>
+<p>** Blackwell, T. M. and Bentley, P. J. Don’t push me! collision-avoiding swarms.Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002 </p>
+<p>** Riget, J. and Vesterstroem, J. S. A diversity-guided particle swarm optimizer- the ARPSO. Technical Report No. 2002-02. 2002. Dept. of Computer Science, University of Aarhus, EVALife.</p>
+<p>** Peram, T., Veeramachaneni, K., and Mohan, C. K. Fitness-distance-ratio based particle swarm optimization. Proceedings of the IEEE Swarm Intelligence Symposium 2003 (SIS 2003), Indianapolis, Indiana, USA. pp. 174-181, 2003</p>
+<p>comments:很多其他类里的paper都可以归类到这儿来。</p>
+<ul>
+<li>改进与分析_结合其他算法思想方向:<br>** Angeline, P. J. Using selection to improve particle swarm optimization. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1998), Anchorage, Alaska, USA. 1998  (借鉴GA里的选择优秀染色体思想)</li>
+</ul>
+<p>** Lvbjerg, M., Rasmussen, T. K., and Krink, T. Hybrid particle swarm optimiser with breeding and subpopulations. Proceedings of the Genetic and Evolutionary Computation Conference 2001 (GECCO 2001), 2001 </p>
+<p>** Higashi, N. and Iba, H. Particle swarm optimization with gaussian mutation. Proceedings of the IEEE Swarm Intelligence Symposium 2003 (SIS 2003), Indianapolis, Indiana, USA. pp. 72-79, 2003  (同样也是GA里的思想)</p>
+<p>** Y.X.Wang, Z.D.Zhao, R.Ren. Hybrid Particle swarm optimizer with tabu strategy. In submission. (禁忌搜索的思想)</p>
+<p>** Juang, C.-F., “A hybrid of genetic algorithm and particle swarm optimization for recurrent network design,” IEEE Transactions on Systems, Man, and Cubernetics - Part B: Cybernetics, vol. accepted 2003.</p>
+<p>** SHi, X., Lu, Y., Zhou, C., Lee, H., Lin, W., and Liang, Y. Hybrid evolutionary algorithms based on PSO and GA. Proceedings of IEEE Congress on Evolutionary Computation 2003 (CEC 2003), Canbella, Australia. pp. 2393-2399, 2003</p>
+<p>** Stacey, A., Jancic, M., and Grundy, I. Particle swarm optimization with mutation. Proceedings of IEEE Congress on Evolutionary Computation 2003 (CEC 2003), Canbella, Australia. pp. 1425-1430, 2003  (GA also)</p>
+<ul>
+<li>改进与分析_其他<br>** K. E. Parsopoulos, V. P. Plagianakos, G. D. Magoulas, and M. N. Vrahatis, “Stretching technique for obtaining global minimizers through particle swarm optimization,” in Proc. Particle Swarm Optimization Workshop, Indianapolis, IN, 2001, pp. 22–29.(对目标函数的变换)</li>
+</ul>
+<p>** K.E. Parsopoulos, M.N. Vrahatis, On the computation of all global minimizers through particle swarm optimization. IEEE Trans. on Evolutionary Computation, 2004,8(3):211-224. (上文的拓展,可以检测多全局最优,如Nash均衡点)</p>
+<p>** “UPSO—A unified particle swarm optimization scheme,” in Lecture Serieson Computational Sciences, 2004, pp. 868–873. (将全局拓扑和局部拓扑结合)</p>
+<p>** Al-kazemi, B. and Mohan, C. K. Multi-phase generalization of the particle swarm optimization algorithm. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002  (搜索方向改进)</p>
+<p>** Xie, X., Zhang, W., and Yang, Z. A dissipative particle swarm optimization. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002  (类比为耗散系统,加入负熵使系统脱离平衡态)</p>
+<p>** Van den Bergh F, Engelbrecht A P. A Cooperative Approach to Particle Swarm Optimization [J]. IEEE Transaction on Evolutionary Computation,2004, 8(3):225-239. (多粒子群协同优化)</p>
+<p>J. J. Liang, A. K. Qin, P. N. Suganthan and S. Baskar, “Comprehensive Learning Particle Swarm Optimizer for Global Optimization of Multimodal Functions”, IEEE Trans. on Evolutionary Computation, Vol. 10, No. 3, pp. 281-295, June 2006. (新的粒子搜索及合作策略)</p>
+<p>comments:PSO的应用以及改进方向并不止我列出的这些,比如多目标优化这里就没有给出。但这些paper已经足够入门了,各位如有兴趣可以自己搜索.04年之前一个比较全的bibliography在<a href="http://www.swarmintelligence.org/bibliography.php可以找到,大约300多篇。" target="_blank" rel="noopener">http://www.swarmintelligence.org/bibliography.php可以找到,大约300多篇。</a></p>
+<h3 id="Websites"><a href="#Websites" class="headerlink" title="Websites:"></a>Websites:</h3><ul>
+<li><a href="http://www.swarmintelligence.org/" target="_blank" rel="noopener">http://www.swarmintelligence.org/</a></li>
+<li><a href="http://www.particleswarm.info/" target="_blank" rel="noopener">http://www.particleswarm.info/</a></li>
+<li><a href="http://clerc.maurice.free.fr/pso/" target="_blank" rel="noopener">http://clerc.maurice.free.fr/pso/</a></li>
+</ul>
+<p>comments:这三个网站关于PSO的资源非常丰富.第3个是clerc大拿的,里面更偏重对算法数学上的分析。</p>
+<h3 id="Leading-Journals-and-Confs"><a href="#Leading-Journals-and-Confs" class="headerlink" title="Leading Journals and Confs:"></a>Leading Journals and Confs:</h3><ul>
+<li>Evolutionary Computation (MIT press)</li>
+<li>IEEE Transactions on Evolutionary Computation</li>
+<li>IEEE Transactions on Neural Network</li>
+<li>IEEE Transactions on Systems, Man, and Cubernetics Part:A,B</li>
+<li>Genetic and Evolutionary Computation Conference (GECCO, ACM SIGEVO)</li>
+<li>IEEE Congress on Evolutionary Computation(CEC)</li>
+<li>Parallel Problem Solving from Nature (PPSN)</li>
+</ul>
+<h3 id="Homepages"><a href="#Homepages" class="headerlink" title="Homepages"></a>Homepages</h3><ul>
+<li><a href="http://www.adaptivebox.net/research/" target="_blank" rel="noopener">http://www.adaptivebox.net/research/</a> (Dr.Xiaofeng Xie, TSU)</li>
+<li><a href="http://www.ntu.edu.sg/home/EPNSugan/" target="_blank" rel="noopener">http://www.ntu.edu.sg/home/EPNSugan/</a> (Prof.Suganthan, NYU)</li>
+<li><a href="http://goanna.cs.rmit.edu.au/~xiaodong/" target="_blank" rel="noopener">http://goanna.cs.rmit.edu.au/~xiaodong/</a> (Prof. XiaoDong, RMIT)</li>
+<li><a href="http://clerc.maurice.free.fr/" target="_blank" rel="noopener">http://clerc.maurice.free.fr/</a> (Dr.Clerc, France Telecom, Strongly recommend)</li>
+</ul>
+<p>comments:上面是我常去的一些page,主要的PSO学者在<a href="http://www.particleswarm.info/people.html上可以找到" target="_blank" rel="noopener">http://www.particleswarm.info/people.html上可以找到</a></p>
+<h3 id="Benchmarks"><a href="#Benchmarks" class="headerlink" title="Benchmarks"></a>Benchmarks</h3><ul>
+<li><a href="http://www-optima.amp.i.kyoto-u.ac.jp/member/student/hedar/Hedar_files/TestGO_files/Page364.htm" target="_blank" rel="noopener">http://www-optima.amp.i.kyoto-u.ac.jp/member/student/hedar/Hedar_files/TestGO_files/Page364.htm</a></li>
+<li><a href="http://www2.imm.dtu.dk/~km/GlobOpt/testex/testproblems.html#07" target="_blank" rel="noopener">http://www2.imm.dtu.dk/~km/GlobOpt/testex/testproblems.html#07</a></li>
+<li><a href="http://www.cs.cmu.edu/afs/cs/project/jair/pub/volume24/ortizboyer05a-html/node6.html" target="_blank" rel="noopener">http://www.cs.cmu.edu/afs/cs/project/jair/pub/volume24/ortizboyer05a-html/node6.html</a></li>
+<li><a href="http://www.geatbx.com/docu/fcnindex.html" target="_blank" rel="noopener">http://www.geatbx.com/docu/fcnindex.html</a></li>
+<li><a href="http://www.maths.uq.edu.au/CEToolBox/node2.html" target="_blank" rel="noopener">http://www.maths.uq.edu.au/CEToolBox/node2.html</a></li>
+<li>J. G. DIGALAKIS and K. G. MARGARITIS. ON BENCHMARKING FUNCTIONS OR GENETIC ALGORITHMS. Inter J Computer Math., Vol. 00, pp. 1-27 (给出了大多数标准无约束测试函数的性态分析)</li>
+</ul>
+<p>Comments:改进或提出一个优化算法需要对其作出性能评测,这里提供一些标准的测试集,包括DeJong系列函数,Rastrigin系列函数等,以及其他有约束,离散,组合优化标准测试问题.</p>
+<p>最近Prof.Suganthan等提出了一套Composition functions,具体参见他的homepage,同样CEC05上也提出了大约30个测试函数.对这些函数进行rotate,shift,distortion等操作可以变换为更复杂的函数,具体请参加相关paper。</p>
+<h3 id="code-software-projects-implementations"><a href="#code-software-projects-implementations" class="headerlink" title="code/software/projects/implementations"></a>code/software/projects/implementations</h3><ul>
+<li><a href="http://xps-swarm.essex.ac.uk" target="_blank" rel="noopener">http://xps-swarm.essex.ac.uk</a>  (有些类似与以前的EVALife project, 同样有Santa Fe的参与, 重视学科交叉)</li>
+<li><a href="http://cilib.sourceforge.net" target="_blank" rel="noopener">http://cilib.sourceforge.net</a> (计算智能库, written in java)</li>
+<li><a href="http://clerc.maurice.free.fr/pso/" target="_blank" rel="noopener">http://clerc.maurice.free.fr/pso/</a></li>
+<li><a href="http://www.particleswarm.info/Programs.html#Standard_PSO_2006" target="_blank" rel="noopener">http://www.particleswarm.info/Programs.html#Standard_PSO_2006</a> (一些PSO的项目)</li>
+<li><a href="http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=7506" target="_blank" rel="noopener">http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=7506</a> (pso matlab toolbox)</li>
+<li><a href="ftp://www.china2china.com/" target="_blank" rel="noopener">ftp://www.china2china.com/</a> user:pso, passwd:pso   (一些paper可以在这里直接下载)</li>
+</ul>
+<p>comments:各位如果需要几个重要PSO改进的matlab实现,请联系prof.suganthan或直接发邮件给我.</p>
+<h3 id="Future-work"><a href="#Future-work" class="headerlink" title="Future work"></a>Future work</h3><p>2004 年IEEE Transactions on Evolutionary Computation出版了Special issue on PSO,卷首语中指出了当前研究的几个主要方向及热点:</p>
+<ul>
+<li>算法分析. PSO在实际应用中被证明是有效的, 但目前还没有给出完整收敛性、收敛速度估计等方面的数学证明,已有的工作还远远不够。</li>
+<li>粒子群拓扑结构.不同的粒子群邻居拓扑结构是对不同类型社会的模拟,研究不同拓扑结构的适用范围,对PSO算法推广和使用有重要意义。</li>
+<li>参数选择与优化.参数w、φ1、φ2的选择分别关系粒子速度的3个部分:惯性部分、社会部分和感知部分在搜索中的作用.如何选择、优化和调整参数,使得算法既能避免早熟又能比较快速地收敛,对工程实践有着重要意义。</li>
+<li>与其他演化计算的融合.如何将其它演化的优点和PSO的优点相结合,构造出新的混合算法是当前算法改进的一个重要方向。</li>
+<li>算法应用.算法的有效性必须在应用中才能体现,广泛地开拓PSO的应用领域,也对深化研究PSO算法非常有意义。</li>
+</ul>
+<p>我在以前的帖子里曾经提到过,PSO是很适合演化计算方向入门的.特别是其算法实现非常简单,因此建议大家能够先实现基础算法.如果想进一步了解乃至研究,上面列出的除了应用的几十篇paper基本都是需要看的.PSO从提出到现在已经11年了,大小坑挖的也不少了,各位如果想在这个领域出新,出好结果,还是需要有一定功力的.对于我们目前的情况,我认为大家可以主要将精力集中在第(5)点。<a href="http://www.particleswarm.info/Problems.html也列出了一些有意思的open" target="_blank" rel="noopener">http://www.particleswarm.info/Problems.html也列出了一些有意思的open</a> problems。当然,都是有一定难度的 :-)</p>
+<p>对于PSO的改进与分析,如何有能力的话,我仍然坚持认为一个突破口是学科交叉,比如粒子搜索的混沌行为,粒子进化以及合作策略中的博弈,统计物理学在群智能中的应用等等.这也是我接下来的研究内容.另外Clerc大拿网站上也有一篇经常更新的paper,”Some ideas about Particle Swarm Optimisation”,里面记录了很多他对PSO的理解,同样非常值得一看。</p>
 <p>–<br>logpie=0.497</p>
 <p>※ 来源:·紫金飞鸿 bbs.njupt.edu.cn·</p>
 
@@ -273,7 +315,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tillett-J-C-Rao-R-M-Sahin-F-and-Rao-T-M-Particle-swarm-optimiz"><span class="nav-number">1.</span> <span class="nav-text">Tillett, J. C., Rao, R. M., Sahin, F., and Rao, T. M. Particle swarm optimiz</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Kennedy-J-Small-worlds-and-mega-minds-effects-of-neighborhood-topology-on"><span class="nav-number">2.</span> <span class="nav-text">Kennedy, J. Small worlds and mega-minds: effects of neighborhood topology on</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Higashi-N-and-Iba-H-Particle-swarm-optimization-with-gaussian-mutation"><span class="nav-number">3.</span> <span class="nav-text">Higashi, N. and Iba, H. Particle swarm optimization with gaussian mutation.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Juang-C-F-“A-hybrid-of-genetic-algorithm-and-particle-swarm-optimization"><span class="nav-number">4.</span> <span class="nav-text">Juang, C.-F., “A hybrid of genetic algorithm and particle swarm optimization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新的粒子搜索及合作策略"><span class="nav-number">4.1.</span> <span class="nav-text">  (新的粒子搜索及合作策略)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-clerc-maurice-free-fr-pso"><span class="nav-number">4.2.</span> <span class="nav-text">http://clerc.maurice.free.fr/pso/</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的性态分析"><span class="nav-number">4.3.</span> <span class="nav-text">函数的性态分析)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">4.4.</span> <span class="nav-text">)</span></a></li></ol></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Books-and-dissertations"><span class="nav-number">1.</span> <span class="nav-text">Books and dissertations:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Papers"><span class="nav-number">2.</span> <span class="nav-text">Papers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Websites"><span class="nav-number">3.</span> <span class="nav-text">Websites:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leading-Journals-and-Confs"><span class="nav-number">4.</span> <span class="nav-text">Leading Journals and Confs:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Homepages"><span class="nav-number">5.</span> <span class="nav-text">Homepages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Benchmarks"><span class="nav-number">6.</span> <span class="nav-text">Benchmarks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code-software-projects-implementations"><span class="nav-number">7.</span> <span class="nav-text">code/software/projects/implementations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Future-work"><span class="nav-number">8.</span> <span class="nav-text">Future work</span></a></li></ol>
     
     </div>
   </aside>
