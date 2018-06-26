@@ -3,26 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>函数式编程初探 | 99°</title>
+  <title>Hadoop安装记事 | 99°</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="Haskell" />
+  <meta name="keywords" content="Hadoop" />
   
   
   
   
-  <meta name="description" content="函数式编程的应用虽然在很长时间内都处于不温不火的状态，但他们的用途却非常广泛，常见的领域有人工智能、定理证明、无线通信、金融数据分析系统等。">
-<meta name="keywords" content="Haskell">
+  <meta name="description" content="Hadoop安装过程中遇到的问题及解决思路">
+<meta name="keywords" content="Hadoop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="函数式编程初探">
-<meta property="og:url" content="http://yoursite.com/2018/04/13/FuncProgExp/index.html">
+<meta property="og:title" content="Hadoop安装记事">
+<meta property="og:url" content="http://yoursite.com/2018/06/26/hadoop/index.html">
 <meta property="og:site_name" content="99°">
-<meta property="og:description" content="函数式编程的应用虽然在很长时间内都处于不温不火的状态，但他们的用途却非常广泛，常见的领域有人工智能、定理证明、无线通信、金融数据分析系统等。">
+<meta property="og:description" content="Hadoop安装过程中遇到的问题及解决思路">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-09T03:00:42.224Z">
+<meta property="og:updated_time" content="2018-06-26T03:49:16.655Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="函数式编程初探">
-<meta name="twitter:description" content="函数式编程的应用虽然在很长时间内都处于不温不火的状态，但他们的用途却非常广泛，常见的领域有人工智能、定理证明、无线通信、金融数据分析系统等。">
+<meta name="twitter:title" content="Hadoop安装记事">
+<meta name="twitter:description" content="Hadoop安装过程中遇到的问题及解决思路">
   
     <link rel="alternate" href="/atom.xml" title="99°" type="application/atom+xml">
   
@@ -107,7 +107,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-FuncProgExp" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-hadoop" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -115,7 +115,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      函数式编程初探
+      Hadoop安装记事
     </h1>
   
 
@@ -123,13 +123,13 @@
     
     <div class="article-meta">
       
-	<a href="/2018/04/13/FuncProgExp/" class="article-date">
-	  <time datetime="2018-04-13T04:50:18.367Z" itemprop="datePublished">April 13, 2018</time>
+	<a href="/2018/06/26/hadoop/" class="article-date">
+	  <time datetime="2018-06-26T03:40:12.526Z" itemprop="datePublished">June 26, 2018</time>
 	</a>
 
       
 	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/memo/">memo</a>
+    <a class="article-category-link" href="/categories/BigData/">BigData</a>
  
       
 	<span id="busuanzi_container_page_pv">
@@ -139,22 +139,26 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>函数式编程的应用虽然在很长时间内都处于不温不火的状态，但他们的用途却非常广泛，常见的领域有人工智能、定理证明、无线通信、金融数据分析系统等。</p>
-<a id="more"></a>
-<p>面向对象语言有很大的优势，各种设计模式在商业开发的路上也发展得非常成熟，而函数式编程的优势在于程序的严谨与可靠性，程序正确性的证明与测试时的简易型，另外，还有开发周期相对短，编写并发程序十分简洁且运行稳定。</p>
-<p>Haskell实现了很多软件中的精品，如窗口管理器XMonad、Perl6的Haskell实现Pugs以及高性能的网页框架Yesod、Snap等。</p>
-<p>map-reduce框架的灵感就来自于函数式编程语言，Erlang的分布式编程模型也利用了很多诸如不可变数据、高阶函数等函数式编程的特性。</p>
+        <h3 id="Hadoop安装过程中遇到的问题及解决思路"><a href="#Hadoop安装过程中遇到的问题及解决思路" class="headerlink" title="Hadoop安装过程中遇到的问题及解决思路"></a>Hadoop安装过程中遇到的问题及解决思路</h3><a id="more"></a>
+<ul>
+<li>DataNode用jps无法查看<ul>
+<li>slaves文件中加入hadoop01</li>
+</ul>
+</li>
+<li>“hadoop namenode -format”虽然提示过时，但仍然是可以用的，用于初始化hadoop，将data/name下的数据清空并将新的name信息写到data/name目录下</li>
+<li>可以在hdfs-site.xml文件中配置dfs.data.dir参数（此参数控制目录位置）</li>
+</ul>
 
       
     </div>
     <footer class="entry-meta entry-footer">
       
 	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/memo/">memo</a>
+    <a class="article-category-link" href="/categories/BigData/">BigData</a>
 
       
   <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Haskell/">Haskell</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li></ul>
 
       
     </footer>
@@ -164,19 +168,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/04/13/KnowledOfMarkdown/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Markdown语法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/13/FontsizeofLatex/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/06/19/StartwithnewOperatingSystem/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Latex中设置字体大小</div>
+      <div class="article-nav-title">重装系统后必做的几件事</div>
     </a>
   
 </nav>
@@ -190,7 +185,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav">None</ol>
+      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop安装过程中遇到的问题及解决思路"><span class="nav-number">1.</span> <span class="nav-text">Hadoop安装过程中遇到的问题及解决思路</span></a></li></ol>
     
     </div>
   </aside>
