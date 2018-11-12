@@ -11,18 +11,18 @@
   
   
   
-  <meta name="description" content="蒙特卡罗 VS TD学习方法我们有两种学习方式：  在episode的最后收集奖励并计算最大期望将来奖励：蒙特卡罗方法 估计每一步的奖励：时序差分学习  蒙特卡罗当episode结束时（智能体到达一个“终止状态”），智能体视其总共的累计奖励来知晓它做的怎么样。在蒙特卡罗方法中，只有在游戏的最后才会收到奖励。 然后，带着新增的知识开启一轮新游戏。智能体每次迭代会做出更好的决策。">
+  <meta name="description" content="蒙特卡罗 VS TD学习方法我们有两种学习方式：  在episode的最后收集奖励并计算最大期望将来奖励：蒙特卡罗方法 估计每一步的奖励：时序差分学习">
 <meta name="keywords" content="Reinforcement Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="强化学习介绍">
 <meta property="og:url" content="http://yoursite.com/2018/11/12/A_intro_to_RL/index.html">
 <meta property="og:site_name" content="99°">
-<meta property="og:description" content="蒙特卡罗 VS TD学习方法我们有两种学习方式：  在episode的最后收集奖励并计算最大期望将来奖励：蒙特卡罗方法 估计每一步的奖励：时序差分学习  蒙特卡罗当episode结束时（智能体到达一个“终止状态”），智能体视其总共的累计奖励来知晓它做的怎么样。在蒙特卡罗方法中，只有在游戏的最后才会收到奖励。 然后，带着新增的知识开启一轮新游戏。智能体每次迭代会做出更好的决策。">
+<meta property="og:description" content="蒙特卡罗 VS TD学习方法我们有两种学习方式：  在episode的最后收集奖励并计算最大期望将来奖励：蒙特卡罗方法 估计每一步的奖励：时序差分学习">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-12T12:30:23.654Z">
+<meta property="og:updated_time" content="2018-11-12T13:12:51.154Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="强化学习介绍">
-<meta name="twitter:description" content="蒙特卡罗 VS TD学习方法我们有两种学习方式：  在episode的最后收集奖励并计算最大期望将来奖励：蒙特卡罗方法 估计每一步的奖励：时序差分学习  蒙特卡罗当episode结束时（智能体到达一个“终止状态”），智能体视其总共的累计奖励来知晓它做的怎么样。在蒙特卡罗方法中，只有在游戏的最后才会收到奖励。 然后，带着新增的知识开启一轮新游戏。智能体每次迭代会做出更好的决策。">
+<meta name="twitter:description" content="蒙特卡罗 VS TD学习方法我们有两种学习方式：  在episode的最后收集奖励并计算最大期望将来奖励：蒙特卡罗方法 估计每一步的奖励：时序差分学习">
   
     <link rel="alternate" href="/atom.xml" title="99°" type="application/atom+xml">
   
@@ -139,14 +139,38 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="蒙特卡罗-VS-TD学习方法"><a href="#蒙特卡罗-VS-TD学习方法" class="headerlink" title="蒙特卡罗 VS TD学习方法"></a>蒙特卡罗 VS TD学习方法</h3><p>我们有两种学习方式：</p>
+        <h4 id="蒙特卡罗-VS-TD学习方法"><a href="#蒙特卡罗-VS-TD学习方法" class="headerlink" title="蒙特卡罗 VS TD学习方法"></a>蒙特卡罗 VS TD学习方法</h4><p>我们有两种学习方式：</p>
 <ul>
 <li>在episode的最后收集奖励并计算最大期望将来奖励：蒙特卡罗方法</li>
 <li>估计每一步的奖励：时序差分学习</li>
 </ul>
-<h4 id="蒙特卡罗"><a href="#蒙特卡罗" class="headerlink" title="蒙特卡罗"></a>蒙特卡罗</h4><p>当episode结束时（智能体到达一个“终止状态”），智能体视其总共的累计奖励来知晓它做的怎么样。在蒙特卡罗方法中，只有在游戏的最后才会收到奖励。</p>
-<p>然后，带着新增的知识开启一轮新游戏。智能体每次迭代会做出更好的决策。</p>
 <a id="more"></a>
+<h5 id="蒙特卡罗"><a href="#蒙特卡罗" class="headerlink" title="蒙特卡罗"></a>蒙特卡罗</h5><p>当episode结束时（智能体到达一个“终止状态”），智能体视其总共的累计奖励来知晓它做的怎么样。在蒙特卡罗方法中，只有在游戏的最后才会收到奖励。</p>
+<p>然后，带着新增的知识开启一轮新游戏。智能体每次迭代会做出更好的决策。</p>
+<h4 id="探索-开发的权衡"><a href="#探索-开发的权衡" class="headerlink" title="探索/开发的权衡"></a>探索/开发的权衡</h4><ul>
+<li>探索是发现有关环境的更多信息</li>
+<li>开发是开发已知的信息，使得奖励最大化</li>
+</ul>
+<p>强化学习智能体的目标是最大化期望的累计奖励，然而，我们会陷入一个共同的陷阱。</p>
+<p>我们必须定义一个规则帮助我们处理这种权衡。</p>
+<h4 id="强化学习的三种方法"><a href="#强化学习的三种方法" class="headerlink" title="强化学习的三种方法"></a>强化学习的三种方法</h4><p>解决强化学习问题的三种方法是：基于值、基于策略、基于模型。</p>
+<h5 id="基于值"><a href="#基于值" class="headerlink" title="基于值"></a>基于值</h5><p>在基于值的强化学习中，目标是优化值函数</p>
+<blockquote>
+<p>值函数告知我们智能体在每个状态得到的最大期望将来奖励</p>
+</blockquote>
+<p>每个状态的值是在那个状态的智能体期望在将来累计的奖励总数。<br>$$<br>V_{\pi}(s)=\mathbb{E}<em>{\pi}[R</em>{t+1}+\gamma R_{t+2}+\gamma ^{2}R_{t+3}+…|S_t =s]<br>$$<br>智能体会使用这个值函数去在每一步选择一个状态，选择的状态具有最大的值。</p>
+<h5 id="基于策略"><a href="#基于策略" class="headerlink" title="基于策略"></a>基于策略</h5><p>在基于策略的强化学习中，我们想不使用值函数而直接优化策略函数$\mathtt{\pi}(s)$。</p>
+<p>策略是在一个给定的时间对智能体行为的定义。<br>$$<br>a=\pi(s)<br>$$<br>我们学习一个策略函数，使每个状态映射到对应的最好动作。</p>
+<p>我们有两种策略：</p>
+<ul>
+<li>固定策略：一种在给定状态总会返回相同动作的策略。</li>
+<li>随机策略：随动作输出分布概率。</li>
+</ul>
+<p>$$<br>\text{Stochastic policy:} \ \pi(a|s)=\mathbb{P}[A_t=a|S_t=s]<br>$$</p>
+<p>策略直接表明每一步应该采取的最好动作。</p>
+<h5 id="基于模型"><a href="#基于模型" class="headerlink" title="基于模型"></a>基于模型</h5><p>在基于模型的强化学习中，我们对环境建模。这意味着我们创建了一个环境行为的模型。</p>
+<p>问题是每个环境都需要一个不同的模型表示。</p>
+
       
     </div>
     <footer class="entry-meta entry-footer">
@@ -183,7 +207,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#蒙特卡罗-VS-TD学习方法"><span class="nav-number">1.</span> <span class="nav-text">蒙特卡罗 VS TD学习方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#蒙特卡罗"><span class="nav-number">1.1.</span> <span class="nav-text">蒙特卡罗</span></a></li></ol></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#蒙特卡罗-VS-TD学习方法"><span class="nav-number">1.</span> <span class="nav-text">蒙特卡罗 VS TD学习方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#蒙特卡罗"><span class="nav-number">1.1.</span> <span class="nav-text">蒙特卡罗</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#探索-开发的权衡"><span class="nav-number">2.</span> <span class="nav-text">探索/开发的权衡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#强化学习的三种方法"><span class="nav-number">3.</span> <span class="nav-text">强化学习的三种方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基于值"><span class="nav-number">3.1.</span> <span class="nav-text">基于值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基于策略"><span class="nav-number">3.2.</span> <span class="nav-text">基于策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基于模型"><span class="nav-number">3.3.</span> <span class="nav-text">基于模型</span></a></li></ol></li></ol>
     
     </div>
   </aside>
