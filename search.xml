@@ -1021,7 +1021,7 @@
       <link href="/2018/04/13/FunofUbuntu/"/>
       <url>/2018/04/13/FunofUbuntu/</url>
       
-        <content type="html"><![CDATA[<ul><li>安装小工具<blockquote><p>sudo apt install fortune<br>sudo apt install fortune-zh<br>sudo apt install cowsay<br>sudo apt install lolcat</p></blockquote></li></ul><a id="more"></a><ul><li>小牛讲道理<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay;done</p></blockquote></li></ul><p><img src="/2018/04/13/FunofUbuntu/pic/d8de96cf669f0cd6f89fb83a6ba01567_hd.jpg" alt=""></p><ul><li>加颜色<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay|lolcat;done</p></blockquote></li></ul><p><img src="/2018/04/13/FunofUbuntu/pic/39458e4c8e1da4fbc714a430cca86536_hd.jpg" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<ul><li>安装小工具<blockquote><p>sudo apt install fortune<br>sudo apt install fortune-zh<br>sudo apt install cowsay<br>sudo apt install lolcat</p></blockquote></li></ul><a id="more"></a><ul><li>小牛讲道理<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay;done</p></blockquote></li></ul><p><img src="https://pic4.zhimg.com/80/d8de96cf669f0cd6f89fb83a6ba01567_hd.jpg" alt=""></p><ul><li>加颜色<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay|lolcat;done</p></blockquote></li></ul><p><img src="https://pic2.zhimg.com/80/39458e4c8e1da4fbc714a430cca86536_hd.jpg" alt=""></p>]]></content>
       
       
       <categories>
