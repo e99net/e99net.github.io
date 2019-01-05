@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>99°</title>
+  
+  <subtitle>万事俱备，不欠东风</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://e99net.github.io/"/>
+  <updated>2018-11-12T13:12:51.154Z</updated>
+  <id>https://e99net.github.io/</id>
+  
+  <author>
+    <name>sqLiu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>强化学习介绍</title>
+    <link href="https://e99net.github.io/2018/11/12/A_intro_to_RL/"/>
+    <id>https://e99net.github.io/2018/11/12/A_intro_to_RL/</id>
+    <published>2018-11-12T12:10:15.619Z</published>
+    <updated>2018-11-12T13:12:51.154Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="蒙特卡罗-VS-TD学习方法"><a href="#蒙特卡罗-VS-TD学习方法" class="headerlink" title="蒙特卡罗 VS TD学习方法"></a>蒙特卡罗 VS TD学习方法</h4><p>我们有两种学习方式：</p><ul><li>在episode的最后收集奖励并计算最大期望将来奖励：蒙特卡罗方法</li><li>估计每一步的奖励：时序差分学习</li></ul><a id="more"></a><h5 id="蒙特卡罗"><a href="#蒙特卡罗" class="headerlink" title="蒙特卡罗"></a>蒙特卡罗</h5><p>当episode结束时（智能体到达一个“终止状态”），智能体视其总共的累计奖励来知晓它做的怎么样。在蒙特卡罗方法中，只有在游戏的最后才会收到奖励。</p><p>然后，带着新增的知识开启一轮新游戏。智能体每次迭代会做出更好的决策。</p><h4 id="探索-开发的权衡"><a href="#探索-开发的权衡" class="headerlink" title="探索/开发的权衡"></a>探索/开发的权衡</h4><ul><li>探索是发现有关环境的更多信息</li><li>开发是开发已知的信息，使得奖励最大化</li></ul><p>强化学习智能体的目标是最大化期望的累计奖励，然而，我们会陷入一个共同的陷阱。</p><p>我们必须定义一个规则帮助我们处理这种权衡。</p><h4 id="强化学习的三种方法"><a href="#强化学习的三种方法" class="headerlink" title="强化学习的三种方法"></a>强化学习的三种方法</h4><p>解决强化学习问题的三种方法是：基于值、基于策略、基于模型。</p><h5 id="基于值"><a href="#基于值" class="headerlink" title="基于值"></a>基于值</h5><p>在基于值的强化学习中，目标是优化值函数</p><blockquote><p>值函数告知我们智能体在每个状态得到的最大期望将来奖励</p></blockquote><p>每个状态的值是在那个状态的智能体期望在将来累计的奖励总数。<br>$$<br>V_{\pi}(s)=\mathbb{E}<em>{\pi}[R</em>{t+1}+\gamma R_{t+2}+\gamma ^{2}R_{t+3}+…|S_t =s]<br>$$<br>智能体会使用这个值函数去在每一步选择一个状态，选择的状态具有最大的值。</p><h5 id="基于策略"><a href="#基于策略" class="headerlink" title="基于策略"></a>基于策略</h5><p>在基于策略的强化学习中，我们想不使用值函数而直接优化策略函数$\mathtt{\pi}(s)$。</p><p>策略是在一个给定的时间对智能体行为的定义。<br>$$<br>a=\pi(s)<br>$$<br>我们学习一个策略函数，使每个状态映射到对应的最好动作。</p><p>我们有两种策略：</p><ul><li>固定策略：一种在给定状态总会返回相同动作的策略。</li><li>随机策略：随动作输出分布概率。</li></ul><p>$$<br>\text{Stochastic policy:} \ \pi(a|s)=\mathbb{P}[A_t=a|S_t=s]<br>$$</p><p>策略直接表明每一步应该采取的最好动作。</p><h5 id="基于模型"><a href="#基于模型" class="headerlink" title="基于模型"></a>基于模型</h5><p>在基于模型的强化学习中，我们对环境建模。这意味着我们创建了一个环境行为的模型。</p><p>问题是每个环境都需要一个不同的模型表示。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;蒙特卡罗-VS-TD学习方法&quot;&gt;&lt;a href=&quot;#蒙特卡罗-VS-TD学习方法&quot; class=&quot;headerlink&quot; title=&quot;蒙特卡罗 VS TD学习方法&quot;&gt;&lt;/a&gt;蒙特卡罗 VS TD学习方法&lt;/h4&gt;&lt;p&gt;我们有两种学习方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在episode的最后收集奖励并计算最大期望将来奖励：蒙特卡罗方法&lt;/li&gt;
+&lt;li&gt;估计每一步的奖励：时序差分学习&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Reinforcement Learning" scheme="https://e99net.github.io/tags/Reinforcement-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Latex处理参考文献</title>
+    <link href="https://e99net.github.io/2018/11/02/reference_of_latex/"/>
+    <id>https://e99net.github.io/2018/11/02/reference_of_latex/</id>
+    <published>2018-11-02T13:48:12.079Z</published>
+    <updated>2018-11-02T13:51:28.363Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用cite宏包可以生成参考文献</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;cite&#125;</span><br><span class="line">\cite&#123;b3,b4,b5,b6,b7,b8&#125;</span><br></pre></td></tr></table></figure><p>生成的参考文献格式为：[3]-[8]</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;使用cite宏包可以生成参考文献&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;
+      
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Latex" scheme="https://e99net.github.io/tags/Latex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WEB框架辨析</title>
+    <link href="https://e99net.github.io/2018/10/23/webframe/"/>
+    <id>https://e99net.github.io/2018/10/23/webframe/</id>
+    <published>2018-10-23T05:30:52.852Z</published>
+    <updated>2018-10-23T05:34:11.843Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="bootstrap是个Web框架吗？"><a href="#bootstrap是个Web框架吗？" class="headerlink" title="bootstrap是个Web框架吗？"></a>bootstrap是个Web框架吗？</h3><p>bootstrap不能算是个完整的框架，它应该算是一个css框架+一些js组件。主要目的不是提供一个完整的前端解决方案，而只是关注前端UI呈现。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;bootstrap是个Web框架吗？&quot;&gt;&lt;a href=&quot;#bootstrap是个Web框架吗？&quot; class=&quot;headerlink&quot; title=&quot;bootstrap是个Web框架吗？&quot;&gt;&lt;/a&gt;bootstrap是个Web框架吗？&lt;/h3&gt;&lt;p&gt;bootst
+      
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Water" scheme="https://e99net.github.io/tags/Water/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>差分进化基础</title>
+    <link href="https://e99net.github.io/2018/09/28/basic_of_DE/"/>
+    <id>https://e99net.github.io/2018/09/28/basic_of_DE/</id>
+    <published>2018-09-28T02:10:31.334Z</published>
+    <updated>2018-10-01T08:34:42.606Z</updated>
+    
+    <content type="html"><![CDATA[<p>差分进化算法是一种自组织最小化方法，用户只需要很少的输入，它起源于遗传算法(EA)，是一种基于种群进化的算法，包括变异、交叉、选择、边界检测。</p><a id="more"></a><p>差分进化算法由Storn等人于1995年提出，是一种模拟生物进化的随机模型，保留了基于种群的全局搜索策略，降低了遗传操作的复杂性。</p><p>DE和PSO都是基于种群的算法，不同于其他演化算法的是，DE使用种群中两个随机选择的个体向量差产生一个新的候选解（个体）。DE有一个好的全局搜索能力，但通常在种群演化的后阶段收敛得很慢。PSO能够收敛得很快，但易于陷入局部最优。由于DE与PSO的互补特性，一些研究常聚焦于两者的混合应用。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;差分进化算法是一种自组织最小化方法，用户只需要很少的输入，它起源于遗传算法(EA)，是一种基于种群进化的算法，包括变异、交叉、选择、边界检测。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="EAs" scheme="https://e99net.github.io/categories/EAs/"/>
+    
+    
+      <category term="DE" scheme="https://e99net.github.io/tags/DE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>扫盲</title>
+    <link href="https://e99net.github.io/2018/09/23/Eliminate_illiteracy/"/>
+    <id>https://e99net.github.io/2018/09/23/Eliminate_illiteracy/</id>
+    <published>2018-09-23T05:26:00.771Z</published>
+    <updated>2018-09-23T05:33:47.323Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>中国、日本和韩国的象形文字总称为CJK。</p><a id="more"></a></li><li><p>Mac OS X Mavericks(巨浪)：X表示Mac的第10个版本，“X”是罗马数字“10”的意思。</p></li><li><p>将“休眠”去掉，同时腾出C盘空间：powercfg.exe /hibernate off。</p></li><li><p>Sublime Text快捷键：Ctrl+K U 改为大写，Ctrl+K L 改为小写。</p></li><li><p>FreeBSD比Linux还要稳定，可以做到十年不关机，并且比Linux速度要快出30%。</p></li><li><p>美国军方五角大楼采用的是openBSD操作系统。</p></li><li><p>编译器图书中的”龙书“、”虎书“、”鲸书“ 分别指的是《编译原理：技术与工具（第2版）》、《高级编译器：设计与实现》、《现代编译原理：C语言描述》</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;中国、日本和韩国的象形文字总称为CJK。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Water" scheme="https://e99net.github.io/tags/Water/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JDK1.5的新特性</title>
+    <link href="https://e99net.github.io/2018/09/23/jdk1.5_newCharacter/"/>
+    <id>https://e99net.github.io/2018/09/23/jdk1.5_newCharacter/</id>
+    <published>2018-09-23T05:13:15.352Z</published>
+    <updated>2018-09-23T05:16:43.389Z</updated>
+    
+    <content type="html"><![CDATA[<p>jdk1.5的四个新特性如下：</p><ul><li>自动装箱和拆箱</li><li>增强for循环</li><li>静态导入（唯一的败笔）</li><li>可变参数</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;jdk1.5的四个新特性如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;自动装箱和拆箱&lt;/li&gt;
+&lt;li&gt;增强for循环&lt;/li&gt;
+&lt;li&gt;静态导入（唯一的败笔）&lt;/li&gt;
+&lt;li&gt;可变参数&lt;/li&gt;
+&lt;/ul&gt;
+
+      
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Java" scheme="https://e99net.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TPC-H的22条查询语句</title>
+    <link href="https://e99net.github.io/2018/09/15/tpch/"/>
+    <id>https://e99net.github.io/2018/09/15/tpch/</id>
+    <published>2018-09-15T02:17:13.183Z</published>
+    <updated>2018-09-15T02:34:26.528Z</updated>
+    
+    <content type="html"><![CDATA[<p>TPC-H的22条查询语句中包含两个以上的表连接操作和至少一个聚集函数的有：</p><a id="more"></a><ul><li>Q2（五表连接、一个聚集）√</li><li>Q3（三表连接、一个聚集）√</li><li>Q5（六表连接、一个聚集）√</li><li>Q7（六表连接、一个聚集）</li><li>Q8（八表连接、两个聚集）√</li><li>Q9（六表连接、一个聚集）</li><li>Q10（四表连接、一个聚集）</li><li>Q11（三表连接、三个聚集）</li><li>Q12（两表连接）</li><li>Q16（两表连接）</li><li>Q17（两表连接）</li><li>Q18（三表连接）</li><li>Q19（两表连接）</li><li>Q20（两表连接）</li><li>Q21（四表连接）</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;TPC-H的22条查询语句中包含两个以上的表连接操作和至少一个聚集函数的有：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Database" scheme="https://e99net.github.io/tags/Database/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>程序员必读书单 1.0</title>
+    <link href="https://e99net.github.io/2018/08/15/BookList/"/>
+    <id>https://e99net.github.io/2018/08/15/BookList/</id>
+    <published>2018-08-15T13:31:26.148Z</published>
+    <updated>2018-09-15T02:32:30.224Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>程序员的工作是编程，而高编程水平不是一蹴而就的，需要耗费时间来提升。要想缩短这个提升的过程，最好的办法就是多读书。在计算机领域浸淫了很久才意识到，静下心来多读几本好书是很有必要的，远胜于看一些教程、Ctrl+c/Ctrl+v似的伪编程。</p><p>推荐以下几本“业界良心”级的必读好书，相信每一个旨在“修炼功力”的程序员都需要它。</p><a id="more"></a><h4 id="进阶书籍"><a href="#进阶书籍" class="headerlink" title="进阶书籍"></a>进阶书籍</h4><h5 id="计算机系统"><a href="#计算机系统" class="headerlink" title="计算机系统"></a>计算机系统</h5><ul><li><p><a href="https://detail.tmall.com/item.htm?id=542545702099&ali_trackid=2:mm_116556109_15568784_59610223:1534839037_142_1967246833" target="_blank" rel="noopener">深入理解计算机系统</a>：豆瓣评分9.9分。</p><p><img src="https://img.alicdn.com/imgextra/i3/TB1RwP7OpXXXXbZXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"></p></li></ul><h5 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h5><ul><li><p>C++</p><ul><li><p><a href="https://detail.tmall.com/item.htm?id=45005128445&ali_trackid=2:mm_116556109_15568784_59610223:1534343053_269_1923278111" target="_blank" rel="noopener">C++ Primer中文版第5版</a>：此书是“教程+参考书”，扛梁之作，初学者的不二法门。</p><p><img src="https://img.alicdn.com/imgextra/i4/TB1HMvDQVXXXXc2XpXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"></p></li><li><p><a href="https://detail.tmall.com/item.htm?id=564574694111&ali_trackid=2:mm_116556109_15568784_59610223:1534341710_202_1584677023" target="_blank" rel="noopener">Linux多线程服务端编程</a>：国内作品，因为这本书的名字吓退了不少潜在读者，所以我要特别说明一下。此书是C++开发的高水平作品，与其说是教你怎么用C++写服务器开发，不如说是教你如何以服务端开发为例子提升C++开发水平。前面的书都是谈C++自己的事情，碰到像iostream这样失败的标准组件也不得不硬着头皮介绍。而这本书是接地气的实践结晶，告诉你面对具体问题时应该怎样权衡，C++里什么好用，什么不好用，为什么，等等。</p><p><img src="https://img.alicdn.com/imgextra/i1/2598292358/TB20koecOCYBuNkHFCcXXcHtVXa_!!2598292358.jpg_430x430q90.jpg"></p></li><li><p><a href="https://detail.tmall.com/item.htm?id=572902368595&ali_trackid=2:mm_116556109_15568784_59610223:1534342016_141_1005772488" target="_blank" rel="noopener">Effective C++ / More Effective C++</a>：Scott Meyers的此系列永远是学习C++者必读的，只不过这本书的第4版不知道什么时候出来。</p><p><img src="https://img.alicdn.com/imgextra/i1/2598292358/TB2AdwaB49YBuNjy0FfXXXIsVXa_!!2598292358.png_430x430q90.jpg"></p></li><li><p><a href="https://detail.tmall.com/item.htm?id=526269227203&ali_trackid=2:mm_116556109_15568784_59610223:1534336696_193_1133801096" target="_blank" rel="noopener">STL源码剖析</a>：源码面前，了无秘密。</p><p><img src="https://img.alicdn.com/imgextra/i1/TB1Pp0DLXXXXXbyXXXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"></p></li></ul></li><li><p>Java</p><ul><li><p>Java编程思想：几乎涵盖了JavaSE的所有知识点。</p><p><img src="https://img.alicdn.com/imgextra/i3/101450072/TB25G7Adkfb_uJkHFJHXXb4vFXa-101450072.jpg_430x430q90.jpg"></p></li></ul></li></ul><p>(未完待续……)</p><h5 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h5><p>(未完待续……)</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;程序员的工作是编程，而高编程水平不是一蹴而就的，需要耗费时间来提升。要想缩短这个提升的过程，最好的办法就是多读书。在计算机领域浸淫了很久才意识到，静下心来多读几本好书是很有必要的，远胜于看一些教程、Ctrl+c/Ctrl+v似的伪编程。&lt;/p&gt;
+&lt;p&gt;推荐以下几本“业界良心”级的必读好书，相信每一个旨在“修炼功力”的程序员都需要它。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Water" scheme="https://e99net.github.io/tags/Water/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>word中插入公式行距变大的问题</title>
+    <link href="https://e99net.github.io/2018/07/29/docEdit/"/>
+    <id>https://e99net.github.io/2018/07/29/docEdit/</id>
+    <published>2018-07-29T06:00:59.077Z</published>
+    <updated>2018-07-29T06:13:07.380Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用Word的人难免有插入公式的时候，插入公式时容易出现段落行距变大的问题，解决方案如下。</p><a id="more"></a><ul><li>选中行距变大的那一行，右键选择”段落“</li><li><strong>在弹出的窗口中取消勾选”如果定义了文档网络，则对齐到网格“这一项</strong></li><li>点击确定按钮</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用Word的人难免有插入公式的时候，插入公式时容易出现段落行距变大的问题，解决方案如下。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Latex" scheme="https://e99net.github.io/tags/Latex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hadoop安装记事</title>
+    <link href="https://e99net.github.io/2018/06/26/hadoop/"/>
+    <id>https://e99net.github.io/2018/06/26/hadoop/</id>
+    <published>2018-06-26T03:40:12.526Z</published>
+    <updated>2018-06-26T03:49:16.655Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Hadoop安装过程中遇到的问题及解决思路"><a href="#Hadoop安装过程中遇到的问题及解决思路" class="headerlink" title="Hadoop安装过程中遇到的问题及解决思路"></a>Hadoop安装过程中遇到的问题及解决思路</h3><a id="more"></a><ul><li>DataNode用jps无法查看<ul><li>slaves文件中加入hadoop01</li></ul></li><li>“hadoop namenode -format”虽然提示过时，但仍然是可以用的，用于初始化hadoop，将data/name下的数据清空并将新的name信息写到data/name目录下</li><li>可以在hdfs-site.xml文件中配置dfs.data.dir参数（此参数控制目录位置）</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Hadoop安装过程中遇到的问题及解决思路&quot;&gt;&lt;a href=&quot;#Hadoop安装过程中遇到的问题及解决思路&quot; class=&quot;headerlink&quot; title=&quot;Hadoop安装过程中遇到的问题及解决思路&quot;&gt;&lt;/a&gt;Hadoop安装过程中遇到的问题及解决思路&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="BigData" scheme="https://e99net.github.io/categories/BigData/"/>
+    
+    
+      <category term="Hadoop" scheme="https://e99net.github.io/tags/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>重装系统后必做的几件事</title>
+    <link href="https://e99net.github.io/2018/06/19/StartwithnewOperatingSystem/"/>
+    <id>https://e99net.github.io/2018/06/19/StartwithnewOperatingSystem/</id>
+    <published>2018-06-19T11:38:50.369Z</published>
+    <updated>2018-06-19T12:07:17.222Z</updated>
+    
+    <content type="html"><![CDATA[<p>下面是老夫重装完系统后必做的几件事：<br><a id="more"></a></p><h3 id="锁定浏览器主页"><a href="#锁定浏览器主页" class="headerlink" title="锁定浏览器主页"></a>锁定浏览器主页</h3><ul><li>使“Internet选项”中的主页设置不可用<ul><li>进入internet选项，把主页改成你所想要的，然后按应用，千万记住不要按确认，也不要关闭选项卡。</li><li>开始—-运行—-输入gpedit.msc打开组策略。</li><li>在左边的树状结构中找到：用户配置—-管理模板—windows组件–点击“internet explorer”找到窗口右面的一项“禁用更改主页设置”—-双击打开—选为“已启用”–下面方框设置好你想要的默认主页。</li><li>确定第一步的internet选项，关闭选项卡后再次打开internet选项卡，可以发现主页那一栏变成灰色，就是不可更改主页了。 </li></ul></li><li>使浏览器不被篡改<ul><li>找到安装目录下的exe文件，右键属性，将其设为只读。</li><li>找到exe文件对应的快捷方式，将其设为只读。</li><li>[可选操作]在快捷方式下的目标中加入自己想要的主页地址，需注意的是，此地址与前面之间要有一个空格。</li></ul></li></ul><h3 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h3><ul><li>MacType</li><li>Microsoft Office 2010</li><li>Visual Studio 2013</li><li>Visual Studio Code</li><li>Vmware Workstation 14</li><li>QQ 8.7</li><li>Google Chrome</li><li>IE 10</li><li>Everything</li><li>TEXStudio + texlive</li><li>WinRAR</li><li>Java jdk 7&amp;8</li><li>Python 2&amp;3</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;下面是老夫重装完系统后必做的几件事：&lt;br&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Water" scheme="https://e99net.github.io/tags/Water/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>粒子群算法的一些相关资源</title>
+    <link href="https://e99net.github.io/2018/06/13/ResourcesofPSO/"/>
+    <id>https://e99net.github.io/2018/06/13/ResourcesofPSO/</id>
+    <published>2018-06-13T12:59:31.764Z</published>
+    <updated>2018-09-28T02:10:17.563Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="【转载前辈的好博文】粒子群算法资源合辑-zz"><a href="#【转载前辈的好博文】粒子群算法资源合辑-zz" class="headerlink" title="【转载前辈的好博文】粒子群算法资源合辑[zz]"></a>【转载前辈的好博文】粒子群算法资源合辑[zz]</h2><a id="more"></a><p>发信人: logpie (Yuxuan), 信区: Circuit<br>标  题: 粒子群算法资源合辑<br>发信站: 紫金飞鸿 (Mon Oct 16 00:22:10 2006)</p><p>忙了大半年的big paper昨天终于投掉了。写下这个合集，一方面是对这一年零星资料的总结，另一方面是为方便有兴趣的Echoer们尽早入门，少走弯路，以加快我们合作的速度。下面列出的大部分是领域经典paper以及重要资源汇总。如有遗漏，我会不断增加的。</p><p>希望这个collecion能对大家有帮助，更渴望Echoer之间能尽早合作，望各位笑纳。<br>Any question, plz mailto:<a href="mailto:logpie@gmail.com" target="_blank" rel="noopener">logpie@gmail.com</a>.</p><h3 id="Books-and-dissertations"><a href="#Books-and-dissertations" class="headerlink" title="Books and dissertations:"></a>Books and dissertations:</h3><ul><li>Kennedy, J., Eberhart, R. C., and Shi, Y., Swarm intelligence San Francisco: Morgan Kaufmann Publishers, 2001. (PSO的founders所著)</li><li>van den Bergh, Frans, “An analysis of particle swarm optimizers.” PhD’s Dissertation Department of Computer Science, University of Pretoria, South Africa, 2002.  (Dr.Bergh的博士论文,详尽的给出了他对PSO的分析和改进,建议通读)</li></ul><h3 id="Papers"><a href="#Papers" class="headerlink" title="Papers"></a>Papers</h3><h4 id="原始论文"><a href="#原始论文" class="headerlink" title="原始论文:"></a>原始论文:</h4><ul><li><p>Kennedy J,Eberhart R C. Particle Swarm Optimization [C]. Proceedings of IEEE International Conference on Neural Networks, Perth, Australia, 1995.1942-1948.</p></li><li><p>R. C. Eberhart and J. Kennedy, “A new optimizer using particle swarm theory,”<br>in Proc. 6th Int. Symp. Micromachine Human Sci., Nagoya,Japan, 1995</p></li></ul><h4 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础:"></a>理论基础:</h4><ul><li><p>Clerc, M. and Kennedy, J., “The particle swarm-explosion, stability, and convergence in a multidimensional complex space,” IEEE Transactions on Evolutionary Computation, vol. 6, no. 1, pp. 58-73, 2002. (较完整的给出了PSO的收敛性,并发现使用压缩因子可以保证收敛,04年IEEE Trans. EVC Best paper award,必读)</p></li><li><p>Ozcan, E. and Mohan, C. K. Particle swarm optimization: surfing the waves. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1999), Washington, DC, USA. 1999</p></li><li><p>relea, I. C., “The particle swarm optimization algorithm: convergence analysis and parameter selection,” Information Processing Letters, vol. 85, no. 6, pp. 317-325, Mar.2003.  (另一个较小的收敛分析)</p></li></ul><h4 id="参数设置"><a href="#参数设置" class="headerlink" title="参数设置:"></a>参数设置:</h4><ul><li><p>Shi, Y. and Eberhart, R. C. Parameter selection in particle swarm optimization. Evolutionary Programming VII: Proceedings of the Seventh Annual Conference on Evolutionary Programming, New York. pp. 591-600, 1998</p></li><li><p>Shi, Y. and Eberhart, R. C. Empirical study of particle swarm optimization. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1999), Piscataway, NJ. pp. 1945-1950, 1999  (主要是对惯性权重的试验)</p></li><li><p>Carlisle, A. and Dozier, G. An off-the-shelf PSO. Proceedings of the Workshop on Particle Swarm Optimization 2001, Indianapolis, IN. 2001 (各个参数设置的比较,必读)</p></li></ul><h4 id="综述"><a href="#综述" class="headerlink" title="综述:"></a>综述:</h4><ul><li><p>Eberhart, R. C. and Shi, Y. Comparison between genetic algorithms and particle swarm optimization. Evolutionary Programming VII: Proceedings of the Seventh Annual Conference on Evolutionary Programming, San Diego, CA. 1998  (GA与PSO比较)</p></li><li><p>Eberhart, R. C. and Shi, Y. Particle swarm optimization: developments, applications and resources. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2001), Seoul, Korea. 2001</p></li><li><p>Parsopoulos, K. E. and Vrahatis, M. N., “Recent approaches to global optimization problems through particle swarm optimization,” Natural Computing, vol. 1, no. 2-3, pp. 235-306, 2002. (很长的综述,但是比较偏重作者自己提出的几个改进,呵呵)</p></li></ul><h4 id="应用"><a href="#应用" class="headerlink" title="应用:"></a>应用:</h4><ul><li><p>Ismail, A. and Engelbrecht, A. P. Training Product Units in Feedforward Neural Networks using Particle Swarm Optimization. Proceedings of the International Conference on Artificial Intelligence, Durban, South Africa. pp. 36-40, 1999</p></li><li><p>van den Bergh, F. and Engelbrecht, A. P., “Cooperative learning in neural networks using particle swarm optimizers,” South African Computer Journal, vol. 26 pp. 84-90, 2000.</p></li><li><p>L. Messerschmidt and A. P. Engelbrecht, “Learning to play games using a PSO-based competitive learning approach,” IEEE Trans. Evol.Comput., vol. 8, pp. 280–288, Jun. 2004.</p></li><li><p>Settles, M. and Rylander, B. Neural network learning using particle swarm optimizers. Advances in Information Science and Soft Computing, pp. 224-226, 2002</p></li><li><p>Tillett, J. C., Rao, R., Sahin, F., and Rao, T. M. Cluster-head identification in ad hoc sensor networks using particle swarm optimization. Proceedings of 2002 IEEE International Conference on Personal Wireless Communications, pp. 201-205, 2002</p></li><li><p>Coello Coello, C. A., Luna, E. H. n., and Aguirre, A. H. n. Use of particle swarm optimization to design combinational logic circuits. Lecture Notes in Computer Science(LNCS) No. 2606, pp. 398-409, 2003</p></li><li><p>Tillett, J. C., Rao, R. M., Sahin, F., and Rao, T. M. Particle swarm optimization for the clustering of wireless sensors. Procedings of SPIE Vol. 5100: Digital Wireless Communications V, pp. 73-83, 2003</p></li></ul><h4 id="改进与分析-离散域拓展及组合优化"><a href="#改进与分析-离散域拓展及组合优化" class="headerlink" title="改进与分析_离散域拓展及组合优化:"></a>改进与分析_离散域拓展及组合优化:</h4><ul><li><p>Kennedy, J. and Eberhart, R. C. A discrete binary version of the particle swarm algorithm. Proceedings of the World Multiconference on Systemics,Cybernetics and Informatics 1997, Piscataway, NJ. pp. 4104-4109, 1997  (最早的离散PSO,非常聪明的改进,值得一看)</p></li><li><p>Mohan, C. K. and Al-kazemi, B. Discrete particle swarm optimization. Proceedings of the Workshop on Particle Swarm Optimization 2001, Indianapolis, IN. 2001</p></li><li><p>Laskari, E. C., Parsopoulos, K. E., and Vrahatis, M. N. Particle swarm optimization for integer programming. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002 (PSO for 整数规划)</p></li><li><p>Schoofs, L. and Naudts, B. Swarm intelligence on the binary constraint satisfaction problem. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002 </p></li><li><p>Wang, K.-P., Huang, L., Zhou, C.-G., and Pang, W. Particle swarm optimization for traveling salesman problem. Proceedings of International Conference on Machine Learning and Cybernetics 2003, pp. 1583-1585, 2003  (引入几个新算子,解决TSP问题)</p></li><li><p>Clerc, M., “Discrete Particle Swarm Optimization,” New Optimization Techniques in Engineering Springer-Verlag, 2004. (Clerc大拿的DPSO,同样引入了新算子)</p></li></ul><h4 id="改进与分析-参数"><a href="#改进与分析-参数" class="headerlink" title="改进与分析_参数:"></a>改进与分析_参数:</h4><ul><li><p>Shi, Y. and Eberhart, R. C. A modified particle swarm optimizer. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1998), Piscataway, NJ. pp. 69-73, 1998  (惯性权重在此文中提出)</p></li><li><p>Clerc, M. The swarm and the queen: towards a deterministic and adaptive particle swarm optimization. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1999), pp. 1951-1957, 1999  (提出了queen的思想,里面还有个重力场,比较有意思)</p></li><li><p>Eberhart, R. C. and Shi, Y. Comparing inertia weigthts and constriction factors in particle swarm optimization. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2000), San Diego, CA. pp. 84-88, 2000 (惯性权重与压缩因子)</p></li><li><p>Shi, Y. and Eberhart, R. C. Particle swarm optimization with fuzzy adaptive inerita weight. Proceedings of the Workshop on Particle Swarm Optimization 2001, Indianapolis, IN. 2001  (为适应动态环境,提出模糊惯性权重)</p></li><li><p>A. Ratnaweera, S. Halgamuge, and H. Watson, “Self-organizing hierarchical particle swarm optimizer with time varying accelerating coefficients,”IEEE Trans. Evol. Comput., vol. 8, pp. 240–255, Jun. 2004. (对几个参数做了拓展以及非常详尽的分析)</p></li></ul><h4 id="改进与分析-粒子拓扑方向"><a href="#改进与分析-粒子拓扑方向" class="headerlink" title="改进与分析_粒子拓扑方向:"></a>改进与分析_粒子拓扑方向:</h4><ul><li><p>Kennedy, J. Small worlds and mega-minds: effects of neighborhood topology on particle swarm performance. Proceedings of IEEE Congress on Evolutionary Computation (CEC 1999), Piscataway, NJ. pp. 1931-1938, 1999  (小世界拓扑对结果的影响)</p></li><li><p>Suganthan, P. N. Particle swarm optimiser with neighbourhood operator. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1999), Piscataway, NJ. pp. 1958-1962, 1999  (引入领域算子)</p></li><li><p>Kennedy, J. Stereotyping: improving particle swarm performance with cluster analysis. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2000), San Diego, CA. pp. 1507-1512, 2000</p></li><li><p>Kennedy, J. and Mendes, R. Population structure and particle swarm performance. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002</p></li><li><p>Krink, T., Vesterstroem, J. S., and Riget, J. Particle swarm optimisation with spatial particle extension. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002 </p></li><li><p>Janson, S. and Middendorf, M. A hierarchical particle swarm optimizer. Proceedings of IEEE Congress on Evolutionary Computation 2003 (CEC 2003), Canbella, Australia. pp. 770-776, 2003  (使粒子动态的按照树型排列)</p></li><li><p>Kennedy, J. and Mendes, R. Neighborhood topologies in fully-informed and best-of-neighborhood particle swarms. Proceedings of the 2003 IEEE International Workshop on Soft Computing in Industrial Applications 2003 (SMCia/03), pp. 45-50, 2003</p></li><li><p>R. Mendes, J. Kennedy, and J. Neves, “The fully informed particle swarm: Simpler, maybe better,” IEEE Trans. Evol. Comput., vol. 8, pp. 204–210, Jun. 2004.  (重要的FIPs模型,所有粒子的信息用来更新一个粒子的信息)</p></li></ul><h4 id="改进与分析-多样性提升方向"><a href="#改进与分析-多样性提升方向" class="headerlink" title="改进与分析_多样性提升方向:"></a>改进与分析_多样性提升方向:</h4><ul><li><p>Blackwell, T. M. and Bentley, P. J. Don’t push me! collision-avoiding swarms.Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002 </p></li><li><p>Riget, J. and Vesterstroem, J. S. A diversity-guided particle swarm optimizer- the ARPSO. Technical Report No. 2002-02. 2002. Dept. of Computer Science, University of Aarhus, EVALife.</p></li><li><p>Peram, T., Veeramachaneni, K., and Mohan, C. K. Fitness-distance-ratio based particle swarm optimization. Proceedings of the IEEE Swarm Intelligence Symposium 2003 (SIS 2003), Indianapolis, Indiana, USA. pp. 174-181, 2003</p></li></ul><p>comments:很多其他类里的paper都可以归类到这儿来。</p><h4 id="改进与分析-结合其他算法思想方向"><a href="#改进与分析-结合其他算法思想方向" class="headerlink" title="改进与分析_结合其他算法思想方向:"></a>改进与分析_结合其他算法思想方向:</h4><ul><li><p>Angeline, P. J. Using selection to improve particle swarm optimization. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1998), Anchorage, Alaska, USA. 1998  (借鉴GA里的选择优秀染色体思想)</p></li><li><p>Lvbjerg, M., Rasmussen, T. K., and Krink, T. Hybrid particle swarm optimiser with breeding and subpopulations. Proceedings of the Genetic and Evolutionary Computation Conference 2001 (GECCO 2001), 2001 </p></li><li><p>Higashi, N. and Iba, H. Particle swarm optimization with gaussian mutation. Proceedings of the IEEE Swarm Intelligence Symposium 2003 (SIS 2003), Indianapolis, Indiana, USA. pp. 72-79, 2003  (同样也是GA里的思想)</p></li><li><p>Y.X.Wang, Z.D.Zhao, R.Ren. Hybrid Particle swarm optimizer with tabu strategy. In submission. (禁忌搜索的思想)</p></li><li><p>Juang, C.-F., “A hybrid of genetic algorithm and particle swarm optimization for recurrent network design,” IEEE Transactions on Systems, Man, and Cubernetics - Part B: Cybernetics, vol. accepted 2003.</p></li><li><p>SHi, X., Lu, Y., Zhou, C., Lee, H., Lin, W., and Liang, Y. Hybrid evolutionary algorithms based on PSO and GA. Proceedings of IEEE Congress on Evolutionary Computation 2003 (CEC 2003), Canbella, Australia. pp. 2393-2399, 2003</p></li><li><p>Stacey, A., Jancic, M., and Grundy, I. Particle swarm optimization with mutation. Proceedings of IEEE Congress on Evolutionary Computation 2003 (CEC 2003), Canbella, Australia. pp. 1425-1430, 2003  (GA also)</p></li></ul><h4 id="改进与分析-其他"><a href="#改进与分析-其他" class="headerlink" title="改进与分析_其他"></a>改进与分析_其他</h4><ul><li><p>K. E. Parsopoulos, V. P. Plagianakos, G. D. Magoulas, and M. N. Vrahatis, “Stretching technique for obtaining global minimizers through particle swarm optimization,” in Proc. Particle Swarm Optimization Workshop, Indianapolis, IN, 2001, pp. 22–29.(对目标函数的变换)</p></li><li><p>K.E. Parsopoulos, M.N. Vrahatis, On the computation of all global minimizers through particle swarm optimization. IEEE Trans. on Evolutionary Computation, 2004,8(3):211-224. (上文的拓展,可以检测多全局最优,如Nash均衡点)</p></li><li><p>“UPSO—A unified particle swarm optimization scheme,” in Lecture Serieson Computational Sciences, 2004, pp. 868–873. (将全局拓扑和局部拓扑结合)</p></li><li><p>Al-kazemi, B. and Mohan, C. K. Multi-phase generalization of the particle swarm optimization algorithm. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002  (搜索方向改进)</p></li><li><p>Xie, X., Zhang, W., and Yang, Z. A dissipative particle swarm optimization. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002  (类比为耗散系统,加入负熵使系统脱离平衡态)</p></li><li><p>Van den Bergh F, Engelbrecht A P. A Cooperative Approach to Particle Swarm Optimization [J]. IEEE Transaction on Evolutionary Computation,2004, 8(3):225-239. (多粒子群协同优化)</p></li><li><p>J. J. Liang, A. K. Qin, P. N. Suganthan and S. Baskar, “Comprehensive Learning Particle Swarm Optimizer for Global Optimization of Multimodal Functions”, IEEE Trans. on Evolutionary Computation, Vol. 10, No. 3, pp. 281-295, June 2006. (新的粒子搜索及合作策略)</p></li></ul><p>comments:PSO的应用以及改进方向并不止我列出的这些,比如多目标优化这里就没有给出。但这些paper已经足够入门了,各位如有兴趣可以自己搜索.04年之前一个比较全的bibliography在 <a href="http://www.swarmintelligence.org/bibliography.php" target="_blank" rel="noopener">http://www.swarmintelligence.org/bibliography.php</a> 可以找到,大约300多篇。</p><h3 id="Websites"><a href="#Websites" class="headerlink" title="Websites:"></a>Websites:</h3><ul><li><a href="http://www.swarmintelligence.org/" target="_blank" rel="noopener">http://www.swarmintelligence.org/</a></li><li><a href="http://www.particleswarm.info/" target="_blank" rel="noopener">http://www.particleswarm.info/</a></li><li><a href="http://clerc.maurice.free.fr/pso/" target="_blank" rel="noopener">http://clerc.maurice.free.fr/pso/</a></li></ul><p>comments:这三个网站关于PSO的资源非常丰富.第3个是clerc大拿的,里面更偏重对算法数学上的分析。</p><h3 id="Leading-Journals-and-Confs"><a href="#Leading-Journals-and-Confs" class="headerlink" title="Leading Journals and Confs:"></a>Leading Journals and Confs:</h3><ul><li>Evolutionary Computation (MIT press)</li><li>IEEE Transactions on Evolutionary Computation</li><li>IEEE Transactions on Neural Network</li><li>IEEE Transactions on Systems, Man, and Cubernetics Part:A,B</li><li>Genetic and Evolutionary Computation Conference (GECCO, ACM SIGEVO)</li><li>IEEE Congress on Evolutionary Computation(CEC)</li><li>Parallel Problem Solving from Nature (PPSN)</li></ul><h3 id="Homepages"><a href="#Homepages" class="headerlink" title="Homepages"></a>Homepages</h3><ul><li><a href="http://www.adaptivebox.net/research/" target="_blank" rel="noopener">http://www.adaptivebox.net/research/</a> (Dr.Xiaofeng Xie, TSU)</li><li><a href="http://www.ntu.edu.sg/home/EPNSugan/" target="_blank" rel="noopener">http://www.ntu.edu.sg/home/EPNSugan/</a> (Prof.Suganthan, NYU)</li><li><a href="http://goanna.cs.rmit.edu.au/~xiaodong/" target="_blank" rel="noopener">http://goanna.cs.rmit.edu.au/~xiaodong/</a> (Prof. XiaoDong, RMIT)</li><li><a href="http://clerc.maurice.free.fr/" target="_blank" rel="noopener">http://clerc.maurice.free.fr/</a> (Dr.Clerc, France Telecom, Strongly recommend)</li></ul><p>comments:上面是我常去的一些page,主要的PSO学者在 <a href="http://www.particleswarm.info/people.html" target="_blank" rel="noopener">http://www.particleswarm.info/people.html</a> 上可以找到</p><h3 id="Benchmarks"><a href="#Benchmarks" class="headerlink" title="Benchmarks"></a>Benchmarks</h3><ul><li><a href="http://www-optima.amp.i.kyoto-u.ac.jp/member/student/hedar/Hedar_files/TestGO_files/Page364.htm" target="_blank" rel="noopener">http://www-optima.amp.i.kyoto-u.ac.jp/member/student/hedar/Hedar_files/TestGO_files/Page364.htm</a></li><li><a href="http://www2.imm.dtu.dk/~km/GlobOpt/testex/testproblems.html#07" target="_blank" rel="noopener">http://www2.imm.dtu.dk/~km/GlobOpt/testex/testproblems.html#07</a></li><li><a href="http://www.cs.cmu.edu/afs/cs/project/jair/pub/volume24/ortizboyer05a-html/node6.html" target="_blank" rel="noopener">http://www.cs.cmu.edu/afs/cs/project/jair/pub/volume24/ortizboyer05a-html/node6.html</a></li><li><a href="http://www.geatbx.com/docu/fcnindex.html" target="_blank" rel="noopener">http://www.geatbx.com/docu/fcnindex.html</a></li><li><a href="http://www.maths.uq.edu.au/CEToolBox/node2.html" target="_blank" rel="noopener">http://www.maths.uq.edu.au/CEToolBox/node2.html</a></li><li>J. G. DIGALAKIS and K. G. MARGARITIS. ON BENCHMARKING FUNCTIONS OR GENETIC ALGORITHMS. Inter J Computer Math., Vol. 00, pp. 1-27 (给出了大多数标准无约束测试函数的性态分析)</li></ul><p>Comments:改进或提出一个优化算法需要对其作出性能评测,这里提供一些标准的测试集,包括DeJong系列函数,Rastrigin系列函数等,以及其他有约束,离散,组合优化标准测试问题.</p><p>最近Prof.Suganthan等提出了一套Composition functions,具体参见他的homepage,同样CEC05上也提出了大约30个测试函数.对这些函数进行rotate,shift,distortion等操作可以变换为更复杂的函数,具体请参加相关paper。</p><h3 id="code、software、projects、implementations"><a href="#code、software、projects、implementations" class="headerlink" title="code、software、projects、implementations"></a>code、software、projects、implementations</h3><ul><li><a href="http://xps-swarm.essex.ac.uk" target="_blank" rel="noopener">http://xps-swarm.essex.ac.uk</a>  (有些类似与以前的EVALife project, 同样有Santa Fe的参与, 重视学科交叉)</li><li><a href="http://cilib.sourceforge.net" target="_blank" rel="noopener">http://cilib.sourceforge.net</a> (计算智能库, written in java)</li><li><a href="http://clerc.maurice.free.fr/pso/" target="_blank" rel="noopener">http://clerc.maurice.free.fr/pso/</a></li><li><a href="http://www.particleswarm.info/Programs.html#Standard_PSO_2006" target="_blank" rel="noopener">http://www.particleswarm.info/Programs.html#Standard_PSO_2006</a> (一些PSO的项目)</li><li><a href="http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=7506" target="_blank" rel="noopener">http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=7506</a> (pso matlab toolbox)</li><li><a href="ftp://www.china2china.com/" target="_blank" rel="noopener">ftp://www.china2china.com/</a> user:pso, passwd:pso   (一些paper可以在这里直接下载)</li></ul><p>comments:各位如果需要几个重要PSO改进的matlab实现,请联系prof.suganthan或直接发邮件给我.</p><h3 id="Future-work"><a href="#Future-work" class="headerlink" title="Future work"></a>Future work</h3><p>2004 年IEEE Transactions on Evolutionary Computation出版了Special issue on PSO,卷首语中指出了当前研究的几个主要方向及热点:</p><ul><li>算法分析. PSO在实际应用中被证明是有效的, 但目前还没有给出完整收敛性、收敛速度估计等方面的数学证明,已有的工作还远远不够。</li><li>粒子群拓扑结构.不同的粒子群邻居拓扑结构是对不同类型社会的模拟,研究不同拓扑结构的适用范围,对PSO算法推广和使用有重要意义。</li><li>参数选择与优化.参数w、φ1、φ2的选择分别关系粒子速度的3个部分:惯性部分、社会部分和感知部分在搜索中的作用.如何选择、优化和调整参数,使得算法既能避免早熟又能比较快速地收敛,对工程实践有着重要意义。</li><li>与其他演化计算的融合.如何将其它演化的优点和PSO的优点相结合,构造出新的混合算法是当前算法改进的一个重要方向。</li><li>算法应用.算法的有效性必须在应用中才能体现,广泛地开拓PSO的应用领域,也对深化研究PSO算法非常有意义。</li></ul><p>我在以前的帖子里曾经提到过,PSO是很适合演化计算方向入门的.特别是其算法实现非常简单,因此建议大家能够先实现基础算法.如果想进一步了解乃至研究,上面列出的除了应用的几十篇paper基本都是需要看的.PSO从提出到现在已经11年了,大小坑挖的也不少了,各位如果想在这个领域出新,出好结果,还是需要有一定功力的.对于我们目前的情况,我认为大家可以主要将精力集中在第(5)点。<a href="http://www.particleswarm.info/Problems.html" target="_blank" rel="noopener">http://www.particleswarm.info/Problems.html</a> 也列出了一些有意思的open problems。当然,都是有一定难度的 :-)</p><p>对于PSO的改进与分析,如何有能力的话,我仍然坚持认为一个突破口是学科交叉,比如粒子搜索的混沌行为,粒子进化以及合作策略中的博弈,统计物理学在群智能中的应用等等.这也是我接下来的研究内容.另外Clerc大拿网站上也有一篇经常更新的paper,”Some ideas about Particle Swarm Optimisation”,里面记录了很多他对PSO的理解,同样非常值得一看。</p><p>–<br>logpie=0.497</p><p>※ 来源:·紫金飞鸿 bbs.njupt.edu.cn·</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;【转载前辈的好博文】粒子群算法资源合辑-zz&quot;&gt;&lt;a href=&quot;#【转载前辈的好博文】粒子群算法资源合辑-zz&quot; class=&quot;headerlink&quot; title=&quot;【转载前辈的好博文】粒子群算法资源合辑[zz]&quot;&gt;&lt;/a&gt;【转载前辈的好博文】粒子群算法资源合辑[zz]&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="EAs" scheme="https://e99net.github.io/categories/EAs/"/>
+    
+    
+      <category term="PSO" scheme="https://e99net.github.io/tags/PSO/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在Ubuntu上完美安装oh-my-zsh</title>
+    <link href="https://e99net.github.io/2018/06/07/install_oh-my-zsh_of_ubuntu/"/>
+    <id>https://e99net.github.io/2018/06/07/install_oh-my-zsh_of_ubuntu/</id>
+    <published>2018-06-07T12:25:27.582Z</published>
+    <updated>2018-06-07T13:54:52.383Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前戏"><a href="#前戏" class="headerlink" title="前戏"></a>前戏</h3><p>查看系统当前使用的shell<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ echo $SHELL</span><br><span class="line">/bin/bash</span><br></pre></td></tr></table></figure></p><p>查看系统是否安装了zsh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/shells</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/bash</span><br><span class="line">/usr/bin/sh</span><br><span class="line">/usr/bin/bash</span><br></pre></td></tr></table></figure></p><h3 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a>安装zsh</h3><p>一般来说，直接运行</p><blockquote><p>sudo apt-get install zsh</p></blockquote><p>即可。当然也可以下载源<a href="http://zsh.sourceforge.net/Arc/source.html" target="_blank" rel="noopener">Download zsh source</a>，使用curl安装</p><blockquote><p>curl -L <a href="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh" target="_blank" rel="noopener">https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh</a> | sh</p></blockquote><h3 id="把zsh设为默认终端"><a href="#把zsh设为默认终端" class="headerlink" title="把zsh设为默认终端"></a>把zsh设为默认终端</h3><blockquote><p>chsh -s $(which zsh)</p></blockquote><p>重启系统，可使用</p><blockquote><p>reboot</p></blockquote><p>重启后，查看当前shell</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ echo $SHELL</span><br><span class="line">/bin/zsh</span><br></pre></td></tr></table></figure><h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br></pre></td></tr></table></figure><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vim ~/.zshrc</span><br><span class="line">ZSH_THEME=&quot;agnoster&quot;</span><br><span class="line">$ source ~/.zshrc</span><br></pre></td></tr></table></figure><h3 id="agnoster主题终端乱码的解决方案"><a href="#agnoster主题终端乱码的解决方案" class="headerlink" title="agnoster主题终端乱码的解决方案"></a>agnoster主题终端乱码的解决方案</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/powerline/fonts</span><br><span class="line">$ cd ~/fonts</span><br><span class="line">$ ./install.sh</span><br></pre></td></tr></table></figure><p>然后在配置终端，依次选择“编辑”-&gt;“配置文件首选项”，选择“自定义字体”，字体为“Ubuntu Mono derivative Powerline Regular”即可。</p><p>另外一种解决方案来自csdn：<a href="https://blog.csdn.net/CoderMannul/article/details/69802968" target="_blank" rel="noopener">CoderMannul的博客</a><br>还有一种解决方案是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.zshrc</span><br></pre></td></tr></table></figure></p><p>在文件中添加内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export LC_ALL=en_US.UTF-8</span><br></pre></td></tr></table></figure></p><p>并解除注释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export LANG=en_US.UTF-8</span><br></pre></td></tr></table></figure></p><p>接着重启终端，或输入</p><blockquote><p>source ~/.zshrc</p></blockquote><p>即可。以上两种解决方案一般不用，只有在第一种方案不行时才尝试一下。</p><p>小彩蛋：在~/.zshrc中添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export DEFAULT_USER=&quot;[你的username]&quot;</span><br></pre></td></tr></table></figure></p><p>即可隐藏固定的username@hostname信息。<br>另外，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim ~/.oh-my-zsh/themes/agnoster.zsh-theme</span><br></pre></td></tr></table></figure></p><p>注释掉最下面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">## Main prompt</span><br><span class="line">build_prompt() &#123;</span><br><span class="line"> RETVAL=$?</span><br><span class="line"> prompt_status</span><br><span class="line"> prompt_virtualenv</span><br><span class="line"> prompt_context</span><br><span class="line"> prompt_dir</span><br><span class="line"> prompt_git</span><br><span class="line"> prompt_hg</span><br><span class="line"> prompt_end</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>中的一句</p><blockquote><p>prompt_context</p></blockquote><p>也能实现相同的效果。（一般不采用此方法）</p><h3 id="启用插件"><a href="#启用插件" class="headerlink" title="启用插件"></a>启用插件</h3><p>oh-my-zsh自带了一些默认主题，存放在~/.oh-my-zsh/plugins目录中，我们可以查看这些插件。<br>oh-my-zsh默认只启用git插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=(git)</span><br></pre></td></tr></table></figure></p><p>如需启用更多插件，只需加入需启用的插件名称即可，如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=(git history-substring-search)</span><br></pre></td></tr></table></figure></p><h3 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h3><p>设置自动更新oh-my-zsh。默认情况下，当oh-my-zsh有更新时，都会给你提示。如果希望让oh-my-zsh自动更新，在~/.zshrc 中添加下面这句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DISABLE_UPDATE_PROMPT=true</span><br></pre></td></tr></table></figure></p><p>要手动更新，可以执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ upgrade_oh_my_zsh</span><br></pre></td></tr></table></figure></p><p>卸载oh-my-zsh，直接在终端中运行如下命令即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uninstall_oh_my_zsh</span><br></pre></td></tr></table></figure></p><h3 id="安装没带的插件"><a href="#安装没带的插件" class="headerlink" title="安装没带的插件"></a>安装没带的插件</h3><ul><li><p>安装zsh-syntax-highlighting语法高亮插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git</span><br><span class="line">$ echo &quot;source $&#123;(q-)PWD&#125;/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&quot; &gt;&gt; $&#123;ZDOTDIR:-$HOME&#125;/.zshrc</span><br><span class="line">$ source ~/.zshrc</span><br></pre></td></tr></table></figure></li><li><p>安装zsh-autosuggestions语法历史记录插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</span><br><span class="line">$ vim ~/.zshrc</span><br><span class="line">plugins=(git zsh-autosuggestions)</span><br><span class="line">source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh（加在zshrc文件最后一行）</span><br><span class="line">$ source ~/.zshrc</span><br></pre></td></tr></table></figure></li><li><p>安装incr补全插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://mimosa-pudica.net/src/incr-0.2.zsh</span><br><span class="line">$ mv ~/incr-0.2.zsh ~/.oh-my-zsh/plugins/</span><br></pre></td></tr></table></figure></li></ul><p>将</p><blockquote><p>source ~/.oh-my-zsh/plugins/incr/incr*.zsh</p></blockquote><p>一句加在zshrc文件末尾，然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ source ~/.zshrc</span><br></pre></td></tr></table></figure></p><h3 id="与vim的提示冲突的解决方案"><a href="#与vim的提示冲突的解决方案" class="headerlink" title="与vim的提示冲突的解决方案"></a>与vim的提示冲突的解决方案</h3><p>使用自动补全插件可能会与vim的提示功能相冲突，如会报以下错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vim t</span><br><span class="line">_arguments:451: _vim_files: function definition file not found</span><br></pre></td></tr></table></figure></p><p>此时，将~/.zcompdump*删除即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf ~/.zcompdump*</span><br><span class="line">$ exec zsh</span><br></pre></td></tr></table></figure></p><h3 id="让Windows下的putty、secureCRT等工具支持Powerline，使得oh-my-zsh正常显示、不出现乱码"><a href="#让Windows下的putty、secureCRT等工具支持Powerline，使得oh-my-zsh正常显示、不出现乱码" class="headerlink" title="让Windows下的putty、secureCRT等工具支持Powerline，使得oh-my-zsh正常显示、不出现乱码"></a>让Windows下的putty、secureCRT等工具支持Powerline，使得oh-my-zsh正常显示、不出现乱码</h3><ul><li>将这些工具的编码改为UTF-8</li><li>下载支持Powerline的字体（DejaVu for Powerline.zip），将解压后的tty文件拖入“C:\Windows\Fonts”下，重启工具更改设置，选择终端窗口使用的字体为“DejaVu for Powerline”即可。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;前戏&quot;&gt;&lt;a href=&quot;#前戏&quot; class=&quot;headerlink&quot; title=&quot;前戏&quot;&gt;&lt;/a&gt;前戏&lt;/h3&gt;&lt;p&gt;查看系统当前使用的shell&lt;br&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Water" scheme="https://e99net.github.io/tags/Water/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pip3版本8升级到版本10后，Pycharm装包出错的解决方案</title>
+    <link href="https://e99net.github.io/2018/06/02/pipofpycharm/"/>
+    <id>https://e99net.github.io/2018/06/02/pipofpycharm/</id>
+    <published>2018-06-02T06:15:43.535Z</published>
+    <updated>2018-06-02T06:23:44.889Z</updated>
+    
+    <content type="html"><![CDATA[<p>Python3的pip从版本8升级到版本10之后，在Pycharm中安装package，会出现如下问题:</p><blockquote><p>AttributeError: module ‘pip’ has no attribute ‘main’</p></blockquote><p>解决方案如下：<br>找到安装目录下的helpers/packaging_tool.py文件，将如下代码<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def do_install(pkgs):</span><br><span class="line">try:</span><br><span class="line">import pip</span><br><span class="line">except ImportError:</span><br><span class="line">error_no_pip()</span><br><span class="line">return pip.main([&apos;install&apos;] + pkgs)</span><br><span class="line"></span><br><span class="line">def do_uninstall(pkgs):</span><br><span class="line">try:</span><br><span class="line">import pip</span><br><span class="line">except ImportError:</span><br><span class="line">error_no_pip()</span><br><span class="line">return pip.main([&apos;uninstall&apos;, &apos;-y&apos;] + pkgs)</span><br></pre></td></tr></table></figure></p><p>修改为如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">def do_install(pkgs):</span><br><span class="line">try:</span><br><span class="line"># import pip</span><br><span class="line">try:</span><br><span class="line">from pip._internal import main</span><br><span class="line">except Exception:</span><br><span class="line">from pip import main</span><br><span class="line">except ImportError:</span><br><span class="line">error_no_pip()</span><br><span class="line">return main([&apos;install&apos;] + pkgs)</span><br><span class="line"></span><br><span class="line">def do_uninstall(pkgs):</span><br><span class="line">try:</span><br><span class="line"># import pip</span><br><span class="line">try:</span><br><span class="line">from pip._internal import main</span><br><span class="line">except Exception:</span><br><span class="line">from pip import main</span><br><span class="line">import pip</span><br><span class="line">except ImportError:</span><br><span class="line">error_no_pip()</span><br><span class="line">return main([&apos;uninstall&apos;, &apos;-y&apos;] + pkgs)</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Python3的pip从版本8升级到版本10之后，在Pycharm中安装package，会出现如下问题:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AttributeError: module ‘pip’ has no attribute ‘main’&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;解决方案如下：&lt;br&gt;找到安装目录下的helpers/packaging_tool.py文件，将如下代码&lt;br&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Water" scheme="https://e99net.github.io/tags/Water/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自定义右键菜单</title>
+    <link href="https://e99net.github.io/2018/05/27/define_rightmenu_byyourself/"/>
+    <id>https://e99net.github.io/2018/05/27/define_rightmenu_byyourself/</id>
+    <published>2018-05-27T09:37:00.765Z</published>
+    <updated>2018-06-18T04:27:05.485Z</updated>
+    
+    <content type="html"><![CDATA[<p>许多绿色版的软件无法像那些安装版的软件一样添加到右键菜单，导致很不方便，这时可以自己将其添加到右键菜单，提高工作效率。<br>下面以Sublime Text为例加以说明：<br><a id="more"></a></p><ul><li>打开注册表</li><li>找到HKEY_CLASSESS_ROOT-&gt; * -&gt;Shell，在下面新建项，命名为“Sublime Text”。</li><li>在项“Sublime Text”下新建字符串值，命名为“Icon”，将其值设为“X:\path\to\sublime_text.exe,0”。其中，0前面的是Sublime Text在你电脑上的安装路径。</li><li>在项“Sublime Text”下再新建项“Command”，Command项下的默认值修改为“X:\path\to\sublime_text.exe %1”。</li><li>设置完成后，关闭注册表，右键菜单即会出现“Sublime Text”。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;许多绿色版的软件无法像那些安装版的软件一样添加到右键菜单，导致很不方便，这时可以自己将其添加到右键菜单，提高工作效率。&lt;br&gt;下面以Sublime Text为例加以说明：&lt;br&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Water" scheme="https://e99net.github.io/tags/Water/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C语言核心技术</title>
+    <link href="https://e99net.github.io/2018/05/26/cinanutshell/"/>
+    <id>https://e99net.github.io/2018/05/26/cinanutshell/</id>
+    <published>2018-05-26T13:22:02.348Z</published>
+    <updated>2018-05-26T13:25:00.204Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="宽字符"><a href="#宽字符" class="headerlink" title="宽字符"></a>宽字符</h3><p>为了更好地支持Unicode，C11引入额外的宽字符类型char16_t和char32_t。在头文件uchar.h中，它们被定义为无符号整数类型。<br><a id="more"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;宽字符&quot;&gt;&lt;a href=&quot;#宽字符&quot; class=&quot;headerlink&quot; title=&quot;宽字符&quot;&gt;&lt;/a&gt;宽字符&lt;/h3&gt;&lt;p&gt;为了更好地支持Unicode，C11引入额外的宽字符类型char16_t和char32_t。在头文件uchar.h中，它们被定义为无符号整数类型。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="C/C++" scheme="https://e99net.github.io/tags/C-C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Latex设置行间距</title>
+    <link href="https://e99net.github.io/2018/05/26/linespace_of_latex/"/>
+    <id>https://e99net.github.io/2018/05/26/linespace_of_latex/</id>
+    <published>2018-05-26T03:23:07.926Z</published>
+    <updated>2018-05-26T03:26:41.783Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="全局设置行间距"><a href="#全局设置行间距" class="headerlink" title="全局设置行间距"></a>全局设置行间距</h3><p>像Word一样设置单倍间距、1.5倍间距、2倍间距等。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;setspace&#125;</span><br><span class="line">\renewcommand&#123;\baselinestretch&#125;&#123;1.0&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="局部设置行间距"><a href="#局部设置行间距" class="headerlink" title="局部设置行间距"></a>局部设置行间距</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">%使用行距宏包，该宏包自带三个选项：singlespacing（默认）, onehalfspacing和doublespacing</span><br><span class="line">\usepackage&#123;setspace&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">%行间距变为double-space</span><br><span class="line">\begin&#123;spacing&#125;&#123;2.0&#125;</span><br><span class="line">双倍行距的段落内容。</span><br><span class="line">\end&#123;spacing&#125;</span><br><span class="line">%行间距变为single-space</span><br><span class="line">\begin&#123;spacing&#125;&#123;1.0&#125;</span><br><span class="line">单倍行距的段落内容。</span><br><span class="line">\end&#123;spacing&#125;</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;全局设置行间距&quot;&gt;&lt;a href=&quot;#全局设置行间距&quot; class=&quot;headerlink&quot; title=&quot;全局设置行间距&quot;&gt;&lt;/a&gt;全局设置行间距&lt;/h3&gt;&lt;p&gt;像Word一样设置单倍间距、1.5倍间距、2倍间距等。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;\usepackage&amp;#123;setspace&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;\renewcommand&amp;#123;\baselinestretch&amp;#125;&amp;#123;1.0&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Latex" scheme="https://e99net.github.io/tags/Latex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Latex的beamer中显示图片编号</title>
+    <link href="https://e99net.github.io/2018/05/24/beamer_showfigid/"/>
+    <id>https://e99net.github.io/2018/05/24/beamer_showfigid/</id>
+    <published>2018-05-24T13:50:37.038Z</published>
+    <updated>2018-05-24T13:54:48.324Z</updated>
+    
+    <content type="html"><![CDATA[<p>在beamer幻灯片中如果插入图形，一般不会显示图形编号，这是其默认模式，但我们可以通过设置给图形编号，在导言区加上如下命令即可。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\setbeamertemplate&#123;caption&#125;[numbered]</span><br></pre></td></tr></table></figure></p><p>这样在正文的某页写入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;frame&#125;</span><br><span class="line">  \begin&#123;figure&#125;</span><br><span class="line">    \includegraphics[width=0.5\textwidth]&#123;letter.pdf&#125;</span><br><span class="line">    \caption&#123;26个英文字母表&#125;</span><br><span class="line">  \end&#123;figure&#125;</span><br><span class="line">\end&#123;frame&#125;</span><br></pre></td></tr></table></figure></p><p>运行后就能显示图1,图2等编号了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在beamer幻灯片中如果插入图形，一般不会显示图形编号，这是其默认模式，但我们可以通过设置给图形编号，在导言区加上如下命令即可。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Latex" scheme="https://e99net.github.io/tags/Latex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>XeLatex在window上编译很慢的解决方法</title>
+    <link href="https://e99net.github.io/2018/05/24/texslow/"/>
+    <id>https://e99net.github.io/2018/05/24/texslow/</id>
+    <published>2018-05-24T12:57:03.015Z</published>
+    <updated>2018-05-24T12:58:38.731Z</updated>
+    
+    <content type="html"><![CDATA[<p>环境：win7 + texlive 2017 + TeXstudio</p><a id="more"></a><p>解决方法：</p><p>A. 以管理员身份运行fc-cache</p><p>B. 在texlive安装路径bin/win32下，设置xelatex.exe以管理员身份启动。</p><p>C. 启动TeXstudio时以管理员身份启动</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;环境：win7 + texlive 2017 + TeXstudio&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Latex" scheme="https://e99net.github.io/tags/Latex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>“ES连不上电脑了，一直卡在登陆界面”问题的解决方案</title>
+    <link href="https://e99net.github.io/2018/05/24/esconn/"/>
+    <id>https://e99net.github.io/2018/05/24/esconn/</id>
+    <published>2018-05-24T09:00:51.674Z</published>
+    <updated>2018-05-24T09:02:23.423Z</updated>
+    
+    <content type="html"><![CDATA[<p>本地策略，安全选项<br><a id="more"></a><br>网络访问: 本地帐户的共享和安全模型,属性改为”经典 - 本地用户以自己的身份验证”.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本地策略，安全选项&lt;br&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Water" scheme="https://e99net.github.io/tags/Water/"/>
+    
+  </entry>
+  
+</feed>

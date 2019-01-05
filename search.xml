@@ -1,0 +1,1257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>强化学习介绍</title>
+      <link href="/2018/11/12/A_intro_to_RL/"/>
+      <url>/2018/11/12/A_intro_to_RL/</url>
+      
+        <content type="html"><![CDATA[<h4 id="蒙特卡罗-VS-TD学习方法"><a href="#蒙特卡罗-VS-TD学习方法" class="headerlink" title="蒙特卡罗 VS TD学习方法"></a>蒙特卡罗 VS TD学习方法</h4><p>我们有两种学习方式：</p><ul><li>在episode的最后收集奖励并计算最大期望将来奖励：蒙特卡罗方法</li><li>估计每一步的奖励：时序差分学习</li></ul><a id="more"></a><h5 id="蒙特卡罗"><a href="#蒙特卡罗" class="headerlink" title="蒙特卡罗"></a>蒙特卡罗</h5><p>当episode结束时（智能体到达一个“终止状态”），智能体视其总共的累计奖励来知晓它做的怎么样。在蒙特卡罗方法中，只有在游戏的最后才会收到奖励。</p><p>然后，带着新增的知识开启一轮新游戏。智能体每次迭代会做出更好的决策。</p><h4 id="探索-开发的权衡"><a href="#探索-开发的权衡" class="headerlink" title="探索/开发的权衡"></a>探索/开发的权衡</h4><ul><li>探索是发现有关环境的更多信息</li><li>开发是开发已知的信息，使得奖励最大化</li></ul><p>强化学习智能体的目标是最大化期望的累计奖励，然而，我们会陷入一个共同的陷阱。</p><p>我们必须定义一个规则帮助我们处理这种权衡。</p><h4 id="强化学习的三种方法"><a href="#强化学习的三种方法" class="headerlink" title="强化学习的三种方法"></a>强化学习的三种方法</h4><p>解决强化学习问题的三种方法是：基于值、基于策略、基于模型。</p><h5 id="基于值"><a href="#基于值" class="headerlink" title="基于值"></a>基于值</h5><p>在基于值的强化学习中，目标是优化值函数</p><blockquote><p>值函数告知我们智能体在每个状态得到的最大期望将来奖励</p></blockquote><p>每个状态的值是在那个状态的智能体期望在将来累计的奖励总数。<br>$$<br>V_{\pi}(s)=\mathbb{E}<em>{\pi}[R</em>{t+1}+\gamma R_{t+2}+\gamma ^{2}R_{t+3}+…|S_t =s]<br>$$<br>智能体会使用这个值函数去在每一步选择一个状态，选择的状态具有最大的值。</p><h5 id="基于策略"><a href="#基于策略" class="headerlink" title="基于策略"></a>基于策略</h5><p>在基于策略的强化学习中，我们想不使用值函数而直接优化策略函数$\mathtt{\pi}(s)$。</p><p>策略是在一个给定的时间对智能体行为的定义。<br>$$<br>a=\pi(s)<br>$$<br>我们学习一个策略函数，使每个状态映射到对应的最好动作。</p><p>我们有两种策略：</p><ul><li>固定策略：一种在给定状态总会返回相同动作的策略。</li><li>随机策略：随动作输出分布概率。</li></ul><p>$$<br>\text{Stochastic policy:} \ \pi(a|s)=\mathbb{P}[A_t=a|S_t=s]<br>$$</p><p>策略直接表明每一步应该采取的最好动作。</p><h5 id="基于模型"><a href="#基于模型" class="headerlink" title="基于模型"></a>基于模型</h5><p>在基于模型的强化学习中，我们对环境建模。这意味着我们创建了一个环境行为的模型。</p><p>问题是每个环境都需要一个不同的模型表示。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Reinforcement Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Latex处理参考文献</title>
+      <link href="/2018/11/02/reference_of_latex/"/>
+      <url>/2018/11/02/reference_of_latex/</url>
+      
+        <content type="html"><![CDATA[<p>使用cite宏包可以生成参考文献</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;cite&#125;</span><br><span class="line">\cite&#123;b3,b4,b5,b6,b7,b8&#125;</span><br></pre></td></tr></table></figure><p>生成的参考文献格式为：[3]-[8]</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Latex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>WEB框架辨析</title>
+      <link href="/2018/10/23/webframe/"/>
+      <url>/2018/10/23/webframe/</url>
+      
+        <content type="html"><![CDATA[<h3 id="bootstrap是个Web框架吗？"><a href="#bootstrap是个Web框架吗？" class="headerlink" title="bootstrap是个Web框架吗？"></a>bootstrap是个Web框架吗？</h3><p>bootstrap不能算是个完整的框架，它应该算是一个css框架+一些js组件。主要目的不是提供一个完整的前端解决方案，而只是关注前端UI呈现。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>差分进化基础</title>
+      <link href="/2018/09/28/basic_of_DE/"/>
+      <url>/2018/09/28/basic_of_DE/</url>
+      
+        <content type="html"><![CDATA[<p>差分进化算法是一种自组织最小化方法，用户只需要很少的输入，它起源于遗传算法(EA)，是一种基于种群进化的算法，包括变异、交叉、选择、边界检测。</p><a id="more"></a><p>差分进化算法由Storn等人于1995年提出，是一种模拟生物进化的随机模型，保留了基于种群的全局搜索策略，降低了遗传操作的复杂性。</p><p>DE和PSO都是基于种群的算法，不同于其他演化算法的是，DE使用种群中两个随机选择的个体向量差产生一个新的候选解（个体）。DE有一个好的全局搜索能力，但通常在种群演化的后阶段收敛得很慢。PSO能够收敛得很快，但易于陷入局部最优。由于DE与PSO的互补特性，一些研究常聚焦于两者的混合应用。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> EAs </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DE </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>扫盲</title>
+      <link href="/2018/09/23/Eliminate_illiteracy/"/>
+      <url>/2018/09/23/Eliminate_illiteracy/</url>
+      
+        <content type="html"><![CDATA[<ul><li><p>中国、日本和韩国的象形文字总称为CJK。</p><a id="more"></a></li><li><p>Mac OS X Mavericks(巨浪)：X表示Mac的第10个版本，“X”是罗马数字“10”的意思。</p></li><li><p>将“休眠”去掉，同时腾出C盘空间：powercfg.exe /hibernate off。</p></li><li><p>Sublime Text快捷键：Ctrl+K U 改为大写，Ctrl+K L 改为小写。</p></li><li><p>FreeBSD比Linux还要稳定，可以做到十年不关机，并且比Linux速度要快出30%。</p></li><li><p>美国军方五角大楼采用的是openBSD操作系统。</p></li><li><p>编译器图书中的”龙书“、”虎书“、”鲸书“ 分别指的是《编译原理：技术与工具（第2版）》、《高级编译器：设计与实现》、《现代编译原理：C语言描述》</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JDK1.5的新特性</title>
+      <link href="/2018/09/23/jdk1.5_newCharacter/"/>
+      <url>/2018/09/23/jdk1.5_newCharacter/</url>
+      
+        <content type="html"><![CDATA[<p>jdk1.5的四个新特性如下：</p><ul><li>自动装箱和拆箱</li><li>增强for循环</li><li>静态导入（唯一的败笔）</li><li>可变参数</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>TPC-H的22条查询语句</title>
+      <link href="/2018/09/15/tpch/"/>
+      <url>/2018/09/15/tpch/</url>
+      
+        <content type="html"><![CDATA[<p>TPC-H的22条查询语句中包含两个以上的表连接操作和至少一个聚集函数的有：</p><a id="more"></a><ul><li>Q2（五表连接、一个聚集）√</li><li>Q3（三表连接、一个聚集）√</li><li>Q5（六表连接、一个聚集）√</li><li>Q7（六表连接、一个聚集）</li><li>Q8（八表连接、两个聚集）√</li><li>Q9（六表连接、一个聚集）</li><li>Q10（四表连接、一个聚集）</li><li>Q11（三表连接、三个聚集）</li><li>Q12（两表连接）</li><li>Q16（两表连接）</li><li>Q17（两表连接）</li><li>Q18（三表连接）</li><li>Q19（两表连接）</li><li>Q20（两表连接）</li><li>Q21（四表连接）</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Database </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>程序员必读书单 1.0</title>
+      <link href="/2018/08/15/BookList/"/>
+      <url>/2018/08/15/BookList/</url>
+      
+        <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>程序员的工作是编程，而高编程水平不是一蹴而就的，需要耗费时间来提升。要想缩短这个提升的过程，最好的办法就是多读书。在计算机领域浸淫了很久才意识到，静下心来多读几本好书是很有必要的，远胜于看一些教程、Ctrl+c/Ctrl+v似的伪编程。</p><p>推荐以下几本“业界良心”级的必读好书，相信每一个旨在“修炼功力”的程序员都需要它。</p><a id="more"></a><h4 id="进阶书籍"><a href="#进阶书籍" class="headerlink" title="进阶书籍"></a>进阶书籍</h4><h5 id="计算机系统"><a href="#计算机系统" class="headerlink" title="计算机系统"></a>计算机系统</h5><ul><li><p><a href="https://detail.tmall.com/item.htm?id=542545702099&ali_trackid=2:mm_116556109_15568784_59610223:1534839037_142_1967246833" target="_blank" rel="noopener">深入理解计算机系统</a>：豆瓣评分9.9分。</p><p><img src="https://img.alicdn.com/imgextra/i3/TB1RwP7OpXXXXbZXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"></p></li></ul><h5 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h5><ul><li><p>C++</p><ul><li><p><a href="https://detail.tmall.com/item.htm?id=45005128445&ali_trackid=2:mm_116556109_15568784_59610223:1534343053_269_1923278111" target="_blank" rel="noopener">C++ Primer中文版第5版</a>：此书是“教程+参考书”，扛梁之作，初学者的不二法门。</p><p><img src="https://img.alicdn.com/imgextra/i4/TB1HMvDQVXXXXc2XpXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"></p></li><li><p><a href="https://detail.tmall.com/item.htm?id=564574694111&ali_trackid=2:mm_116556109_15568784_59610223:1534341710_202_1584677023" target="_blank" rel="noopener">Linux多线程服务端编程</a>：国内作品，因为这本书的名字吓退了不少潜在读者，所以我要特别说明一下。此书是C++开发的高水平作品，与其说是教你怎么用C++写服务器开发，不如说是教你如何以服务端开发为例子提升C++开发水平。前面的书都是谈C++自己的事情，碰到像iostream这样失败的标准组件也不得不硬着头皮介绍。而这本书是接地气的实践结晶，告诉你面对具体问题时应该怎样权衡，C++里什么好用，什么不好用，为什么，等等。</p><p><img src="https://img.alicdn.com/imgextra/i1/2598292358/TB20koecOCYBuNkHFCcXXcHtVXa_!!2598292358.jpg_430x430q90.jpg"></p></li><li><p><a href="https://detail.tmall.com/item.htm?id=572902368595&ali_trackid=2:mm_116556109_15568784_59610223:1534342016_141_1005772488" target="_blank" rel="noopener">Effective C++ / More Effective C++</a>：Scott Meyers的此系列永远是学习C++者必读的，只不过这本书的第4版不知道什么时候出来。</p><p><img src="https://img.alicdn.com/imgextra/i1/2598292358/TB2AdwaB49YBuNjy0FfXXXIsVXa_!!2598292358.png_430x430q90.jpg"></p></li><li><p><a href="https://detail.tmall.com/item.htm?id=526269227203&ali_trackid=2:mm_116556109_15568784_59610223:1534336696_193_1133801096" target="_blank" rel="noopener">STL源码剖析</a>：源码面前，了无秘密。</p><p><img src="https://img.alicdn.com/imgextra/i1/TB1Pp0DLXXXXXbyXXXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"></p></li></ul></li><li><p>Java</p><ul><li><p>Java编程思想：几乎涵盖了JavaSE的所有知识点。</p><p><img src="https://img.alicdn.com/imgextra/i3/101450072/TB25G7Adkfb_uJkHFJHXXb4vFXa-101450072.jpg_430x430q90.jpg"></p></li></ul></li></ul><p>(未完待续……)</p><h5 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h5><p>(未完待续……)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>word中插入公式行距变大的问题</title>
+      <link href="/2018/07/29/docEdit/"/>
+      <url>/2018/07/29/docEdit/</url>
+      
+        <content type="html"><![CDATA[<p>使用Word的人难免有插入公式的时候，插入公式时容易出现段落行距变大的问题，解决方案如下。</p><a id="more"></a><ul><li>选中行距变大的那一行，右键选择”段落“</li><li><strong>在弹出的窗口中取消勾选”如果定义了文档网络，则对齐到网格“这一项</strong></li><li>点击确定按钮</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Latex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hadoop安装记事</title>
+      <link href="/2018/06/26/hadoop/"/>
+      <url>/2018/06/26/hadoop/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Hadoop安装过程中遇到的问题及解决思路"><a href="#Hadoop安装过程中遇到的问题及解决思路" class="headerlink" title="Hadoop安装过程中遇到的问题及解决思路"></a>Hadoop安装过程中遇到的问题及解决思路</h3><a id="more"></a><ul><li>DataNode用jps无法查看<ul><li>slaves文件中加入hadoop01</li></ul></li><li>“hadoop namenode -format”虽然提示过时，但仍然是可以用的，用于初始化hadoop，将data/name下的数据清空并将新的name信息写到data/name目录下</li><li>可以在hdfs-site.xml文件中配置dfs.data.dir参数（此参数控制目录位置）</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> BigData </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>重装系统后必做的几件事</title>
+      <link href="/2018/06/19/StartwithnewOperatingSystem/"/>
+      <url>/2018/06/19/StartwithnewOperatingSystem/</url>
+      
+        <content type="html"><![CDATA[<p>下面是老夫重装完系统后必做的几件事：<br><a id="more"></a></p><h3 id="锁定浏览器主页"><a href="#锁定浏览器主页" class="headerlink" title="锁定浏览器主页"></a>锁定浏览器主页</h3><ul><li>使“Internet选项”中的主页设置不可用<ul><li>进入internet选项，把主页改成你所想要的，然后按应用，千万记住不要按确认，也不要关闭选项卡。</li><li>开始—-运行—-输入gpedit.msc打开组策略。</li><li>在左边的树状结构中找到：用户配置—-管理模板—windows组件–点击“internet explorer”找到窗口右面的一项“禁用更改主页设置”—-双击打开—选为“已启用”–下面方框设置好你想要的默认主页。</li><li>确定第一步的internet选项，关闭选项卡后再次打开internet选项卡，可以发现主页那一栏变成灰色，就是不可更改主页了。 </li></ul></li><li>使浏览器不被篡改<ul><li>找到安装目录下的exe文件，右键属性，将其设为只读。</li><li>找到exe文件对应的快捷方式，将其设为只读。</li><li>[可选操作]在快捷方式下的目标中加入自己想要的主页地址，需注意的是，此地址与前面之间要有一个空格。</li></ul></li></ul><h3 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h3><ul><li>MacType</li><li>Microsoft Office 2010</li><li>Visual Studio 2013</li><li>Visual Studio Code</li><li>Vmware Workstation 14</li><li>QQ 8.7</li><li>Google Chrome</li><li>IE 10</li><li>Everything</li><li>TEXStudio + texlive</li><li>WinRAR</li><li>Java jdk 7&amp;8</li><li>Python 2&amp;3</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>粒子群算法的一些相关资源</title>
+      <link href="/2018/06/13/ResourcesofPSO/"/>
+      <url>/2018/06/13/ResourcesofPSO/</url>
+      
+        <content type="html"><![CDATA[<h2 id="【转载前辈的好博文】粒子群算法资源合辑-zz"><a href="#【转载前辈的好博文】粒子群算法资源合辑-zz" class="headerlink" title="【转载前辈的好博文】粒子群算法资源合辑[zz]"></a>【转载前辈的好博文】粒子群算法资源合辑[zz]</h2><a id="more"></a><p>发信人: logpie (Yuxuan), 信区: Circuit<br>标  题: 粒子群算法资源合辑<br>发信站: 紫金飞鸿 (Mon Oct 16 00:22:10 2006)</p><p>忙了大半年的big paper昨天终于投掉了。写下这个合集，一方面是对这一年零星资料的总结，另一方面是为方便有兴趣的Echoer们尽早入门，少走弯路，以加快我们合作的速度。下面列出的大部分是领域经典paper以及重要资源汇总。如有遗漏，我会不断增加的。</p><p>希望这个collecion能对大家有帮助，更渴望Echoer之间能尽早合作，望各位笑纳。<br>Any question, plz mailto:<a href="mailto:logpie@gmail.com" target="_blank" rel="noopener">logpie@gmail.com</a>.</p><h3 id="Books-and-dissertations"><a href="#Books-and-dissertations" class="headerlink" title="Books and dissertations:"></a>Books and dissertations:</h3><ul><li>Kennedy, J., Eberhart, R. C., and Shi, Y., Swarm intelligence San Francisco: Morgan Kaufmann Publishers, 2001. (PSO的founders所著)</li><li>van den Bergh, Frans, “An analysis of particle swarm optimizers.” PhD’s Dissertation Department of Computer Science, University of Pretoria, South Africa, 2002.  (Dr.Bergh的博士论文,详尽的给出了他对PSO的分析和改进,建议通读)</li></ul><h3 id="Papers"><a href="#Papers" class="headerlink" title="Papers"></a>Papers</h3><h4 id="原始论文"><a href="#原始论文" class="headerlink" title="原始论文:"></a>原始论文:</h4><ul><li><p>Kennedy J,Eberhart R C. Particle Swarm Optimization [C]. Proceedings of IEEE International Conference on Neural Networks, Perth, Australia, 1995.1942-1948.</p></li><li><p>R. C. Eberhart and J. Kennedy, “A new optimizer using particle swarm theory,”<br>in Proc. 6th Int. Symp. Micromachine Human Sci., Nagoya,Japan, 1995</p></li></ul><h4 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础:"></a>理论基础:</h4><ul><li><p>Clerc, M. and Kennedy, J., “The particle swarm-explosion, stability, and convergence in a multidimensional complex space,” IEEE Transactions on Evolutionary Computation, vol. 6, no. 1, pp. 58-73, 2002. (较完整的给出了PSO的收敛性,并发现使用压缩因子可以保证收敛,04年IEEE Trans. EVC Best paper award,必读)</p></li><li><p>Ozcan, E. and Mohan, C. K. Particle swarm optimization: surfing the waves. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1999), Washington, DC, USA. 1999</p></li><li><p>relea, I. C., “The particle swarm optimization algorithm: convergence analysis and parameter selection,” Information Processing Letters, vol. 85, no. 6, pp. 317-325, Mar.2003.  (另一个较小的收敛分析)</p></li></ul><h4 id="参数设置"><a href="#参数设置" class="headerlink" title="参数设置:"></a>参数设置:</h4><ul><li><p>Shi, Y. and Eberhart, R. C. Parameter selection in particle swarm optimization. Evolutionary Programming VII: Proceedings of the Seventh Annual Conference on Evolutionary Programming, New York. pp. 591-600, 1998</p></li><li><p>Shi, Y. and Eberhart, R. C. Empirical study of particle swarm optimization. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1999), Piscataway, NJ. pp. 1945-1950, 1999  (主要是对惯性权重的试验)</p></li><li><p>Carlisle, A. and Dozier, G. An off-the-shelf PSO. Proceedings of the Workshop on Particle Swarm Optimization 2001, Indianapolis, IN. 2001 (各个参数设置的比较,必读)</p></li></ul><h4 id="综述"><a href="#综述" class="headerlink" title="综述:"></a>综述:</h4><ul><li><p>Eberhart, R. C. and Shi, Y. Comparison between genetic algorithms and particle swarm optimization. Evolutionary Programming VII: Proceedings of the Seventh Annual Conference on Evolutionary Programming, San Diego, CA. 1998  (GA与PSO比较)</p></li><li><p>Eberhart, R. C. and Shi, Y. Particle swarm optimization: developments, applications and resources. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2001), Seoul, Korea. 2001</p></li><li><p>Parsopoulos, K. E. and Vrahatis, M. N., “Recent approaches to global optimization problems through particle swarm optimization,” Natural Computing, vol. 1, no. 2-3, pp. 235-306, 2002. (很长的综述,但是比较偏重作者自己提出的几个改进,呵呵)</p></li></ul><h4 id="应用"><a href="#应用" class="headerlink" title="应用:"></a>应用:</h4><ul><li><p>Ismail, A. and Engelbrecht, A. P. Training Product Units in Feedforward Neural Networks using Particle Swarm Optimization. Proceedings of the International Conference on Artificial Intelligence, Durban, South Africa. pp. 36-40, 1999</p></li><li><p>van den Bergh, F. and Engelbrecht, A. P., “Cooperative learning in neural networks using particle swarm optimizers,” South African Computer Journal, vol. 26 pp. 84-90, 2000.</p></li><li><p>L. Messerschmidt and A. P. Engelbrecht, “Learning to play games using a PSO-based competitive learning approach,” IEEE Trans. Evol.Comput., vol. 8, pp. 280–288, Jun. 2004.</p></li><li><p>Settles, M. and Rylander, B. Neural network learning using particle swarm optimizers. Advances in Information Science and Soft Computing, pp. 224-226, 2002</p></li><li><p>Tillett, J. C., Rao, R., Sahin, F., and Rao, T. M. Cluster-head identification in ad hoc sensor networks using particle swarm optimization. Proceedings of 2002 IEEE International Conference on Personal Wireless Communications, pp. 201-205, 2002</p></li><li><p>Coello Coello, C. A., Luna, E. H. n., and Aguirre, A. H. n. Use of particle swarm optimization to design combinational logic circuits. Lecture Notes in Computer Science(LNCS) No. 2606, pp. 398-409, 2003</p></li><li><p>Tillett, J. C., Rao, R. M., Sahin, F., and Rao, T. M. Particle swarm optimization for the clustering of wireless sensors. Procedings of SPIE Vol. 5100: Digital Wireless Communications V, pp. 73-83, 2003</p></li></ul><h4 id="改进与分析-离散域拓展及组合优化"><a href="#改进与分析-离散域拓展及组合优化" class="headerlink" title="改进与分析_离散域拓展及组合优化:"></a>改进与分析_离散域拓展及组合优化:</h4><ul><li><p>Kennedy, J. and Eberhart, R. C. A discrete binary version of the particle swarm algorithm. Proceedings of the World Multiconference on Systemics,Cybernetics and Informatics 1997, Piscataway, NJ. pp. 4104-4109, 1997  (最早的离散PSO,非常聪明的改进,值得一看)</p></li><li><p>Mohan, C. K. and Al-kazemi, B. Discrete particle swarm optimization. Proceedings of the Workshop on Particle Swarm Optimization 2001, Indianapolis, IN. 2001</p></li><li><p>Laskari, E. C., Parsopoulos, K. E., and Vrahatis, M. N. Particle swarm optimization for integer programming. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002 (PSO for 整数规划)</p></li><li><p>Schoofs, L. and Naudts, B. Swarm intelligence on the binary constraint satisfaction problem. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002 </p></li><li><p>Wang, K.-P., Huang, L., Zhou, C.-G., and Pang, W. Particle swarm optimization for traveling salesman problem. Proceedings of International Conference on Machine Learning and Cybernetics 2003, pp. 1583-1585, 2003  (引入几个新算子,解决TSP问题)</p></li><li><p>Clerc, M., “Discrete Particle Swarm Optimization,” New Optimization Techniques in Engineering Springer-Verlag, 2004. (Clerc大拿的DPSO,同样引入了新算子)</p></li></ul><h4 id="改进与分析-参数"><a href="#改进与分析-参数" class="headerlink" title="改进与分析_参数:"></a>改进与分析_参数:</h4><ul><li><p>Shi, Y. and Eberhart, R. C. A modified particle swarm optimizer. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1998), Piscataway, NJ. pp. 69-73, 1998  (惯性权重在此文中提出)</p></li><li><p>Clerc, M. The swarm and the queen: towards a deterministic and adaptive particle swarm optimization. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1999), pp. 1951-1957, 1999  (提出了queen的思想,里面还有个重力场,比较有意思)</p></li><li><p>Eberhart, R. C. and Shi, Y. Comparing inertia weigthts and constriction factors in particle swarm optimization. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2000), San Diego, CA. pp. 84-88, 2000 (惯性权重与压缩因子)</p></li><li><p>Shi, Y. and Eberhart, R. C. Particle swarm optimization with fuzzy adaptive inerita weight. Proceedings of the Workshop on Particle Swarm Optimization 2001, Indianapolis, IN. 2001  (为适应动态环境,提出模糊惯性权重)</p></li><li><p>A. Ratnaweera, S. Halgamuge, and H. Watson, “Self-organizing hierarchical particle swarm optimizer with time varying accelerating coefficients,”IEEE Trans. Evol. Comput., vol. 8, pp. 240–255, Jun. 2004. (对几个参数做了拓展以及非常详尽的分析)</p></li></ul><h4 id="改进与分析-粒子拓扑方向"><a href="#改进与分析-粒子拓扑方向" class="headerlink" title="改进与分析_粒子拓扑方向:"></a>改进与分析_粒子拓扑方向:</h4><ul><li><p>Kennedy, J. Small worlds and mega-minds: effects of neighborhood topology on particle swarm performance. Proceedings of IEEE Congress on Evolutionary Computation (CEC 1999), Piscataway, NJ. pp. 1931-1938, 1999  (小世界拓扑对结果的影响)</p></li><li><p>Suganthan, P. N. Particle swarm optimiser with neighbourhood operator. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1999), Piscataway, NJ. pp. 1958-1962, 1999  (引入领域算子)</p></li><li><p>Kennedy, J. Stereotyping: improving particle swarm performance with cluster analysis. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2000), San Diego, CA. pp. 1507-1512, 2000</p></li><li><p>Kennedy, J. and Mendes, R. Population structure and particle swarm performance. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002</p></li><li><p>Krink, T., Vesterstroem, J. S., and Riget, J. Particle swarm optimisation with spatial particle extension. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002 </p></li><li><p>Janson, S. and Middendorf, M. A hierarchical particle swarm optimizer. Proceedings of IEEE Congress on Evolutionary Computation 2003 (CEC 2003), Canbella, Australia. pp. 770-776, 2003  (使粒子动态的按照树型排列)</p></li><li><p>Kennedy, J. and Mendes, R. Neighborhood topologies in fully-informed and best-of-neighborhood particle swarms. Proceedings of the 2003 IEEE International Workshop on Soft Computing in Industrial Applications 2003 (SMCia/03), pp. 45-50, 2003</p></li><li><p>R. Mendes, J. Kennedy, and J. Neves, “The fully informed particle swarm: Simpler, maybe better,” IEEE Trans. Evol. Comput., vol. 8, pp. 204–210, Jun. 2004.  (重要的FIPs模型,所有粒子的信息用来更新一个粒子的信息)</p></li></ul><h4 id="改进与分析-多样性提升方向"><a href="#改进与分析-多样性提升方向" class="headerlink" title="改进与分析_多样性提升方向:"></a>改进与分析_多样性提升方向:</h4><ul><li><p>Blackwell, T. M. and Bentley, P. J. Don’t push me! collision-avoiding swarms.Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002 </p></li><li><p>Riget, J. and Vesterstroem, J. S. A diversity-guided particle swarm optimizer- the ARPSO. Technical Report No. 2002-02. 2002. Dept. of Computer Science, University of Aarhus, EVALife.</p></li><li><p>Peram, T., Veeramachaneni, K., and Mohan, C. K. Fitness-distance-ratio based particle swarm optimization. Proceedings of the IEEE Swarm Intelligence Symposium 2003 (SIS 2003), Indianapolis, Indiana, USA. pp. 174-181, 2003</p></li></ul><p>comments:很多其他类里的paper都可以归类到这儿来。</p><h4 id="改进与分析-结合其他算法思想方向"><a href="#改进与分析-结合其他算法思想方向" class="headerlink" title="改进与分析_结合其他算法思想方向:"></a>改进与分析_结合其他算法思想方向:</h4><ul><li><p>Angeline, P. J. Using selection to improve particle swarm optimization. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 1998), Anchorage, Alaska, USA. 1998  (借鉴GA里的选择优秀染色体思想)</p></li><li><p>Lvbjerg, M., Rasmussen, T. K., and Krink, T. Hybrid particle swarm optimiser with breeding and subpopulations. Proceedings of the Genetic and Evolutionary Computation Conference 2001 (GECCO 2001), 2001 </p></li><li><p>Higashi, N. and Iba, H. Particle swarm optimization with gaussian mutation. Proceedings of the IEEE Swarm Intelligence Symposium 2003 (SIS 2003), Indianapolis, Indiana, USA. pp. 72-79, 2003  (同样也是GA里的思想)</p></li><li><p>Y.X.Wang, Z.D.Zhao, R.Ren. Hybrid Particle swarm optimizer with tabu strategy. In submission. (禁忌搜索的思想)</p></li><li><p>Juang, C.-F., “A hybrid of genetic algorithm and particle swarm optimization for recurrent network design,” IEEE Transactions on Systems, Man, and Cubernetics - Part B: Cybernetics, vol. accepted 2003.</p></li><li><p>SHi, X., Lu, Y., Zhou, C., Lee, H., Lin, W., and Liang, Y. Hybrid evolutionary algorithms based on PSO and GA. Proceedings of IEEE Congress on Evolutionary Computation 2003 (CEC 2003), Canbella, Australia. pp. 2393-2399, 2003</p></li><li><p>Stacey, A., Jancic, M., and Grundy, I. Particle swarm optimization with mutation. Proceedings of IEEE Congress on Evolutionary Computation 2003 (CEC 2003), Canbella, Australia. pp. 1425-1430, 2003  (GA also)</p></li></ul><h4 id="改进与分析-其他"><a href="#改进与分析-其他" class="headerlink" title="改进与分析_其他"></a>改进与分析_其他</h4><ul><li><p>K. E. Parsopoulos, V. P. Plagianakos, G. D. Magoulas, and M. N. Vrahatis, “Stretching technique for obtaining global minimizers through particle swarm optimization,” in Proc. Particle Swarm Optimization Workshop, Indianapolis, IN, 2001, pp. 22–29.(对目标函数的变换)</p></li><li><p>K.E. Parsopoulos, M.N. Vrahatis, On the computation of all global minimizers through particle swarm optimization. IEEE Trans. on Evolutionary Computation, 2004,8(3):211-224. (上文的拓展,可以检测多全局最优,如Nash均衡点)</p></li><li><p>“UPSO—A unified particle swarm optimization scheme,” in Lecture Serieson Computational Sciences, 2004, pp. 868–873. (将全局拓扑和局部拓扑结合)</p></li><li><p>Al-kazemi, B. and Mohan, C. K. Multi-phase generalization of the particle swarm optimization algorithm. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002  (搜索方向改进)</p></li><li><p>Xie, X., Zhang, W., and Yang, Z. A dissipative particle swarm optimization. Proceedings of the IEEE Congress on Evolutionary Computation (CEC 2002), Honolulu, Hawaii USA. 2002  (类比为耗散系统,加入负熵使系统脱离平衡态)</p></li><li><p>Van den Bergh F, Engelbrecht A P. A Cooperative Approach to Particle Swarm Optimization [J]. IEEE Transaction on Evolutionary Computation,2004, 8(3):225-239. (多粒子群协同优化)</p></li><li><p>J. J. Liang, A. K. Qin, P. N. Suganthan and S. Baskar, “Comprehensive Learning Particle Swarm Optimizer for Global Optimization of Multimodal Functions”, IEEE Trans. on Evolutionary Computation, Vol. 10, No. 3, pp. 281-295, June 2006. (新的粒子搜索及合作策略)</p></li></ul><p>comments:PSO的应用以及改进方向并不止我列出的这些,比如多目标优化这里就没有给出。但这些paper已经足够入门了,各位如有兴趣可以自己搜索.04年之前一个比较全的bibliography在 <a href="http://www.swarmintelligence.org/bibliography.php" target="_blank" rel="noopener">http://www.swarmintelligence.org/bibliography.php</a> 可以找到,大约300多篇。</p><h3 id="Websites"><a href="#Websites" class="headerlink" title="Websites:"></a>Websites:</h3><ul><li><a href="http://www.swarmintelligence.org/" target="_blank" rel="noopener">http://www.swarmintelligence.org/</a></li><li><a href="http://www.particleswarm.info/" target="_blank" rel="noopener">http://www.particleswarm.info/</a></li><li><a href="http://clerc.maurice.free.fr/pso/" target="_blank" rel="noopener">http://clerc.maurice.free.fr/pso/</a></li></ul><p>comments:这三个网站关于PSO的资源非常丰富.第3个是clerc大拿的,里面更偏重对算法数学上的分析。</p><h3 id="Leading-Journals-and-Confs"><a href="#Leading-Journals-and-Confs" class="headerlink" title="Leading Journals and Confs:"></a>Leading Journals and Confs:</h3><ul><li>Evolutionary Computation (MIT press)</li><li>IEEE Transactions on Evolutionary Computation</li><li>IEEE Transactions on Neural Network</li><li>IEEE Transactions on Systems, Man, and Cubernetics Part:A,B</li><li>Genetic and Evolutionary Computation Conference (GECCO, ACM SIGEVO)</li><li>IEEE Congress on Evolutionary Computation(CEC)</li><li>Parallel Problem Solving from Nature (PPSN)</li></ul><h3 id="Homepages"><a href="#Homepages" class="headerlink" title="Homepages"></a>Homepages</h3><ul><li><a href="http://www.adaptivebox.net/research/" target="_blank" rel="noopener">http://www.adaptivebox.net/research/</a> (Dr.Xiaofeng Xie, TSU)</li><li><a href="http://www.ntu.edu.sg/home/EPNSugan/" target="_blank" rel="noopener">http://www.ntu.edu.sg/home/EPNSugan/</a> (Prof.Suganthan, NYU)</li><li><a href="http://goanna.cs.rmit.edu.au/~xiaodong/" target="_blank" rel="noopener">http://goanna.cs.rmit.edu.au/~xiaodong/</a> (Prof. XiaoDong, RMIT)</li><li><a href="http://clerc.maurice.free.fr/" target="_blank" rel="noopener">http://clerc.maurice.free.fr/</a> (Dr.Clerc, France Telecom, Strongly recommend)</li></ul><p>comments:上面是我常去的一些page,主要的PSO学者在 <a href="http://www.particleswarm.info/people.html" target="_blank" rel="noopener">http://www.particleswarm.info/people.html</a> 上可以找到</p><h3 id="Benchmarks"><a href="#Benchmarks" class="headerlink" title="Benchmarks"></a>Benchmarks</h3><ul><li><a href="http://www-optima.amp.i.kyoto-u.ac.jp/member/student/hedar/Hedar_files/TestGO_files/Page364.htm" target="_blank" rel="noopener">http://www-optima.amp.i.kyoto-u.ac.jp/member/student/hedar/Hedar_files/TestGO_files/Page364.htm</a></li><li><a href="http://www2.imm.dtu.dk/~km/GlobOpt/testex/testproblems.html#07" target="_blank" rel="noopener">http://www2.imm.dtu.dk/~km/GlobOpt/testex/testproblems.html#07</a></li><li><a href="http://www.cs.cmu.edu/afs/cs/project/jair/pub/volume24/ortizboyer05a-html/node6.html" target="_blank" rel="noopener">http://www.cs.cmu.edu/afs/cs/project/jair/pub/volume24/ortizboyer05a-html/node6.html</a></li><li><a href="http://www.geatbx.com/docu/fcnindex.html" target="_blank" rel="noopener">http://www.geatbx.com/docu/fcnindex.html</a></li><li><a href="http://www.maths.uq.edu.au/CEToolBox/node2.html" target="_blank" rel="noopener">http://www.maths.uq.edu.au/CEToolBox/node2.html</a></li><li>J. G. DIGALAKIS and K. G. MARGARITIS. ON BENCHMARKING FUNCTIONS OR GENETIC ALGORITHMS. Inter J Computer Math., Vol. 00, pp. 1-27 (给出了大多数标准无约束测试函数的性态分析)</li></ul><p>Comments:改进或提出一个优化算法需要对其作出性能评测,这里提供一些标准的测试集,包括DeJong系列函数,Rastrigin系列函数等,以及其他有约束,离散,组合优化标准测试问题.</p><p>最近Prof.Suganthan等提出了一套Composition functions,具体参见他的homepage,同样CEC05上也提出了大约30个测试函数.对这些函数进行rotate,shift,distortion等操作可以变换为更复杂的函数,具体请参加相关paper。</p><h3 id="code、software、projects、implementations"><a href="#code、software、projects、implementations" class="headerlink" title="code、software、projects、implementations"></a>code、software、projects、implementations</h3><ul><li><a href="http://xps-swarm.essex.ac.uk" target="_blank" rel="noopener">http://xps-swarm.essex.ac.uk</a>  (有些类似与以前的EVALife project, 同样有Santa Fe的参与, 重视学科交叉)</li><li><a href="http://cilib.sourceforge.net" target="_blank" rel="noopener">http://cilib.sourceforge.net</a> (计算智能库, written in java)</li><li><a href="http://clerc.maurice.free.fr/pso/" target="_blank" rel="noopener">http://clerc.maurice.free.fr/pso/</a></li><li><a href="http://www.particleswarm.info/Programs.html#Standard_PSO_2006" target="_blank" rel="noopener">http://www.particleswarm.info/Programs.html#Standard_PSO_2006</a> (一些PSO的项目)</li><li><a href="http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=7506" target="_blank" rel="noopener">http://www.mathworks.com/matlabcentral/fileexchange/loadFile.do?objectId=7506</a> (pso matlab toolbox)</li><li><a href="ftp://www.china2china.com/" target="_blank" rel="noopener">ftp://www.china2china.com/</a> user:pso, passwd:pso   (一些paper可以在这里直接下载)</li></ul><p>comments:各位如果需要几个重要PSO改进的matlab实现,请联系prof.suganthan或直接发邮件给我.</p><h3 id="Future-work"><a href="#Future-work" class="headerlink" title="Future work"></a>Future work</h3><p>2004 年IEEE Transactions on Evolutionary Computation出版了Special issue on PSO,卷首语中指出了当前研究的几个主要方向及热点:</p><ul><li>算法分析. PSO在实际应用中被证明是有效的, 但目前还没有给出完整收敛性、收敛速度估计等方面的数学证明,已有的工作还远远不够。</li><li>粒子群拓扑结构.不同的粒子群邻居拓扑结构是对不同类型社会的模拟,研究不同拓扑结构的适用范围,对PSO算法推广和使用有重要意义。</li><li>参数选择与优化.参数w、φ1、φ2的选择分别关系粒子速度的3个部分:惯性部分、社会部分和感知部分在搜索中的作用.如何选择、优化和调整参数,使得算法既能避免早熟又能比较快速地收敛,对工程实践有着重要意义。</li><li>与其他演化计算的融合.如何将其它演化的优点和PSO的优点相结合,构造出新的混合算法是当前算法改进的一个重要方向。</li><li>算法应用.算法的有效性必须在应用中才能体现,广泛地开拓PSO的应用领域,也对深化研究PSO算法非常有意义。</li></ul><p>我在以前的帖子里曾经提到过,PSO是很适合演化计算方向入门的.特别是其算法实现非常简单,因此建议大家能够先实现基础算法.如果想进一步了解乃至研究,上面列出的除了应用的几十篇paper基本都是需要看的.PSO从提出到现在已经11年了,大小坑挖的也不少了,各位如果想在这个领域出新,出好结果,还是需要有一定功力的.对于我们目前的情况,我认为大家可以主要将精力集中在第(5)点。<a href="http://www.particleswarm.info/Problems.html" target="_blank" rel="noopener">http://www.particleswarm.info/Problems.html</a> 也列出了一些有意思的open problems。当然,都是有一定难度的 :-)</p><p>对于PSO的改进与分析,如何有能力的话,我仍然坚持认为一个突破口是学科交叉,比如粒子搜索的混沌行为,粒子进化以及合作策略中的博弈,统计物理学在群智能中的应用等等.这也是我接下来的研究内容.另外Clerc大拿网站上也有一篇经常更新的paper,”Some ideas about Particle Swarm Optimisation”,里面记录了很多他对PSO的理解,同样非常值得一看。</p><p>–<br>logpie=0.497</p><p>※ 来源:·紫金飞鸿 bbs.njupt.edu.cn·</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> EAs </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> PSO </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>在Ubuntu上完美安装oh-my-zsh</title>
+      <link href="/2018/06/07/install_oh-my-zsh_of_ubuntu/"/>
+      <url>/2018/06/07/install_oh-my-zsh_of_ubuntu/</url>
+      
+        <content type="html"><![CDATA[<h3 id="前戏"><a href="#前戏" class="headerlink" title="前戏"></a>前戏</h3><p>查看系统当前使用的shell<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ echo $SHELL</span><br><span class="line">/bin/bash</span><br></pre></td></tr></table></figure></p><p>查看系统是否安装了zsh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cat /etc/shells</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/bash</span><br><span class="line">/usr/bin/sh</span><br><span class="line">/usr/bin/bash</span><br></pre></td></tr></table></figure></p><h3 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a>安装zsh</h3><p>一般来说，直接运行</p><blockquote><p>sudo apt-get install zsh</p></blockquote><p>即可。当然也可以下载源<a href="http://zsh.sourceforge.net/Arc/source.html" target="_blank" rel="noopener">Download zsh source</a>，使用curl安装</p><blockquote><p>curl -L <a href="https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh" target="_blank" rel="noopener">https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh</a> | sh</p></blockquote><h3 id="把zsh设为默认终端"><a href="#把zsh设为默认终端" class="headerlink" title="把zsh设为默认终端"></a>把zsh设为默认终端</h3><blockquote><p>chsh -s $(which zsh)</p></blockquote><p>重启系统，可使用</p><blockquote><p>reboot</p></blockquote><p>重启后，查看当前shell</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ echo $SHELL</span><br><span class="line">/bin/zsh</span><br></pre></td></tr></table></figure><h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br></pre></td></tr></table></figure><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vim ~/.zshrc</span><br><span class="line">ZSH_THEME=&quot;agnoster&quot;</span><br><span class="line">$ source ~/.zshrc</span><br></pre></td></tr></table></figure><h3 id="agnoster主题终端乱码的解决方案"><a href="#agnoster主题终端乱码的解决方案" class="headerlink" title="agnoster主题终端乱码的解决方案"></a>agnoster主题终端乱码的解决方案</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/powerline/fonts</span><br><span class="line">$ cd ~/fonts</span><br><span class="line">$ ./install.sh</span><br></pre></td></tr></table></figure><p>然后在配置终端，依次选择“编辑”-&gt;“配置文件首选项”，选择“自定义字体”，字体为“Ubuntu Mono derivative Powerline Regular”即可。</p><p>另外一种解决方案来自csdn：<a href="https://blog.csdn.net/CoderMannul/article/details/69802968" target="_blank" rel="noopener">CoderMannul的博客</a><br>还有一种解决方案是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.zshrc</span><br></pre></td></tr></table></figure></p><p>在文件中添加内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export LC_ALL=en_US.UTF-8</span><br></pre></td></tr></table></figure></p><p>并解除注释<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export LANG=en_US.UTF-8</span><br></pre></td></tr></table></figure></p><p>接着重启终端，或输入</p><blockquote><p>source ~/.zshrc</p></blockquote><p>即可。以上两种解决方案一般不用，只有在第一种方案不行时才尝试一下。</p><p>小彩蛋：在~/.zshrc中添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export DEFAULT_USER=&quot;[你的username]&quot;</span><br></pre></td></tr></table></figure></p><p>即可隐藏固定的username@hostname信息。<br>另外，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim ~/.oh-my-zsh/themes/agnoster.zsh-theme</span><br></pre></td></tr></table></figure></p><p>注释掉最下面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">## Main prompt</span><br><span class="line">build_prompt() &#123;</span><br><span class="line"> RETVAL=$?</span><br><span class="line"> prompt_status</span><br><span class="line"> prompt_virtualenv</span><br><span class="line"> prompt_context</span><br><span class="line"> prompt_dir</span><br><span class="line"> prompt_git</span><br><span class="line"> prompt_hg</span><br><span class="line"> prompt_end</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>中的一句</p><blockquote><p>prompt_context</p></blockquote><p>也能实现相同的效果。（一般不采用此方法）</p><h3 id="启用插件"><a href="#启用插件" class="headerlink" title="启用插件"></a>启用插件</h3><p>oh-my-zsh自带了一些默认主题，存放在~/.oh-my-zsh/plugins目录中，我们可以查看这些插件。<br>oh-my-zsh默认只启用git插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=(git)</span><br></pre></td></tr></table></figure></p><p>如需启用更多插件，只需加入需启用的插件名称即可，如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plugins=(git history-substring-search)</span><br></pre></td></tr></table></figure></p><h3 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h3><p>设置自动更新oh-my-zsh。默认情况下，当oh-my-zsh有更新时，都会给你提示。如果希望让oh-my-zsh自动更新，在~/.zshrc 中添加下面这句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DISABLE_UPDATE_PROMPT=true</span><br></pre></td></tr></table></figure></p><p>要手动更新，可以执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ upgrade_oh_my_zsh</span><br></pre></td></tr></table></figure></p><p>卸载oh-my-zsh，直接在终端中运行如下命令即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uninstall_oh_my_zsh</span><br></pre></td></tr></table></figure></p><h3 id="安装没带的插件"><a href="#安装没带的插件" class="headerlink" title="安装没带的插件"></a>安装没带的插件</h3><ul><li><p>安装zsh-syntax-highlighting语法高亮插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git</span><br><span class="line">$ echo &quot;source $&#123;(q-)PWD&#125;/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&quot; &gt;&gt; $&#123;ZDOTDIR:-$HOME&#125;/.zshrc</span><br><span class="line">$ source ~/.zshrc</span><br></pre></td></tr></table></figure></li><li><p>安装zsh-autosuggestions语法历史记录插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</span><br><span class="line">$ vim ~/.zshrc</span><br><span class="line">plugins=(git zsh-autosuggestions)</span><br><span class="line">source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh（加在zshrc文件最后一行）</span><br><span class="line">$ source ~/.zshrc</span><br></pre></td></tr></table></figure></li><li><p>安装incr补全插件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://mimosa-pudica.net/src/incr-0.2.zsh</span><br><span class="line">$ mv ~/incr-0.2.zsh ~/.oh-my-zsh/plugins/</span><br></pre></td></tr></table></figure></li></ul><p>将</p><blockquote><p>source ~/.oh-my-zsh/plugins/incr/incr*.zsh</p></blockquote><p>一句加在zshrc文件末尾，然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ source ~/.zshrc</span><br></pre></td></tr></table></figure></p><h3 id="与vim的提示冲突的解决方案"><a href="#与vim的提示冲突的解决方案" class="headerlink" title="与vim的提示冲突的解决方案"></a>与vim的提示冲突的解决方案</h3><p>使用自动补全插件可能会与vim的提示功能相冲突，如会报以下错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vim t</span><br><span class="line">_arguments:451: _vim_files: function definition file not found</span><br></pre></td></tr></table></figure></p><p>此时，将~/.zcompdump*删除即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf ~/.zcompdump*</span><br><span class="line">$ exec zsh</span><br></pre></td></tr></table></figure></p><h3 id="让Windows下的putty、secureCRT等工具支持Powerline，使得oh-my-zsh正常显示、不出现乱码"><a href="#让Windows下的putty、secureCRT等工具支持Powerline，使得oh-my-zsh正常显示、不出现乱码" class="headerlink" title="让Windows下的putty、secureCRT等工具支持Powerline，使得oh-my-zsh正常显示、不出现乱码"></a>让Windows下的putty、secureCRT等工具支持Powerline，使得oh-my-zsh正常显示、不出现乱码</h3><ul><li>将这些工具的编码改为UTF-8</li><li>下载支持Powerline的字体（DejaVu for Powerline.zip），将解压后的tty文件拖入“C:\Windows\Fonts”下，重启工具更改设置，选择终端窗口使用的字体为“DejaVu for Powerline”即可。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>pip3版本8升级到版本10后，Pycharm装包出错的解决方案</title>
+      <link href="/2018/06/02/pipofpycharm/"/>
+      <url>/2018/06/02/pipofpycharm/</url>
+      
+        <content type="html"><![CDATA[<p>Python3的pip从版本8升级到版本10之后，在Pycharm中安装package，会出现如下问题:</p><blockquote><p>AttributeError: module ‘pip’ has no attribute ‘main’</p></blockquote><p>解决方案如下：<br>找到安装目录下的helpers/packaging_tool.py文件，将如下代码<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def do_install(pkgs):</span><br><span class="line">try:</span><br><span class="line">import pip</span><br><span class="line">except ImportError:</span><br><span class="line">error_no_pip()</span><br><span class="line">return pip.main([&apos;install&apos;] + pkgs)</span><br><span class="line"></span><br><span class="line">def do_uninstall(pkgs):</span><br><span class="line">try:</span><br><span class="line">import pip</span><br><span class="line">except ImportError:</span><br><span class="line">error_no_pip()</span><br><span class="line">return pip.main([&apos;uninstall&apos;, &apos;-y&apos;] + pkgs)</span><br></pre></td></tr></table></figure></p><p>修改为如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">def do_install(pkgs):</span><br><span class="line">try:</span><br><span class="line"># import pip</span><br><span class="line">try:</span><br><span class="line">from pip._internal import main</span><br><span class="line">except Exception:</span><br><span class="line">from pip import main</span><br><span class="line">except ImportError:</span><br><span class="line">error_no_pip()</span><br><span class="line">return main([&apos;install&apos;] + pkgs)</span><br><span class="line"></span><br><span class="line">def do_uninstall(pkgs):</span><br><span class="line">try:</span><br><span class="line"># import pip</span><br><span class="line">try:</span><br><span class="line">from pip._internal import main</span><br><span class="line">except Exception:</span><br><span class="line">from pip import main</span><br><span class="line">import pip</span><br><span class="line">except ImportError:</span><br><span class="line">error_no_pip()</span><br><span class="line">return main([&apos;uninstall&apos;, &apos;-y&apos;] + pkgs)</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>自定义右键菜单</title>
+      <link href="/2018/05/27/define_rightmenu_byyourself/"/>
+      <url>/2018/05/27/define_rightmenu_byyourself/</url>
+      
+        <content type="html"><![CDATA[<p>许多绿色版的软件无法像那些安装版的软件一样添加到右键菜单，导致很不方便，这时可以自己将其添加到右键菜单，提高工作效率。<br>下面以Sublime Text为例加以说明：<br><a id="more"></a></p><ul><li>打开注册表</li><li>找到HKEY_CLASSESS_ROOT-&gt; * -&gt;Shell，在下面新建项，命名为“Sublime Text”。</li><li>在项“Sublime Text”下新建字符串值，命名为“Icon”，将其值设为“X:\path\to\sublime_text.exe,0”。其中，0前面的是Sublime Text在你电脑上的安装路径。</li><li>在项“Sublime Text”下再新建项“Command”，Command项下的默认值修改为“X:\path\to\sublime_text.exe %1”。</li><li>设置完成后，关闭注册表，右键菜单即会出现“Sublime Text”。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>C语言核心技术</title>
+      <link href="/2018/05/26/cinanutshell/"/>
+      <url>/2018/05/26/cinanutshell/</url>
+      
+        <content type="html"><![CDATA[<h3 id="宽字符"><a href="#宽字符" class="headerlink" title="宽字符"></a>宽字符</h3><p>为了更好地支持Unicode，C11引入额外的宽字符类型char16_t和char32_t。在头文件uchar.h中，它们被定义为无符号整数类型。<br><a id="more"></a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C/C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Latex设置行间距</title>
+      <link href="/2018/05/26/linespace_of_latex/"/>
+      <url>/2018/05/26/linespace_of_latex/</url>
+      
+        <content type="html"><![CDATA[<h3 id="全局设置行间距"><a href="#全局设置行间距" class="headerlink" title="全局设置行间距"></a>全局设置行间距</h3><p>像Word一样设置单倍间距、1.5倍间距、2倍间距等。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;setspace&#125;</span><br><span class="line">\renewcommand&#123;\baselinestretch&#125;&#123;1.0&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="局部设置行间距"><a href="#局部设置行间距" class="headerlink" title="局部设置行间距"></a>局部设置行间距</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">%使用行距宏包，该宏包自带三个选项：singlespacing（默认）, onehalfspacing和doublespacing</span><br><span class="line">\usepackage&#123;setspace&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">%行间距变为double-space</span><br><span class="line">\begin&#123;spacing&#125;&#123;2.0&#125;</span><br><span class="line">双倍行距的段落内容。</span><br><span class="line">\end&#123;spacing&#125;</span><br><span class="line">%行间距变为single-space</span><br><span class="line">\begin&#123;spacing&#125;&#123;1.0&#125;</span><br><span class="line">单倍行距的段落内容。</span><br><span class="line">\end&#123;spacing&#125;</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Latex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Latex的beamer中显示图片编号</title>
+      <link href="/2018/05/24/beamer_showfigid/"/>
+      <url>/2018/05/24/beamer_showfigid/</url>
+      
+        <content type="html"><![CDATA[<p>在beamer幻灯片中如果插入图形，一般不会显示图形编号，这是其默认模式，但我们可以通过设置给图形编号，在导言区加上如下命令即可。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\setbeamertemplate&#123;caption&#125;[numbered]</span><br></pre></td></tr></table></figure></p><p>这样在正文的某页写入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;frame&#125;</span><br><span class="line">  \begin&#123;figure&#125;</span><br><span class="line">    \includegraphics[width=0.5\textwidth]&#123;letter.pdf&#125;</span><br><span class="line">    \caption&#123;26个英文字母表&#125;</span><br><span class="line">  \end&#123;figure&#125;</span><br><span class="line">\end&#123;frame&#125;</span><br></pre></td></tr></table></figure></p><p>运行后就能显示图1,图2等编号了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Latex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>XeLatex在window上编译很慢的解决方法</title>
+      <link href="/2018/05/24/texslow/"/>
+      <url>/2018/05/24/texslow/</url>
+      
+        <content type="html"><![CDATA[<p>环境：win7 + texlive 2017 + TeXstudio</p><a id="more"></a><p>解决方法：</p><p>A. 以管理员身份运行fc-cache</p><p>B. 在texlive安装路径bin/win32下，设置xelatex.exe以管理员身份启动。</p><p>C. 启动TeXstudio时以管理员身份启动</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Latex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>“ES连不上电脑了，一直卡在登陆界面”问题的解决方案</title>
+      <link href="/2018/05/24/esconn/"/>
+      <url>/2018/05/24/esconn/</url>
+      
+        <content type="html"><![CDATA[<p>本地策略，安全选项<br><a id="more"></a><br>网络访问: 本地帐户的共享和安全模型,属性改为”经典 - 本地用户以自己的身份验证”.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>作为一位计算机专业的大学生，大学四年毕业时怎样才算合格？</title>
+      <link href="/2018/05/23/tremble/"/>
+      <url>/2018/05/23/tremble/</url>
+      
+        <content type="html"><![CDATA[<p>写得了算法翻得了墙</p><p>搭得了网站查得了虫</p><a id="more"></a><p>博客300篇，篇篇有心得</p><p>框架善应用，源码常思量</p><p>文能OJ秒AC，武能项目撸万行</p><p>博览中外群书，夜寐常访论坛</p><p>数据结构在心间，抬头代码扫两行</p><p>linux玩转于手间，语言专攻有余粮</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Windows下icwb2-data的评估用法</title>
+      <link href="/2018/05/19/icwb2-data/"/>
+      <url>/2018/05/19/icwb2-data/</url>
+      
+        <content type="html"><![CDATA[<h2 id="利用icwb2-data工具包对中文分词预测结果进行评估"><a href="#利用icwb2-data工具包对中文分词预测结果进行评估" class="headerlink" title="利用icwb2-data工具包对中文分词预测结果进行评估"></a>利用icwb2-data工具包对中文分词预测结果进行评估</h2><h3 id="工具包下载地址"><a href="#工具包下载地址" class="headerlink" title="工具包下载地址"></a>工具包下载地址</h3><p><a href="http://sighan.cs.uchicago.edu/bakeoff2005/" target="_blank" rel="noopener">http://sighan.cs.uchicago.edu/bakeoff2005/</a><br><a id="more"></a></p><ul><li><p>安装ActivePerl，先能识别后缀名为.pl的文件</p></li><li><p>安装diffUtil工具包。<br>  <a href="http://gnuwin32.sourceforge.net/packages/diffutils.htm" target="_blank" rel="noopener">http://gnuwin32.sourceforge.net/packages/diffutils.htm</a><br>  直接下载setup格式的安装包</p></li><li><p>修改icwb2-data/scripts/score脚本<br>  把46行的代码修改成： </p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$diff = “E:/GnuWin32/bin/diff”;(该目录为安装目录)</span><br></pre></td></tr></table></figure><p>  把52,53行的代码修改成：(注意E:/GnuWin32/tmp目录要存在)</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tmp1=“E:/GnuWin32/tmp/comp01$”;</span><br><span class="line">tmp2=“E:/GnuWin32/tmp/comp02$”;</span><br></pre></td></tr></table></figure></li><li><p>将diffUtil下的bin目录加到环境变量中。</p></li></ul><h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//进入前面预测、测试的生成文件目录下</span><br><span class="line">perl score 训练文件 测试文件名 输出结果名 &gt;输出到的文件名</span><br><span class="line">//例如:</span><br><span class="line">perl score maxtrain11.txt maxtest11.txt maxoutput.txt &gt; o.txt</span><br></pre></td></tr></table></figure><p>在输出的文件“o.txt”下即可查看正确率、召回率等。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Natural Language Processing </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>前端框架之AngularJS</title>
+      <link href="/2018/05/18/AngularJS/"/>
+      <url>/2018/05/18/AngularJS/</url>
+      
+        <content type="html"><![CDATA[<h3 id="AngularJS应用的指令"><a href="#AngularJS应用的指令" class="headerlink" title="AngularJS应用的指令"></a>AngularJS应用的指令</h3><p><html>标签中的ng-app是AngularJS的一个内置指令（实际上，可以出现在任意位置，但通常情况下，我们会把ng-app指令放在<html>标签中，让AngularJS管理整个页面），有两个作用，一个是启动AngularJS框架，另一个是告诉AngularJS框架从ng-app指令所在标签的开始标签到结束标签之间的所有SOM元素由AngularJS框架进行管理。<br>当AngularJS遇到ng-app指令时就会创建一个名为$rootScope的作用域，该作用域为AngularJS应用的根作用域。</html></html></p><p>ng-init指令用于初始化作用域。<br><a id="more"></a></p><h3 id="AngularJS应用构成元素"><a href="#AngularJS应用构成元素" class="headerlink" title="AngularJS应用构成元素"></a>AngularJS应用构成元素</h3><ul><li>模型（Model）</li><li>视图（View）：从AngularJS应用的角度来说，视图则是AngularJS指令与表达式经过解析后的DOM元素。</li><li>控制器（Controller）</li><li>作用域（Scope）</li><li>指令（Directives）</li><li>表达式（Expressions）</li><li>模板（Template）：AngularJS以HTML作为模板语言，AngularJS模板实际上就是HTML片段。</li></ul><h2 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h2><h3 id="ng-model"><a href="#ng-model" class="headerlink" title="ng-model"></a>ng-model</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; name=&quot;uname&quot; ng-model=&quot;uname&quot; /&gt;</span><br></pre></td></tr></table></figure><h3 id="ng-bind指令"><a href="#ng-bind指令" class="headerlink" title="ng-bind指令"></a>ng-bind指令</h3><p>ng-bind指令在AngularJS没有加载完毕的时候是不会解析执行的，只有AngularJS加载完毕才会执行。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Windows编程</title>
+      <link href="/2018/05/16/WindowsProgramming/"/>
+      <url>/2018/05/16/WindowsProgramming/</url>
+      
+        <content type="html"><![CDATA[<h3 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h3><p>Windows.h是主要的包含文件，它包含了其他Windows头文件，这些头文件的某些也包含了其他头文件。这些头文件中最重要的和最基本的是：</p><ul><li>WINDEF.H 基本类型定义</li><li>WINNT.H 支持Unicode的类型定义</li><li>WINBASE.H 内核函数</li><li>WINUSER.H 用户接口函数</li><li>WINGDI.H 图形设备接口函数<br>这些头文件定义了Windows的所有数据类型、函数调用、数据结构和常数标识符。<a id="more"></a>Windows程序的入口点是WinMain，在WINBASE.H中声明如下：<br>int<br>WINAPI<br>WinMain(<br>  HINSTANCE hInstance,<br>  HINSTANCE hPrevInstance,<br>  LPSTR lpCmdLine,<br>  int nShowCmd<br>  );</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows Programming </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mendeley插入引用和参考文献</title>
+      <link href="/2018/05/12/mendeley/"/>
+      <url>/2018/05/12/mendeley/</url>
+      
+        <content type="html"><![CDATA[<ol><li>首先在word里点击insert citation，选择回到mendeley</li><li>然后选择要插入文档，点击select the document</li><li>回到word点击citation style,生成引用</li><li>最后文章写完了,新起一行,点击insert bibliography生成参考文献<a id="more"></a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> paper </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Powershell执行脚本文件</title>
+      <link href="/2018/05/08/Powershell/"/>
+      <url>/2018/05/08/Powershell/</url>
+      
+        <content type="html"><![CDATA[<p>Powershell拥有自己的脚本，扩展名为“.ps1”</p><a id="more"></a><p>默认情况下ps1文件不能被执行，这导致在初次执行脚本时可能会碰到一个异常。原因是powershell的默认安全设置禁用了执行脚本，要启用这个功能必须要拥有管理员的权限。<br>在powershell中执行以下命令方可执行本地的ps1脚本文件：</p><blockquote><p>set-executionpolicy remotesigned</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>搭建Hadoop过程中的虚拟机相关问题</title>
+      <link href="/2018/04/13/VirtualMachineOfHadoop/"/>
+      <url>/2018/04/13/VirtualMachineOfHadoop/</url>
+      
+        <content type="html"><![CDATA[<p>用多个CentOS6.5系统作为Hadoop集群的平台，在Vmware虚拟机中安装好一个CentOS6.5系统后再多复制几个即可模拟Hadoop集群的多个节点。</p><a id="more"></a><p>在操作过程中遇到了几个虚拟机的相关问题，先整理如下：<br>一、新安装好的CentOS6.5系统无法连接网络<br>解决方法：<br>二、复制的CentOS6.5系统无法连接网络<br>解决方法：</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu16.04安装WPS</title>
+      <link href="/2018/04/13/WpsofUbuntu/"/>
+      <url>/2018/04/13/WpsofUbuntu/</url>
+      
+        <content type="html"><![CDATA[<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><ul><li>下载：<a href="http://community.wps.cn/download" target="_blank" rel="noopener">WPS For Linux</a></li><li>安装命令<blockquote><p>sudo dpkg -i wps-office_10.1.0.5672_a21_amd64.deb</p></blockquote></li></ul><h3 id="字体缺失问题"><a href="#字体缺失问题" class="headerlink" title="字体缺失问题"></a>字体缺失问题</h3><ul><li>下载<a href="https://pan.baidu.com/s/1eS6xlzo" target="_blank" rel="noopener">wps_symbol_fonts.zip</a></li><li>创建目录：<a id="more"></a><blockquote><p>sudo mkdir /usr/share/fonts/wps-office</p></blockquote></li><li>将下载的字体复制到创建的目录：<blockquote><p>sudo cp -r wps_symbol_fonts.zip /usr/share/fonts/wps-office</p></blockquote></li><li>切换到创建的目录：<blockquote><p>cd /usr/share/fonts/wps-office</p></blockquote></li><li>解压字体包：<blockquote><p>sudo unzip wps_symbol_fonts.zip</p></blockquote></li><li>解压后删除字体包：<blockquote><p>sudo rm -r wps_symbol_fonts.zip</p></blockquote></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu16.04更换漂亮的主题</title>
+      <link href="/2018/04/13/ThemeofUbuntu/"/>
+      <url>/2018/04/13/ThemeofUbuntu/</url>
+      
+        <content type="html"><![CDATA[<p>更新</p><blockquote><p>sudo apt-get update<br>sudo apt-get upgrade</p></blockquote><a id="more"></a><p>安装unity-tweak-tool</p><blockquote><p>sudo apt-get install unity-tweak-tool</p></blockquote><p>安装Flatabulous主题</p><blockquote><p>sudo add-apt-repository ppa:noobslab/themes<br>sudo apt-get update<br>sudo apt-get install flatabulous-theme</p></blockquote><p>安装Flatabulous主题的配套图标</p><blockquote><p>sudo add-apt-repository ppa:noobslab/icons<br>sudo apt-get update<br>sudo apt-get install ultra-flat-icons</p></blockquote><p>打开Unity Tweak Tool，选择“主题”里面的Flatabulous，然后选择“图标”里面的Ultra-flat。</p><p>至此，美化结束。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu16.04安装texlive+texstudio搭建Latex</title>
+      <link href="/2018/04/13/TexofUbuntu/"/>
+      <url>/2018/04/13/TexofUbuntu/</url>
+      
+        <content type="html"><![CDATA[<ul><li>1.安装texlive<a id="more"></a><blockquote><p>sudo apt-get install texlive-full</p></blockquote></li><li>2.安装中文字体包<blockquote><p>sudo apt-get install latex-cjk-all</p></blockquote></li><li>3.安装texstudio<blockquote><p>sudo apt-get install texstudio</p></blockquote></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于高校资助管理系统的一点思考</title>
+      <link href="/2018/04/13/SugOfSch/"/>
+      <url>/2018/04/13/SugOfSch/</url>
+      
+        <content type="html"><![CDATA[<p>此处的高校资助管理系统是基于Web的管理系统。</p><a id="more"></a><p>点击左侧相应条目，就会在右边的内容区域新建标签页以使用户进行操作。但设计者竟然没有在标签页区域做任何“文章”，用户体验极差：同时打开多个标签页之后若想关闭，还得一个一个手动关闭。。。。<br>建议：在系统里引进jQuery的标签页插件，可以在标签页区域加入鼠标右键单击事件，供用户选择的选项有“关闭其他标签页”“关闭标签页”“关闭全部标签页”等，这样可以更人性化一点。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ConEmu的些许设置</title>
+      <link href="/2018/04/13/SettingsOfConemu/"/>
+      <url>/2018/04/13/SettingsOfConemu/</url>
+      
+        <content type="html"><![CDATA[<h3 id="添加ConEmu到Windows右键菜单"><a href="#添加ConEmu到Windows右键菜单" class="headerlink" title="添加ConEmu到Windows右键菜单"></a>添加ConEmu到Windows右键菜单</h3><p>进行ConEmu界面,打开设置,如下图:<br><a id="more"></a></p><p><img src="http://image.bubuko.com/info/201709/20180111004357181665.png" alt=""></p><p>然后,打开Integreation,将“cmd -cur_console:n”改为“cmd -cur_console:n %P”,如图操作:</p><p><img src="http://image.bubuko.com/info/201709/20180111004357186548.png" alt=""></p><p>点击”Save settings”,回到Windows桌面或是TotalCommander界面就可以看到右键菜单里已经有ConEmu选项了.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于Windows通过远程桌面访问Ubuntu</title>
+      <link href="/2018/04/13/RemoteAccess/"/>
+      <url>/2018/04/13/RemoteAccess/</url>
+      
+        <content type="html"><![CDATA[<p>从Ubuntu13.10开始，据说是由于xrdp、gnome和unity之间的兼容性问题，在Ubuntu中无法使用xrdp登录gnome或unity的远程桌面，现象是登录后只有黑白点为背景，无图标也无法操作。</p><a id="more"></a><p>解决办法是：使用xrdp登录xfce的远程桌面，或者也可以使用xrdp登录Mate的远程桌面。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Latex中的空格</title>
+      <link href="/2018/04/13/SpaceofLatex/"/>
+      <url>/2018/04/13/SpaceofLatex/</url>
+      
+        <content type="html"><![CDATA[<ul><li>两个quad空格 \qquad  两个m的宽度</li><li>quad空格 \quad  一个m的宽度<a id="more"></a></li><li>大空格 \   1/3m的宽度</li><li>中等空格 \;  2/7m的宽度</li><li>小空格 \,  1/6m的宽度</li><li>没有空格   </li><li>紧贴 !  缩进1/6m的宽度</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Latex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>技术面试</title>
+      <link href="/2018/04/13/Questions/"/>
+      <url>/2018/04/13/Questions/</url>
+      
+        <content type="html"><![CDATA[<h3 id="基础打牢了吗？"><a href="#基础打牢了吗？" class="headerlink" title="基础打牢了吗？"></a>基础打牢了吗？</h3><p>常问问题（Java）</p><ul><li>HashTable与HashMap有什么区别？</li><li>Servlet是线程安全的吗？<a id="more"></a></li><li>JSP中@include跟jsp：include的区别。</li><li>HTTP的respomse code 403和500分别代表什么？</li></ul><p>这些问题都很简单，但一些基础不牢的程序员往往会在这个时候露馅。</p><p>曾经碰到过一个在简历中说自己精通C++的应聘者，连成员变量的初始化顺序这样的问题都被问得一头雾水，那最终结果也就可想而知了。</p><h3 id="技术深度够吗？"><a href="#技术深度够吗？" class="headerlink" title="技术深度够吗？"></a>技术深度够吗？</h3><p>我们现在做项目时都会大量使用框架，这能使我们的开发效率和质量都得到提升和保障，但同时也降低了对程序员开发技能的要求。因此一般会询问面试者下面的问题，来考察对使用框架的掌握程度：</p><blockquote><p>请你描述一下，在这个项目中，从一个HTTP请求发起，到最终的Response返回，它在你的系统和框架内部是如何流转的？</p></blockquote><p>这个问题往往能够判断出面试者对于相关技术的掌握深度。较初级的开发人员描述的层级往往比较浅。比如，使用Spring MVC框架的，只能说到实现一个Controller继承BaseCommandController（甚至很多开发人员只知道继承了一个公司内部框架的基类），至于再往下Spring框架是如何进行内部流转的，就再也说不清楚了；而更资深的开发人员，往往能够说出框架内部的实现机制，以及如何调用和处理的。在面试者描述的过程中，会被穿插询问一些比较有深度的问题，比如，框架中某个类这样设计是哪一种设计模式的体现，采用这样的设计有什么好处，等等。这比让面试者默写一个设计模式代码要有效，也自然得多。<br>除了技术层面上的考察之外，对于资深开发人员，还需要考察他们的设计能力。说到软件设计，大部分面试者都能熟练地背出面向对象的3个基本特性：继承、封装、多态，也能把它们的概念描述清楚。但一般被问及下面的这个问题来考察面向对象设计能力：</p><blockquote><p>请用一段程序代码描述我们所在的这间房间。</p></blockquote><p>至少有一半都很难准确使用Interface和Class来给房间建模，也有一些人会将最基本的代码语法或关键字写错。</p><h3 id="适合所在企业文化"><a href="#适合所在企业文化" class="headerlink" title="适合所在企业文化"></a>适合所在企业文化</h3><p>让我们看看GitHub负责人的一段话：</p><blockquote><p>我们很严肃地看待我们自己关于招聘流程的哲学。我们希望每一个GitHub员工都了解他们所要面对的环境，并保证他们是能够很好适应的。这包括我们所创造的文化、哲学、计划、错误甚至是晚餐。比起他们的技能是否满足要求，我们更看重他们的潜力，以及是否能够适应我们的企业文化。</p></blockquote><h3 id="虚拟任务"><a href="#虚拟任务" class="headerlink" title="虚拟任务"></a>虚拟任务</h3><blockquote><p>写一个小程序：将一个以特定格式（如CSV）存储的文本文件转换为XML格式，并存储为另一个文件。</p></blockquote><h3 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h3><p>基于Spring Boot及其他第三方库所提供的API来开发出基于REST的服务；然后，在前端利用AngularJS将应用分为几个模块（UserManager，ResourceManger，FeedbackManager）分别开发；最后，通过$http调用后端服务来进行业务处理和数据交互。<br>在整个开发过程中，仍需要去解决一些问题：</p><pre><code>* 前后端分离之后，如何进行Session的管理* 如何实现安全的跨域请求。* 在Spring Boot中如何整合MyBatis框架。* 如何利用Spring Security来构建安全的REST服务。* 如何利用云服务实现图片的上传与处理。</code></pre><h3 id="重构——系统改善之道"><a href="#重构——系统改善之道" class="headerlink" title="重构——系统改善之道"></a>重构——系统改善之道</h3><pre><code>* 引入构建工具    对于后端Java程序来说，最常使用的便是Groovy，也可尝试使用Gradle。而对于前端来说，Grunt或更新的Gulp都是不错的选择。</code></pre><h3 id="编程习惯"><a href="#编程习惯" class="headerlink" title="编程习惯"></a>编程习惯</h3><p>如果应聘者先写单元测试用例，再写解决问题的函数，那么面试官定会刮目相看，因为能做到测试在前、开发在后的程序员实在是太稀缺了，他会毫不犹豫地抛出橄榄枝。</p><p>调试功底：熟练地设置断点、单步跟踪、查看内存、分析调用栈。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mysql常用查询语句荟萃</title>
+      <link href="/2018/04/13/mysql/"/>
+      <url>/2018/04/13/mysql/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Mysql查询某个数据库的存储容量"><a href="#Mysql查询某个数据库的存储容量" class="headerlink" title="Mysql查询某个数据库的存储容量"></a>Mysql查询某个数据库的存储容量</h3><a id="more"></a><blockquote><p>USE information_schema;<br>SELECT CONCAT(ROUND(SUM(DATA_LENGTH/1024/1024/1024),2),’GB’) AS DATA FROM TABLES WHERE table_schema=’[数据库名]’;</p></blockquote><h3 id="Mysql-设置Profiler功能"><a href="#Mysql-设置Profiler功能" class="headerlink" title="Mysql 设置Profiler功能"></a>Mysql 设置Profiler功能</h3><blockquote><p> SET profiling = 1;</p></blockquote><h3 id="Mysql执行操作"><a href="#Mysql执行操作" class="headerlink" title="Mysql执行操作"></a>Mysql执行操作</h3><blockquote><p>SELECT/EXPLAIN …</p></blockquote><h3 id="Mysql查询各个阶段性能"><a href="#Mysql查询各个阶段性能" class="headerlink" title="Mysql查询各个阶段性能"></a>Mysql查询各个阶段性能</h3><blockquote><p>SHOW PROFILES;<br>SHOW PROFILE ALL FOR QUERY 1;</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Database </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Win7系统全部浏览器被篡改主页成123.sogou.com等问题的一点思路</title>
+      <link href="/2018/04/13/ProblemofHomePage/"/>
+      <url>/2018/04/13/ProblemofHomePage/</url>
+      
+        <content type="html"><![CDATA[<p>本人win7系统，曾经有两次中招，系统中的Google Chrome、Firefox、IE三个浏览器主页全部被篡改成123.sogou.com。第一次以为下载的软件有毒，运行之后马上导致浏览器首页被篡改，查注册表、改快捷方式……自认为该试的方法都试了，期间还用360安全卫士查杀过，但是依然没有解决。<strong>此时觉得病毒应该写到dll文件里面去了</strong>，那我没辙了，只能重装操作系统。<br>一直到现在，最近几天卸载360安全卫士之后，没多久，浏览器主页又被全部篡改了，好像和上次的主页一样，这时想到：“上一次好像也是卸载360安全卫士之后被篡改的主页”，所以初步分析<strong>应该是360安全卫士搞的鬼</strong>，TMD，临死前还要放一炮！！！<br>其实，我卸载360安全卫士只是觉得没有必要再用它了，并无瞧不起它的意思，嘿嘿。为什么它要这么对待我！！！<br>好了，说到这其实问题还并没有解决。即然查注册表、改快捷方式都没用，而我又不想重装系统，那只能采用网上的黑科技，在所有浏览器可执行文件文件名后加一个空格。这样凑合了好几天，实在是不舒服了。昨天晚上临睡前想起这个问题，我实在是不甘心，就在手机的浏览器上查解决办法。中国的网友们真是无所不知，眼前一亮，突然发现了一些好办法，心想明天试一下。<br>今天，我按照如下方法操作了一遍，竟然莫名其妙的就好了，好开心！虽然和昨天网上看到的方法有些许出入，但我认为本质是一样的。特记录于此。<br><a id="more"></a></p><h3 id="Win7系统全部浏览器的主页被篡改成123-sogou-com问题的一个解决方法"><a href="#Win7系统全部浏览器的主页被篡改成123-sogou-com问题的一个解决方法" class="headerlink" title="Win7系统全部浏览器的主页被篡改成123.sogou.com问题的一个解决方法"></a>Win7系统全部浏览器的主页被篡改成123.sogou.com问题的一个解决方法</h3><ul><li><p>取消“隐藏系统文件”<br>（1）打开“计算机”－点击菜单“组织”－点击“文件夹和搜索选项”－点击“查看”－点选“隐藏受保护的系统文件”（把前面的勾去掉）－弹出提示选择“是”<br>（2）点选下面“显示隐藏的文件、文件夹和驱动器”</p></li><li><p>找到“C:\Users\用户名\AppData\Roaming”路径，删除此路径下所有和“360”有关的文件夹！！！</p></li><li><p>检验修正结果</p></li></ul><p>网文链接：<a href="https://jingyan.baidu.com/article/d2b1d1027314df5c7e37d4ce.html" target="_blank" rel="noopener">解决“123.sogou.com/?*”浏览器起始页恶意跳转</a></p><p>我表示以后再也不会装360安全卫士了！！！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>《演化计算》_读书笔记</title>
+      <link href="/2018/04/13/NoteofBook3/"/>
+      <url>/2018/04/13/NoteofBook3/</url>
+      
+        <content type="html"><![CDATA[<p>目前, 演化计算与神经网络、模糊系统一起已形成一个新的研究方向———计算智能(computational intelligence)。人工智能已从传统的基于符号处理的符号主义向以神经网络为代表的连接主义和以演化计算为代表的演化主义方向发展。</p><p>演化算法从一个群体即多个点而不是从一个点开始搜索, 这是它能以较大的概找到整体最优解的主要原因之一。<br><a id="more"></a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>《统计学习方法(李航 著)》_读书笔记</title>
+      <link href="/2018/04/13/NoteofBook1/"/>
+      <url>/2018/04/13/NoteofBook1/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-3统计学习三要素"><a href="#1-3统计学习三要素" class="headerlink" title="1.3统计学习三要素"></a>1.3统计学习三要素</h3><p>本书中称由决策函数表示的模型为非概率模型，由条件概率表示的模型为概率模型。<br>损失函数度量模型一次预测的好坏，风险函数度量平均意义下模型预测的好坏。<br><a id="more"></a><br>监督学习的两个基本策略：经验风险最小化和结构风险最小化。<br>当样本容量足够大时，经验风险最小化(empirical risk minimization, ERM)能保证有很好的学习效果，在现实中被广泛使用。但是，当样本容量很小时，经验风险最小化学习的效果就未必很好，会产生“过拟合(over-fitting)”现象。<br>结构风险最小化(structural risk minimization, SRM)是为了防止过拟合而提出来的策略。</p><h4 id="2-3-3感知机学习算法的对偶形式"><a href="#2-3-3感知机学习算法的对偶形式" class="headerlink" title="2.3.3感知机学习算法的对偶形式"></a>2.3.3感知机学习算法的对偶形式</h4><p>实例点更新次数越多，意味着它距离分离超平面越近，也就越难正确分类。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>《模式识别与机器学习 中文版(马春鹏 译)》_读书笔记</title>
+      <link href="/2018/04/13/NoteofBook2/"/>
+      <url>/2018/04/13/NoteofBook2/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何知道自己是什么级别的程序员</title>
+      <link href="/2018/04/13/level/"/>
+      <url>/2018/04/13/level/</url>
+      
+        <content type="html"><![CDATA[<p>你们按照下面自行对号入座吧。</p><a id="more"></a><p>level 1: 被人带着做事的<br>level 2: 不需要人带就能做事的<br>level 3: 比level 2做得快的<br>level 4: 可以带人的<br>level 5: 可以带三个人的<br>level 6: 可以带七个人的<br>level 7: 可以带很多人的<br>level 8: 带带人的人的<br>level 9: 带level 8的</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Markdown语法</title>
+      <link href="/2018/04/13/KnowledOfMarkdown/"/>
+      <url>/2018/04/13/KnowledOfMarkdown/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Markdown原生语法"><a href="#Markdown原生语法" class="headerlink" title="Markdown原生语法"></a>Markdown原生语法</h3><ul><li>中划线。语法如下：<blockquote><p><del>要划除的行内内容</del></p></blockquote></li></ul><a id="more"></a><h3 id="Markdown中的转义字符为-，可以转义的有："><a href="#Markdown中的转义字符为-，可以转义的有：" class="headerlink" title="Markdown中的转义字符为\，可以转义的有："></a>Markdown中的转义字符为\，可以转义的有：</h3><blockquote><p>\ 反斜杠<br>` 反引号<br>* 星号<br>_ 下划线<br>{} 大括号<br>[] 中括号<br>() 小括号<br># 井号<br>+ 加号<br>- 减号<br>. 英文句号<br>! 感叹号</p></blockquote><h3 id="使用Markdown时，如何为文字加下划线"><a href="#使用Markdown时，如何为文字加下划线" class="headerlink" title="使用Markdown时，如何为文字加下划线"></a>使用Markdown时，如何为文字加下划线</h3><ul><li>Markdown并无下划线的原生语法，因为会和链接的默认样式产生混淆。这里可以使用行内样式HTML使其产生下划线效果，如下：<blockquote><p><u>Underlined Text</u></p></blockquote></li><li>使用html的span标签、设置行内CSS的border-bottom属性 来添加下划线。这种方式自定义程度最高。语法如下：<blockquote><p><span style="border-bottom:2px dashed yellow;">所添加的需要加下划线的行内文字</span></p></blockquote></li><li>用数学公式：<blockquote><p>#上划线<br>$\overline{X}$<br>#下划线<br>$\underline{X}$</p></blockquote></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu的奇巧淫技</title>
+      <link href="/2018/04/13/FunofUbuntu/"/>
+      <url>/2018/04/13/FunofUbuntu/</url>
+      
+        <content type="html"><![CDATA[<ul><li><p>安装小工具</p><blockquote><p>sudo apt install fortune<br>sudo apt install fortune-zh</p><a id="more"></a><p>sudo apt install cowsay<br>sudo apt install lolcat</p></blockquote></li><li><p>小牛讲道理</p><blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay;done</p></blockquote></li></ul><p><img src="https://pic4.zhimg.com/80/d8de96cf669f0cd6f89fb83a6ba01567_hd.jpg"></p><ul><li>加颜色<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay|lolcat;done</p></blockquote></li></ul><p><img src="https://pic2.zhimg.com/80/39458e4c8e1da4fbc714a430cca86536_hd.jpg"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux系统IO模式</title>
+      <link href="/2018/04/13/IO/"/>
+      <url>/2018/04/13/IO/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Linux系统有以下五种网络模式的方案"><a href="#Linux系统有以下五种网络模式的方案" class="headerlink" title="Linux系统有以下五种网络模式的方案"></a>Linux系统有以下五种网络模式的方案</h3><a id="more"></a><ul><li>阻塞I/O（blocking IO）</li><li>非阻塞I/O（nonblocking IO）</li><li>I/O多路复用（IO multiplexing）</li><li>信号驱动I/O（signal driven IO）</li><li>异步I/O（asynchronous IO）</li></ul><p>注：signal driven IO在实际中并不常用</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>函数式编程初探</title>
+      <link href="/2018/04/13/FuncProgExp/"/>
+      <url>/2018/04/13/FuncProgExp/</url>
+      
+        <content type="html"><![CDATA[<p>函数式编程的应用虽然在很长时间内都处于不温不火的状态，但他们的用途却非常广泛，常见的领域有人工智能、定理证明、无线通信、金融数据分析系统等。</p><a id="more"></a><p>面向对象语言有很大的优势，各种设计模式在商业开发的路上也发展得非常成熟，而函数式编程的优势在于程序的严谨与可靠性，程序正确性的证明与测试时的简易型，另外，还有开发周期相对短，编写并发程序十分简洁且运行稳定。</p><p>Haskell实现了很多软件中的精品，如窗口管理器XMonad、Perl6的Haskell实现Pugs以及高性能的网页框架Yesod、Snap等。</p><p>map-reduce框架的灵感就来自于函数式编程语言，Erlang的分布式编程模型也利用了很多诸如不可变数据、高阶函数等函数式编程的特性。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Haskell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Latex中设置字体大小</title>
+      <link href="/2018/04/13/FontsizeofLatex/"/>
+      <url>/2018/04/13/FontsizeofLatex/</url>
+      
+        <content type="html"><![CDATA[<p>Latex设置字体大小的命令由小到大依次为<br><a id="more"></a></p><ul><li>\tiny</li><li>\scriptsize</li><li>\footnotesize</li><li>\small</li><li>\normalsize(注：此为默认的正文字体大小)</li><li>\large</li><li>\Large</li><li>\LARGE</li><li>\huge</li><li>\Huge</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Latex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>语录</title>
+      <link href="/2018/04/13/Quotations/"/>
+      <url>/2018/04/13/Quotations/</url>
+      
+        <content type="html"><![CDATA[<blockquote><ul><li>人的差别在于业余时间。——爱因斯坦</li><li>Good designers copy. Great designers steal.(能工摹形，巧匠窃意。)</li><li>简单性和模块化是软件工程的基石，分布式和容错性是互联网的生命。——WWW的发明人蒂姆·伯纳斯·李在谈到设计原理时说</li><li>运动，是身体的知己；营养，是健康的知音。</li><li>骏马前头无沟壑，怂人面前全是坎。</li><li>如果想飞得高，就该把地平线忘掉。</li><li>广厦万间，夜眠七尺；良田千顷，日仅三餐。</li></ul></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>谷歌浏览器的黑科技</title>
+      <link href="/2018/04/13/BlackTechOfChrome/"/>
+      <url>/2018/04/13/BlackTechOfChrome/</url>
+      
+        <content type="html"><![CDATA[<h3 id="关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题"><a href="#关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题" class="headerlink" title="关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题"></a>关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题</h3><p>在Google Chrome的快捷方式中添加“–disable-directwrite-for-ui”启动参数，注意参数前有空格<br><a id="more"></a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一个无法在Chrome中更改默认搜索引擎的问题</title>
+      <link href="/2018/04/13/AProbOfDefSearchEngine/"/>
+      <url>/2018/04/13/AProbOfDefSearchEngine/</url>
+      
+        <content type="html"><![CDATA[<p>在大多数情况下会看到一个未知的网站被分配为默认引擎，并且无卸载按钮可以更改。</p><a id="more"></a><p>以下是解除Chrome中的设置，最后更改浏览器中默认搜索的方法。<br>按照步骤：<br>1、以管理员身份运行cmd.exe<br>2、在cmd窗口中执行以下三条命令</p><blockquote><p>RD /S /Q “%WinDir%\System32\GroupPolicyUsers”<br>RD /S /Q “%WinDir%\System32\GroupPolicy”<br>gpupdate /force</p></blockquote><p>直到出现两个通知。<br>这样就可以关闭命令提示符窗口，更改Chrome中的默认搜索引擎了。 </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MATLAB 神经网络技术</title>
+      <link href="/2018/03/28/Matlab/"/>
+      <url>/2018/03/28/Matlab/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前戏"><a href="#前戏" class="headerlink" title="前戏"></a>前戏</h2><h3 id="加载MATLAB自带的噪声信号进行绘图。"><a href="#加载MATLAB自带的噪声信号进行绘图。" class="headerlink" title="加载MATLAB自带的噪声信号进行绘图。"></a>加载MATLAB自带的噪声信号进行绘图。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; clear all</span><br><span class="line">&gt;&gt; close all</span><br><span class="line">&gt;&gt; load noisdopp</span><br><span class="line">&gt;&gt; plot(noisdopp)</span><br></pre></td></tr></table></figure><h3 id="绘制三元函数s-x²-y²-z²的可视化图形。"><a href="#绘制三元函数s-x²-y²-z²的可视化图形。" class="headerlink" title="绘制三元函数s=x²+y²+z²的可视化图形。"></a>绘制三元函数s=x²+y²+z²的可视化图形。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; clear all;</span><br><span class="line">&gt;&gt; x=linspace(-2,2,40);</span><br><span class="line">&gt;&gt; y=x;</span><br><span class="line">&gt;&gt; z=x;</span><br><span class="line">&gt;&gt; [X,Y,Z]=meshgrid(x,y,z);</span><br><span class="line">&gt;&gt; s=X.^2+Y.^2+Z.^2;</span><br><span class="line">&gt;&gt; slice(X,Y,Z,s,[-1,0,1],[-1,0,1],[-1,0,1]);</span><br><span class="line">&gt;&gt; colorbar</span><br></pre></td></tr></table></figure><p>在MATLAB的命令窗口中输入help nnet，即可得到神经网络工具箱的有关版本信息及函数列表。</p><h2 id="感知器神经网络"><a href="#感知器神经网络" class="headerlink" title="感知器神经网络"></a>感知器神经网络</h2><h3 id="单层感知器网络不能模拟异或问题，这里用二层感知器神经网络模拟异或函数"><a href="#单层感知器网络不能模拟异或问题，这里用二层感知器神经网络模拟异或函数" class="headerlink" title="单层感知器网络不能模拟异或问题，这里用二层感知器神经网络模拟异或函数"></a>单层感知器网络不能模拟异或问题，这里用二层感知器神经网络模拟异或函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; clear all;</span><br><span class="line">%初始化随机感知器层</span><br><span class="line">&gt;&gt; pr1=[0 1;0 1];   %设置随机感知器层输入问题每个元素的值域</span><br><span class="line">&gt;&gt; net1=newp(pr1,3);%定义随机感知器层</span><br><span class="line">%指定随机感知器层权值初始化函数为随机函数</span><br><span class="line">&gt;&gt; net1.inputWeights&#123;1&#125;.initFcn=&apos;rands&apos;;</span><br><span class="line">%指定随机感知器层阈值初始化函数为随机函数</span><br><span class="line">&gt;&gt; net1.biases&#123;1&#125;.initFcn=&apos;rands&apos;;</span><br><span class="line">&gt;&gt; net1=init(net1);%初始化随机感知器层</span><br><span class="line">&gt;&gt; iw1=net1.iw&#123;1&#125;;%随机感知器层的权值向量</span><br><span class="line">&gt;&gt; b1=net1.b&#123;1&#125;;%随机感知器层的阈值向量</span><br><span class="line">%随机感知器层仿真</span><br><span class="line">&gt;&gt; p1=[0 0;0 1;1 0;1 1]&apos;;%随机感知器输入向量(训练样本)</span><br><span class="line">&gt;&gt; [a1,pf]=sim(net1,p1);%随机感知器层仿真</span><br><span class="line">%初始化第二感知器层</span><br><span class="line">&gt;&gt; pr2=[0 1;0 1;0 1];%设置第二感知器层输入向量每个元素的值域</span><br><span class="line">&gt;&gt; net2=newp(pr2,1);%定义第二感知器层</span><br><span class="line">%训练第二感知器层</span><br><span class="line">&gt;&gt; net2.trainParam.epochs=10;</span><br><span class="line">&gt;&gt; net2.trainParam.show=1;</span><br><span class="line">&gt;&gt; p2=ones(3,4);%初始化第二感知器层的输入向量</span><br><span class="line">&gt;&gt; p2=p2.*a1;%随机感知器层的仿真输出结果作为第二感知器层的输入向量</span><br><span class="line">&gt;&gt; t2=[0 1 1 0];%第二感知器层的目标向量</span><br><span class="line">%训练第二感知器层</span><br><span class="line">&gt;&gt; [net2,tr2]=train(net2,p2,t2);</span><br><span class="line">&gt;&gt; disp(&apos;输出训练过程经过的每一步长为：&apos;)</span><br><span class="line">输出训练过程经过的每一步长为：</span><br><span class="line">&gt;&gt; epoch2=tr2.epoch   %输出训练过程经过的每一步长</span><br><span class="line"></span><br><span class="line">epoch2 =</span><br><span class="line"></span><br><span class="line">     0     1     2     3     4     5     6     7     8     9    10</span><br><span class="line"></span><br><span class="line">&gt;&gt; disp(&apos;输出每一步训练结果的误差为：&apos;)</span><br><span class="line">输出每一步训练结果的误差为：</span><br><span class="line">&gt;&gt; perf2=tr2.perf   %输出每一步训练结果的误差</span><br><span class="line"></span><br><span class="line">perf2 =</span><br><span class="line"></span><br><span class="line">  Columns 1 through 9</span><br><span class="line"></span><br><span class="line">    0.5000    0.5000    0.5000    0.2500    0.2500    0.2500    0.2500    0.2500    0.2500</span><br><span class="line"></span><br><span class="line">  Columns 10 through 11</span><br><span class="line"></span><br><span class="line">    0.2500    0.2500</span><br><span class="line"></span><br><span class="line">&gt;&gt; disp(&apos;第二感知器层的权值向量为：&apos;)</span><br><span class="line">第二感知器层的权值向量为：</span><br><span class="line">&gt;&gt; iw2=net2.iw&#123;1&#125;</span><br><span class="line"></span><br><span class="line">iw2 =</span><br><span class="line"></span><br><span class="line">    -1    -1     3</span><br><span class="line"></span><br><span class="line">&gt;&gt; disp(&apos;第二感知器层的阈值向量为：&apos;)</span><br><span class="line">第二感知器层的阈值向量为：</span><br><span class="line">&gt;&gt; b2=net2.b&#123;1&#125;</span><br><span class="line"></span><br><span class="line">b2 =</span><br><span class="line"></span><br><span class="line">    -1</span><br><span class="line">%存储训练后的网络</span><br><span class="line">&gt;&gt; save net36 net1 net2</span><br><span class="line">%下面的代码实现二层感知器网络的仿真</span><br><span class="line">&gt;&gt; clear all;   %清除工作空间中的变量</span><br><span class="line">&gt;&gt; load net36 net1 net2   %加载训练后的网络</span><br><span class="line">%随机感知器仿真</span><br><span class="line">&gt;&gt; p1=[0 0;0 1;1 0;1 1]&apos;;   %随机感知器层输入向量</span><br><span class="line">&gt;&gt; a1=sim(net1,p1); %随机感知器层仿真结果</span><br><span class="line">%输出感知器层仿真，并输出仿真结果</span><br><span class="line">&gt;&gt; p2=ones(3,4);%初始化第二感知器层的输入向量</span><br><span class="line">&gt;&gt; p2=p2.*a1;%随机感知器层的仿真输出结果作为第二感知器层的输入向量</span><br><span class="line">&gt;&gt; a2=sim(net2,p2)</span><br><span class="line">%运行程序，输出如下</span><br><span class="line">a2 =</span><br><span class="line"></span><br><span class="line">     0     1     0     0</span><br><span class="line">%由以上结果可看出所设计的网络可正确模拟“异或”函数的功能</span><br></pre></td></tr></table></figure><h3 id="设计一个感知器神经网络，完成下列分类，已知：p1-0-5-1-T，t1-0-p2-1-0-5-T-t2-1-p3-1-0-5-T-t3-1-p4-1-1-t4-0。"><a href="#设计一个感知器神经网络，完成下列分类，已知：p1-0-5-1-T，t1-0-p2-1-0-5-T-t2-1-p3-1-0-5-T-t3-1-p4-1-1-t4-0。" class="headerlink" title="设计一个感知器神经网络，完成下列分类，已知：p1=(0.5 -1)T，t1=0; p2=(1 0.5)T,t2=1;p3=(-1 0.5)T,t3=1;p4=(-1 -1),t4=0。"></a>设计一个感知器神经网络，完成下列分类，已知：p1=(0.5 -1)T，t1=0; p2=(1 0.5)T,t2=1;p3=(-1 0.5)T,t3=1;p4=(-1 -1),t4=0。</h3><p>此单层感知器神经网络的结构：1个输入向量，包括2个元素、1个神经元，神经元的传输函数为hardlim。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; clear all;</span><br><span class="line">&gt;&gt; pr=[-1 1;-1 1];</span><br><span class="line">&gt;&gt; net=newp(pr,1);</span><br><span class="line">&gt;&gt; p=[0.5 -1;1 0.5;-1 0.5;-1 -1]&apos;;</span><br><span class="line">&gt;&gt; t=[0 1 1 0];</span><br><span class="line">&gt;&gt; [net,tr]=train(net,p,t);</span><br><span class="line">&gt;&gt; a = sim(net,p)</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">     0     1     1     0</span><br><span class="line"></span><br><span class="line">&gt;&gt; v=[-2 2 -2 2];</span><br><span class="line">&gt;&gt; plotpv(p,a,v);</span><br><span class="line">&gt;&gt; plotpc(net.iw&#123;1&#125;,net.b&#123;1&#125;);</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Matlab </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
