@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>pic</title>
+      <link href="/2019/01/05/pic/"/>
+      <url>/2019/01/05/pic/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>强化学习介绍</title>
       <link href="/2018/11/12/A_intro_to_RL/"/>
       <url>/2018/11/12/A_intro_to_RL/</url>
@@ -854,31 +867,6 @@
     
     
     <entry>
-      <title>技术面试</title>
-      <link href="/2018/04/13/Questions/"/>
-      <url>/2018/04/13/Questions/</url>
-      
-        <content type="html"><![CDATA[<h3 id="基础打牢了吗？"><a href="#基础打牢了吗？" class="headerlink" title="基础打牢了吗？"></a>基础打牢了吗？</h3><p>常问问题（Java）</p><ul><li>HashTable与HashMap有什么区别？</li><li>Servlet是线程安全的吗？<a id="more"></a></li><li>JSP中@include跟jsp：include的区别。</li><li>HTTP的respomse code 403和500分别代表什么？</li></ul><p>这些问题都很简单，但一些基础不牢的程序员往往会在这个时候露馅。</p><p>曾经碰到过一个在简历中说自己精通C++的应聘者，连成员变量的初始化顺序这样的问题都被问得一头雾水，那最终结果也就可想而知了。</p><h3 id="技术深度够吗？"><a href="#技术深度够吗？" class="headerlink" title="技术深度够吗？"></a>技术深度够吗？</h3><p>我们现在做项目时都会大量使用框架，这能使我们的开发效率和质量都得到提升和保障，但同时也降低了对程序员开发技能的要求。因此一般会询问面试者下面的问题，来考察对使用框架的掌握程度：</p><blockquote><p>请你描述一下，在这个项目中，从一个HTTP请求发起，到最终的Response返回，它在你的系统和框架内部是如何流转的？</p></blockquote><p>这个问题往往能够判断出面试者对于相关技术的掌握深度。较初级的开发人员描述的层级往往比较浅。比如，使用Spring MVC框架的，只能说到实现一个Controller继承BaseCommandController（甚至很多开发人员只知道继承了一个公司内部框架的基类），至于再往下Spring框架是如何进行内部流转的，就再也说不清楚了；而更资深的开发人员，往往能够说出框架内部的实现机制，以及如何调用和处理的。在面试者描述的过程中，会被穿插询问一些比较有深度的问题，比如，框架中某个类这样设计是哪一种设计模式的体现，采用这样的设计有什么好处，等等。这比让面试者默写一个设计模式代码要有效，也自然得多。<br>除了技术层面上的考察之外，对于资深开发人员，还需要考察他们的设计能力。说到软件设计，大部分面试者都能熟练地背出面向对象的3个基本特性：继承、封装、多态，也能把它们的概念描述清楚。但一般被问及下面的这个问题来考察面向对象设计能力：</p><blockquote><p>请用一段程序代码描述我们所在的这间房间。</p></blockquote><p>至少有一半都很难准确使用Interface和Class来给房间建模，也有一些人会将最基本的代码语法或关键字写错。</p><h3 id="适合所在企业文化"><a href="#适合所在企业文化" class="headerlink" title="适合所在企业文化"></a>适合所在企业文化</h3><p>让我们看看GitHub负责人的一段话：</p><blockquote><p>我们很严肃地看待我们自己关于招聘流程的哲学。我们希望每一个GitHub员工都了解他们所要面对的环境，并保证他们是能够很好适应的。这包括我们所创造的文化、哲学、计划、错误甚至是晚餐。比起他们的技能是否满足要求，我们更看重他们的潜力，以及是否能够适应我们的企业文化。</p></blockquote><h3 id="虚拟任务"><a href="#虚拟任务" class="headerlink" title="虚拟任务"></a>虚拟任务</h3><blockquote><p>写一个小程序：将一个以特定格式（如CSV）存储的文本文件转换为XML格式，并存储为另一个文件。</p></blockquote><h3 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h3><p>基于Spring Boot及其他第三方库所提供的API来开发出基于REST的服务；然后，在前端利用AngularJS将应用分为几个模块（UserManager，ResourceManger，FeedbackManager）分别开发；最后，通过$http调用后端服务来进行业务处理和数据交互。<br>在整个开发过程中，仍需要去解决一些问题：</p><pre><code>* 前后端分离之后，如何进行Session的管理* 如何实现安全的跨域请求。* 在Spring Boot中如何整合MyBatis框架。* 如何利用Spring Security来构建安全的REST服务。* 如何利用云服务实现图片的上传与处理。</code></pre><h3 id="重构——系统改善之道"><a href="#重构——系统改善之道" class="headerlink" title="重构——系统改善之道"></a>重构——系统改善之道</h3><pre><code>* 引入构建工具    对于后端Java程序来说，最常使用的便是Groovy，也可尝试使用Gradle。而对于前端来说，Grunt或更新的Gulp都是不错的选择。</code></pre><h3 id="编程习惯"><a href="#编程习惯" class="headerlink" title="编程习惯"></a>编程习惯</h3><p>如果应聘者先写单元测试用例，再写解决问题的函数，那么面试官定会刮目相看，因为能做到测试在前、开发在后的程序员实在是太稀缺了，他会毫不犹豫地抛出橄榄枝。</p><p>调试功底：熟练地设置断点、单步跟踪、查看内存、分析调用栈。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Water </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Mysql常用查询语句荟萃</title>
       <link href="/2018/04/13/mysql/"/>
       <url>/2018/04/13/mysql/</url>
@@ -896,6 +884,31 @@
         <tags>
             
             <tag> Database </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>技术面试</title>
+      <link href="/2018/04/13/Questions/"/>
+      <url>/2018/04/13/Questions/</url>
+      
+        <content type="html"><![CDATA[<h3 id="基础打牢了吗？"><a href="#基础打牢了吗？" class="headerlink" title="基础打牢了吗？"></a>基础打牢了吗？</h3><p>常问问题（Java）</p><ul><li>HashTable与HashMap有什么区别？</li><li>Servlet是线程安全的吗？<a id="more"></a></li><li>JSP中@include跟jsp：include的区别。</li><li>HTTP的respomse code 403和500分别代表什么？</li></ul><p>这些问题都很简单，但一些基础不牢的程序员往往会在这个时候露馅。</p><p>曾经碰到过一个在简历中说自己精通C++的应聘者，连成员变量的初始化顺序这样的问题都被问得一头雾水，那最终结果也就可想而知了。</p><h3 id="技术深度够吗？"><a href="#技术深度够吗？" class="headerlink" title="技术深度够吗？"></a>技术深度够吗？</h3><p>我们现在做项目时都会大量使用框架，这能使我们的开发效率和质量都得到提升和保障，但同时也降低了对程序员开发技能的要求。因此一般会询问面试者下面的问题，来考察对使用框架的掌握程度：</p><blockquote><p>请你描述一下，在这个项目中，从一个HTTP请求发起，到最终的Response返回，它在你的系统和框架内部是如何流转的？</p></blockquote><p>这个问题往往能够判断出面试者对于相关技术的掌握深度。较初级的开发人员描述的层级往往比较浅。比如，使用Spring MVC框架的，只能说到实现一个Controller继承BaseCommandController（甚至很多开发人员只知道继承了一个公司内部框架的基类），至于再往下Spring框架是如何进行内部流转的，就再也说不清楚了；而更资深的开发人员，往往能够说出框架内部的实现机制，以及如何调用和处理的。在面试者描述的过程中，会被穿插询问一些比较有深度的问题，比如，框架中某个类这样设计是哪一种设计模式的体现，采用这样的设计有什么好处，等等。这比让面试者默写一个设计模式代码要有效，也自然得多。<br>除了技术层面上的考察之外，对于资深开发人员，还需要考察他们的设计能力。说到软件设计，大部分面试者都能熟练地背出面向对象的3个基本特性：继承、封装、多态，也能把它们的概念描述清楚。但一般被问及下面的这个问题来考察面向对象设计能力：</p><blockquote><p>请用一段程序代码描述我们所在的这间房间。</p></blockquote><p>至少有一半都很难准确使用Interface和Class来给房间建模，也有一些人会将最基本的代码语法或关键字写错。</p><h3 id="适合所在企业文化"><a href="#适合所在企业文化" class="headerlink" title="适合所在企业文化"></a>适合所在企业文化</h3><p>让我们看看GitHub负责人的一段话：</p><blockquote><p>我们很严肃地看待我们自己关于招聘流程的哲学。我们希望每一个GitHub员工都了解他们所要面对的环境，并保证他们是能够很好适应的。这包括我们所创造的文化、哲学、计划、错误甚至是晚餐。比起他们的技能是否满足要求，我们更看重他们的潜力，以及是否能够适应我们的企业文化。</p></blockquote><h3 id="虚拟任务"><a href="#虚拟任务" class="headerlink" title="虚拟任务"></a>虚拟任务</h3><blockquote><p>写一个小程序：将一个以特定格式（如CSV）存储的文本文件转换为XML格式，并存储为另一个文件。</p></blockquote><h3 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h3><p>基于Spring Boot及其他第三方库所提供的API来开发出基于REST的服务；然后，在前端利用AngularJS将应用分为几个模块（UserManager，ResourceManger，FeedbackManager）分别开发；最后，通过$http调用后端服务来进行业务处理和数据交互。<br>在整个开发过程中，仍需要去解决一些问题：</p><pre><code>* 前后端分离之后，如何进行Session的管理* 如何实现安全的跨域请求。* 在Spring Boot中如何整合MyBatis框架。* 如何利用Spring Security来构建安全的REST服务。* 如何利用云服务实现图片的上传与处理。</code></pre><h3 id="重构——系统改善之道"><a href="#重构——系统改善之道" class="headerlink" title="重构——系统改善之道"></a>重构——系统改善之道</h3><pre><code>* 引入构建工具    对于后端Java程序来说，最常使用的便是Groovy，也可尝试使用Gradle。而对于前端来说，Grunt或更新的Gulp都是不错的选择。</code></pre><h3 id="编程习惯"><a href="#编程习惯" class="headerlink" title="编程习惯"></a>编程习惯</h3><p>如果应聘者先写单元测试用例，再写解决问题的函数，那么面试官定会刮目相看，因为能做到测试在前、开发在后的程序员实在是太稀缺了，他会毫不犹豫地抛出橄榄枝。</p><p>调试功底：熟练地设置断点、单步跟踪、查看内存、分析调用栈。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
             
         </tags>
       
@@ -954,6 +967,31 @@
     
     
     <entry>
+      <title>《模式识别与机器学习 中文版(马春鹏 译)》_读书笔记</title>
+      <link href="/2018/04/13/NoteofBook2/"/>
+      <url>/2018/04/13/NoteofBook2/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>《统计学习方法(李航 著)》_读书笔记</title>
       <link href="/2018/04/13/NoteofBook1/"/>
       <url>/2018/04/13/NoteofBook1/</url>
@@ -979,11 +1017,11 @@
     
     
     <entry>
-      <title>《模式识别与机器学习 中文版(马春鹏 译)》_读书笔记</title>
-      <link href="/2018/04/13/NoteofBook2/"/>
-      <url>/2018/04/13/NoteofBook2/</url>
+      <title>Ubuntu的奇巧淫技</title>
+      <link href="/2018/04/13/FunofUbuntu/"/>
+      <url>/2018/04/13/FunofUbuntu/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<ul><li>安装小工具<blockquote><p>sudo apt install fortune<br>sudo apt install fortune-zh<br>sudo apt install cowsay<br>sudo apt install lolcat</p></blockquote></li></ul><a id="more"></a><ul><li>小牛讲道理<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay;done</p></blockquote></li></ul><p><img src="/2018/04/13/FunofUbuntu/pic/d8de96cf669f0cd6f89fb83a6ba01567_hd.jpg" alt=""></p><ul><li>加颜色<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay|lolcat;done</p></blockquote></li></ul><p><img src="/2018/04/13/FunofUbuntu/pic/39458e4c8e1da4fbc714a430cca86536_hd.jpg" alt=""></p>]]></content>
       
       
       <categories>
@@ -995,7 +1033,7 @@
       
         <tags>
             
-            <tag> Machine Learning </tag>
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1029,56 +1067,6 @@
     
     
     <entry>
-      <title>Markdown语法</title>
-      <link href="/2018/04/13/KnowledOfMarkdown/"/>
-      <url>/2018/04/13/KnowledOfMarkdown/</url>
-      
-        <content type="html"><![CDATA[<h3 id="Markdown原生语法"><a href="#Markdown原生语法" class="headerlink" title="Markdown原生语法"></a>Markdown原生语法</h3><ul><li>中划线。语法如下：<blockquote><p><del>要划除的行内内容</del></p></blockquote></li></ul><a id="more"></a><h3 id="Markdown中的转义字符为-，可以转义的有："><a href="#Markdown中的转义字符为-，可以转义的有：" class="headerlink" title="Markdown中的转义字符为\，可以转义的有："></a>Markdown中的转义字符为\，可以转义的有：</h3><blockquote><p>\ 反斜杠<br>` 反引号<br>* 星号<br>_ 下划线<br>{} 大括号<br>[] 中括号<br>() 小括号<br># 井号<br>+ 加号<br>- 减号<br>. 英文句号<br>! 感叹号</p></blockquote><h3 id="使用Markdown时，如何为文字加下划线"><a href="#使用Markdown时，如何为文字加下划线" class="headerlink" title="使用Markdown时，如何为文字加下划线"></a>使用Markdown时，如何为文字加下划线</h3><ul><li>Markdown并无下划线的原生语法，因为会和链接的默认样式产生混淆。这里可以使用行内样式HTML使其产生下划线效果，如下：<blockquote><p><u>Underlined Text</u></p></blockquote></li><li>使用html的span标签、设置行内CSS的border-bottom属性 来添加下划线。这种方式自定义程度最高。语法如下：<blockquote><p><span style="border-bottom:2px dashed yellow;">所添加的需要加下划线的行内文字</span></p></blockquote></li><li>用数学公式：<blockquote><p>#上划线<br>$\overline{X}$<br>#下划线<br>$\underline{X}$</p></blockquote></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Markdown </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Ubuntu的奇巧淫技</title>
-      <link href="/2018/04/13/FunofUbuntu/"/>
-      <url>/2018/04/13/FunofUbuntu/</url>
-      
-        <content type="html"><![CDATA[<ul><li>安装小工具<blockquote><p>sudo apt install fortune<br>sudo apt install fortune-zh<br>sudo apt install cowsay<br>sudo apt install lolcat</p></blockquote></li></ul><a id="more"></a><ul><li>小牛讲道理<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay;done</p></blockquote></li></ul><p><img src="https://pic4.zhimg.com/80/d8de96cf669f0cd6f89fb83a6ba01567_hd.jpg" alt="小牛讲道理"></p><ul><li>加颜色<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay|lolcat;done</p></blockquote></li></ul><p><img src="https://pic2.zhimg.com/80/39458e4c8e1da4fbc714a430cca86536_hd.jpg" alt="加颜色"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Linux系统IO模式</title>
       <link href="/2018/04/13/IO/"/>
       <url>/2018/04/13/IO/</url>
@@ -1096,6 +1084,31 @@
         <tags>
             
             <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Markdown语法</title>
+      <link href="/2018/04/13/KnowledOfMarkdown/"/>
+      <url>/2018/04/13/KnowledOfMarkdown/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Markdown原生语法"><a href="#Markdown原生语法" class="headerlink" title="Markdown原生语法"></a>Markdown原生语法</h3><ul><li>中划线。语法如下：<blockquote><p><del>要划除的行内内容</del></p></blockquote></li></ul><a id="more"></a><h3 id="Markdown中的转义字符为-，可以转义的有："><a href="#Markdown中的转义字符为-，可以转义的有：" class="headerlink" title="Markdown中的转义字符为\，可以转义的有："></a>Markdown中的转义字符为\，可以转义的有：</h3><blockquote><p>\ 反斜杠<br>` 反引号<br>* 星号<br>_ 下划线<br>{} 大括号<br>[] 中括号<br>() 小括号<br># 井号<br>+ 加号<br>- 减号<br>. 英文句号<br>! 感叹号</p></blockquote><h3 id="使用Markdown时，如何为文字加下划线"><a href="#使用Markdown时，如何为文字加下划线" class="headerlink" title="使用Markdown时，如何为文字加下划线"></a>使用Markdown时，如何为文字加下划线</h3><ul><li>Markdown并无下划线的原生语法，因为会和链接的默认样式产生混淆。这里可以使用行内样式HTML使其产生下划线效果，如下：<blockquote><p><u>Underlined Text</u></p></blockquote></li><li>使用html的span标签、设置行内CSS的border-bottom属性 来添加下划线。这种方式自定义程度最高。语法如下：<blockquote><p><span style="border-bottom:2px dashed yellow;">所添加的需要加下划线的行内文字</span></p></blockquote></li><li>用数学公式：<blockquote><p>#上划线<br>$\overline{X}$<br>#下划线<br>$\underline{X}$</p></blockquote></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
             
         </tags>
       

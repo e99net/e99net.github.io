@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://e99net.github.io/"/>
-  <updated>2019-01-05T12:11:57.067Z</updated>
+  <updated>2019-01-05T13:02:19.961Z</updated>
   <id>https://e99net.github.io/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>pic</title>
+    <link href="https://e99net.github.io/2019/01/05/pic/"/>
+    <id>https://e99net.github.io/2019/01/05/pic/</id>
+    <published>2019-01-05T13:02:19.000Z</published>
+    <updated>2019-01-05T13:02:19.961Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>强化学习介绍</title>
@@ -127,7 +141,7 @@
     <summary type="html">
     
       &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;中国、日本和韩国的象形文字总称为CJK。&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;中国、日本和韩国的象形文字总称为CJK。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
     
     </summary>
     
@@ -270,7 +284,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;下面是老夫重装完系统后必做的几件事：&lt;br&gt;
+      &lt;p&gt;下面是老夫重装完系统后必做的几件事：&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
@@ -314,7 +328,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;前戏&quot;&gt;&lt;a href=&quot;#前戏&quot; class=&quot;headerlink&quot; title=&quot;前戏&quot;&gt;&lt;/a&gt;前戏&lt;/h3&gt;&lt;p&gt;查看系统当前使用的shell&lt;br&gt;
+      &lt;h3 id=&quot;前戏&quot;&gt;&lt;a href=&quot;#前戏&quot; class=&quot;headerlink&quot; title=&quot;前戏&quot;&gt;&lt;/a&gt;前戏&lt;/h3&gt;&lt;p&gt;查看系统当前使用的shell&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
@@ -340,7 +354,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;AttributeError: module ‘pip’ has no attribute ‘main’&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;解决方案如下：&lt;br&gt;找到安装目录下的helpers/packaging_tool.py文件，将如下代码&lt;br&gt;
+&lt;p&gt;解决方案如下：&lt;br&gt;找到安装目录下的helpers/packaging_tool.py文件，将如下代码&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
@@ -362,7 +376,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;许多绿色版的软件无法像那些安装版的软件一样添加到右键菜单，导致很不方便，这时可以自己将其添加到右键菜单，提高工作效率。&lt;br&gt;下面以Sublime Text为例加以说明：&lt;br&gt;
+      &lt;p&gt;许多绿色版的软件无法像那些安装版的软件一样添加到右键菜单，导致很不方便，这时可以自己将其添加到右键菜单，提高工作效率。&lt;br&gt;下面以Sublime Text为例加以说明：&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
@@ -384,7 +398,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;宽字符&quot;&gt;&lt;a href=&quot;#宽字符&quot; class=&quot;headerlink&quot; title=&quot;宽字符&quot;&gt;&lt;/a&gt;宽字符&lt;/h3&gt;&lt;p&gt;为了更好地支持Unicode，C11引入额外的宽字符类型char16_t和char32_t。在头文件uchar.h中，它们被定义为无符号整数类型。&lt;br&gt;
+      &lt;h3 id=&quot;宽字符&quot;&gt;&lt;a href=&quot;#宽字符&quot; class=&quot;headerlink&quot; title=&quot;宽字符&quot;&gt;&lt;/a&gt;宽字符&lt;/h3&gt;&lt;p&gt;为了更好地支持Unicode，C11引入额外的宽字符类型char16_t和char32_t。在头文件uchar.h中，它们被定义为无符号整数类型。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
@@ -429,7 +443,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;在beamer幻灯片中如果插入图形，一般不会显示图形编号，这是其默认模式，但我们可以通过设置给图形编号，在导言区加上如下命令即可。&lt;br&gt;
+      &lt;p&gt;在beamer幻灯片中如果插入图形，一般不会显示图形编号，这是其默认模式，但我们可以通过设置给图形编号，在导言区加上如下命令即可。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
@@ -459,28 +473,6 @@
     
     
       <category term="Latex" scheme="https://e99net.github.io/tags/Latex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>“ES连不上电脑了，一直卡在登陆界面”问题的解决方案</title>
-    <link href="https://e99net.github.io/2018/05/24/esconn/"/>
-    <id>https://e99net.github.io/2018/05/24/esconn/</id>
-    <published>2018-05-24T09:00:51.674Z</published>
-    <updated>2018-05-24T09:02:23.423Z</updated>
-    
-    <content type="html"><![CDATA[<p>本地策略，安全选项<br><a id="more"></a><br>网络访问: 本地帐户的共享和安全模型,属性改为”经典 - 本地用户以自己的身份验证”.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本地策略，安全选项&lt;br&gt;
-    
-    </summary>
-    
-      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
-    
-    
-      <category term="Water" scheme="https://e99net.github.io/tags/Water/"/>
     
   </entry>
   
