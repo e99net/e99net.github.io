@@ -208,9 +208,7 @@
 <blockquote>
 <p>值函数告知我们智能体在每个状态得到的最大期望将来奖励</p>
 </blockquote>
-<p>每个状态的值是在那个状态的智能体期望在将来累计的奖励总数。</p>
-<p>V_\pi(s)=\mathbb{E_\pi}[R_{t+1}+\gamma R_{t+2}+\gamma ^{2}R_{t+3}+…|S_t =s]</p>
-<p>智能体会使用这个值函数去在每一步选择一个状态，选择的状态具有最大的值。</p>
+<p>每个状态的值是在那个状态的智能体期望在将来累计的奖励总数。<br>$$<br>V_\pi(s)=\mathbb{E_\pi}[R_{t+1}+\gamma R_{t+2}+\gamma ^2 R_{t+3}+…|S_t =s]<br>$$<br>智能体会使用这个值函数去在每一步选择一个状态，选择的状态具有最大的值。</p>
 <h5 id="基于策略"><a href="#基于策略" class="headerlink" title="基于策略"></a>基于策略</h5><p>在基于策略的强化学习中，我们想不使用值函数而直接优化策略函数$\mathtt{\pi}(s)$。</p>
 <p>策略是在一个给定的时间对智能体行为的定义。<br>$$<br>a=\pi(s)<br>$$<br>我们学习一个策略函数，使每个状态映射到对应的最好动作。</p>
 <p>我们有两种策略：</p>
@@ -227,7 +225,7 @@
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2019-01-05T20:09:51+08:00" content="2019-01-05"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-01-05T20:11:57+08:00" content="2019-01-05"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
                 &nbsp;2019-01-05
               </time>
             
