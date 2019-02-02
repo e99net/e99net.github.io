@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://e99net.github.io/"/>
-  <updated>2019-02-02T14:29:13.752Z</updated>
+  <updated>2019-02-02T14:57:19.003Z</updated>
   <id>https://e99net.github.io/</id>
   
   <author>
@@ -17,19 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>用UltraISO制作Ubuntu18.04的启动U盘</title>
+    <link href="https://e99net.github.io/2019/02/02/USBofUbuntu/"/>
+    <id>https://e99net.github.io/2019/02/02/USBofUbuntu/</id>
+    <published>2019-02-02T14:41:58.789Z</published>
+    <updated>2019-02-02T14:57:19.003Z</updated>
+    
+    <content type="html"><![CDATA[<p>1 从Ubuntu官网下载18.04系统的iso文件，并安装UltraISO软件</p><p>2 确保用来制作启动盘的U盘是FAT32格式的，否则，可将U盘格式化为FAT32格式</p><a id="more"></a><p>3 点击UltraISO的红色框内按钮<br><img src="/2019/02/02/USBofUbuntu/pic/20170916135522757.png" alt=""></p><p>4 找到Ubuntu ISO文件并选中，点击打开<br><img src="/2019/02/02/USBofUbuntu/pic/20170916135636024.png" alt=""><br>打开后的界面如下图所示<br><img src="/2019/02/02/USBofUbuntu/pic/20170916135757851.png" alt=""></p><p>5 点击“启动→写入硬盘映像…”<br><img src="/2019/02/02/USBofUbuntu/pic/20170916140000287.png" alt=""></p><p>6 写入方式选择USB-HDD+或者USB-HDD都可以<br><img src="/2019/02/02/USBofUbuntu/pic/20170916140040427.png" alt=""></p><p>7 点击“便捷启动→写入新的驱动器引导扇区→Syslinux”,选择“是”，完成后“确定”<br><img src="/2019/02/02/USBofUbuntu/pic/20170916140325642.png" alt=""><br><img src="/2019/02/02/USBofUbuntu/pic/20170916140507610.png" alt=""><br><img src="/2019/02/02/USBofUbuntu/pic/20170916140541363.png" alt=""></p><p>8 点击“写入”，选择“是”。<br><img src="/2019/02/02/USBofUbuntu/pic/20170916140938127.png" alt=""></p><p>9 写入需要等待一段时间，完成后如下图。此时，选择“返回”并退出UltraISO即可<br><img src="/2019/02/02/USBofUbuntu/pic/20170916141128817.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1 从Ubuntu官网下载18.04系统的iso文件，并安装UltraISO软件&lt;/p&gt;
+&lt;p&gt;2 确保用来制作启动盘的U盘是FAT32格式的，否则，可将U盘格式化为FAT32格式&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="water" scheme="https://e99net.github.io/tags/water/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ubuntu上的各种软件问题解决之道</title>
     <link href="https://e99net.github.io/2019/02/02/SolofMatlabOnUbuntu/"/>
     <id>https://e99net.github.io/2019/02/02/SolofMatlabOnUbuntu/</id>
     <published>2019-02-02T14:17:20.516Z</published>
-    <updated>2019-02-02T14:29:13.752Z</updated>
+    <updated>2019-02-02T14:41:36.433Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Ubuntu上的Matlab无法以普通用户身份运行的解决方法"><a href="#Ubuntu上的Matlab无法以普通用户身份运行的解决方法" class="headerlink" title="Ubuntu上的Matlab无法以普通用户身份运行的解决方法"></a>Ubuntu上的Matlab无法以普通用户身份运行的解决方法</h2><p>给“/home/用户名/.matlab”这个文件目录递归授予超级权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 .matlab -R</span><br></pre></td></tr></table></figure></p><h2 id="CLion无法用快捷方式启动"><a href="#CLion无法用快捷方式启动" class="headerlink" title="CLion无法用快捷方式启动"></a>CLion无法用快捷方式启动</h2><p>先在Terminal中启动CLion，然后点击菜单栏Tools下面的Create Desktop Entry即可</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Ubuntu上的Matlab无法以普通用户身份运行"><a href="#Ubuntu上的Matlab无法以普通用户身份运行" class="headerlink" title="Ubuntu上的Matlab无法以普通用户身份运行"></a>Ubuntu上的Matlab无法以普通用户身份运行</h2><p>给“/home/用户名/.matlab”这个文件目录递归授予超级权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 .matlab -R</span><br></pre></td></tr></table></figure></p><h2 id="CLion无法用快捷方式启动"><a href="#CLion无法用快捷方式启动" class="headerlink" title="CLion无法用快捷方式启动"></a>CLion无法用快捷方式启动</h2><p>先在Terminal中启动CLion，然后点击菜单栏Tools下面的Create Desktop Entry即可</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;Ubuntu上的Matlab无法以普通用户身份运行的解决方法&quot;&gt;&lt;a href=&quot;#Ubuntu上的Matlab无法以普通用户身份运行的解决方法&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu上的Matlab无法以普通用户身份运行的解决方法&quot;&gt;
+        &lt;h2 id=&quot;Ubuntu上的Matlab无法以普通用户身份运行&quot;&gt;&lt;a href=&quot;#Ubuntu上的Matlab无法以普通用户身份运行&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu上的Matlab无法以普通用户身份运行&quot;&gt;&lt;/a&gt;Ubuntu上的Mat
       
     
     </summary>
@@ -37,7 +60,9 @@
       <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
     
     
-      <category term="Linux, Matlab" scheme="https://e99net.github.io/tags/Linux-Matlab/"/>
+      <category term="Linux" scheme="https://e99net.github.io/tags/Linux/"/>
+    
+      <category term="Matlab" scheme="https://e99net.github.io/tags/Matlab/"/>
     
   </entry>
   
@@ -455,28 +480,6 @@
     <summary type="html">
     
       &lt;p&gt;在beamer幻灯片中如果插入图形，一般不会显示图形编号，这是其默认模式，但我们可以通过设置给图形编号，在导言区加上如下命令即可。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
-    
-    
-      <category term="Latex" scheme="https://e99net.github.io/tags/Latex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XeLatex在window上编译很慢的解决方法</title>
-    <link href="https://e99net.github.io/2018/05/24/texslow/"/>
-    <id>https://e99net.github.io/2018/05/24/texslow/</id>
-    <published>2018-05-24T12:57:03.015Z</published>
-    <updated>2018-05-24T12:58:38.731Z</updated>
-    
-    <content type="html"><![CDATA[<p>环境：win7 + texlive 2017 + TeXstudio</p><a id="more"></a><p>解决方法：</p><p>A. 以管理员身份运行fc-cache</p><p>B. 在texlive安装路径bin/win32下，设置xelatex.exe以管理员身份启动。</p><p>C. 启动TeXstudio时以管理员身份启动</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;环境：win7 + texlive 2017 + TeXstudio&lt;/p&gt;
     
     </summary>
     

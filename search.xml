@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>Ubuntu上的各种软件问题解决之道</title>
-      <link href="/2019/02/02/SolofMatlabOnUbuntu/"/>
-      <url>/2019/02/02/SolofMatlabOnUbuntu/</url>
+      <title>用UltraISO制作Ubuntu18.04的启动U盘</title>
+      <link href="/2019/02/02/USBofUbuntu/"/>
+      <url>/2019/02/02/USBofUbuntu/</url>
       
-        <content type="html"><![CDATA[<h2 id="Ubuntu上的Matlab无法以普通用户身份运行的解决方法"><a href="#Ubuntu上的Matlab无法以普通用户身份运行的解决方法" class="headerlink" title="Ubuntu上的Matlab无法以普通用户身份运行的解决方法"></a>Ubuntu上的Matlab无法以普通用户身份运行的解决方法</h2><p>给“/home/用户名/.matlab”这个文件目录递归授予超级权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 .matlab -R</span><br></pre></td></tr></table></figure></p><h2 id="CLion无法用快捷方式启动"><a href="#CLion无法用快捷方式启动" class="headerlink" title="CLion无法用快捷方式启动"></a>CLion无法用快捷方式启动</h2><p>先在Terminal中启动CLion，然后点击菜单栏Tools下面的Create Desktop Entry即可</p>]]></content>
+        <content type="html"><![CDATA[<p>1 从Ubuntu官网下载18.04系统的iso文件，并安装UltraISO软件</p><p>2 确保用来制作启动盘的U盘是FAT32格式的，否则，可将U盘格式化为FAT32格式</p><a id="more"></a><p>3 点击UltraISO的红色框内按钮<br><img src="/2019/02/02/USBofUbuntu/pic/20170916135522757.png" alt=""></p><p>4 找到Ubuntu ISO文件并选中，点击打开<br><img src="/2019/02/02/USBofUbuntu/pic/20170916135636024.png" alt=""><br>打开后的界面如下图所示<br><img src="/2019/02/02/USBofUbuntu/pic/20170916135757851.png" alt=""></p><p>5 点击“启动→写入硬盘映像…”<br><img src="/2019/02/02/USBofUbuntu/pic/20170916140000287.png" alt=""></p><p>6 写入方式选择USB-HDD+或者USB-HDD都可以<br><img src="/2019/02/02/USBofUbuntu/pic/20170916140040427.png" alt=""></p><p>7 点击“便捷启动→写入新的驱动器引导扇区→Syslinux”,选择“是”，完成后“确定”<br><img src="/2019/02/02/USBofUbuntu/pic/20170916140325642.png" alt=""><br><img src="/2019/02/02/USBofUbuntu/pic/20170916140507610.png" alt=""><br><img src="/2019/02/02/USBofUbuntu/pic/20170916140541363.png" alt=""></p><p>8 点击“写入”，选择“是”。<br><img src="/2019/02/02/USBofUbuntu/pic/20170916140938127.png" alt=""></p><p>9 写入需要等待一段时间，完成后如下图。此时，选择“返回”并退出UltraISO即可<br><img src="/2019/02/02/USBofUbuntu/pic/20170916141128817.png" alt=""></p>]]></content>
       
       
       <categories>
@@ -20,7 +20,34 @@
       
         <tags>
             
-            <tag> Linux, Matlab </tag>
+            <tag> water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu上的各种软件问题解决之道</title>
+      <link href="/2019/02/02/SolofMatlabOnUbuntu/"/>
+      <url>/2019/02/02/SolofMatlabOnUbuntu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Ubuntu上的Matlab无法以普通用户身份运行"><a href="#Ubuntu上的Matlab无法以普通用户身份运行" class="headerlink" title="Ubuntu上的Matlab无法以普通用户身份运行"></a>Ubuntu上的Matlab无法以普通用户身份运行</h2><p>给“/home/用户名/.matlab”这个文件目录递归授予超级权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 .matlab -R</span><br></pre></td></tr></table></figure></p><h2 id="CLion无法用快捷方式启动"><a href="#CLion无法用快捷方式启动" class="headerlink" title="CLion无法用快捷方式启动"></a>CLion无法用快捷方式启动</h2><p>先在Terminal中启动CLion，然后点击菜单栏Tools下面的Create Desktop Entry即可</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> Matlab </tag>
             
         </tags>
       
@@ -679,31 +706,6 @@
     
     
     <entry>
-      <title>搭建Hadoop过程中的虚拟机相关问题</title>
-      <link href="/2018/04/13/VirtualMachineOfHadoop/"/>
-      <url>/2018/04/13/VirtualMachineOfHadoop/</url>
-      
-        <content type="html"><![CDATA[<p>用多个CentOS6.5系统作为Hadoop集群的平台，在Vmware虚拟机中安装好一个CentOS6.5系统后再多复制几个即可模拟Hadoop集群的多个节点。</p><a id="more"></a><p>在操作过程中遇到了几个虚拟机的相关问题，先整理如下：<br>一、新安装好的CentOS6.5系统无法连接网络<br>解决方法：<br>二、复制的CentOS6.5系统无法连接网络<br>解决方法：</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Hadoop </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Ubuntu16.04安装WPS</title>
       <link href="/2018/04/13/WpsofUbuntu/"/>
       <url>/2018/04/13/WpsofUbuntu/</url>
@@ -721,6 +723,31 @@
         <tags>
             
             <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>搭建Hadoop过程中的虚拟机相关问题</title>
+      <link href="/2018/04/13/VirtualMachineOfHadoop/"/>
+      <url>/2018/04/13/VirtualMachineOfHadoop/</url>
+      
+        <content type="html"><![CDATA[<p>用多个CentOS6.5系统作为Hadoop集群的平台，在Vmware虚拟机中安装好一个CentOS6.5系统后再多复制几个即可模拟Hadoop集群的多个节点。</p><a id="more"></a><p>在操作过程中遇到了几个虚拟机的相关问题，先整理如下：<br>一、新安装好的CentOS6.5系统无法连接网络<br>解决方法：<br>二、复制的CentOS6.5系统无法连接网络<br>解决方法：</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
             
         </tags>
       
@@ -1029,31 +1056,6 @@
     
     
     <entry>
-      <title>Ubuntu的奇巧淫技</title>
-      <link href="/2018/04/13/FunofUbuntu/"/>
-      <url>/2018/04/13/FunofUbuntu/</url>
-      
-        <content type="html"><![CDATA[<ul><li>安装小工具<blockquote><p>sudo apt install fortune<br>sudo apt install fortune-zh<br>sudo apt install cowsay<br>sudo apt install lolcat</p></blockquote></li></ul><a id="more"></a><ul><li>小牛讲道理<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay;done</p></blockquote></li></ul><p><img src="https://pic4.zhimg.com/80/d8de96cf669f0cd6f89fb83a6ba01567_hd.jpg" alt=""></p><ul><li>加颜色<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay|lolcat;done</p></blockquote></li></ul><p><img src="https://pic2.zhimg.com/80/39458e4c8e1da4fbc714a430cca86536_hd.jpg" alt=""></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>如何知道自己是什么级别的程序员</title>
       <link href="/2018/04/13/level/"/>
       <url>/2018/04/13/level/</url>
@@ -1071,6 +1073,31 @@
         <tags>
             
             <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Markdown语法</title>
+      <link href="/2018/04/13/KnowledOfMarkdown/"/>
+      <url>/2018/04/13/KnowledOfMarkdown/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Markdown原生语法"><a href="#Markdown原生语法" class="headerlink" title="Markdown原生语法"></a>Markdown原生语法</h3><ul><li>中划线。语法如下：<blockquote><p><del>要划除的行内内容</del></p></blockquote></li></ul><a id="more"></a><h3 id="Markdown中的转义字符为-，可以转义的有："><a href="#Markdown中的转义字符为-，可以转义的有：" class="headerlink" title="Markdown中的转义字符为\，可以转义的有："></a>Markdown中的转义字符为\，可以转义的有：</h3><blockquote><p>\ 反斜杠<br>` 反引号<br>* 星号<br>_ 下划线<br>{} 大括号<br>[] 中括号<br>() 小括号<br># 井号<br>+ 加号<br>- 减号<br>. 英文句号<br>! 感叹号</p></blockquote><h3 id="使用Markdown时，如何为文字加下划线"><a href="#使用Markdown时，如何为文字加下划线" class="headerlink" title="使用Markdown时，如何为文字加下划线"></a>使用Markdown时，如何为文字加下划线</h3><ul><li>Markdown并无下划线的原生语法，因为会和链接的默认样式产生混淆。这里可以使用行内样式HTML使其产生下划线效果，如下：<blockquote><p><u>Underlined Text</u></p></blockquote></li><li>使用html的span标签、设置行内CSS的border-bottom属性 来添加下划线。这种方式自定义程度最高。语法如下：<blockquote><p><span style="border-bottom:2px dashed yellow;">所添加的需要加下划线的行内文字</span></p></blockquote></li><li>用数学公式：<blockquote><p>#上划线<br>$\overline{X}$<br>#下划线<br>$\underline{X}$</p></blockquote></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
             
         </tags>
       
@@ -1104,11 +1131,11 @@
     
     
     <entry>
-      <title>Markdown语法</title>
-      <link href="/2018/04/13/KnowledOfMarkdown/"/>
-      <url>/2018/04/13/KnowledOfMarkdown/</url>
+      <title>Ubuntu的奇巧淫技</title>
+      <link href="/2018/04/13/FunofUbuntu/"/>
+      <url>/2018/04/13/FunofUbuntu/</url>
       
-        <content type="html"><![CDATA[<h3 id="Markdown原生语法"><a href="#Markdown原生语法" class="headerlink" title="Markdown原生语法"></a>Markdown原生语法</h3><ul><li>中划线。语法如下：<blockquote><p><del>要划除的行内内容</del></p></blockquote></li></ul><a id="more"></a><h3 id="Markdown中的转义字符为-，可以转义的有："><a href="#Markdown中的转义字符为-，可以转义的有：" class="headerlink" title="Markdown中的转义字符为\，可以转义的有："></a>Markdown中的转义字符为\，可以转义的有：</h3><blockquote><p>\ 反斜杠<br>` 反引号<br>* 星号<br>_ 下划线<br>{} 大括号<br>[] 中括号<br>() 小括号<br># 井号<br>+ 加号<br>- 减号<br>. 英文句号<br>! 感叹号</p></blockquote><h3 id="使用Markdown时，如何为文字加下划线"><a href="#使用Markdown时，如何为文字加下划线" class="headerlink" title="使用Markdown时，如何为文字加下划线"></a>使用Markdown时，如何为文字加下划线</h3><ul><li>Markdown并无下划线的原生语法，因为会和链接的默认样式产生混淆。这里可以使用行内样式HTML使其产生下划线效果，如下：<blockquote><p><u>Underlined Text</u></p></blockquote></li><li>使用html的span标签、设置行内CSS的border-bottom属性 来添加下划线。这种方式自定义程度最高。语法如下：<blockquote><p><span style="border-bottom:2px dashed yellow;">所添加的需要加下划线的行内文字</span></p></blockquote></li><li>用数学公式：<blockquote><p>#上划线<br>$\overline{X}$<br>#下划线<br>$\underline{X}$</p></blockquote></li></ul>]]></content>
+        <content type="html"><![CDATA[<ul><li>安装小工具<blockquote><p>sudo apt install fortune<br>sudo apt install fortune-zh<br>sudo apt install cowsay<br>sudo apt install lolcat</p></blockquote></li></ul><a id="more"></a><ul><li>小牛讲道理<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay;done</p></blockquote></li></ul><p><img src="https://pic4.zhimg.com/80/d8de96cf669f0cd6f89fb83a6ba01567_hd.jpg" alt=""></p><ul><li>加颜色<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay|lolcat;done</p></blockquote></li></ul><p><img src="https://pic2.zhimg.com/80/39458e4c8e1da4fbc714a430cca86536_hd.jpg" alt=""></p>]]></content>
       
       
       <categories>
@@ -1120,7 +1147,7 @@
       
         <tags>
             
-            <tag> Markdown </tag>
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1204,11 +1231,11 @@
     
     
     <entry>
-      <title>一个无法在Chrome中更改默认搜索引擎的问题</title>
-      <link href="/2018/04/13/AProbOfDefSearchEngine/"/>
-      <url>/2018/04/13/AProbOfDefSearchEngine/</url>
+      <title>谷歌浏览器的黑科技</title>
+      <link href="/2018/04/13/BlackTechOfChrome/"/>
+      <url>/2018/04/13/BlackTechOfChrome/</url>
       
-        <content type="html"><![CDATA[<p>在大多数情况下会看到一个未知的网站被分配为默认引擎，并且无卸载按钮可以更改。</p><a id="more"></a><p>以下是解除Chrome中的设置，最后更改浏览器中默认搜索的方法。<br>按照步骤：<br>1、以管理员身份运行cmd.exe<br>2、在cmd窗口中执行以下三条命令</p><blockquote><p>RD /S /Q “%WinDir%\System32\GroupPolicyUsers”<br>RD /S /Q “%WinDir%\System32\GroupPolicy”<br>gpupdate /force</p></blockquote><p>直到出现两个通知。<br>这样就可以关闭命令提示符窗口，更改Chrome中的默认搜索引擎了。 </p>]]></content>
+        <content type="html"><![CDATA[<h3 id="关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题"><a href="#关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题" class="headerlink" title="关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题"></a>关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题</h3><p>在Google Chrome的快捷方式中添加“–disable-directwrite-for-ui”启动参数，注意参数前有空格<br><a id="more"></a></p>]]></content>
       
       
       <categories>
@@ -1229,11 +1256,11 @@
     
     
     <entry>
-      <title>谷歌浏览器的黑科技</title>
-      <link href="/2018/04/13/BlackTechOfChrome/"/>
-      <url>/2018/04/13/BlackTechOfChrome/</url>
+      <title>一个无法在Chrome中更改默认搜索引擎的问题</title>
+      <link href="/2018/04/13/AProbOfDefSearchEngine/"/>
+      <url>/2018/04/13/AProbOfDefSearchEngine/</url>
       
-        <content type="html"><![CDATA[<h3 id="关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题"><a href="#关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题" class="headerlink" title="关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题"></a>关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题</h3><p>在Google Chrome的快捷方式中添加“–disable-directwrite-for-ui”启动参数，注意参数前有空格<br><a id="more"></a></p>]]></content>
+        <content type="html"><![CDATA[<p>在大多数情况下会看到一个未知的网站被分配为默认引擎，并且无卸载按钮可以更改。</p><a id="more"></a><p>以下是解除Chrome中的设置，最后更改浏览器中默认搜索的方法。<br>按照步骤：<br>1、以管理员身份运行cmd.exe<br>2、在cmd窗口中执行以下三条命令</p><blockquote><p>RD /S /Q “%WinDir%\System32\GroupPolicyUsers”<br>RD /S /Q “%WinDir%\System32\GroupPolicy”<br>gpupdate /force</p></blockquote><p>直到出现两个通知。<br>这样就可以关闭命令提示符窗口，更改Chrome中的默认搜索引擎了。 </p>]]></content>
       
       
       <categories>
