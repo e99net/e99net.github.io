@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://e99net.github.io/"/>
-  <updated>2019-02-02T14:57:19.003Z</updated>
+  <updated>2019-02-02T15:07:23.454Z</updated>
   <id>https://e99net.github.io/</id>
   
   <author>
@@ -21,14 +21,18 @@
     <link href="https://e99net.github.io/2019/02/02/USBofUbuntu/"/>
     <id>https://e99net.github.io/2019/02/02/USBofUbuntu/</id>
     <published>2019-02-02T14:41:58.789Z</published>
-    <updated>2019-02-02T14:57:19.003Z</updated>
+    <updated>2019-02-02T15:07:23.454Z</updated>
     
-    <content type="html"><![CDATA[<p>1 从Ubuntu官网下载18.04系统的iso文件，并安装UltraISO软件</p><p>2 确保用来制作启动盘的U盘是FAT32格式的，否则，可将U盘格式化为FAT32格式</p><a id="more"></a><p>3 点击UltraISO的红色框内按钮<br><img src="/2019/02/02/USBofUbuntu/pic/20170916135522757.png" alt=""></p><p>4 找到Ubuntu ISO文件并选中，点击打开<br><img src="/2019/02/02/USBofUbuntu/pic/20170916135636024.png" alt=""><br>打开后的界面如下图所示<br><img src="/2019/02/02/USBofUbuntu/pic/20170916135757851.png" alt=""></p><p>5 点击“启动→写入硬盘映像…”<br><img src="/2019/02/02/USBofUbuntu/pic/20170916140000287.png" alt=""></p><p>6 写入方式选择USB-HDD+或者USB-HDD都可以<br><img src="/2019/02/02/USBofUbuntu/pic/20170916140040427.png" alt=""></p><p>7 点击“便捷启动→写入新的驱动器引导扇区→Syslinux”,选择“是”，完成后“确定”<br><img src="/2019/02/02/USBofUbuntu/pic/20170916140325642.png" alt=""><br><img src="/2019/02/02/USBofUbuntu/pic/20170916140507610.png" alt=""><br><img src="/2019/02/02/USBofUbuntu/pic/20170916140541363.png" alt=""></p><p>8 点击“写入”，选择“是”。<br><img src="/2019/02/02/USBofUbuntu/pic/20170916140938127.png" alt=""></p><p>9 写入需要等待一段时间，完成后如下图。此时，选择“返回”并退出UltraISO即可<br><img src="/2019/02/02/USBofUbuntu/pic/20170916141128817.png" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<ol><li><p>从Ubuntu官网下载18.04系统的iso文件，并安装UltraISO软件</p></li><li><p>确保用来制作启动盘的U盘是FAT32格式的，否则，可将U盘格式化为FAT32格式</p></li></ol><a id="more"></a><ol start="3"><li><p>点击UltraISO的红色框内按钮<br><img src="/2019/02/02/USBofUbuntu/20170916135522757.png" alt=""></p></li><li><p>找到Ubuntu ISO文件并选中，点击打开<br><img src="/2019/02/02/USBofUbuntu/20170916135636024.png" alt=""><br>打开后的界面如下图所示<br><img src="/2019/02/02/USBofUbuntu/20170916135757851.png" alt=""></p></li><li><p>点击“启动→写入硬盘映像…”<br><img src="/2019/02/02/USBofUbuntu/20170916140000287.png" alt=""></p></li><li><p>写入方式选择USB-HDD+或者USB-HDD都可以<br><img src="/2019/02/02/USBofUbuntu/20170916140040427.png" alt=""></p></li><li><p>点击“便捷启动→写入新的驱动器引导扇区→Syslinux”,选择“是”，完成后“确定”<br><img src="/2019/02/02/USBofUbuntu/20170916140325642.png" alt=""><br><img src="/2019/02/02/USBofUbuntu/20170916140507610.png" alt=""><br><img src="/2019/02/02/USBofUbuntu/20170916140541363.png" alt=""></p></li><li><p>点击“写入”，选择“是”。<br><img src="/2019/02/02/USBofUbuntu/20170916140938127.png" alt=""></p></li><li><p>写入需要等待一段时间，完成后如下图。此时，选择“返回”并退出UltraISO即可<br><img src="/2019/02/02/USBofUbuntu/20170916141128817.png" alt=""></p></li></ol>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;1 从Ubuntu官网下载18.04系统的iso文件，并安装UltraISO软件&lt;/p&gt;
-&lt;p&gt;2 确保用来制作启动盘的U盘是FAT32格式的，否则，可将U盘格式化为FAT32格式&lt;/p&gt;
+      &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;从Ubuntu官网下载18.04系统的iso文件，并安装UltraISO软件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;确保用来制作启动盘的U盘是FAT32格式的，否则，可将U盘格式化为FAT32格式&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     
