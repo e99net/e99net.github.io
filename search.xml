@@ -931,31 +931,6 @@
     
     
     <entry>
-      <title>Mysql常用查询语句荟萃</title>
-      <link href="/2018/04/13/mysql/"/>
-      <url>/2018/04/13/mysql/</url>
-      
-        <content type="html"><![CDATA[<h3 id="Mysql查询某个数据库的存储容量"><a href="#Mysql查询某个数据库的存储容量" class="headerlink" title="Mysql查询某个数据库的存储容量"></a>Mysql查询某个数据库的存储容量</h3><a id="more"></a><blockquote><p>USE information_schema;<br>SELECT CONCAT(ROUND(SUM(DATA_LENGTH/1024/1024/1024),2),’GB’) AS DATA FROM TABLES WHERE table_schema=’[数据库名]’;</p></blockquote><h3 id="Mysql-设置Profiler功能"><a href="#Mysql-设置Profiler功能" class="headerlink" title="Mysql 设置Profiler功能"></a>Mysql 设置Profiler功能</h3><blockquote><p> SET profiling = 1;</p></blockquote><h3 id="Mysql执行操作"><a href="#Mysql执行操作" class="headerlink" title="Mysql执行操作"></a>Mysql执行操作</h3><blockquote><p>SELECT/EXPLAIN …</p></blockquote><h3 id="Mysql查询各个阶段性能"><a href="#Mysql查询各个阶段性能" class="headerlink" title="Mysql查询各个阶段性能"></a>Mysql查询各个阶段性能</h3><blockquote><p>SHOW PROFILES;<br>SHOW PROFILE ALL FOR QUERY 1;</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Database </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>技术面试</title>
       <link href="/2018/04/13/Questions/"/>
       <url>/2018/04/13/Questions/</url>
@@ -973,6 +948,31 @@
         <tags>
             
             <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mysql常用查询语句荟萃</title>
+      <link href="/2018/04/13/mysql/"/>
+      <url>/2018/04/13/mysql/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Mysql查询某个数据库的存储容量"><a href="#Mysql查询某个数据库的存储容量" class="headerlink" title="Mysql查询某个数据库的存储容量"></a>Mysql查询某个数据库的存储容量</h3><a id="more"></a><blockquote><p>USE information_schema;<br>SELECT CONCAT(ROUND(SUM(DATA_LENGTH/1024/1024/1024),2),’GB’) AS DATA FROM TABLES WHERE table_schema=’[数据库名]’;</p></blockquote><h3 id="Mysql-设置Profiler功能"><a href="#Mysql-设置Profiler功能" class="headerlink" title="Mysql 设置Profiler功能"></a>Mysql 设置Profiler功能</h3><blockquote><p> SET profiling = 1;</p></blockquote><h3 id="Mysql执行操作"><a href="#Mysql执行操作" class="headerlink" title="Mysql执行操作"></a>Mysql执行操作</h3><blockquote><p>SELECT/EXPLAIN …</p></blockquote><h3 id="Mysql查询各个阶段性能"><a href="#Mysql查询各个阶段性能" class="headerlink" title="Mysql查询各个阶段性能"></a>Mysql查询各个阶段性能</h3><blockquote><p>SHOW PROFILES;<br>SHOW PROFILE ALL FOR QUERY 1;</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Database </tag>
             
         </tags>
       
@@ -1031,31 +1031,6 @@
     
     
     <entry>
-      <title>《模式识别与机器学习 中文版(马春鹏 译)》_读书笔记</title>
-      <link href="/2018/04/13/NoteofBook2/"/>
-      <url>/2018/04/13/NoteofBook2/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Machine Learning </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>《统计学习方法(李航 著)》_读书笔记</title>
       <link href="/2018/04/13/NoteofBook1/"/>
       <url>/2018/04/13/NoteofBook1/</url>
@@ -1081,11 +1056,11 @@
     
     
     <entry>
-      <title>Markdown语法</title>
-      <link href="/2018/04/13/KnowledOfMarkdown/"/>
-      <url>/2018/04/13/KnowledOfMarkdown/</url>
+      <title>《模式识别与机器学习 中文版(马春鹏 译)》_读书笔记</title>
+      <link href="/2018/04/13/NoteofBook2/"/>
+      <url>/2018/04/13/NoteofBook2/</url>
       
-        <content type="html"><![CDATA[<h3 id="Markdown原生语法"><a href="#Markdown原生语法" class="headerlink" title="Markdown原生语法"></a>Markdown原生语法</h3><ul><li>中划线。语法如下：<blockquote><p><del>要划除的行内内容</del></p></blockquote></li></ul><a id="more"></a><h3 id="Markdown中的转义字符为-，可以转义的有："><a href="#Markdown中的转义字符为-，可以转义的有：" class="headerlink" title="Markdown中的转义字符为\，可以转义的有："></a>Markdown中的转义字符为\，可以转义的有：</h3><blockquote><p>\ 反斜杠<br>` 反引号<br>* 星号<br>_ 下划线<br>{} 大括号<br>[] 中括号<br>() 小括号<br># 井号<br>+ 加号<br>- 减号<br>. 英文句号<br>! 感叹号</p></blockquote><h3 id="使用Markdown时，如何为文字加下划线"><a href="#使用Markdown时，如何为文字加下划线" class="headerlink" title="使用Markdown时，如何为文字加下划线"></a>使用Markdown时，如何为文字加下划线</h3><ul><li>Markdown并无下划线的原生语法，因为会和链接的默认样式产生混淆。这里可以使用行内样式HTML使其产生下划线效果，如下：<blockquote><p><u>Underlined Text</u></p></blockquote></li><li>使用html的span标签、设置行内CSS的border-bottom属性 来添加下划线。这种方式自定义程度最高。语法如下：<blockquote><p><span style="border-bottom:2px dashed yellow;">所添加的需要加下划线的行内文字</span></p></blockquote></li><li>用数学公式：<blockquote><p>#上划线<br>$\overline{X}$<br>#下划线<br>$\underline{X}$</p></blockquote></li></ul>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
       
       <categories>
@@ -1097,7 +1072,7 @@
       
         <tags>
             
-            <tag> Markdown </tag>
+            <tag> Machine Learning </tag>
             
         </tags>
       
@@ -1131,31 +1106,6 @@
     
     
     <entry>
-      <title>Ubuntu的奇巧淫技</title>
-      <link href="/2018/04/13/FunofUbuntu/"/>
-      <url>/2018/04/13/FunofUbuntu/</url>
-      
-        <content type="html"><![CDATA[<ul><li>安装小工具<blockquote><p>sudo apt install fortune<br>sudo apt install fortune-zh<br>sudo apt install cowsay<br>sudo apt install lolcat</p></blockquote></li></ul><a id="more"></a><ul><li>小牛讲道理<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay;done</p></blockquote></li></ul><p><img src="https://pic4.zhimg.com/80/d8de96cf669f0cd6f89fb83a6ba01567_hd.jpg" alt=""></p><ul><li>加颜色<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay|lolcat;done</p></blockquote></li></ul><p><img src="https://pic2.zhimg.com/80/39458e4c8e1da4fbc714a430cca86536_hd.jpg" alt=""></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Linux系统IO模式</title>
       <link href="/2018/04/13/IO/"/>
       <url>/2018/04/13/IO/</url>
@@ -1181,11 +1131,11 @@
     
     
     <entry>
-      <title>Latex中设置字体大小</title>
-      <link href="/2018/04/13/FontsizeofLatex/"/>
-      <url>/2018/04/13/FontsizeofLatex/</url>
+      <title>Markdown语法</title>
+      <link href="/2018/04/13/KnowledOfMarkdown/"/>
+      <url>/2018/04/13/KnowledOfMarkdown/</url>
       
-        <content type="html"><![CDATA[<h3 id="Latex设置字体大小的命令由小到大依次为"><a href="#Latex设置字体大小的命令由小到大依次为" class="headerlink" title="Latex设置字体大小的命令由小到大依次为"></a>Latex设置字体大小的命令由小到大依次为</h3><a id="more"></a><ul><li>\tiny</li><li>\scriptsize</li><li>\footnotesize</li><li>\small</li><li>\normalsize(注：此为默认的正文字体大小)</li><li>\large</li><li>\Large</li><li>\LARGE</li><li>\huge</li><li>\Huge</li></ul><h3 id="Latex打勾和叉"><a href="#Latex打勾和叉" class="headerlink" title="Latex打勾和叉"></a>Latex打勾和叉</h3><ul><li>首先在导言区调用bbding包</li></ul><blockquote><p>\usepackage{bbding}</p></blockquote><ul><li>然后使用如下命令，5种命令分别代表不同样式的勾和叉</li></ul><blockquote><p>\Checkmark        %标准的勾<br>\XSolidBrush<br>\XSolid           %标准的叉<br>\CheckmarkBold<br>\XSolidBold</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h3 id="Markdown原生语法"><a href="#Markdown原生语法" class="headerlink" title="Markdown原生语法"></a>Markdown原生语法</h3><ul><li>中划线。语法如下：<blockquote><p><del>要划除的行内内容</del></p></blockquote></li></ul><a id="more"></a><h3 id="Markdown中的转义字符为-，可以转义的有："><a href="#Markdown中的转义字符为-，可以转义的有：" class="headerlink" title="Markdown中的转义字符为\，可以转义的有："></a>Markdown中的转义字符为\，可以转义的有：</h3><blockquote><p>\ 反斜杠<br>` 反引号<br>* 星号<br>_ 下划线<br>{} 大括号<br>[] 中括号<br>() 小括号<br># 井号<br>+ 加号<br>- 减号<br>. 英文句号<br>! 感叹号</p></blockquote><h3 id="使用Markdown时，如何为文字加下划线"><a href="#使用Markdown时，如何为文字加下划线" class="headerlink" title="使用Markdown时，如何为文字加下划线"></a>使用Markdown时，如何为文字加下划线</h3><ul><li>Markdown并无下划线的原生语法，因为会和链接的默认样式产生混淆。这里可以使用行内样式HTML使其产生下划线效果，如下：<blockquote><p><u>Underlined Text</u></p></blockquote></li><li>使用html的span标签、设置行内CSS的border-bottom属性 来添加下划线。这种方式自定义程度最高。语法如下：<blockquote><p><span style="border-bottom:2px dashed yellow;">所添加的需要加下划线的行内文字</span></p></blockquote></li><li>用数学公式：<blockquote><p>#上划线<br>$\overline{X}$<br>#下划线<br>$\underline{X}$</p></blockquote></li></ul>]]></content>
       
       
       <categories>
@@ -1197,7 +1147,32 @@
       
         <tags>
             
-            <tag> Latex </tag>
+            <tag> Markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu的奇巧淫技</title>
+      <link href="/2018/04/13/FunofUbuntu/"/>
+      <url>/2018/04/13/FunofUbuntu/</url>
+      
+        <content type="html"><![CDATA[<ul><li>安装小工具<blockquote><p>sudo apt install fortune<br>sudo apt install fortune-zh<br>sudo apt install cowsay<br>sudo apt install lolcat</p></blockquote></li></ul><a id="more"></a><ul><li>小牛讲道理<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay;done</p></blockquote></li></ul><p><img src="https://pic4.zhimg.com/80/d8de96cf669f0cd6f89fb83a6ba01567_hd.jpg" alt=""></p><ul><li>加颜色<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay|lolcat;done</p></blockquote></li></ul><p><img src="https://pic2.zhimg.com/80/39458e4c8e1da4fbc714a430cca86536_hd.jpg" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1231,6 +1206,31 @@
     
     
     <entry>
+      <title>Latex中设置字体大小</title>
+      <link href="/2018/04/13/FontsizeofLatex/"/>
+      <url>/2018/04/13/FontsizeofLatex/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Latex设置字体大小的命令由小到大依次为"><a href="#Latex设置字体大小的命令由小到大依次为" class="headerlink" title="Latex设置字体大小的命令由小到大依次为"></a>Latex设置字体大小的命令由小到大依次为</h3><a id="more"></a><ul><li>\tiny</li><li>\scriptsize</li><li>\footnotesize</li><li>\small</li><li>\normalsize(注：此为默认的正文字体大小)</li><li>\large</li><li>\Large</li><li>\LARGE</li><li>\huge</li><li>\Huge</li></ul><h3 id="Latex打勾和叉"><a href="#Latex打勾和叉" class="headerlink" title="Latex打勾和叉"></a>Latex打勾和叉</h3><ul><li>首先在导言区调用bbding包</li></ul><blockquote><p>\usepackage{bbding}</p></blockquote><ul><li>然后使用如下命令，5种命令分别代表不同样式的勾和叉</li></ul><blockquote><p>\Checkmark        %标准的勾<br>\XSolidBrush<br>\XSolid           %标准的叉<br>\CheckmarkBold<br>\XSolidBold</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Latex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>语录</title>
       <link href="/2018/04/13/Quotations/"/>
       <url>/2018/04/13/Quotations/</url>
@@ -1256,11 +1256,11 @@
     
     
     <entry>
-      <title>一个无法在Chrome中更改默认搜索引擎的问题</title>
-      <link href="/2018/04/13/AProbOfDefSearchEngine/"/>
-      <url>/2018/04/13/AProbOfDefSearchEngine/</url>
+      <title>谷歌浏览器的黑科技</title>
+      <link href="/2018/04/13/BlackTechOfChrome/"/>
+      <url>/2018/04/13/BlackTechOfChrome/</url>
       
-        <content type="html"><![CDATA[<p>在大多数情况下会看到一个未知的网站被分配为默认引擎，并且无卸载按钮可以更改。</p><a id="more"></a><p>以下是解除Chrome中的设置，最后更改浏览器中默认搜索的方法。<br>按照步骤：<br>1、以管理员身份运行cmd.exe<br>2、在cmd窗口中执行以下三条命令</p><blockquote><p>RD /S /Q “%WinDir%\System32\GroupPolicyUsers”<br>RD /S /Q “%WinDir%\System32\GroupPolicy”<br>gpupdate /force</p></blockquote><p>直到出现两个通知。<br>这样就可以关闭命令提示符窗口，更改Chrome中的默认搜索引擎了。 </p>]]></content>
+        <content type="html"><![CDATA[<h3 id="关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题"><a href="#关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题" class="headerlink" title="关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题"></a>关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题</h3><p>在Google Chrome的快捷方式中添加“–disable-directwrite-for-ui”启动参数，注意参数前有空格<br><a id="more"></a></p>]]></content>
       
       
       <categories>
@@ -1281,11 +1281,11 @@
     
     
     <entry>
-      <title>谷歌浏览器的黑科技</title>
-      <link href="/2018/04/13/BlackTechOfChrome/"/>
-      <url>/2018/04/13/BlackTechOfChrome/</url>
+      <title>一个无法在Chrome中更改默认搜索引擎的问题</title>
+      <link href="/2018/04/13/AProbOfDefSearchEngine/"/>
+      <url>/2018/04/13/AProbOfDefSearchEngine/</url>
       
-        <content type="html"><![CDATA[<h3 id="关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题"><a href="#关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题" class="headerlink" title="关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题"></a>关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题</h3><p>在Google Chrome的快捷方式中添加“–disable-directwrite-for-ui”启动参数，注意参数前有空格<br><a id="more"></a></p>]]></content>
+        <content type="html"><![CDATA[<p>在大多数情况下会看到一个未知的网站被分配为默认引擎，并且无卸载按钮可以更改。</p><a id="more"></a><p>以下是解除Chrome中的设置，最后更改浏览器中默认搜索的方法。<br>按照步骤：<br>1、以管理员身份运行cmd.exe<br>2、在cmd窗口中执行以下三条命令</p><blockquote><p>RD /S /Q “%WinDir%\System32\GroupPolicyUsers”<br>RD /S /Q “%WinDir%\System32\GroupPolicy”<br>gpupdate /force</p></blockquote><p>直到出现两个通知。<br>这样就可以关闭命令提示符窗口，更改Chrome中的默认搜索引擎了。 </p>]]></content>
       
       
       <categories>
