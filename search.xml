@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Win7开机界面英文转中文</title>
+      <link href="/2019/02/10/EnToChOfBootloader/"/>
+      <url>/2019/02/10/EnToChOfBootloader/</url>
+      
+        <content type="html"><![CDATA[<p>打开cmd命令提示符并执行如下命令</p><ul><li>将操作系统启动选择菜单的显示语言修改为简体中文<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /set &#123;bootmgr&#125; locale zh-CN</span><br></pre></td></tr></table></figure></li></ul><a id="more"></a><ul><li><p>将当前Windows操作系统F8高级启动菜单的显示语言修改为简体中文</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /set &#123;current&#125; locale zh-CN</span><br></pre></td></tr></table></figure></li><li><p>将Windows内存诊断工具的显示语言修改为简体中文</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /set &#123;memdiag&#125; locale zh-CN</span><br></pre></td></tr></table></figure></li><li><p>将休眠恢复时的显示语言修改为简体中文</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /set &#123;视机器而定的一段字符&#125; locale zh-CN</span><br></pre></td></tr></table></figure></li></ul><p>注意：视机器而定的一段字符形如526bf864-88ef-11de-9b8c-e613e975374f，这段字符可通过以下命令进行查看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /enum all</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>用UltraISO制作Ubuntu18.04的启动U盘</title>
       <link href="/2019/02/02/USBofUbuntu/"/>
       <url>/2019/02/02/USBofUbuntu/</url>
@@ -831,6 +856,31 @@
     
     
     <entry>
+      <title>关于Windows通过远程桌面访问Ubuntu</title>
+      <link href="/2018/04/13/RemoteAccess/"/>
+      <url>/2018/04/13/RemoteAccess/</url>
+      
+        <content type="html"><![CDATA[<p>从Ubuntu13.10开始，据说是由于xrdp、gnome和unity之间的兼容性问题，在Ubuntu中无法使用xrdp登录gnome或unity的远程桌面，现象是登录后只有黑白点为背景，无图标也无法操作。</p><a id="more"></a><p>解决办法是：使用xrdp登录xfce的远程桌面，或者也可以使用xrdp登录Mate的远程桌面。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ConEmu的些许设置</title>
       <link href="/2018/04/13/SettingsOfConemu/"/>
       <url>/2018/04/13/SettingsOfConemu/</url>
@@ -881,11 +931,11 @@
     
     
     <entry>
-      <title>关于Windows通过远程桌面访问Ubuntu</title>
-      <link href="/2018/04/13/RemoteAccess/"/>
-      <url>/2018/04/13/RemoteAccess/</url>
+      <title>Mysql常用查询语句荟萃</title>
+      <link href="/2018/04/13/mysql/"/>
+      <url>/2018/04/13/mysql/</url>
       
-        <content type="html"><![CDATA[<p>从Ubuntu13.10开始，据说是由于xrdp、gnome和unity之间的兼容性问题，在Ubuntu中无法使用xrdp登录gnome或unity的远程桌面，现象是登录后只有黑白点为背景，无图标也无法操作。</p><a id="more"></a><p>解决办法是：使用xrdp登录xfce的远程桌面，或者也可以使用xrdp登录Mate的远程桌面。</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="Mysql查询某个数据库的存储容量"><a href="#Mysql查询某个数据库的存储容量" class="headerlink" title="Mysql查询某个数据库的存储容量"></a>Mysql查询某个数据库的存储容量</h3><a id="more"></a><blockquote><p>USE information_schema;<br>SELECT CONCAT(ROUND(SUM(DATA_LENGTH/1024/1024/1024),2),’GB’) AS DATA FROM TABLES WHERE table_schema=’[数据库名]’;</p></blockquote><h3 id="Mysql-设置Profiler功能"><a href="#Mysql-设置Profiler功能" class="headerlink" title="Mysql 设置Profiler功能"></a>Mysql 设置Profiler功能</h3><blockquote><p> SET profiling = 1;</p></blockquote><h3 id="Mysql执行操作"><a href="#Mysql执行操作" class="headerlink" title="Mysql执行操作"></a>Mysql执行操作</h3><blockquote><p>SELECT/EXPLAIN …</p></blockquote><h3 id="Mysql查询各个阶段性能"><a href="#Mysql查询各个阶段性能" class="headerlink" title="Mysql查询各个阶段性能"></a>Mysql查询各个阶段性能</h3><blockquote><p>SHOW PROFILES;<br>SHOW PROFILE ALL FOR QUERY 1;</p></blockquote>]]></content>
       
       
       <categories>
@@ -897,7 +947,7 @@
       
         <tags>
             
-            <tag> Machine Learning </tag>
+            <tag> Database </tag>
             
         </tags>
       
@@ -923,31 +973,6 @@
         <tags>
             
             <tag> Water </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Mysql常用查询语句荟萃</title>
-      <link href="/2018/04/13/mysql/"/>
-      <url>/2018/04/13/mysql/</url>
-      
-        <content type="html"><![CDATA[<h3 id="Mysql查询某个数据库的存储容量"><a href="#Mysql查询某个数据库的存储容量" class="headerlink" title="Mysql查询某个数据库的存储容量"></a>Mysql查询某个数据库的存储容量</h3><a id="more"></a><blockquote><p>USE information_schema;<br>SELECT CONCAT(ROUND(SUM(DATA_LENGTH/1024/1024/1024),2),’GB’) AS DATA FROM TABLES WHERE table_schema=’[数据库名]’;</p></blockquote><h3 id="Mysql-设置Profiler功能"><a href="#Mysql-设置Profiler功能" class="headerlink" title="Mysql 设置Profiler功能"></a>Mysql 设置Profiler功能</h3><blockquote><p> SET profiling = 1;</p></blockquote><h3 id="Mysql执行操作"><a href="#Mysql执行操作" class="headerlink" title="Mysql执行操作"></a>Mysql执行操作</h3><blockquote><p>SELECT/EXPLAIN …</p></blockquote><h3 id="Mysql查询各个阶段性能"><a href="#Mysql查询各个阶段性能" class="headerlink" title="Mysql查询各个阶段性能"></a>Mysql查询各个阶段性能</h3><blockquote><p>SHOW PROFILES;<br>SHOW PROFILE ALL FOR QUERY 1;</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Database </tag>
             
         </tags>
       
@@ -1006,31 +1031,6 @@
     
     
     <entry>
-      <title>《统计学习方法(李航 著)》_读书笔记</title>
-      <link href="/2018/04/13/NoteofBook1/"/>
-      <url>/2018/04/13/NoteofBook1/</url>
-      
-        <content type="html"><![CDATA[<h3 id="1-3统计学习三要素"><a href="#1-3统计学习三要素" class="headerlink" title="1.3统计学习三要素"></a>1.3统计学习三要素</h3><p>本书中称由决策函数表示的模型为非概率模型，由条件概率表示的模型为概率模型。<br>损失函数度量模型一次预测的好坏，风险函数度量平均意义下模型预测的好坏。<br><a id="more"></a><br>监督学习的两个基本策略：经验风险最小化和结构风险最小化。<br>当样本容量足够大时，经验风险最小化(empirical risk minimization, ERM)能保证有很好的学习效果，在现实中被广泛使用。但是，当样本容量很小时，经验风险最小化学习的效果就未必很好，会产生“过拟合(over-fitting)”现象。<br>结构风险最小化(structural risk minimization, SRM)是为了防止过拟合而提出来的策略。</p><h4 id="2-3-3感知机学习算法的对偶形式"><a href="#2-3-3感知机学习算法的对偶形式" class="headerlink" title="2.3.3感知机学习算法的对偶形式"></a>2.3.3感知机学习算法的对偶形式</h4><p>实例点更新次数越多，意味着它距离分离超平面越近，也就越难正确分类。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Machine Learning </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>《模式识别与机器学习 中文版(马春鹏 译)》_读书笔记</title>
       <link href="/2018/04/13/NoteofBook2/"/>
       <url>/2018/04/13/NoteofBook2/</url>
@@ -1056,11 +1056,11 @@
     
     
     <entry>
-      <title>如何知道自己是什么级别的程序员</title>
-      <link href="/2018/04/13/level/"/>
-      <url>/2018/04/13/level/</url>
+      <title>《统计学习方法(李航 著)》_读书笔记</title>
+      <link href="/2018/04/13/NoteofBook1/"/>
+      <url>/2018/04/13/NoteofBook1/</url>
       
-        <content type="html"><![CDATA[<p>你们按照下面自行对号入座吧。</p><a id="more"></a><p>level 1: 被人带着做事的<br>level 2: 不需要人带就能做事的<br>level 3: 比level 2做得快的<br>level 4: 可以带人的<br>level 5: 可以带三个人的<br>level 6: 可以带七个人的<br>level 7: 可以带很多人的<br>level 8: 带带人的人的<br>level 9: 带level 8的</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="1-3统计学习三要素"><a href="#1-3统计学习三要素" class="headerlink" title="1.3统计学习三要素"></a>1.3统计学习三要素</h3><p>本书中称由决策函数表示的模型为非概率模型，由条件概率表示的模型为概率模型。<br>损失函数度量模型一次预测的好坏，风险函数度量平均意义下模型预测的好坏。<br><a id="more"></a><br>监督学习的两个基本策略：经验风险最小化和结构风险最小化。<br>当样本容量足够大时，经验风险最小化(empirical risk minimization, ERM)能保证有很好的学习效果，在现实中被广泛使用。但是，当样本容量很小时，经验风险最小化学习的效果就未必很好，会产生“过拟合(over-fitting)”现象。<br>结构风险最小化(structural risk minimization, SRM)是为了防止过拟合而提出来的策略。</p><h4 id="2-3-3感知机学习算法的对偶形式"><a href="#2-3-3感知机学习算法的对偶形式" class="headerlink" title="2.3.3感知机学习算法的对偶形式"></a>2.3.3感知机学习算法的对偶形式</h4><p>实例点更新次数越多，意味着它距离分离超平面越近，也就越难正确分类。</p>]]></content>
       
       
       <categories>
@@ -1072,7 +1072,7 @@
       
         <tags>
             
-            <tag> Water </tag>
+            <tag> Machine Learning </tag>
             
         </tags>
       
@@ -1106,11 +1106,36 @@
     
     
     <entry>
-      <title>Linux系统IO模式</title>
-      <link href="/2018/04/13/IO/"/>
-      <url>/2018/04/13/IO/</url>
+      <title>如何知道自己是什么级别的程序员</title>
+      <link href="/2018/04/13/level/"/>
+      <url>/2018/04/13/level/</url>
       
-        <content type="html"><![CDATA[<h3 id="Linux系统有以下五种网络模式的方案"><a href="#Linux系统有以下五种网络模式的方案" class="headerlink" title="Linux系统有以下五种网络模式的方案"></a>Linux系统有以下五种网络模式的方案</h3><a id="more"></a><ul><li>阻塞I/O（blocking IO）</li><li>非阻塞I/O（nonblocking IO）</li><li>I/O多路复用（IO multiplexing）</li><li>信号驱动I/O（signal driven IO）</li><li>异步I/O（asynchronous IO）</li></ul><p>注：signal driven IO在实际中并不常用</p>]]></content>
+        <content type="html"><![CDATA[<p>你们按照下面自行对号入座吧。</p><a id="more"></a><p>level 1: 被人带着做事的<br>level 2: 不需要人带就能做事的<br>level 3: 比level 2做得快的<br>level 4: 可以带人的<br>level 5: 可以带三个人的<br>level 6: 可以带七个人的<br>level 7: 可以带很多人的<br>level 8: 带带人的人的<br>level 9: 带level 8的</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu的奇巧淫技</title>
+      <link href="/2018/04/13/FunofUbuntu/"/>
+      <url>/2018/04/13/FunofUbuntu/</url>
+      
+        <content type="html"><![CDATA[<ul><li>安装小工具<blockquote><p>sudo apt install fortune<br>sudo apt install fortune-zh<br>sudo apt install cowsay<br>sudo apt install lolcat</p></blockquote></li></ul><a id="more"></a><ul><li>小牛讲道理<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay;done</p></blockquote></li></ul><p><img src="https://pic4.zhimg.com/80/d8de96cf669f0cd6f89fb83a6ba01567_hd.jpg" alt=""></p><ul><li>加颜色<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay|lolcat;done</p></blockquote></li></ul><p><img src="https://pic2.zhimg.com/80/39458e4c8e1da4fbc714a430cca86536_hd.jpg" alt=""></p>]]></content>
       
       
       <categories>
@@ -1131,11 +1156,11 @@
     
     
     <entry>
-      <title>Ubuntu的奇巧淫技</title>
-      <link href="/2018/04/13/FunofUbuntu/"/>
-      <url>/2018/04/13/FunofUbuntu/</url>
+      <title>Linux系统IO模式</title>
+      <link href="/2018/04/13/IO/"/>
+      <url>/2018/04/13/IO/</url>
       
-        <content type="html"><![CDATA[<ul><li>安装小工具<blockquote><p>sudo apt install fortune<br>sudo apt install fortune-zh<br>sudo apt install cowsay<br>sudo apt install lolcat</p></blockquote></li></ul><a id="more"></a><ul><li>小牛讲道理<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay;done</p></blockquote></li></ul><p><img src="https://pic4.zhimg.com/80/d8de96cf669f0cd6f89fb83a6ba01567_hd.jpg" alt=""></p><ul><li>加颜色<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay|lolcat;done</p></blockquote></li></ul><p><img src="https://pic2.zhimg.com/80/39458e4c8e1da4fbc714a430cca86536_hd.jpg" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<h3 id="Linux系统有以下五种网络模式的方案"><a href="#Linux系统有以下五种网络模式的方案" class="headerlink" title="Linux系统有以下五种网络模式的方案"></a>Linux系统有以下五种网络模式的方案</h3><a id="more"></a><ul><li>阻塞I/O（blocking IO）</li><li>非阻塞I/O（nonblocking IO）</li><li>I/O多路复用（IO multiplexing）</li><li>信号驱动I/O（signal driven IO）</li><li>异步I/O（asynchronous IO）</li></ul><p>注：signal driven IO在实际中并不常用</p>]]></content>
       
       
       <categories>
@@ -1231,11 +1256,11 @@
     
     
     <entry>
-      <title>谷歌浏览器的黑科技</title>
-      <link href="/2018/04/13/BlackTechOfChrome/"/>
-      <url>/2018/04/13/BlackTechOfChrome/</url>
+      <title>一个无法在Chrome中更改默认搜索引擎的问题</title>
+      <link href="/2018/04/13/AProbOfDefSearchEngine/"/>
+      <url>/2018/04/13/AProbOfDefSearchEngine/</url>
       
-        <content type="html"><![CDATA[<h3 id="关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题"><a href="#关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题" class="headerlink" title="关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题"></a>关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题</h3><p>在Google Chrome的快捷方式中添加“–disable-directwrite-for-ui”启动参数，注意参数前有空格<br><a id="more"></a></p>]]></content>
+        <content type="html"><![CDATA[<p>在大多数情况下会看到一个未知的网站被分配为默认引擎，并且无卸载按钮可以更改。</p><a id="more"></a><p>以下是解除Chrome中的设置，最后更改浏览器中默认搜索的方法。<br>按照步骤：<br>1、以管理员身份运行cmd.exe<br>2、在cmd窗口中执行以下三条命令</p><blockquote><p>RD /S /Q “%WinDir%\System32\GroupPolicyUsers”<br>RD /S /Q “%WinDir%\System32\GroupPolicy”<br>gpupdate /force</p></blockquote><p>直到出现两个通知。<br>这样就可以关闭命令提示符窗口，更改Chrome中的默认搜索引擎了。 </p>]]></content>
       
       
       <categories>
@@ -1256,11 +1281,11 @@
     
     
     <entry>
-      <title>一个无法在Chrome中更改默认搜索引擎的问题</title>
-      <link href="/2018/04/13/AProbOfDefSearchEngine/"/>
-      <url>/2018/04/13/AProbOfDefSearchEngine/</url>
+      <title>谷歌浏览器的黑科技</title>
+      <link href="/2018/04/13/BlackTechOfChrome/"/>
+      <url>/2018/04/13/BlackTechOfChrome/</url>
       
-        <content type="html"><![CDATA[<p>在大多数情况下会看到一个未知的网站被分配为默认引擎，并且无卸载按钮可以更改。</p><a id="more"></a><p>以下是解除Chrome中的设置，最后更改浏览器中默认搜索的方法。<br>按照步骤：<br>1、以管理员身份运行cmd.exe<br>2、在cmd窗口中执行以下三条命令</p><blockquote><p>RD /S /Q “%WinDir%\System32\GroupPolicyUsers”<br>RD /S /Q “%WinDir%\System32\GroupPolicy”<br>gpupdate /force</p></blockquote><p>直到出现两个通知。<br>这样就可以关闭命令提示符窗口，更改Chrome中的默认搜索引擎了。 </p>]]></content>
+        <content type="html"><![CDATA[<h3 id="关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题"><a href="#关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题" class="headerlink" title="关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题"></a>关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题</h3><p>在Google Chrome的快捷方式中添加“–disable-directwrite-for-ui”启动参数，注意参数前有空格<br><a id="more"></a></p>]]></content>
       
       
       <categories>
