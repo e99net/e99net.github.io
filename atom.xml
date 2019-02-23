@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://e99net.github.io/"/>
-  <updated>2019-02-10T07:44:35.550Z</updated>
+  <updated>2019-02-23T03:55:09.817Z</updated>
   <id>https://e99net.github.io/</id>
   
   <author>
@@ -15,6 +15,67 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>makefile文件的不同写法</title>
+    <link href="https://e99net.github.io/2019/02/23/otherKindOfMakefile/"/>
+    <id>https://e99net.github.io/2019/02/23/otherKindOfMakefile/</id>
+    <published>2019-02-23T03:50:46.528Z</published>
+    <updated>2019-02-23T03:55:09.817Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>封装so库时的写法</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CC=gcc</span><br><span class="line"></span><br><span class="line">SRCS=mylib.c</span><br><span class="line"></span><br><span class="line">OBJS=$(SRCS:.c=.o)</span><br><span class="line"></span><br><span class="line">EXEC=libmylib.so</span><br><span class="line"></span><br><span class="line">start: $(OBJS)</span><br><span class="line">    $(CC) -o $(EXEC) $(OBJS) -shared</span><br><span class="line"></span><br><span class="line">.c.o:</span><br><span class="line">    $(CC) -o $@ -c $&lt; -fPIC</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">    rm -rf $(OBJS)</span><br></pre></td></tr></table></figure><a id="more"></a><ul><li>C/C++混合编程的写法</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">CC=g++</span><br><span class="line"></span><br><span class="line">SRCS=main.cpp\</span><br><span class="line">    udp.cpp</span><br><span class="line"></span><br><span class="line">OBJS=$(SRCS:.cpp=.o)</span><br><span class="line"></span><br><span class="line">EXEC=myudp</span><br><span class="line"></span><br><span class="line">start: $(OBJS)</span><br><span class="line">    $(CC) -o $(EXEC) $(OBJS)</span><br><span class="line"></span><br><span class="line">.cpp.o:</span><br><span class="line">    $(CC) -o $@ -c $&lt; -DMYLINUX</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">    rm -rf $(OBJS)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;封装so库时的写法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;CC=gcc&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;SRCS=mylib.c&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;OBJS=$(SRCS:.c=.o)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;EXEC=libmylib.so&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;start: $(OBJS)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(CC) -o $(EXEC) $(OBJS) -shared&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;.c.o:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(CC) -o $@ -c $&amp;lt; -fPIC&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;clean:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    rm -rf $(OBJS)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="C/C++" scheme="https://e99net.github.io/tags/C-C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>循序渐进写makefile</title>
+    <link href="https://e99net.github.io/2019/02/23/writeMakefile/"/>
+    <id>https://e99net.github.io/2019/02/23/writeMakefile/</id>
+    <published>2019-02-23T03:11:15.605Z</published>
+    <updated>2019-02-23T03:46:29.769Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>准备工作</li></ul><ul><li>main.cpp</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &quot;a.h&quot;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    test();</span><br><span class="line">    cout &lt;&lt; &quot;hello world&quot; &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>a.h</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#ifndef AH_H</span><br><span class="line">#define AH_H</span><br><span class="line">void test();</span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure><ul><li>a.cpp</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void test()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;I am test\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><ul><li>版本0</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">start:</span><br><span class="line">    g++ -o a.o -c a.cpp</span><br><span class="line">    g++ -o main.o -c main.cpp</span><br><span class="line">    g++ -o myapp a.o main.o</span><br></pre></td></tr></table></figure><ul><li>版本1</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">start:</span><br><span class="line">    g++ -o a.o -c a.cpp</span><br><span class="line">    g++ -o main.o -c main.cpp</span><br><span class="line">    g++ -o myapp a.o main.o</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">    rm -rf a.o main.o</span><br></pre></td></tr></table></figure><ul><li>版本2</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CC=g++</span><br><span class="line"></span><br><span class="line">EXEC=myapp</span><br><span class="line"></span><br><span class="line">start:</span><br><span class="line">    $(CC) -o a.o -c a.cpp</span><br><span class="line">    $(CC) -o main.o -c main.cpp</span><br><span class="line">    $(CC) -o $(EXEC) a.o main.o</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">    rm -rf a.o main.o</span><br></pre></td></tr></table></figure><ul><li>版本3</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CC=g++</span><br><span class="line"></span><br><span class="line">SRCS=main.cpp\</span><br><span class="line">        a.cpp</span><br><span class="line"></span><br><span class="line">OBJS=main.o\</span><br><span class="line">        a.o</span><br><span class="line"></span><br><span class="line">EXEC=myapp</span><br><span class="line"></span><br><span class="line">start:</span><br><span class="line">    $(CC) -o $(OBJS) -c $(SRCS)</span><br><span class="line">    $(CC) -o $(EXEC) $(OBJS)</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">    rm -rf $(OBJS)</span><br></pre></td></tr></table></figure><ul><li>版本4</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">CC=g++</span><br><span class="line"></span><br><span class="line">SRCS=main.cpp\</span><br><span class="line">        a.cpp</span><br><span class="line"></span><br><span class="line">OBJS=main.o\</span><br><span class="line">        a.o</span><br><span class="line"></span><br><span class="line">EXEC=myapp</span><br><span class="line"></span><br><span class="line">start: a.o main.o</span><br><span class="line">    $(CC) -o $(EXEC) $(OBJS)</span><br><span class="line"></span><br><span class="line">a.o main.o:</span><br><span class="line">    $(CC) -o $(OBJS) -c $(SRCS)</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">    rm -rf $(OBJS)</span><br></pre></td></tr></table></figure><ul><li>最终版本</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">CC=g++</span><br><span class="line"></span><br><span class="line">SRCS=main.cpp\</span><br><span class="line">        a.cpp</span><br><span class="line"></span><br><span class="line">OBJS=$(SRCS:.cpp=.o)</span><br><span class="line"></span><br><span class="line">EXEC=myapp</span><br><span class="line"></span><br><span class="line">start: $(OBJS)</span><br><span class="line">        $(CC) -o $(EXEC) $(OBJS)</span><br><span class="line"></span><br><span class="line">.cpp.o:</span><br><span class="line">        $(CC) -o $@ -c $&lt;</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">        rm -rf $(OBJS)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;准备工作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;main.cpp&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;quot;a.h&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;using namespace std;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int main()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    test();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    cout &amp;lt;&amp;lt; &amp;quot;hello world&amp;quot; &amp;lt;&amp;lt; endl;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;a.h&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#ifndef AH_H&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#define AH_H&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;void test();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#endif&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;a.cpp&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;void test()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    printf(&amp;quot;I am test\n&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="C/C++" scheme="https://e99net.github.io/tags/C-C/"/>
+    
+  </entry>
   
   <entry>
     <title>Win7开机界面英文转中文</title>
@@ -450,51 +511,6 @@
     
     
       <category term="Water" scheme="https://e99net.github.io/tags/Water/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C语言核心技术</title>
-    <link href="https://e99net.github.io/2018/05/26/cinanutshell/"/>
-    <id>https://e99net.github.io/2018/05/26/cinanutshell/</id>
-    <published>2018-05-26T13:22:02.348Z</published>
-    <updated>2018-05-26T13:25:00.204Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="宽字符"><a href="#宽字符" class="headerlink" title="宽字符"></a>宽字符</h3><p>为了更好地支持Unicode，C11引入额外的宽字符类型char16_t和char32_t。在头文件uchar.h中，它们被定义为无符号整数类型。<br><a id="more"></a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;宽字符&quot;&gt;&lt;a href=&quot;#宽字符&quot; class=&quot;headerlink&quot; title=&quot;宽字符&quot;&gt;&lt;/a&gt;宽字符&lt;/h3&gt;&lt;p&gt;为了更好地支持Unicode，C11引入额外的宽字符类型char16_t和char32_t。在头文件uchar.h中，它们被定义为无符号整数类型。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
-    
-    
-      <category term="C/C++" scheme="https://e99net.github.io/tags/C-C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Latex设置行间距</title>
-    <link href="https://e99net.github.io/2018/05/26/linespace_of_latex/"/>
-    <id>https://e99net.github.io/2018/05/26/linespace_of_latex/</id>
-    <published>2018-05-26T03:23:07.926Z</published>
-    <updated>2018-05-26T03:26:41.783Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="全局设置行间距"><a href="#全局设置行间距" class="headerlink" title="全局设置行间距"></a>全局设置行间距</h3><p>像Word一样设置单倍间距、1.5倍间距、2倍间距等。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;setspace&#125;</span><br><span class="line">\renewcommand&#123;\baselinestretch&#125;&#123;1.0&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="局部设置行间距"><a href="#局部设置行间距" class="headerlink" title="局部设置行间距"></a>局部设置行间距</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">%使用行距宏包，该宏包自带三个选项：singlespacing（默认）, onehalfspacing和doublespacing</span><br><span class="line">\usepackage&#123;setspace&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">%行间距变为double-space</span><br><span class="line">\begin&#123;spacing&#125;&#123;2.0&#125;</span><br><span class="line">双倍行距的段落内容。</span><br><span class="line">\end&#123;spacing&#125;</span><br><span class="line">%行间距变为single-space</span><br><span class="line">\begin&#123;spacing&#125;&#123;1.0&#125;</span><br><span class="line">单倍行距的段落内容。</span><br><span class="line">\end&#123;spacing&#125;</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;全局设置行间距&quot;&gt;&lt;a href=&quot;#全局设置行间距&quot; class=&quot;headerlink&quot; title=&quot;全局设置行间距&quot;&gt;&lt;/a&gt;全局设置行间距&lt;/h3&gt;&lt;p&gt;像Word一样设置单倍间距、1.5倍间距、2倍间距等。&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;\usepackage&amp;#123;setspace&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;\renewcommand&amp;#123;\baselinestretch&amp;#125;&amp;#123;1.0&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
-    
-    
-      <category term="Latex" scheme="https://e99net.github.io/tags/Latex/"/>
     
   </entry>
   

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>重装系统后必做的几件事 | 99°</title>
+  <title>循序渐进写makefile | 99°</title>
   
   <meta name="keywords" content="blog">
   
@@ -152,13 +152,13 @@
   <div class="meta" id="header-meta">
     
       
-          <h1 class="title">重装系统后必做的几件事</h1>
+          <h1 class="title">循序渐进写makefile</h1>
       
     
 
     
       <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-06-19
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-02-23
       </time>
     
 
@@ -187,49 +187,57 @@
 
     <section class="article typo">
       <div class="article-entry" itemprop="articleBody">
-        <p>下面是老夫重装完系统后必做的几件事：<br><a id="more"></a></p>
-<h3 id="锁定浏览器主页"><a href="#锁定浏览器主页" class="headerlink" title="锁定浏览器主页"></a>锁定浏览器主页</h3><ul>
-<li>使“Internet选项”中的主页设置不可用<ul>
-<li>进入internet选项，把主页改成你所想要的，然后按应用，千万记住不要按确认，也不要关闭选项卡。</li>
-<li>开始—-运行—-输入gpedit.msc打开组策略。</li>
-<li>在左边的树状结构中找到：用户配置—-管理模板—windows组件–点击“internet explorer”找到窗口右面的一项“禁用更改主页设置”—-双击打开—选为“已启用”–下面方框设置好你想要的默认主页。</li>
-<li>确定第一步的internet选项，关闭选项卡后再次打开internet选项卡，可以发现主页那一栏变成灰色，就是不可更改主页了。 </li>
+        <ul>
+<li>准备工作</li>
 </ul>
-</li>
-<li>使浏览器不被篡改<ul>
-<li>找到安装目录下的exe文件，右键属性，将其设为只读。</li>
-<li>找到exe文件对应的快捷方式，将其设为只读。</li>
-<li>[可选操作]在快捷方式下的目标中加入自己想要的主页地址，需注意的是，此地址与前面之间要有一个空格。</li>
+<ul>
+<li>main.cpp</li>
 </ul>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &quot;a.h&quot;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    test();</span><br><span class="line">    cout &lt;&lt; &quot;hello world&quot; &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>a.h</li>
 </ul>
-<h3 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h3><ul>
-<li>MacType</li>
-<li>Microsoft Office 2010</li>
-<li>Visual Studio 2013</li>
-<li>Visual Studio Code</li>
-<li>Vmware Workstation 14</li>
-<li>QQ 8.7</li>
-<li>Google Chrome</li>
-<li>IE 10</li>
-<li>Everything</li>
-<li>TEXStudio + texlive</li>
-<li>WinRAR</li>
-<li>Java jdk 7&amp;8</li>
-<li>Python 2&amp;3</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#ifndef AH_H</span><br><span class="line">#define AH_H</span><br><span class="line">void test();</span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<ul>
+<li>a.cpp</li>
 </ul>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void test()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;I am test\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>版本0</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">start:</span><br><span class="line">    g++ -o a.o -c a.cpp</span><br><span class="line">    g++ -o main.o -c main.cpp</span><br><span class="line">    g++ -o myapp a.o main.o</span><br></pre></td></tr></table></figure>
+<ul>
+<li>版本1</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">start:</span><br><span class="line">    g++ -o a.o -c a.cpp</span><br><span class="line">    g++ -o main.o -c main.cpp</span><br><span class="line">    g++ -o myapp a.o main.o</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">    rm -rf a.o main.o</span><br></pre></td></tr></table></figure>
+<ul>
+<li>版本2</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CC=g++</span><br><span class="line"></span><br><span class="line">EXEC=myapp</span><br><span class="line"></span><br><span class="line">start:</span><br><span class="line">    $(CC) -o a.o -c a.cpp</span><br><span class="line">    $(CC) -o main.o -c main.cpp</span><br><span class="line">    $(CC) -o $(EXEC) a.o main.o</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">    rm -rf a.o main.o</span><br></pre></td></tr></table></figure>
+<ul>
+<li>版本3</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CC=g++</span><br><span class="line"></span><br><span class="line">SRCS=main.cpp\</span><br><span class="line">        a.cpp</span><br><span class="line"></span><br><span class="line">OBJS=main.o\</span><br><span class="line">        a.o</span><br><span class="line"></span><br><span class="line">EXEC=myapp</span><br><span class="line"></span><br><span class="line">start:</span><br><span class="line">    $(CC) -o $(OBJS) -c $(SRCS)</span><br><span class="line">    $(CC) -o $(EXEC) $(OBJS)</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">    rm -rf $(OBJS)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>版本4</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">CC=g++</span><br><span class="line"></span><br><span class="line">SRCS=main.cpp\</span><br><span class="line">        a.cpp</span><br><span class="line"></span><br><span class="line">OBJS=main.o\</span><br><span class="line">        a.o</span><br><span class="line"></span><br><span class="line">EXEC=myapp</span><br><span class="line"></span><br><span class="line">start: a.o main.o</span><br><span class="line">    $(CC) -o $(EXEC) $(OBJS)</span><br><span class="line"></span><br><span class="line">a.o main.o:</span><br><span class="line">    $(CC) -o $(OBJS) -c $(SRCS)</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">    rm -rf $(OBJS)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>最终版本</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">CC=g++</span><br><span class="line"></span><br><span class="line">SRCS=main.cpp\</span><br><span class="line">        a.cpp</span><br><span class="line"></span><br><span class="line">OBJS=$(SRCS:.cpp=.o)</span><br><span class="line"></span><br><span class="line">EXEC=myapp</span><br><span class="line"></span><br><span class="line">start: $(OBJS)</span><br><span class="line">        $(CC) -o $(EXEC) $(OBJS)</span><br><span class="line"></span><br><span class="line">.cpp.o:</span><br><span class="line">        $(CC) -o $@ -c $&lt;</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">        rm -rf $(OBJS)</span><br></pre></td></tr></table></figure>
       </div>
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2018-06-19T20:07:17+08:00" content="2018-06-19"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-                &nbsp;2018-06-19
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-02-23T11:46:29+08:00" content="2019-02-23"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2019-02-23
               </time>
             
             
                 
-                <div class="metatag tags"><a class="tag" href="/tags/Water/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Water</a></div>
+                <div class="metatag tags"><a class="tag" href="/tags/C-C/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;C/C++</a></div>
             
             
           </section>
@@ -242,16 +250,16 @@
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
                             <h4>
-                                <a href="/2018/06/26/hadoop/" rel="prev" title="Hadoop安装记事">
+                                <a href="/2019/02/23/otherKindOfMakefile/" rel="prev" title="makefile文件的不同写法">
                                   
-                                      Hadoop安装记事
+                                      makefile文件的不同写法
                                   
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/Hadoop/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Hadoop</a>
+                                    <a class="tag" href="/tags/C-C/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>C/C++</a>
                                 </h6>
                             
                         </span>
@@ -262,16 +270,16 @@
                         <span class="art-item-right" aria-hidden="true">
                             <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2018/06/13/ResourcesofPSO/" rel="prev" title="粒子群算法的一些相关资源">
+                                <a href="/2019/02/10/EnToChOfBootloader/" rel="prev" title="Win7开机界面英文转中文">
                                     
-                                        粒子群算法的一些相关资源
+                                        Win7开机界面英文转中文
                                     
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/PSO/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>PSO</a>
+                                    <a class="tag" href="/tags/Water/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Water</a>
                                 </h6>
                             
                         </span>
@@ -303,13 +311,13 @@
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;Related Posts</h4>
         <ul>
             
-                <li><a href="https://e99net.github.io/2018/07/29/docEdit/">word中插入公式行距变大的问题</a></li>
+                <li><a href="https://e99net.github.io/2019/02/23/otherKindOfMakefile/">makefile文件的不同写法</a></li>
             
-                <li><a href="https://e99net.github.io/2018/06/26/hadoop/">Hadoop安装记事</a></li>
+                <li><a href="https://e99net.github.io/2019/02/10/EnToChOfBootloader/">Win7开机界面英文转中文</a></li>
             
-                <li><a href="https://e99net.github.io/2018/06/13/ResourcesofPSO/">粒子群算法的一些相关资源</a></li>
+                <li><a href="https://e99net.github.io/2019/02/02/USBofUbuntu/">用UltraISO制作Ubuntu18.04的启动U盘</a></li>
             
-                <li><a href="https://e99net.github.io/2018/06/07/install_oh-my-zsh_of_ubuntu/">在Ubuntu上完美安装oh-my-zsh</a></li>
+                <li><a href="https://e99net.github.io/2019/02/02/SolofMatlabOnUbuntu/">Ubuntu上的各种软件问题解决之道</a></li>
             
         </ul>
     </div>
@@ -325,7 +333,7 @@
 
 <script>
     window.subData = {
-        title: '重装系统后必做的几件事',
+        title: '循序渐进写makefile',
         tools: true
     }
 </script>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Open Source Projects | 99°</title>
+  <title>makefile文件的不同写法 | 99°</title>
   
   <meta name="keywords" content="blog">
   
@@ -145,22 +145,30 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            <article id="page" class="post white-box article-type-page" itemscope itemprop="blogPost">
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
   
 <section class='meta'>
   
   <div class="meta" id="header-meta">
     
       
-          <h1 class="title">Open Source Projects</h1>
+          <h1 class="title">makefile文件的不同写法</h1>
       
     
 
     
       <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-07-29
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-02-23
       </time>
     
+
+    
+      
+    
+    <div class='metatag cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/memo/">memo</a>
+    </div>
+
 
     
 
@@ -179,11 +187,55 @@
 
     <section class="article typo">
       <div class="article-entry" itemprop="articleBody">
-        <p>Here are my personal projects.</p>
-
+        <ul>
+<li>封装so库时的写法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CC=gcc</span><br><span class="line"></span><br><span class="line">SRCS=mylib.c</span><br><span class="line"></span><br><span class="line">OBJS=$(SRCS:.c=.o)</span><br><span class="line"></span><br><span class="line">EXEC=libmylib.so</span><br><span class="line"></span><br><span class="line">start: $(OBJS)</span><br><span class="line">    $(CC) -o $(EXEC) $(OBJS) -shared</span><br><span class="line"></span><br><span class="line">.c.o:</span><br><span class="line">    $(CC) -o $@ -c $&lt; -fPIC</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">    rm -rf $(OBJS)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>C/C++混合编程的写法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">CC=g++</span><br><span class="line"></span><br><span class="line">SRCS=main.cpp\</span><br><span class="line">    udp.cpp</span><br><span class="line"></span><br><span class="line">OBJS=$(SRCS:.cpp=.o)</span><br><span class="line"></span><br><span class="line">EXEC=myudp</span><br><span class="line"></span><br><span class="line">start: $(OBJS)</span><br><span class="line">    $(CC) -o $(EXEC) $(OBJS)</span><br><span class="line"></span><br><span class="line">.cpp.o:</span><br><span class="line">    $(CC) -o $@ -c $&lt; -DMYLINUX</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">    rm -rf $(OBJS)</span><br></pre></td></tr></table></figure>
       </div>
         
+          <section class='meta' id="footer-meta">
+            
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-02-23T11:55:09+08:00" content="2019-02-23"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2019-02-23
+              </time>
+            
+            
+                
+                <div class="metatag tags"><a class="tag" href="/tags/C-C/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;C/C++</a></div>
+            
+            
+          </section>
+        
 
+        
+            <div class="prev-next">
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/02/23/writeMakefile/" rel="prev" title="循序渐进写makefile">
+                                    
+                                        循序渐进写makefile
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/C-C/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>C/C++</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
         
 
     </section>
@@ -199,14 +251,43 @@
 
 
 
+  <article class="post white-box comments">
+    <section class="article typo">
+
+      
+        
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;Related Posts</h4>
+        <ul>
+            
+                <li><a href="https://e99net.github.io/2019/02/23/writeMakefile/">循序渐进写makefile</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/02/10/EnToChOfBootloader/">Win7开机界面英文转中文</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/02/02/USBofUbuntu/">用UltraISO制作Ubuntu18.04的启动U盘</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/02/02/SolofMatlabOnUbuntu/">Ubuntu上的各种软件问题解决之道</a></li>
+            
+        </ul>
+    </div>
+
+
+      
+
+      
+    </section>
+  </article>
+
 
 
 <script>
     window.subData = {
-        title: 'Open Source Projects',
+        title: 'makefile文件的不同写法',
         tools: true
     }
 </script>
+
 
         </div>
         <aside class='l_side'>
