@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://e99net.github.io/"/>
-  <updated>2019-02-23T03:55:09.817Z</updated>
+  <updated>2019-03-02T11:59:41.342Z</updated>
   <id>https://e99net.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用Git进行简单有效的项目版本控制管理</title>
+    <link href="https://e99net.github.io/2019/03/02/git/"/>
+    <id>https://e99net.github.io/2019/03/02/git/</id>
+    <published>2019-03-02T11:50:07.770Z</published>
+    <updated>2019-03-02T11:59:41.342Z</updated>
+    
+    <content type="html"><![CDATA[<p>Git是一个非常强大的项目版本控制管理工具，在单机环境下，可以简单有效地使用Git</p><a id="more"></a><ul><li>常用的Git命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;[提交点名称]&quot;</span><br><span class="line">git status</span><br><span class="line">git log</span><br><span class="line">git reset --hard HEAD^^</span><br><span class="line">get reset --hard [Git生成的版本号，不必写全，无歧义即可]</span><br><span class="line">git checkout -- [文件]</span><br></pre></td></tr></table></figure></li></ul><p>以上这些命令就足以较好地管理自己的项目目录了</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Git是一个非常强大的项目版本控制管理工具，在单机环境下，可以简单有效地使用Git&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="Git" scheme="https://e99net.github.io/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>makefile文件的不同写法</title>
@@ -482,28 +504,6 @@
 &lt;p&gt;AttributeError: module ‘pip’ has no attribute ‘main’&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;解决方案如下：&lt;br&gt;找到安装目录下的helpers/packaging_tool.py文件，将如下代码&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
-    
-    
-      <category term="Water" scheme="https://e99net.github.io/tags/Water/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义右键菜单</title>
-    <link href="https://e99net.github.io/2018/05/27/define_rightmenu_byyourself/"/>
-    <id>https://e99net.github.io/2018/05/27/define_rightmenu_byyourself/</id>
-    <published>2018-05-27T09:37:00.765Z</published>
-    <updated>2018-06-18T04:27:05.485Z</updated>
-    
-    <content type="html"><![CDATA[<p>许多绿色版的软件无法像那些安装版的软件一样添加到右键菜单，导致很不方便，这时可以自己将其添加到右键菜单，提高工作效率。<br>下面以Sublime Text为例加以说明：<br><a id="more"></a></p><ul><li>打开注册表</li><li>找到HKEY_CLASSESS_ROOT-&gt; * -&gt;Shell，在下面新建项，命名为“Sublime Text”。</li><li>在项“Sublime Text”下新建字符串值，命名为“Icon”，将其值设为“X:\path\to\sublime_text.exe,0”。其中，0前面的是Sublime Text在你电脑上的安装路径。</li><li>在项“Sublime Text”下再新建项“Command”，Command项下的默认值修改为“X:\path\to\sublime_text.exe %1”。</li><li>设置完成后，关闭注册表，右键菜单即会出现“Sublime Text”。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;许多绿色版的软件无法像那些安装版的软件一样添加到右键菜单，导致很不方便，这时可以自己将其添加到右键菜单，提高工作效率。&lt;br&gt;下面以Sublime Text为例加以说明：&lt;br&gt;&lt;/p&gt;
     
     </summary>
     

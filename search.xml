@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>用Git进行简单有效的项目版本控制管理</title>
+      <link href="/2019/03/02/git/"/>
+      <url>/2019/03/02/git/</url>
+      
+        <content type="html"><![CDATA[<p>Git是一个非常强大的项目版本控制管理工具，在单机环境下，可以简单有效地使用Git</p><a id="more"></a><ul><li>常用的Git命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;[提交点名称]&quot;</span><br><span class="line">git status</span><br><span class="line">git log</span><br><span class="line">git reset --hard HEAD^^</span><br><span class="line">get reset --hard [Git生成的版本号，不必写全，无歧义即可]</span><br><span class="line">git checkout -- [文件]</span><br></pre></td></tr></table></figure></li></ul><p>以上这些命令就足以较好地管理自己的项目目录了</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>makefile文件的不同写法</title>
       <link href="/2019/02/23/otherKindOfMakefile/"/>
       <url>/2019/02/23/otherKindOfMakefile/</url>
@@ -781,31 +806,6 @@
     
     
     <entry>
-      <title>搭建Hadoop过程中的虚拟机相关问题</title>
-      <link href="/2018/04/13/VirtualMachineOfHadoop/"/>
-      <url>/2018/04/13/VirtualMachineOfHadoop/</url>
-      
-        <content type="html"><![CDATA[<p>用多个CentOS6.5系统作为Hadoop集群的平台，在Vmware虚拟机中安装好一个CentOS6.5系统后再多复制几个即可模拟Hadoop集群的多个节点。</p><a id="more"></a><p>在操作过程中遇到了几个虚拟机的相关问题，先整理如下：<br>一、新安装好的CentOS6.5系统无法连接网络<br>解决方法：<br>二、复制的CentOS6.5系统无法连接网络<br>解决方法：</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Hadoop </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Ubuntu16.04安装WPS</title>
       <link href="/2018/04/13/WpsofUbuntu/"/>
       <url>/2018/04/13/WpsofUbuntu/</url>
@@ -823,6 +823,31 @@
         <tags>
             
             <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>搭建Hadoop过程中的虚拟机相关问题</title>
+      <link href="/2018/04/13/VirtualMachineOfHadoop/"/>
+      <url>/2018/04/13/VirtualMachineOfHadoop/</url>
+      
+        <content type="html"><![CDATA[<p>用多个CentOS6.5系统作为Hadoop集群的平台，在Vmware虚拟机中安装好一个CentOS6.5系统后再多复制几个即可模拟Hadoop集群的多个节点。</p><a id="more"></a><p>在操作过程中遇到了几个虚拟机的相关问题，先整理如下：<br>一、新安装好的CentOS6.5系统无法连接网络<br>解决方法：<br>二、复制的CentOS6.5系统无法连接网络<br>解决方法：</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
             
         </tags>
       
@@ -931,31 +956,6 @@
     
     
     <entry>
-      <title>关于Windows通过远程桌面访问Ubuntu</title>
-      <link href="/2018/04/13/RemoteAccess/"/>
-      <url>/2018/04/13/RemoteAccess/</url>
-      
-        <content type="html"><![CDATA[<p>从Ubuntu13.10开始，据说是由于xrdp、gnome和unity之间的兼容性问题，在Ubuntu中无法使用xrdp登录gnome或unity的远程桌面，现象是登录后只有黑白点为背景，无图标也无法操作。</p><a id="more"></a><p>解决办法是：使用xrdp登录xfce的远程桌面，或者也可以使用xrdp登录Mate的远程桌面。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Machine Learning </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>ConEmu的些许设置</title>
       <link href="/2018/04/13/SettingsOfConemu/"/>
       <url>/2018/04/13/SettingsOfConemu/</url>
@@ -973,6 +973,31 @@
         <tags>
             
             <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于Windows通过远程桌面访问Ubuntu</title>
+      <link href="/2018/04/13/RemoteAccess/"/>
+      <url>/2018/04/13/RemoteAccess/</url>
+      
+        <content type="html"><![CDATA[<p>从Ubuntu13.10开始，据说是由于xrdp、gnome和unity之间的兼容性问题，在Ubuntu中无法使用xrdp登录gnome或unity的远程桌面，现象是登录后只有黑白点为背景，无图标也无法操作。</p><a id="more"></a><p>解决办法是：使用xrdp登录xfce的远程桌面，或者也可以使用xrdp登录Mate的远程桌面。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
             
         </tags>
       
@@ -1131,6 +1156,31 @@
     
     
     <entry>
+      <title>如何知道自己是什么级别的程序员</title>
+      <link href="/2018/04/13/level/"/>
+      <url>/2018/04/13/level/</url>
+      
+        <content type="html"><![CDATA[<p>你们按照下面自行对号入座吧。</p><a id="more"></a><p>level 1: 被人带着做事的<br>level 2: 不需要人带就能做事的<br>level 3: 比level 2做得快的<br>level 4: 可以带人的<br>level 5: 可以带三个人的<br>level 6: 可以带七个人的<br>level 7: 可以带很多人的<br>level 8: 带带人的人的<br>level 9: 带level 8的</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Markdown语法</title>
       <link href="/2018/04/13/KnowledOfMarkdown/"/>
       <url>/2018/04/13/KnowledOfMarkdown/</url>
@@ -1206,11 +1256,11 @@
     
     
     <entry>
-      <title>如何知道自己是什么级别的程序员</title>
-      <link href="/2018/04/13/level/"/>
-      <url>/2018/04/13/level/</url>
+      <title>Latex中设置字体大小</title>
+      <link href="/2018/04/13/FontsizeofLatex/"/>
+      <url>/2018/04/13/FontsizeofLatex/</url>
       
-        <content type="html"><![CDATA[<p>你们按照下面自行对号入座吧。</p><a id="more"></a><p>level 1: 被人带着做事的<br>level 2: 不需要人带就能做事的<br>level 3: 比level 2做得快的<br>level 4: 可以带人的<br>level 5: 可以带三个人的<br>level 6: 可以带七个人的<br>level 7: 可以带很多人的<br>level 8: 带带人的人的<br>level 9: 带level 8的</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="Latex设置字体大小的命令由小到大依次为"><a href="#Latex设置字体大小的命令由小到大依次为" class="headerlink" title="Latex设置字体大小的命令由小到大依次为"></a>Latex设置字体大小的命令由小到大依次为</h3><a id="more"></a><ul><li>\tiny</li><li>\scriptsize</li><li>\footnotesize</li><li>\small</li><li>\normalsize(注：此为默认的正文字体大小)</li><li>\large</li><li>\Large</li><li>\LARGE</li><li>\huge</li><li>\Huge</li></ul><h3 id="Latex打勾和叉"><a href="#Latex打勾和叉" class="headerlink" title="Latex打勾和叉"></a>Latex打勾和叉</h3><ul><li>首先在导言区调用bbding包</li></ul><blockquote><p>\usepackage{bbding}</p></blockquote><ul><li>然后使用如下命令，5种命令分别代表不同样式的勾和叉</li></ul><blockquote><p>\Checkmark        %标准的勾<br>\XSolidBrush<br>\XSolid           %标准的叉<br>\CheckmarkBold<br>\XSolidBold</p></blockquote>]]></content>
       
       
       <categories>
@@ -1222,7 +1272,7 @@
       
         <tags>
             
-            <tag> Water </tag>
+            <tag> Latex </tag>
             
         </tags>
       
@@ -1256,31 +1306,6 @@
     
     
     <entry>
-      <title>Latex中设置字体大小</title>
-      <link href="/2018/04/13/FontsizeofLatex/"/>
-      <url>/2018/04/13/FontsizeofLatex/</url>
-      
-        <content type="html"><![CDATA[<h3 id="Latex设置字体大小的命令由小到大依次为"><a href="#Latex设置字体大小的命令由小到大依次为" class="headerlink" title="Latex设置字体大小的命令由小到大依次为"></a>Latex设置字体大小的命令由小到大依次为</h3><a id="more"></a><ul><li>\tiny</li><li>\scriptsize</li><li>\footnotesize</li><li>\small</li><li>\normalsize(注：此为默认的正文字体大小)</li><li>\large</li><li>\Large</li><li>\LARGE</li><li>\huge</li><li>\Huge</li></ul><h3 id="Latex打勾和叉"><a href="#Latex打勾和叉" class="headerlink" title="Latex打勾和叉"></a>Latex打勾和叉</h3><ul><li>首先在导言区调用bbding包</li></ul><blockquote><p>\usepackage{bbding}</p></blockquote><ul><li>然后使用如下命令，5种命令分别代表不同样式的勾和叉</li></ul><blockquote><p>\Checkmark        %标准的勾<br>\XSolidBrush<br>\XSolid           %标准的叉<br>\CheckmarkBold<br>\XSolidBold</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Latex </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>语录</title>
       <link href="/2018/04/13/Quotations/"/>
       <url>/2018/04/13/Quotations/</url>
@@ -1306,11 +1331,11 @@
     
     
     <entry>
-      <title>谷歌浏览器的黑科技</title>
-      <link href="/2018/04/13/BlackTechOfChrome/"/>
-      <url>/2018/04/13/BlackTechOfChrome/</url>
+      <title>一个无法在Chrome中更改默认搜索引擎的问题</title>
+      <link href="/2018/04/13/AProbOfDefSearchEngine/"/>
+      <url>/2018/04/13/AProbOfDefSearchEngine/</url>
       
-        <content type="html"><![CDATA[<h3 id="关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题"><a href="#关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题" class="headerlink" title="关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题"></a>关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题</h3><p>在Google Chrome的快捷方式中添加“–disable-directwrite-for-ui”启动参数，注意参数前有空格<br><a id="more"></a></p>]]></content>
+        <content type="html"><![CDATA[<p>在大多数情况下会看到一个未知的网站被分配为默认引擎，并且无卸载按钮可以更改。</p><a id="more"></a><p>以下是解除Chrome中的设置，最后更改浏览器中默认搜索的方法。<br>按照步骤：<br>1、以管理员身份运行cmd.exe<br>2、在cmd窗口中执行以下三条命令</p><blockquote><p>RD /S /Q “%WinDir%\System32\GroupPolicyUsers”<br>RD /S /Q “%WinDir%\System32\GroupPolicy”<br>gpupdate /force</p></blockquote><p>直到出现两个通知。<br>这样就可以关闭命令提示符窗口，更改Chrome中的默认搜索引擎了。 </p>]]></content>
       
       
       <categories>
@@ -1331,11 +1356,11 @@
     
     
     <entry>
-      <title>一个无法在Chrome中更改默认搜索引擎的问题</title>
-      <link href="/2018/04/13/AProbOfDefSearchEngine/"/>
-      <url>/2018/04/13/AProbOfDefSearchEngine/</url>
+      <title>谷歌浏览器的黑科技</title>
+      <link href="/2018/04/13/BlackTechOfChrome/"/>
+      <url>/2018/04/13/BlackTechOfChrome/</url>
       
-        <content type="html"><![CDATA[<p>在大多数情况下会看到一个未知的网站被分配为默认引擎，并且无卸载按钮可以更改。</p><a id="more"></a><p>以下是解除Chrome中的设置，最后更改浏览器中默认搜索的方法。<br>按照步骤：<br>1、以管理员身份运行cmd.exe<br>2、在cmd窗口中执行以下三条命令</p><blockquote><p>RD /S /Q “%WinDir%\System32\GroupPolicyUsers”<br>RD /S /Q “%WinDir%\System32\GroupPolicy”<br>gpupdate /force</p></blockquote><p>直到出现两个通知。<br>这样就可以关闭命令提示符窗口，更改Chrome中的默认搜索引擎了。 </p>]]></content>
+        <content type="html"><![CDATA[<h3 id="关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题"><a href="#关于Windows操作系统下MacType无法渲染新版本Google-Chrome的问题" class="headerlink" title="关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题"></a>关于Windows操作系统下MacType无法渲染新版本Google Chrome的问题</h3><p>在Google Chrome的快捷方式中添加“–disable-directwrite-for-ui”启动参数，注意参数前有空格<br><a id="more"></a></p>]]></content>
       
       
       <categories>
