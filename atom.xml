@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://e99net.github.io/"/>
-  <updated>2019-03-02T11:59:41.342Z</updated>
+  <updated>2019-08-25T07:38:59.207Z</updated>
   <id>https://e99net.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++的输入与输出</title>
+    <link href="https://e99net.github.io/2019/08/25/InputandOutputOfCpp/"/>
+    <id>https://e99net.github.io/2019/08/25/InputandOutputOfCpp/</id>
+    <published>2019-08-25T07:35:30.848Z</published>
+    <updated>2019-08-25T07:38:59.207Z</updated>
+    
+    <content type="html"><![CDATA[<p>输入时：<br>float型输入用%f。<br>double型输入用%lf。</p><a id="more"></a><p>输出时：<br>最好是都用%f输出。<br>在G++中，double类型若用%lf输出可能会错，而在C++中，double类型用%lf输出是正确的。<br>printf() 函数中不存在 %lf。</p><p>总结：<br>输入 double 用 %lf 输出用 %f。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;输入时：&lt;br&gt;float型输入用%f。&lt;br&gt;double型输入用%lf。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
+    
+    
+      <category term="C/C++" scheme="https://e99net.github.io/tags/C-C/"/>
+    
+  </entry>
   
   <entry>
     <title>用Git进行简单有效的项目版本控制管理</title>
@@ -478,32 +500,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;前戏&quot;&gt;&lt;a href=&quot;#前戏&quot; class=&quot;headerlink&quot; title=&quot;前戏&quot;&gt;&lt;/a&gt;前戏&lt;/h3&gt;&lt;p&gt;查看系统当前使用的shell&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
-    
-    
-      <category term="Water" scheme="https://e99net.github.io/tags/Water/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pip3版本8升级到版本10后，Pycharm装包出错的解决方案</title>
-    <link href="https://e99net.github.io/2018/06/02/pipofpycharm/"/>
-    <id>https://e99net.github.io/2018/06/02/pipofpycharm/</id>
-    <published>2018-06-02T06:15:43.535Z</published>
-    <updated>2018-06-02T06:23:44.889Z</updated>
-    
-    <content type="html"><![CDATA[<p>Python3的pip从版本8升级到版本10之后，在Pycharm中安装package，会出现如下问题:</p><blockquote><p>AttributeError: module ‘pip’ has no attribute ‘main’</p></blockquote><p>解决方案如下：<br>找到安装目录下的helpers/packaging_tool.py文件，将如下代码<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def do_install(pkgs):</span><br><span class="line">try:</span><br><span class="line">import pip</span><br><span class="line">except ImportError:</span><br><span class="line">error_no_pip()</span><br><span class="line">return pip.main([&apos;install&apos;] + pkgs)</span><br><span class="line"></span><br><span class="line">def do_uninstall(pkgs):</span><br><span class="line">try:</span><br><span class="line">import pip</span><br><span class="line">except ImportError:</span><br><span class="line">error_no_pip()</span><br><span class="line">return pip.main([&apos;uninstall&apos;, &apos;-y&apos;] + pkgs)</span><br></pre></td></tr></table></figure></p><p>修改为如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">def do_install(pkgs):</span><br><span class="line">try:</span><br><span class="line"># import pip</span><br><span class="line">try:</span><br><span class="line">from pip._internal import main</span><br><span class="line">except Exception:</span><br><span class="line">from pip import main</span><br><span class="line">except ImportError:</span><br><span class="line">error_no_pip()</span><br><span class="line">return main([&apos;install&apos;] + pkgs)</span><br><span class="line"></span><br><span class="line">def do_uninstall(pkgs):</span><br><span class="line">try:</span><br><span class="line"># import pip</span><br><span class="line">try:</span><br><span class="line">from pip._internal import main</span><br><span class="line">except Exception:</span><br><span class="line">from pip import main</span><br><span class="line">import pip</span><br><span class="line">except ImportError:</span><br><span class="line">error_no_pip()</span><br><span class="line">return main([&apos;uninstall&apos;, &apos;-y&apos;] + pkgs)</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Python3的pip从版本8升级到版本10之后，在Pycharm中安装package，会出现如下问题:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;AttributeError: module ‘pip’ has no attribute ‘main’&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;解决方案如下：&lt;br&gt;找到安装目录下的helpers/packaging_tool.py文件，将如下代码&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
