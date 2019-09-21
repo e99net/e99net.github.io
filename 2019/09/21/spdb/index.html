@@ -187,26 +187,34 @@
 
     <section class="article typo">
       <div class="article-entry" itemprop="articleBody">
-        <p>字符串是否由子串拼接而成</p>
-<p>描述：给出一个非空的字符串，判断这个字符串是否由它的一个子串进行多次首尾拼接构成。<br>例如，“abcabcabc”满足条件，因为它是由“abc”首尾拼接而成，而“abcab”则不满足条件。</p>
+        <h4 id="字符串是否由子串拼接而成"><a href="#字符串是否由子串拼接而成" class="headerlink" title="字符串是否由子串拼接而成"></a>字符串是否由子串拼接而成</h4><ul>
+<li>描述：</li>
+</ul>
+<p>给出一个非空的字符串，判断这个字符串是否由它的一个子串进行多次首尾拼接构成。<br>例如，“abcabcabc”满足条件，因为它是由“abc”首尾拼接而成，而“abcab”则不满足条件。</p>
 <a id="more"></a>
-<p>输入：<br>abcabcabc</p>
-<p>输出：<br>true</p>
-<p>参考代码:</p>
-<p>#include&lt;bits/stdc++.h&gt;<br>using namespace std;</p>
-<p>int main() {<br>    string str;<br>    cin&gt;&gt;str;<br>    int n=str.size();<br>    int m,flag=0;<br>    for(int i=n/2;i&gt;=1;i–) {<br>        if(n%i==0){<br>            m=n/i;<br>            for(int j=0;j&lt;i;j++){<br>                for(int k=1;k&lt;m;k++) {<br>                    if(str[j]!=str[j+k*i]) {<br>                        flag=1;<br>                        break;<br>                    }<br>                }<br>                if(flag==1) {<br>                    break;<br>                }<br>            }<br>            if(flag==0) {<br>                printf(“true”);<br>                return 0;<br>            }<br>        }<br>    }<br>    printf(“false”);<br>    return 0;<br>}</p>
-
+<ul>
+<li>输入：</li>
+</ul>
+<p>abcabcabc</p>
+<ul>
+<li>输出：</li>
+</ul>
+<p>true</p>
+<ul>
+<li>参考代码:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    string str;</span><br><span class="line">    cin&gt;&gt;str;</span><br><span class="line">    int n=str.size();</span><br><span class="line">    int m,flag=0;</span><br><span class="line">    for(int i=n/2;i&gt;=1;i--) &#123;</span><br><span class="line">        if(n%i==0)&#123;</span><br><span class="line">            m=n/i;</span><br><span class="line">            for(int j=0;j&lt;i;j++)&#123;</span><br><span class="line">                for(int k=1;k&lt;m;k++) &#123;</span><br><span class="line">                    if(str[j]!=str[j+k*i]) &#123;</span><br><span class="line">                        flag=1;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                if(flag==1) &#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if(flag==0) &#123;</span><br><span class="line">                printf(&quot;true&quot;);</span><br><span class="line">                return 0;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;false&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2019-09-21T19:38:54+08:00" content="2019-09-21"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-09-21T19:45:36+08:00" content="2019-09-21"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
                 &nbsp;2019-09-21
               </time>
             
             
                 
-                <div class="metatag tags"><a class="tag" href="/tags/algorithm/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;algorithm</a></div>
+                <div class="metatag tags"><a class="tag" href="/tags/Algorithm/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Algorithm</a></div>
             
             
           </section>
@@ -368,7 +376,7 @@
 </header>
 
     <div class='content pure'>
-      <a href="/tags/C-C/" style="font-size: 20px; color: #707070">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/Database/" style="font-size: 16px; color: #8b8b8b">Database</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Hadoop/" style="font-size: 16px; color: #8b8b8b">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Latex/" style="font-size: 22px; color: #636363">Latex</a> <a href="/tags/Linux/" style="font-size: 18px; color: #7e7e7e">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 20px; color: #707070">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Matlab/" style="font-size: 16px; color: #8b8b8b">Matlab</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a> <a href="/tags/algorithm/" style="font-size: 14px; color: #999">algorithm</a> <a href="/tags/paper/" style="font-size: 14px; color: #999">paper</a> <a href="/tags/water/" style="font-size: 14px; color: #999">water</a>
+      <a href="/tags/Algorithm/" style="font-size: 14px; color: #999">Algorithm</a> <a href="/tags/C-C/" style="font-size: 20px; color: #707070">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/Database/" style="font-size: 16px; color: #8b8b8b">Database</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Hadoop/" style="font-size: 16px; color: #8b8b8b">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Latex/" style="font-size: 22px; color: #636363">Latex</a> <a href="/tags/Linux/" style="font-size: 18px; color: #7e7e7e">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 20px; color: #707070">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Matlab/" style="font-size: 16px; color: #8b8b8b">Matlab</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a> <a href="/tags/paper/" style="font-size: 14px; color: #999">paper</a> <a href="/tags/water/" style="font-size: 14px; color: #999">water</a>
     </div>
   </section>
 
