@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>记一道2020年某企业提前批招聘的机试题</title>
+      <link href="/2019/09/21/spdb/"/>
+      <url>/2019/09/21/spdb/</url>
+      
+        <content type="html"><![CDATA[<p>字符串是否由子串拼接而成</p><p>描述：给出一个非空的字符串，判断这个字符串是否由它的一个子串进行多次首尾拼接构成。<br>例如，“abcabcabc”满足条件，因为它是由“abc”首尾拼接而成，而“abcab”则不满足条件。</p><a id="more"></a><p>输入：<br>abcabcabc</p><p>输出：<br>true</p><p>参考代码:</p><p>#include&lt;bits/stdc++.h&gt;<br>using namespace std;</p><p>int main() {<br>    string str;<br>    cin&gt;&gt;str;<br>    int n=str.size();<br>    int m,flag=0;<br>    for(int i=n/2;i&gt;=1;i–) {<br>        if(n%i==0){<br>            m=n/i;<br>            for(int j=0;j&lt;i;j++){<br>                for(int k=1;k&lt;m;k++) {<br>                    if(str[j]!=str[j+k*i]) {<br>                        flag=1;<br>                        break;<br>                    }<br>                }<br>                if(flag==1) {<br>                    break;<br>                }<br>            }<br>            if(flag==0) {<br>                printf(“true”);<br>                return 0;<br>            }<br>        }<br>    }<br>    printf(“false”);<br>    return 0;<br>}</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C++的输入与输出</title>
       <link href="/2019/08/25/InputandOutputOfCpp/"/>
       <url>/2019/08/25/InputandOutputOfCpp/</url>
@@ -956,6 +981,31 @@
     
     
     <entry>
+      <title>关于Windows通过远程桌面访问Ubuntu</title>
+      <link href="/2018/04/13/RemoteAccess/"/>
+      <url>/2018/04/13/RemoteAccess/</url>
+      
+        <content type="html"><![CDATA[<p>从Ubuntu13.10开始，据说是由于xrdp、gnome和unity之间的兼容性问题，在Ubuntu中无法使用xrdp登录gnome或unity的远程桌面，现象是登录后只有黑白点为背景，无图标也无法操作。</p><a id="more"></a><p>解决办法是：使用xrdp登录xfce的远程桌面，或者也可以使用xrdp登录Mate的远程桌面。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ConEmu的些许设置</title>
       <link href="/2018/04/13/SettingsOfConemu/"/>
       <url>/2018/04/13/SettingsOfConemu/</url>
@@ -998,31 +1048,6 @@
         <tags>
             
             <tag> Latex </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>关于Windows通过远程桌面访问Ubuntu</title>
-      <link href="/2018/04/13/RemoteAccess/"/>
-      <url>/2018/04/13/RemoteAccess/</url>
-      
-        <content type="html"><![CDATA[<p>从Ubuntu13.10开始，据说是由于xrdp、gnome和unity之间的兼容性问题，在Ubuntu中无法使用xrdp登录gnome或unity的远程桌面，现象是登录后只有黑白点为背景，无图标也无法操作。</p><a id="more"></a><p>解决办法是：使用xrdp登录xfce的远程桌面，或者也可以使用xrdp登录Mate的远程桌面。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Machine Learning </tag>
             
         </tags>
       
@@ -1231,31 +1256,6 @@
     
     
     <entry>
-      <title>Ubuntu的奇巧淫技</title>
-      <link href="/2018/04/13/FunofUbuntu/"/>
-      <url>/2018/04/13/FunofUbuntu/</url>
-      
-        <content type="html"><![CDATA[<ul><li>安装小工具<blockquote><p>sudo apt install fortune<br>sudo apt install fortune-zh<br>sudo apt install cowsay<br>sudo apt install lolcat</p></blockquote></li></ul><a id="more"></a><ul><li>小牛讲道理<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay;done</p></blockquote></li></ul><p><img src="https://pic4.zhimg.com/80/d8de96cf669f0cd6f89fb83a6ba01567_hd.jpg" alt=""></p><ul><li>加颜色<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay|lolcat;done</p></blockquote></li></ul><p><img src="https://pic2.zhimg.com/80/39458e4c8e1da4fbc714a430cca86536_hd.jpg" alt=""></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Markdown语法</title>
       <link href="/2018/04/13/KnowledOfMarkdown/"/>
       <url>/2018/04/13/KnowledOfMarkdown/</url>
@@ -1273,6 +1273,31 @@
         <tags>
             
             <tag> Markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu的奇巧淫技</title>
+      <link href="/2018/04/13/FunofUbuntu/"/>
+      <url>/2018/04/13/FunofUbuntu/</url>
+      
+        <content type="html"><![CDATA[<ul><li>安装小工具<blockquote><p>sudo apt install fortune<br>sudo apt install fortune-zh<br>sudo apt install cowsay<br>sudo apt install lolcat</p></blockquote></li></ul><a id="more"></a><ul><li>小牛讲道理<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay;done</p></blockquote></li></ul><p><img src="https://pic4.zhimg.com/80/d8de96cf669f0cd6f89fb83a6ba01567_hd.jpg" alt=""></p><ul><li>加颜色<blockquote><p>for i in {1..5};do echo <code>fortune</code>|cowsay|lolcat;done</p></blockquote></li></ul><p><img src="https://pic2.zhimg.com/80/39458e4c8e1da4fbc714a430cca86536_hd.jpg" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
             
         </tags>
       
