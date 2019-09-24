@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>洛谷的刷题日常之P1880</title>
+      <link href="/2019/09/24/luogu/"/>
+      <url>/2019/09/24/luogu/</url>
+      
+        <content type="html"><![CDATA[<h4 id="石子合并"><a href="#石子合并" class="headerlink" title="石子合并"></a>石子合并</h4><p>先看一道比luogu p1880简单的题目。</p><ul><li>描述：</li></ul><p>有n堆石子排成一排，每堆石子有一定的数量，将n堆石子合并成一堆。合并的规则是每次只能合并相邻的两堆石子，合并的花费为这两堆石子的总数。石子经过n-1次合并后成为一堆，求总的最小花费和最大花费。</p><a id="more"></a><ul><li>输入：</li></ul><p>有多组测试数据，输入到文件结束。每组测试数据的第1行有一个整数n，表示有n堆石子，n&lt;250。接下来的一行有n个数，分别表示这n堆石子的数目。每堆石子至少一颗，最多10000颗。</p><ul><li>输出：</li></ul><p>总的最小花费和最大花费。</p><ul><li>输入样例：</li></ul><p>3<br>2 4 5</p><ul><li>输出样例：</li></ul><p>17<br>20</p><ul><li><p>解题思路：区间DP</p></li><li><p>参考代码:</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="环形石子合并"><a href="#环形石子合并" class="headerlink" title="环形石子合并"></a>环形石子合并</h4><p>接下来就可以着手解决luogu p1880了。</p><ul><li>描述：</li></ul><p>在一个圆形操场的四周摆放N堆石子,现要将石子有次序地合并成一堆.规定每次只能选相邻的2堆合并成新的一堆，并将新的一堆的石子数，记为该次合并的得分。</p><p>试设计出1个算法,计算出将N堆石子合并成1堆的最小得分和最大得分.</p><!-- more --><ul><li>输入：</li></ul><p>数据的第1行试正整数N,1≤N≤100,表示有N堆石子.第2行有N个数,分别表示每堆石子的个数.</p><ul><li>输出：</li></ul><p>输出共2行,第1行为最小得分,第2行为最大得分.</p><ul><li>输入样例：</li></ul><p>4<br>4 5 9 4</p><ul><li>输出样例：</li></ul><p>43<br>54</p><ul><li><p>解题思路：区间DP</p></li><li><p>参考代码:</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Dynamic Programming </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>记一道2020年某企业秋招笔试题</title>
       <link href="/2019/09/24/cmbcc/"/>
       <url>/2019/09/24/cmbcc/</url>
@@ -881,31 +906,6 @@
     
     
     <entry>
-      <title>Ubuntu16.04安装WPS</title>
-      <link href="/2018/04/13/WpsofUbuntu/"/>
-      <url>/2018/04/13/WpsofUbuntu/</url>
-      
-        <content type="html"><![CDATA[<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><ul><li>下载：<a href="http://community.wps.cn/download" target="_blank" rel="noopener">WPS For Linux</a></li><li>安装命令<blockquote><p>sudo dpkg -i wps-office_10.1.0.5672_a21_amd64.deb</p></blockquote></li></ul><h3 id="字体缺失问题"><a href="#字体缺失问题" class="headerlink" title="字体缺失问题"></a>字体缺失问题</h3><ul><li>下载<a href="https://pan.baidu.com/s/1eS6xlzo" target="_blank" rel="noopener">wps_symbol_fonts.zip</a></li><li>创建目录：<a id="more"></a><blockquote><p>sudo mkdir /usr/share/fonts/wps-office</p></blockquote></li><li>将下载的字体复制到创建的目录：<blockquote><p>sudo cp -r wps_symbol_fonts.zip /usr/share/fonts/wps-office</p></blockquote></li><li>切换到创建的目录：<blockquote><p>cd /usr/share/fonts/wps-office</p></blockquote></li><li>解压字体包：<blockquote><p>sudo unzip wps_symbol_fonts.zip</p></blockquote></li><li>解压后删除字体包：<blockquote><p>sudo rm -r wps_symbol_fonts.zip</p></blockquote></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Water </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>搭建Hadoop过程中的虚拟机相关问题</title>
       <link href="/2018/04/13/VirtualMachineOfHadoop/"/>
       <url>/2018/04/13/VirtualMachineOfHadoop/</url>
@@ -923,6 +923,31 @@
         <tags>
             
             <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu16.04安装WPS</title>
+      <link href="/2018/04/13/WpsofUbuntu/"/>
+      <url>/2018/04/13/WpsofUbuntu/</url>
+      
+        <content type="html"><![CDATA[<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><ul><li>下载：<a href="http://community.wps.cn/download" target="_blank" rel="noopener">WPS For Linux</a></li><li>安装命令<blockquote><p>sudo dpkg -i wps-office_10.1.0.5672_a21_amd64.deb</p></blockquote></li></ul><h3 id="字体缺失问题"><a href="#字体缺失问题" class="headerlink" title="字体缺失问题"></a>字体缺失问题</h3><ul><li>下载<a href="https://pan.baidu.com/s/1eS6xlzo" target="_blank" rel="noopener">wps_symbol_fonts.zip</a></li><li>创建目录：<a id="more"></a><blockquote><p>sudo mkdir /usr/share/fonts/wps-office</p></blockquote></li><li>将下载的字体复制到创建的目录：<blockquote><p>sudo cp -r wps_symbol_fonts.zip /usr/share/fonts/wps-office</p></blockquote></li><li>切换到创建的目录：<blockquote><p>cd /usr/share/fonts/wps-office</p></blockquote></li><li>解压字体包：<blockquote><p>sudo unzip wps_symbol_fonts.zip</p></blockquote></li><li>解压后删除字体包：<blockquote><p>sudo rm -r wps_symbol_fonts.zip</p></blockquote></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
             
         </tags>
       
@@ -1031,31 +1056,6 @@
     
     
     <entry>
-      <title>Latex中的空格</title>
-      <link href="/2018/04/13/SpaceofLatex/"/>
-      <url>/2018/04/13/SpaceofLatex/</url>
-      
-        <content type="html"><![CDATA[<ul><li>两个quad空格 \qquad  两个m的宽度</li><li>quad空格 \quad  一个m的宽度<a id="more"></a></li><li>大空格 \   1/3m的宽度</li><li>中等空格 \;  2/7m的宽度</li><li>小空格 \,  1/6m的宽度</li><li>没有空格   </li><li>紧贴 !  缩进1/6m的宽度</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Latex </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>ConEmu的些许设置</title>
       <link href="/2018/04/13/SettingsOfConemu/"/>
       <url>/2018/04/13/SettingsOfConemu/</url>
@@ -1073,6 +1073,31 @@
         <tags>
             
             <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Latex中的空格</title>
+      <link href="/2018/04/13/SpaceofLatex/"/>
+      <url>/2018/04/13/SpaceofLatex/</url>
+      
+        <content type="html"><![CDATA[<ul><li>两个quad空格 \qquad  两个m的宽度</li><li>quad空格 \quad  一个m的宽度<a id="more"></a></li><li>大空格 \   1/3m的宽度</li><li>中等空格 \;  2/7m的宽度</li><li>小空格 \,  1/6m的宽度</li><li>没有空格   </li><li>紧贴 !  缩进1/6m的宽度</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Latex </tag>
             
         </tags>
       
@@ -1231,56 +1256,6 @@
     
     
     <entry>
-      <title>Markdown语法</title>
-      <link href="/2018/04/13/KnowledOfMarkdown/"/>
-      <url>/2018/04/13/KnowledOfMarkdown/</url>
-      
-        <content type="html"><![CDATA[<h3 id="Markdown原生语法"><a href="#Markdown原生语法" class="headerlink" title="Markdown原生语法"></a>Markdown原生语法</h3><ul><li>中划线。语法如下：<blockquote><p><del>要划除的行内内容</del></p></blockquote></li></ul><a id="more"></a><h3 id="Markdown中的转义字符为-，可以转义的有："><a href="#Markdown中的转义字符为-，可以转义的有：" class="headerlink" title="Markdown中的转义字符为\，可以转义的有："></a>Markdown中的转义字符为\，可以转义的有：</h3><blockquote><p>\ 反斜杠<br>` 反引号<br>* 星号<br>_ 下划线<br>{} 大括号<br>[] 中括号<br>() 小括号<br># 井号<br>+ 加号<br>- 减号<br>. 英文句号<br>! 感叹号</p></blockquote><h3 id="使用Markdown时，如何为文字加下划线"><a href="#使用Markdown时，如何为文字加下划线" class="headerlink" title="使用Markdown时，如何为文字加下划线"></a>使用Markdown时，如何为文字加下划线</h3><ul><li>Markdown并无下划线的原生语法，因为会和链接的默认样式产生混淆。这里可以使用行内样式HTML使其产生下划线效果，如下：<blockquote><p><u>Underlined Text</u></p></blockquote></li><li>使用html的span标签、设置行内CSS的border-bottom属性 来添加下划线。这种方式自定义程度最高。语法如下：<blockquote><p><span style="border-bottom:2px dashed yellow;">所添加的需要加下划线的行内文字</span></p></blockquote></li><li>用数学公式：<blockquote><p>#上划线<br>$\overline{X}$<br>#下划线<br>$\underline{X}$</p></blockquote></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Markdown </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>如何知道自己是什么级别的程序员</title>
-      <link href="/2018/04/13/level/"/>
-      <url>/2018/04/13/level/</url>
-      
-        <content type="html"><![CDATA[<p>你们按照下面自行对号入座吧。</p><a id="more"></a><p>level 1: 被人带着做事的<br>level 2: 不需要人带就能做事的<br>level 3: 比level 2做得快的<br>level 4: 可以带人的<br>level 5: 可以带三个人的<br>level 6: 可以带七个人的<br>level 7: 可以带很多人的<br>level 8: 带带人的人的<br>level 9: 带level 8的</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Water </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Linux系统IO模式</title>
       <link href="/2018/04/13/IO/"/>
       <url>/2018/04/13/IO/</url>
@@ -1331,11 +1306,11 @@
     
     
     <entry>
-      <title>Latex中设置字体大小</title>
-      <link href="/2018/04/13/FontsizeofLatex/"/>
-      <url>/2018/04/13/FontsizeofLatex/</url>
+      <title>Markdown语法</title>
+      <link href="/2018/04/13/KnowledOfMarkdown/"/>
+      <url>/2018/04/13/KnowledOfMarkdown/</url>
       
-        <content type="html"><![CDATA[<h3 id="Latex设置字体大小的命令由小到大依次为"><a href="#Latex设置字体大小的命令由小到大依次为" class="headerlink" title="Latex设置字体大小的命令由小到大依次为"></a>Latex设置字体大小的命令由小到大依次为</h3><a id="more"></a><ul><li>\tiny</li><li>\scriptsize</li><li>\footnotesize</li><li>\small</li><li>\normalsize(注：此为默认的正文字体大小)</li><li>\large</li><li>\Large</li><li>\LARGE</li><li>\huge</li><li>\Huge</li></ul><h3 id="Latex打勾和叉"><a href="#Latex打勾和叉" class="headerlink" title="Latex打勾和叉"></a>Latex打勾和叉</h3><ul><li>首先在导言区调用bbding包</li></ul><blockquote><p>\usepackage{bbding}</p></blockquote><ul><li>然后使用如下命令，5种命令分别代表不同样式的勾和叉</li></ul><blockquote><p>\Checkmark        %标准的勾<br>\XSolidBrush<br>\XSolid           %标准的叉<br>\CheckmarkBold<br>\XSolidBold</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h3 id="Markdown原生语法"><a href="#Markdown原生语法" class="headerlink" title="Markdown原生语法"></a>Markdown原生语法</h3><ul><li>中划线。语法如下：<blockquote><p><del>要划除的行内内容</del></p></blockquote></li></ul><a id="more"></a><h3 id="Markdown中的转义字符为-，可以转义的有："><a href="#Markdown中的转义字符为-，可以转义的有：" class="headerlink" title="Markdown中的转义字符为\，可以转义的有："></a>Markdown中的转义字符为\，可以转义的有：</h3><blockquote><p>\ 反斜杠<br>` 反引号<br>* 星号<br>_ 下划线<br>{} 大括号<br>[] 中括号<br>() 小括号<br># 井号<br>+ 加号<br>- 减号<br>. 英文句号<br>! 感叹号</p></blockquote><h3 id="使用Markdown时，如何为文字加下划线"><a href="#使用Markdown时，如何为文字加下划线" class="headerlink" title="使用Markdown时，如何为文字加下划线"></a>使用Markdown时，如何为文字加下划线</h3><ul><li>Markdown并无下划线的原生语法，因为会和链接的默认样式产生混淆。这里可以使用行内样式HTML使其产生下划线效果，如下：<blockquote><p><u>Underlined Text</u></p></blockquote></li><li>使用html的span标签、设置行内CSS的border-bottom属性 来添加下划线。这种方式自定义程度最高。语法如下：<blockquote><p><span style="border-bottom:2px dashed yellow;">所添加的需要加下划线的行内文字</span></p></blockquote></li><li>用数学公式：<blockquote><p>#上划线<br>$\overline{X}$<br>#下划线<br>$\underline{X}$</p></blockquote></li></ul>]]></content>
       
       
       <categories>
@@ -1347,7 +1322,32 @@
       
         <tags>
             
-            <tag> Latex </tag>
+            <tag> Markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何知道自己是什么级别的程序员</title>
+      <link href="/2018/04/13/level/"/>
+      <url>/2018/04/13/level/</url>
+      
+        <content type="html"><![CDATA[<p>你们按照下面自行对号入座吧。</p><a id="more"></a><p>level 1: 被人带着做事的<br>level 2: 不需要人带就能做事的<br>level 3: 比level 2做得快的<br>level 4: 可以带人的<br>level 5: 可以带三个人的<br>level 6: 可以带七个人的<br>level 7: 可以带很多人的<br>level 8: 带带人的人的<br>level 9: 带level 8的</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
             
         </tags>
       
@@ -1373,6 +1373,31 @@
         <tags>
             
             <tag> Haskell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Latex中设置字体大小</title>
+      <link href="/2018/04/13/FontsizeofLatex/"/>
+      <url>/2018/04/13/FontsizeofLatex/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Latex设置字体大小的命令由小到大依次为"><a href="#Latex设置字体大小的命令由小到大依次为" class="headerlink" title="Latex设置字体大小的命令由小到大依次为"></a>Latex设置字体大小的命令由小到大依次为</h3><a id="more"></a><ul><li>\tiny</li><li>\scriptsize</li><li>\footnotesize</li><li>\small</li><li>\normalsize(注：此为默认的正文字体大小)</li><li>\large</li><li>\Large</li><li>\LARGE</li><li>\huge</li><li>\Huge</li></ul><h3 id="Latex打勾和叉"><a href="#Latex打勾和叉" class="headerlink" title="Latex打勾和叉"></a>Latex打勾和叉</h3><ul><li>首先在导言区调用bbding包</li></ul><blockquote><p>\usepackage{bbding}</p></blockquote><ul><li>然后使用如下命令，5种命令分别代表不同样式的勾和叉</li></ul><blockquote><p>\Checkmark        %标准的勾<br>\XSolidBrush<br>\XSolid           %标准的叉<br>\CheckmarkBold<br>\XSolidBold</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Latex </tag>
             
         </tags>
       

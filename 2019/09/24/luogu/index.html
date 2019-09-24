@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>About | 99°</title>
+  <title>洛谷的刷题日常之P1880 | 99°</title>
   
   <meta name="keywords" content="blog">
   
@@ -145,22 +145,30 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            <article id="page" class="post white-box article-type-page" itemscope itemprop="blogPost">
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
   
 <section class='meta'>
   
   <div class="meta" id="header-meta">
     
       
-          <h1 class="title">About</h1>
+          <h1 class="title">洛谷的刷题日常之P1880</h1>
       
     
 
     
       <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-09-27
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-09-24
       </time>
     
+
+    
+      
+    
+    <div class='metatag cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/Algorithm/">Algorithm</a>
+    </div>
+
 
     
 
@@ -179,27 +187,105 @@
 
     <section class="article typo">
       <div class="article-entry" itemprop="articleBody">
-        <p><a href="../about-cn/">简体中文</a></p>
-<p>Hi there, welcome to my blog 99 degree(99°).<br>This is e99net(FlyHacker).<br>I am a student, programming for interest.</p>
+        <h4 id="石子合并"><a href="#石子合并" class="headerlink" title="石子合并"></a>石子合并</h4><p>先看一道比luogu p1880简单的题目。</p>
 <ul>
-<li>E-mail</li>
-<li><a href="https://e99net.github.io/resume-cn/">Resume</a></li>
-<li><a href="https://e99net.github.io/subscribe-cn/">subscribe</a></li>
-<li><a href="https://e99net.github.io/feed.xml">Feed with RSS</a></li>
-<li><a href="https://e99net.github.io/opensource-contributions/">Opensource Contributions</a></li>
-<li><a href="https://e99net.github.io/codewars-cn/">CodeWars</a></li>
-<li><a href="http://stackoverflow.com/story/e99net" target="_blank" rel="noopener">StackOverflow developer story</a> (<a href="https://stackoverflow.com/users/story/pdf/" target="_blank" rel="noopener">save as PDF</a>)</li>
+<li>描述：</li>
 </ul>
-<h2 id="Meaning-of-the-blog’s-name"><a href="#Meaning-of-the-blog’s-name" class="headerlink" title="Meaning of the blog’s name"></a>Meaning of the blog’s name</h2><h2 id="Blog-Policy"><a href="#Blog-Policy" class="headerlink" title="Blog Policy"></a>Blog Policy</h2><ul>
-<li>All the posts and blogs here are licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial-NoDerivs 4.0 Generic License</a>.</li>
+<p>有n堆石子排成一排，每堆石子有一定的数量，将n堆石子合并成一堆。合并的规则是每次只能合并相邻的两堆石子，合并的花费为这两堆石子的总数。石子经过n-1次合并后成为一堆，求总的最小花费和最大花费。</p>
+<a id="more"></a>
+<ul>
+<li>输入：</li>
 </ul>
-<h2 id="Special-Thanks"><a href="#Special-Thanks" class="headerlink" title="Special Thanks"></a>Special Thanks</h2><h2 id="Friends"><a href="#Friends" class="headerlink" title="Friends"></a>Friends</h2><ul>
-<li><a href="http://zwcblog.top./" target="_blank" rel="noopener">Collation&amp;Seek Group</a></li>
+<p>有多组测试数据，输入到文件结束。每组测试数据的第1行有一个整数n，表示有n堆石子，n&lt;250。接下来的一行有n个数，分别表示这n堆石子的数目。每堆石子至少一颗，最多10000颗。</p>
+<ul>
+<li>输出：</li>
 </ul>
-
+<p>总的最小花费和最大花费。</p>
+<ul>
+<li>输入样例：</li>
+</ul>
+<p>3<br>2 4 5</p>
+<ul>
+<li>输出样例：</li>
+</ul>
+<p>17<br>20</p>
+<ul>
+<li><p>解题思路：区间DP</p>
+</li>
+<li><p>参考代码:</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="环形石子合并"><a href="#环形石子合并" class="headerlink" title="环形石子合并"></a>环形石子合并</h4><p>接下来就可以着手解决luogu p1880了。</p>
+<ul>
+<li>描述：</li>
+</ul>
+<p>在一个圆形操场的四周摆放N堆石子,现要将石子有次序地合并成一堆.规定每次只能选相邻的2堆合并成新的一堆，并将新的一堆的石子数，记为该次合并的得分。</p>
+<p>试设计出1个算法,计算出将N堆石子合并成1堆的最小得分和最大得分.</p>
+<!-- more -->
+<ul>
+<li>输入：</li>
+</ul>
+<p>数据的第1行试正整数N,1≤N≤100,表示有N堆石子.第2行有N个数,分别表示每堆石子的个数.</p>
+<ul>
+<li>输出：</li>
+</ul>
+<p>输出共2行,第1行为最小得分,第2行为最大得分.</p>
+<ul>
+<li>输入样例：</li>
+</ul>
+<p>4<br>4 5 9 4</p>
+<ul>
+<li>输出样例：</li>
+</ul>
+<p>43<br>54</p>
+<ul>
+<li><p>解题思路：区间DP</p>
+</li>
+<li><p>参考代码:</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
         
+          <section class='meta' id="footer-meta">
+            
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-09-24T11:31:58+08:00" content="2019-09-24"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2019-09-24
+              </time>
+            
+            
+                
+                <div class="metatag tags"><a class="tag" href="/tags/Dynamic-Programming/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Dynamic Programming</a></div>
+            
+            
+          </section>
+        
 
+        
+            <div class="prev-next">
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/09/24/cmbcc/" rel="prev" title="记一道2020年某企业秋招笔试题">
+                                    
+                                        记一道2020年某企业秋招笔试题
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/DFS/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>DFS</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
         
 
     </section>
@@ -215,14 +301,43 @@
 
 
 
+  <article class="post white-box comments">
+    <section class="article typo">
+
+      
+        
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;Related Posts</h4>
+        <ul>
+            
+                <li><a href="https://e99net.github.io/2019/09/24/cmbcc/">记一道2020年某企业秋招笔试题</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/09/21/spdb/">记一道2020年某企业提前批招聘的机试题</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/08/25/InputandOutputOfCpp/">C++的输入与输出</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/03/02/git/">用Git进行简单有效的项目版本控制管理</a></li>
+            
+        </ul>
+    </div>
+
+
+      
+
+      
+    </section>
+  </article>
+
 
 
 <script>
     window.subData = {
-        title: 'About',
+        title: '洛谷的刷题日常之P1880',
         tools: true
     }
 </script>
+
 
         </div>
         <aside class='l_side'>
