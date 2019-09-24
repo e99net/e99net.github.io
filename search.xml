@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>记一道2020年某企业秋招笔试题</title>
+      <link href="/2019/09/24/cmbcc/"/>
+      <url>/2019/09/24/cmbcc/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-n-中每位数字乘积最大的值"><a href="#1-n-中每位数字乘积最大的值" class="headerlink" title="1 ~ n 中每位数字乘积最大的值"></a>1 ~ n 中每位数字乘积最大的值</h4><ul><li>描述：</li></ul><p>99°是一位爱好爬山的小青年，他每次在爬山过程中都会遇到很多小猴子，小猴子们喜欢向他提这样一种问题：在1 ~ n中找一个数字m，使得m的各个数位乘积最大。99°不擅长回答这种问题，你能帮他写一个程序得到结果吗？</p><a id="more"></a><ul><li>样例输入1：</li></ul><p>100</p><ul><li>样例输出1：</li></ul><p>81</p><p>提示：9 * 9 = 81</p><ul><li>样例输入2：</li></ul><p>6</p><ul><li>样例输出2：</li></ul><p>6</p><ul><li><p>解题思路：深度优先搜索</p></li><li><p>参考代码:</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line"></span><br><span class="line">ll dfs(int n) &#123;</span><br><span class="line">    if(n==0) return 1;</span><br><span class="line">    if(n&lt;10) return n;</span><br><span class="line">    else return max(dfs(n/10-1)*9,dfs(n/10)*(n%10));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    printf(&quot;%lld&quot;,dfs(n));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DFS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>记一道2020年某企业提前批招聘的机试题</title>
       <link href="/2019/09/21/spdb/"/>
       <url>/2019/09/21/spdb/</url>
@@ -20,7 +45,7 @@
       
         <tags>
             
-            <tag> Job </tag>
+            <tag> String </tag>
             
         </tags>
       
@@ -856,31 +881,6 @@
     
     
     <entry>
-      <title>搭建Hadoop过程中的虚拟机相关问题</title>
-      <link href="/2018/04/13/VirtualMachineOfHadoop/"/>
-      <url>/2018/04/13/VirtualMachineOfHadoop/</url>
-      
-        <content type="html"><![CDATA[<p>用多个CentOS6.5系统作为Hadoop集群的平台，在Vmware虚拟机中安装好一个CentOS6.5系统后再多复制几个即可模拟Hadoop集群的多个节点。</p><a id="more"></a><p>在操作过程中遇到了几个虚拟机的相关问题，先整理如下：<br>一、新安装好的CentOS6.5系统无法连接网络<br>解决方法：<br>二、复制的CentOS6.5系统无法连接网络<br>解决方法：</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Hadoop </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Ubuntu16.04安装WPS</title>
       <link href="/2018/04/13/WpsofUbuntu/"/>
       <url>/2018/04/13/WpsofUbuntu/</url>
@@ -898,6 +898,31 @@
         <tags>
             
             <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>搭建Hadoop过程中的虚拟机相关问题</title>
+      <link href="/2018/04/13/VirtualMachineOfHadoop/"/>
+      <url>/2018/04/13/VirtualMachineOfHadoop/</url>
+      
+        <content type="html"><![CDATA[<p>用多个CentOS6.5系统作为Hadoop集群的平台，在Vmware虚拟机中安装好一个CentOS6.5系统后再多复制几个即可模拟Hadoop集群的多个节点。</p><a id="more"></a><p>在操作过程中遇到了几个虚拟机的相关问题，先整理如下：<br>一、新安装好的CentOS6.5系统无法连接网络<br>解决方法：<br>二、复制的CentOS6.5系统无法连接网络<br>解决方法：</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
             
         </tags>
       
@@ -1006,31 +1031,6 @@
     
     
     <entry>
-      <title>ConEmu的些许设置</title>
-      <link href="/2018/04/13/SettingsOfConemu/"/>
-      <url>/2018/04/13/SettingsOfConemu/</url>
-      
-        <content type="html"><![CDATA[<h3 id="添加ConEmu到Windows右键菜单"><a href="#添加ConEmu到Windows右键菜单" class="headerlink" title="添加ConEmu到Windows右键菜单"></a>添加ConEmu到Windows右键菜单</h3><p>进行ConEmu界面,打开设置,如下图:<br><a id="more"></a></p><p><img src="http://image.bubuko.com/info/201709/20180111004357181665.png" alt=""></p><p>然后,打开Integreation,将“cmd -cur_console:n”改为“cmd -cur_console:n %P”,如图操作:</p><p><img src="http://image.bubuko.com/info/201709/20180111004357186548.png" alt=""></p><p>点击”Save settings”,回到Windows桌面或是TotalCommander界面就可以看到右键菜单里已经有ConEmu选项了.</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Water </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Latex中的空格</title>
       <link href="/2018/04/13/SpaceofLatex/"/>
       <url>/2018/04/13/SpaceofLatex/</url>
@@ -1048,6 +1048,31 @@
         <tags>
             
             <tag> Latex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ConEmu的些许设置</title>
+      <link href="/2018/04/13/SettingsOfConemu/"/>
+      <url>/2018/04/13/SettingsOfConemu/</url>
+      
+        <content type="html"><![CDATA[<h3 id="添加ConEmu到Windows右键菜单"><a href="#添加ConEmu到Windows右键菜单" class="headerlink" title="添加ConEmu到Windows右键菜单"></a>添加ConEmu到Windows右键菜单</h3><p>进行ConEmu界面,打开设置,如下图:<br><a id="more"></a></p><p><img src="http://image.bubuko.com/info/201709/20180111004357181665.png" alt=""></p><p>然后,打开Integreation,将“cmd -cur_console:n”改为“cmd -cur_console:n %P”,如图操作:</p><p><img src="http://image.bubuko.com/info/201709/20180111004357186548.png" alt=""></p><p>点击”Save settings”,回到Windows桌面或是TotalCommander界面就可以看到右键菜单里已经有ConEmu选项了.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
             
         </tags>
       
@@ -1156,6 +1181,31 @@
     
     
     <entry>
+      <title>《统计学习方法(李航 著)》_读书笔记</title>
+      <link href="/2018/04/13/NoteofBook1/"/>
+      <url>/2018/04/13/NoteofBook1/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-3统计学习三要素"><a href="#1-3统计学习三要素" class="headerlink" title="1.3统计学习三要素"></a>1.3统计学习三要素</h3><p>本书中称由决策函数表示的模型为非概率模型，由条件概率表示的模型为概率模型。<br>损失函数度量模型一次预测的好坏，风险函数度量平均意义下模型预测的好坏。<br><a id="more"></a><br>监督学习的两个基本策略：经验风险最小化和结构风险最小化。<br>当样本容量足够大时，经验风险最小化(empirical risk minimization, ERM)能保证有很好的学习效果，在现实中被广泛使用。但是，当样本容量很小时，经验风险最小化学习的效果就未必很好，会产生“过拟合(over-fitting)”现象。<br>结构风险最小化(structural risk minimization, SRM)是为了防止过拟合而提出来的策略。</p><h4 id="2-3-3感知机学习算法的对偶形式"><a href="#2-3-3感知机学习算法的对偶形式" class="headerlink" title="2.3.3感知机学习算法的对偶形式"></a>2.3.3感知机学习算法的对偶形式</h4><p>实例点更新次数越多，意味着它距离分离超平面越近，也就越难正确分类。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>《模式识别与机器学习 中文版(马春鹏 译)》_读书笔记</title>
       <link href="/2018/04/13/NoteofBook2/"/>
       <url>/2018/04/13/NoteofBook2/</url>
@@ -1181,11 +1231,11 @@
     
     
     <entry>
-      <title>《统计学习方法(李航 著)》_读书笔记</title>
-      <link href="/2018/04/13/NoteofBook1/"/>
-      <url>/2018/04/13/NoteofBook1/</url>
+      <title>Markdown语法</title>
+      <link href="/2018/04/13/KnowledOfMarkdown/"/>
+      <url>/2018/04/13/KnowledOfMarkdown/</url>
       
-        <content type="html"><![CDATA[<h3 id="1-3统计学习三要素"><a href="#1-3统计学习三要素" class="headerlink" title="1.3统计学习三要素"></a>1.3统计学习三要素</h3><p>本书中称由决策函数表示的模型为非概率模型，由条件概率表示的模型为概率模型。<br>损失函数度量模型一次预测的好坏，风险函数度量平均意义下模型预测的好坏。<br><a id="more"></a><br>监督学习的两个基本策略：经验风险最小化和结构风险最小化。<br>当样本容量足够大时，经验风险最小化(empirical risk minimization, ERM)能保证有很好的学习效果，在现实中被广泛使用。但是，当样本容量很小时，经验风险最小化学习的效果就未必很好，会产生“过拟合(over-fitting)”现象。<br>结构风险最小化(structural risk minimization, SRM)是为了防止过拟合而提出来的策略。</p><h4 id="2-3-3感知机学习算法的对偶形式"><a href="#2-3-3感知机学习算法的对偶形式" class="headerlink" title="2.3.3感知机学习算法的对偶形式"></a>2.3.3感知机学习算法的对偶形式</h4><p>实例点更新次数越多，意味着它距离分离超平面越近，也就越难正确分类。</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="Markdown原生语法"><a href="#Markdown原生语法" class="headerlink" title="Markdown原生语法"></a>Markdown原生语法</h3><ul><li>中划线。语法如下：<blockquote><p><del>要划除的行内内容</del></p></blockquote></li></ul><a id="more"></a><h3 id="Markdown中的转义字符为-，可以转义的有："><a href="#Markdown中的转义字符为-，可以转义的有：" class="headerlink" title="Markdown中的转义字符为\，可以转义的有："></a>Markdown中的转义字符为\，可以转义的有：</h3><blockquote><p>\ 反斜杠<br>` 反引号<br>* 星号<br>_ 下划线<br>{} 大括号<br>[] 中括号<br>() 小括号<br># 井号<br>+ 加号<br>- 减号<br>. 英文句号<br>! 感叹号</p></blockquote><h3 id="使用Markdown时，如何为文字加下划线"><a href="#使用Markdown时，如何为文字加下划线" class="headerlink" title="使用Markdown时，如何为文字加下划线"></a>使用Markdown时，如何为文字加下划线</h3><ul><li>Markdown并无下划线的原生语法，因为会和链接的默认样式产生混淆。这里可以使用行内样式HTML使其产生下划线效果，如下：<blockquote><p><u>Underlined Text</u></p></blockquote></li><li>使用html的span标签、设置行内CSS的border-bottom属性 来添加下划线。这种方式自定义程度最高。语法如下：<blockquote><p><span style="border-bottom:2px dashed yellow;">所添加的需要加下划线的行内文字</span></p></blockquote></li><li>用数学公式：<blockquote><p>#上划线<br>$\overline{X}$<br>#下划线<br>$\underline{X}$</p></blockquote></li></ul>]]></content>
       
       
       <categories>
@@ -1197,7 +1247,7 @@
       
         <tags>
             
-            <tag> Machine Learning </tag>
+            <tag> Markdown </tag>
             
         </tags>
       
@@ -1248,31 +1298,6 @@
         <tags>
             
             <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Markdown语法</title>
-      <link href="/2018/04/13/KnowledOfMarkdown/"/>
-      <url>/2018/04/13/KnowledOfMarkdown/</url>
-      
-        <content type="html"><![CDATA[<h3 id="Markdown原生语法"><a href="#Markdown原生语法" class="headerlink" title="Markdown原生语法"></a>Markdown原生语法</h3><ul><li>中划线。语法如下：<blockquote><p><del>要划除的行内内容</del></p></blockquote></li></ul><a id="more"></a><h3 id="Markdown中的转义字符为-，可以转义的有："><a href="#Markdown中的转义字符为-，可以转义的有：" class="headerlink" title="Markdown中的转义字符为\，可以转义的有："></a>Markdown中的转义字符为\，可以转义的有：</h3><blockquote><p>\ 反斜杠<br>` 反引号<br>* 星号<br>_ 下划线<br>{} 大括号<br>[] 中括号<br>() 小括号<br># 井号<br>+ 加号<br>- 减号<br>. 英文句号<br>! 感叹号</p></blockquote><h3 id="使用Markdown时，如何为文字加下划线"><a href="#使用Markdown时，如何为文字加下划线" class="headerlink" title="使用Markdown时，如何为文字加下划线"></a>使用Markdown时，如何为文字加下划线</h3><ul><li>Markdown并无下划线的原生语法，因为会和链接的默认样式产生混淆。这里可以使用行内样式HTML使其产生下划线效果，如下：<blockquote><p><u>Underlined Text</u></p></blockquote></li><li>使用html的span标签、设置行内CSS的border-bottom属性 来添加下划线。这种方式自定义程度最高。语法如下：<blockquote><p><span style="border-bottom:2px dashed yellow;">所添加的需要加下划线的行内文字</span></p></blockquote></li><li>用数学公式：<blockquote><p>#上划线<br>$\overline{X}$<br>#下划线<br>$\underline{X}$</p></blockquote></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Markdown </tag>
             
         </tags>
       
