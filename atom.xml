@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://e99net.github.io/"/>
-  <updated>2019-09-24T03:35:52.734Z</updated>
+  <updated>2019-09-26T12:38:02.545Z</updated>
   <id>https://e99net.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>记两道2020年某企业秋招的算法编程题</title>
+    <link href="https://e99net.github.io/2019/09/26/tourSohu/"/>
+    <id>https://e99net.github.io/2019/09/26/tourSohu/</id>
+    <published>2019-09-26T12:07:20.889Z</published>
+    <updated>2019-09-26T12:38:02.545Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="专业题1"><a href="#专业题1" class="headerlink" title="专业题1"></a>专业题1</h4><ul><li>描述：</li></ul><p>一个k（1&lt;=k&lt;=80）位的十进制整数n，我们称其为大整数。现在的问题是，请你设计一个程序，对于给出的某个大整数，找到满足条件p^3+p^2+3 * p&lt;=n的p的最大值。</p><a id="more"></a><ul><li>输入：</li></ul><ul><li>输出：</li></ul><ul><li>样例输入：</li></ul><ul><li>样例输出：</li></ul><ul><li>参考代码:</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="专业题2"><a href="#专业题2" class="headerlink" title="专业题2"></a>专业题2</h4><ul><li>描述：</li></ul><p>在一个棋盘上有N个处于不同位置的棋子，每个棋子所在的位置都可以用坐标(X,Y)来表示，并且任一棋子每次可以向上、下、左、右移动单位长度。如果想让所有棋子进入一个水平线，彼此靠近，即它们最后的位置是(X,Y)、(X+1,Y)、……、(X+N,Y)，水平线上棋子的最后顺序是任意的，那么最少需要移动多少次棋子？<br>注意：两个或两个以上的棋子不能在同一时间处于同一位置。</p><ul><li>输入：</li></ul><p>第一行是一个整数N，表示棋子数，1&lt;=N&lt;=10000。后面的N行分别是每个棋子的初始位置，包含空格分开的整数x、y，-10000&lt;=x,y&lt;=10000。</p><ul><li>输出：</li></ul><p>仅有一行一个值，表示使棋子移到水平线彼此相邻位置的最小移动次数。</p><ul><li>样例输入：</li></ul><p>5<br>1 2<br>2 2<br>1 3<br>3 -2<br>3 3</p><ul><li>样例输出：</li></ul><p>8</p><ul><li>参考代码:</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;专业题1&quot;&gt;&lt;a href=&quot;#专业题1&quot; class=&quot;headerlink&quot; title=&quot;专业题1&quot;&gt;&lt;/a&gt;专业题1&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;描述：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一个k（1&amp;lt;=k&amp;lt;=80）位的十进制整数n，我们称其为大整数。现在的问题是，请你设计一个程序，对于给出的某个大整数，找到满足条件p^3+p^2+3 * p&amp;lt;=n的p的最大值。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="https://e99net.github.io/categories/Algorithm/"/>
+    
+    
+      <category term="Number theory" scheme="https://e99net.github.io/tags/Number-theory/"/>
+    
+  </entry>
   
   <entry>
     <title>洛谷的刷题日常之P1880</title>
@@ -43,13 +68,13 @@
   </entry>
   
   <entry>
-    <title>记一道2020年某企业秋招笔试题</title>
+    <title>记三道2020年某企业秋招笔试题</title>
     <link href="https://e99net.github.io/2019/09/24/cmbcc/"/>
     <id>https://e99net.github.io/2019/09/24/cmbcc/</id>
     <published>2019-09-24T02:30:06.499Z</published>
-    <updated>2019-09-24T02:57:15.338Z</updated>
+    <updated>2019-09-26T12:54:52.644Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="1-n-中每位数字乘积最大的值"><a href="#1-n-中每位数字乘积最大的值" class="headerlink" title="1 ~ n 中每位数字乘积最大的值"></a>1 ~ n 中每位数字乘积最大的值</h4><ul><li>描述：</li></ul><p>99°是一位爱好爬山的小青年，他每次在爬山过程中都会遇到很多小猴子，小猴子们喜欢向他提这样一种问题：在1 ~ n中找一个数字m，使得m的各个数位乘积最大。99°不擅长回答这种问题，你能帮他写一个程序得到结果吗？</p><a id="more"></a><ul><li>样例输入1：</li></ul><p>100</p><ul><li>样例输出1：</li></ul><p>81</p><p>提示：9 * 9 = 81</p><ul><li>样例输入2：</li></ul><p>6</p><ul><li>样例输出2：</li></ul><p>6</p><ul><li><p>解题思路：深度优先搜索</p></li><li><p>参考代码:</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line"></span><br><span class="line">ll dfs(int n) &#123;</span><br><span class="line">    if(n==0) return 1;</span><br><span class="line">    if(n&lt;10) return n;</span><br><span class="line">    else return max(dfs(n/10-1)*9,dfs(n/10)*(n%10));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    printf(&quot;%lld&quot;,dfs(n));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h4 id="1-n-中每位数字乘积最大的值"><a href="#1-n-中每位数字乘积最大的值" class="headerlink" title="1 ~ n 中每位数字乘积最大的值"></a>1 ~ n 中每位数字乘积最大的值</h4><ul><li>描述：</li></ul><p>99°是一位爱好爬山的小青年，他每次在爬山过程中都会遇到很多小猴子，小猴子们喜欢向他提这样一种问题：在1 ~ n中找一个数字m，使得m的各个数位乘积最大。99°不擅长回答这种问题，你能帮他写一个程序得到结果吗？</p><a id="more"></a><ul><li>样例输入1：</li></ul><p>100</p><ul><li>样例输出1：</li></ul><p>81</p><p>提示：9 * 9 = 81</p><ul><li>样例输入2：</li></ul><p>6</p><ul><li>样例输出2：</li></ul><p>6</p><ul><li><p>解题思路：深度优先搜索</p></li><li><p>参考代码:</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line"></span><br><span class="line">ll dfs(int n) &#123;</span><br><span class="line">    if(n==0) return 1;</span><br><span class="line">    if(n&lt;10) return n;</span><br><span class="line">    else return max(dfs(n/10-1)*9,dfs(n/10)*(n%10));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    printf(&quot;%lld&quot;,dfs(n));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="完成可能有前置任务的任务"><a href="#完成可能有前置任务的任务" class="headerlink" title="完成可能有前置任务的任务"></a>完成可能有前置任务的任务</h4><ul><li>描述：</li></ul><p>99°要完成n个任务，它制定了一个计划，计划第i天完成第i个任务，每个任务可能有前置任务，在完成第i个任务时，必须先完成它的前置任务才行。问99°要想实现它的计划，每天至少要完成多少个任务？</p><ul><li>输入：</li></ul><p>一个整数n，表示要完成的任务数，2&lt;=n&lt;=10000。接下来n行，每行第一个数字k表示该任务的前置任务数，剩下的k个数字分别表示前置任务编号。</p><ul><li>输出：</li></ul><p>n个数字，每个数字以一个空格间隔，表示每天至少完成的任务数。</p><ul><li>样例输入：</li></ul><p>3<br>1 2<br>0<br>2 1 2</p><ul><li>样例输出：</li></ul><p>2 0 1</p><p>说明：任务1有1个前置任务2，第1天要想完成任务1，需先完成任务2，所以第1天至少完成2个任务。第2天计划完成任务2，因为任务2已在第一天完成，且任务2无前置任务，所以第2天至少完成0个任务。第3天计划完成任务3，任务3有两个前置任务1、2，在前两天都已完成，所以这一天只需完成任务3，至少完成1个任务即可。</p><ul><li>样例输入：</li></ul><p>5<br>4 2 3 4 5<br>1 1<br>2 1 2<br>0<br>1 3</p><ul><li>样例输出：</li></ul><p>5 0 0 0 0</p><p>说明：第1个任务有4个前置任务2、3、4、5，要想完成1，需先完成2、3、4、5，那么第1天至少完成5个任务。接下来的第2、3、4、5天每天完成0个任务，因为在第1天已完成全部5个任务。</p><h4 id="将数组元素变为非递减"><a href="#将数组元素变为非递减" class="headerlink" title="将数组元素变为非递减"></a>将数组元素变为非递减</h4><ul><li>描述</li></ul><p>99°给出一个包含$n$个整数的数组$a_i$，99°每次可以选择数组中若干个下标不同的元素，对选中的每个元素执行下列改变：假设选中的元素为$x$，那么就将$x$替换为$(x+1) mod m$，即选中的每个元素自增1，如果变为$m$则归零。<br>请问最少执行多少次操作，99°可以把这个数组变为一个数组元素非递减的数组。</p><ul><li>输入：</li></ul><p>第一行两个整数$n$和$m$，用一个空格分隔；<br>第二行$n$个整数$a_1$,$a_2$,…,$a_n$表示数组，每两个整数之间用一个空格分隔。<br>输入满足$1&lt;=n,m&lt;=300000;0 &lt;= a_i &lt; m$ 。</p><ul><li>输出：</li></ul><p>一个整数，表示最少需要的操作次数。</p>]]></content>
     
     <summary type="html">
     
@@ -495,28 +520,6 @@
     
     
       <category term="Latex" scheme="https://e99net.github.io/tags/Latex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hadoop安装记事</title>
-    <link href="https://e99net.github.io/2018/06/26/hadoop/"/>
-    <id>https://e99net.github.io/2018/06/26/hadoop/</id>
-    <published>2018-06-26T03:40:12.526Z</published>
-    <updated>2018-06-26T03:49:16.655Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Hadoop安装过程中遇到的问题及解决思路"><a href="#Hadoop安装过程中遇到的问题及解决思路" class="headerlink" title="Hadoop安装过程中遇到的问题及解决思路"></a>Hadoop安装过程中遇到的问题及解决思路</h3><a id="more"></a><ul><li>DataNode用jps无法查看<ul><li>slaves文件中加入hadoop01</li></ul></li><li>“hadoop namenode -format”虽然提示过时，但仍然是可以用的，用于初始化hadoop，将data/name下的数据清空并将新的name信息写到data/name目录下</li><li>可以在hdfs-site.xml文件中配置dfs.data.dir参数（此参数控制目录位置）</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Hadoop安装过程中遇到的问题及解决思路&quot;&gt;&lt;a href=&quot;#Hadoop安装过程中遇到的问题及解决思路&quot; class=&quot;headerlink&quot; title=&quot;Hadoop安装过程中遇到的问题及解决思路&quot;&gt;&lt;/a&gt;Hadoop安装过程中遇到的问题及解决思路&lt;/h3&gt;
-    
-    </summary>
-    
-      <category term="BigData" scheme="https://e99net.github.io/categories/BigData/"/>
-    
-    
-      <category term="Hadoop" scheme="https://e99net.github.io/tags/Hadoop/"/>
     
   </entry>
   
