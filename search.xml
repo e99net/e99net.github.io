@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>洛谷的刷题日常之P1147</title>
+      <link href="/2019/10/05/luogu_P1147/"/>
+      <url>/2019/10/05/luogu_P1147/</url>
+      
+        <content type="html"><![CDATA[<h4 id="连续自然数和"><a href="#连续自然数和" class="headerlink" title="连续自然数和"></a>连续自然数和</h4><ul><li>描述：</li></ul><p>对一个给定的自然数$M$，求出所有的连续的自然数段，这些连续的自然数段中的全部数之和为$M$。<br>例子：1998+1999+2000+2001+2002 = 10000，所以从1998到2002的一个自然数段为$M=10000$的一个解。</p><a id="more"></a><ul><li>输入：</li></ul><p>包含一个整数的单独一行给出M的值（$10 \le M \le 2000000$）。</p><ul><li>输出：</li></ul><p>每行两个自然数，给出一个满足条件的连续自然数段中的第一个数和最后一个数，两数之间用一个空格隔开，所有输出行的第一个按从小到大的升序排列，对于给定的输入数据，保证至少有一个解。</p><ul><li>输入样例：</li></ul><p>10000</p><ul><li>输出样例：</li></ul><p>18 142<br>297 328<br>388 412<br>1998 2002</p><ul><li><p>解题思路：前缀和+二分</p></li><li><p>参考代码:</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">ll sum[2000010];</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    ll m;</span><br><span class="line">    scanf(&quot;%lld&quot;,&amp;m);</span><br><span class="line">    for(int i=1;i&lt;=m;i++)  sum[i]=sum[i-1]+i;</span><br><span class="line">    for(int i=1;i&lt;=m-1;i++) &#123;</span><br><span class="line">        ll l=i,r=m-1,mid;</span><br><span class="line">        while(l&lt;=r) &#123;</span><br><span class="line">            mid=(l+r)/2;</span><br><span class="line">            ll t=sum[mid]-sum[i-1];</span><br><span class="line">            if(t==m) &#123;</span><br><span class="line">                printf(&quot;%d %d\n&quot;,i,mid);</span><br><span class="line">                break;</span><br><span class="line">            &#125;else if(t&lt;m) &#123;</span><br><span class="line">                l=mid+1;</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                r=mid-1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Prefix Sum </tag>
+            
+            <tag> Binary Search </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>记两道2020年某企业秋招的算法编程题</title>
       <link href="/2019/09/26/tourSohu/"/>
       <url>/2019/09/26/tourSohu/</url>
@@ -30,8 +57,8 @@
     
     <entry>
       <title>洛谷的刷题日常之P1880</title>
-      <link href="/2019/09/24/luogu/"/>
-      <url>/2019/09/24/luogu/</url>
+      <link href="/2019/09/24/luogu_P1880/"/>
+      <url>/2019/09/24/luogu_P1880/</url>
       
         <content type="html"><![CDATA[<h4 id="石子合并"><a href="#石子合并" class="headerlink" title="石子合并"></a>石子合并</h4><p>先看一道比luogu p1880简单的题目。</p><ul><li>描述：</li></ul><p>有n堆石子排成一排，每堆石子有一定的数量，将n堆石子合并成一堆。合并的规则是每次只能合并相邻的两堆石子，合并的花费为这两堆石子的总数。石子经过n-1次合并后成为一堆，求总的最小花费和最大花费。</p><a id="more"></a><ul><li>输入：</li></ul><p>有多组测试数据，输入到文件结束。每组测试数据的第1行有一个整数n，表示有n堆石子，n&lt;250。接下来的一行有n个数，分别表示这n堆石子的数目。每堆石子至少一颗，最多10000颗。</p><ul><li>输出：</li></ul><p>总的最小花费和最大花费。</p><ul><li>输入样例：</li></ul><p>3<br>2 4 5</p><ul><li>输出样例：</li></ul><p>17<br>20</p><ul><li><p>解题思路：区间DP</p></li><li><p>参考代码:</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="环形石子合并"><a href="#环形石子合并" class="headerlink" title="环形石子合并"></a>环形石子合并</h4><p>接下来就可以着手解决luogu p1880了。</p><ul><li>描述：</li></ul><p>在一个圆形操场的四周摆放N堆石子,现要将石子有次序地合并成一堆.规定每次只能选相邻的2堆合并成新的一堆，并将新的一堆的石子数，记为该次合并的得分。</p><p>试设计出1个算法,计算出将N堆石子合并成1堆的最小得分和最大得分.</p><!-- more --><ul><li>输入：</li></ul><p>数据的第1行试正整数N,1≤N≤100,表示有N堆石子.第2行有N个数,分别表示每堆石子的个数.</p><ul><li>输出：</li></ul><p>输出共2行,第1行为最小得分,第2行为最大得分.</p><ul><li>输入样例：</li></ul><p>4<br>4 5 9 4</p><ul><li>输出样例：</li></ul><p>43<br>54</p><ul><li><p>解题思路：区间DP</p></li><li><p>参考代码:</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>相似题目：</li></ul><p>hdu 3506 “Monkey Party”</p>]]></content>
       
@@ -1131,31 +1158,6 @@
     
     
     <entry>
-      <title>Mysql常用查询语句荟萃</title>
-      <link href="/2018/04/13/mysql/"/>
-      <url>/2018/04/13/mysql/</url>
-      
-        <content type="html"><![CDATA[<h3 id="Mysql查询某个数据库的存储容量"><a href="#Mysql查询某个数据库的存储容量" class="headerlink" title="Mysql查询某个数据库的存储容量"></a>Mysql查询某个数据库的存储容量</h3><a id="more"></a><blockquote><p>USE information_schema;<br>SELECT CONCAT(ROUND(SUM(DATA_LENGTH/1024/1024/1024),2),’GB’) AS DATA FROM TABLES WHERE table_schema=’[数据库名]’;</p></blockquote><h3 id="Mysql-设置Profiler功能"><a href="#Mysql-设置Profiler功能" class="headerlink" title="Mysql 设置Profiler功能"></a>Mysql 设置Profiler功能</h3><blockquote><p> SET profiling = 1;</p></blockquote><h3 id="Mysql执行操作"><a href="#Mysql执行操作" class="headerlink" title="Mysql执行操作"></a>Mysql执行操作</h3><blockquote><p>SELECT/EXPLAIN …</p></blockquote><h3 id="Mysql查询各个阶段性能"><a href="#Mysql查询各个阶段性能" class="headerlink" title="Mysql查询各个阶段性能"></a>Mysql查询各个阶段性能</h3><blockquote><p>SHOW PROFILES;<br>SHOW PROFILE ALL FOR QUERY 1;</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Database </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>技术面试</title>
       <link href="/2018/04/13/Questions/"/>
       <url>/2018/04/13/Questions/</url>
@@ -1173,6 +1175,31 @@
         <tags>
             
             <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mysql常用查询语句荟萃</title>
+      <link href="/2018/04/13/mysql/"/>
+      <url>/2018/04/13/mysql/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Mysql查询某个数据库的存储容量"><a href="#Mysql查询某个数据库的存储容量" class="headerlink" title="Mysql查询某个数据库的存储容量"></a>Mysql查询某个数据库的存储容量</h3><a id="more"></a><blockquote><p>USE information_schema;<br>SELECT CONCAT(ROUND(SUM(DATA_LENGTH/1024/1024/1024),2),’GB’) AS DATA FROM TABLES WHERE table_schema=’[数据库名]’;</p></blockquote><h3 id="Mysql-设置Profiler功能"><a href="#Mysql-设置Profiler功能" class="headerlink" title="Mysql 设置Profiler功能"></a>Mysql 设置Profiler功能</h3><blockquote><p> SET profiling = 1;</p></blockquote><h3 id="Mysql执行操作"><a href="#Mysql执行操作" class="headerlink" title="Mysql执行操作"></a>Mysql执行操作</h3><blockquote><p>SELECT/EXPLAIN …</p></blockquote><h3 id="Mysql查询各个阶段性能"><a href="#Mysql查询各个阶段性能" class="headerlink" title="Mysql查询各个阶段性能"></a>Mysql查询各个阶段性能</h3><blockquote><p>SHOW PROFILES;<br>SHOW PROFILE ALL FOR QUERY 1;</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Database </tag>
             
         </tags>
       
@@ -1231,6 +1258,31 @@
     
     
     <entry>
+      <title>《模式识别与机器学习 中文版(马春鹏 译)》_读书笔记</title>
+      <link href="/2018/04/13/NoteofBook2/"/>
+      <url>/2018/04/13/NoteofBook2/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>《统计学习方法(李航 著)》_读书笔记</title>
       <link href="/2018/04/13/NoteofBook1/"/>
       <url>/2018/04/13/NoteofBook1/</url>
@@ -1256,11 +1308,11 @@
     
     
     <entry>
-      <title>《模式识别与机器学习 中文版(马春鹏 译)》_读书笔记</title>
-      <link href="/2018/04/13/NoteofBook2/"/>
-      <url>/2018/04/13/NoteofBook2/</url>
+      <title>如何知道自己是什么级别的程序员</title>
+      <link href="/2018/04/13/level/"/>
+      <url>/2018/04/13/level/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>你们按照下面自行对号入座吧。</p><a id="more"></a><p>level 1: 被人带着做事的<br>level 2: 不需要人带就能做事的<br>level 3: 比level 2做得快的<br>level 4: 可以带人的<br>level 5: 可以带三个人的<br>level 6: 可以带七个人的<br>level 7: 可以带很多人的<br>level 8: 带带人的人的<br>level 9: 带level 8的</p>]]></content>
       
       
       <categories>
@@ -1272,7 +1324,7 @@
       
         <tags>
             
-            <tag> Machine Learning </tag>
+            <tag> Water </tag>
             
         </tags>
       
@@ -1331,31 +1383,6 @@
     
     
     <entry>
-      <title>如何知道自己是什么级别的程序员</title>
-      <link href="/2018/04/13/level/"/>
-      <url>/2018/04/13/level/</url>
-      
-        <content type="html"><![CDATA[<p>你们按照下面自行对号入座吧。</p><a id="more"></a><p>level 1: 被人带着做事的<br>level 2: 不需要人带就能做事的<br>level 3: 比level 2做得快的<br>level 4: 可以带人的<br>level 5: 可以带三个人的<br>level 6: 可以带七个人的<br>level 7: 可以带很多人的<br>level 8: 带带人的人的<br>level 9: 带level 8的</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Water </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Linux系统IO模式</title>
       <link href="/2018/04/13/IO/"/>
       <url>/2018/04/13/IO/</url>
@@ -1381,31 +1408,6 @@
     
     
     <entry>
-      <title>Latex中设置字体大小</title>
-      <link href="/2018/04/13/FontsizeofLatex/"/>
-      <url>/2018/04/13/FontsizeofLatex/</url>
-      
-        <content type="html"><![CDATA[<h3 id="Latex设置字体大小的命令由小到大依次为"><a href="#Latex设置字体大小的命令由小到大依次为" class="headerlink" title="Latex设置字体大小的命令由小到大依次为"></a>Latex设置字体大小的命令由小到大依次为</h3><a id="more"></a><ul><li>\tiny</li><li>\scriptsize</li><li>\footnotesize</li><li>\small</li><li>\normalsize(注：此为默认的正文字体大小)</li><li>\large</li><li>\Large</li><li>\LARGE</li><li>\huge</li><li>\Huge</li></ul><h3 id="Latex打勾和叉"><a href="#Latex打勾和叉" class="headerlink" title="Latex打勾和叉"></a>Latex打勾和叉</h3><ul><li>首先在导言区调用bbding包</li></ul><blockquote><p>\usepackage{bbding}</p></blockquote><ul><li>然后使用如下命令，5种命令分别代表不同样式的勾和叉</li></ul><blockquote><p>\Checkmark        %标准的勾<br>\XSolidBrush<br>\XSolid           %标准的叉<br>\CheckmarkBold<br>\XSolidBold</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Latex </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>函数式编程初探</title>
       <link href="/2018/04/13/FuncProgExp/"/>
       <url>/2018/04/13/FuncProgExp/</url>
@@ -1423,6 +1425,31 @@
         <tags>
             
             <tag> Haskell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Latex中设置字体大小</title>
+      <link href="/2018/04/13/FontsizeofLatex/"/>
+      <url>/2018/04/13/FontsizeofLatex/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Latex设置字体大小的命令由小到大依次为"><a href="#Latex设置字体大小的命令由小到大依次为" class="headerlink" title="Latex设置字体大小的命令由小到大依次为"></a>Latex设置字体大小的命令由小到大依次为</h3><a id="more"></a><ul><li>\tiny</li><li>\scriptsize</li><li>\footnotesize</li><li>\small</li><li>\normalsize(注：此为默认的正文字体大小)</li><li>\large</li><li>\Large</li><li>\LARGE</li><li>\huge</li><li>\Huge</li></ul><h3 id="Latex打勾和叉"><a href="#Latex打勾和叉" class="headerlink" title="Latex打勾和叉"></a>Latex打勾和叉</h3><ul><li>首先在导言区调用bbding包</li></ul><blockquote><p>\usepackage{bbding}</p></blockquote><ul><li>然后使用如下命令，5种命令分别代表不同样式的勾和叉</li></ul><blockquote><p>\Checkmark        %标准的勾<br>\XSolidBrush<br>\XSolid           %标准的叉<br>\CheckmarkBold<br>\XSolidBold</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Latex </tag>
             
         </tags>
       

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://e99net.github.io/"/>
-  <updated>2019-09-26T12:38:02.545Z</updated>
+  <updated>2019-10-04T16:23:29.233Z</updated>
   <id>https://e99net.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>洛谷的刷题日常之P1147</title>
+    <link href="https://e99net.github.io/2019/10/05/luogu_P1147/"/>
+    <id>https://e99net.github.io/2019/10/05/luogu_P1147/</id>
+    <published>2019-10-04T16:15:38.897Z</published>
+    <updated>2019-10-04T16:23:29.233Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="连续自然数和"><a href="#连续自然数和" class="headerlink" title="连续自然数和"></a>连续自然数和</h4><ul><li>描述：</li></ul><p>对一个给定的自然数$M$，求出所有的连续的自然数段，这些连续的自然数段中的全部数之和为$M$。<br>例子：1998+1999+2000+2001+2002 = 10000，所以从1998到2002的一个自然数段为$M=10000$的一个解。</p><a id="more"></a><ul><li>输入：</li></ul><p>包含一个整数的单独一行给出M的值（$10 \le M \le 2000000$）。</p><ul><li>输出：</li></ul><p>每行两个自然数，给出一个满足条件的连续自然数段中的第一个数和最后一个数，两数之间用一个空格隔开，所有输出行的第一个按从小到大的升序排列，对于给定的输入数据，保证至少有一个解。</p><ul><li>输入样例：</li></ul><p>10000</p><ul><li>输出样例：</li></ul><p>18 142<br>297 328<br>388 412<br>1998 2002</p><ul><li><p>解题思路：前缀和+二分</p></li><li><p>参考代码:</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line">ll sum[2000010];</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    ll m;</span><br><span class="line">    scanf(&quot;%lld&quot;,&amp;m);</span><br><span class="line">    for(int i=1;i&lt;=m;i++)  sum[i]=sum[i-1]+i;</span><br><span class="line">    for(int i=1;i&lt;=m-1;i++) &#123;</span><br><span class="line">        ll l=i,r=m-1,mid;</span><br><span class="line">        while(l&lt;=r) &#123;</span><br><span class="line">            mid=(l+r)/2;</span><br><span class="line">            ll t=sum[mid]-sum[i-1];</span><br><span class="line">            if(t==m) &#123;</span><br><span class="line">                printf(&quot;%d %d\n&quot;,i,mid);</span><br><span class="line">                break;</span><br><span class="line">            &#125;else if(t&lt;m) &#123;</span><br><span class="line">                l=mid+1;</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                r=mid-1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;连续自然数和&quot;&gt;&lt;a href=&quot;#连续自然数和&quot; class=&quot;headerlink&quot; title=&quot;连续自然数和&quot;&gt;&lt;/a&gt;连续自然数和&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;描述：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对一个给定的自然数$M$，求出所有的连续的自然数段，这些连续的自然数段中的全部数之和为$M$。&lt;br&gt;例子：1998+1999+2000+2001+2002 = 10000，所以从1998到2002的一个自然数段为$M=10000$的一个解。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="https://e99net.github.io/categories/Algorithm/"/>
+    
+    
+      <category term="Prefix Sum" scheme="https://e99net.github.io/tags/Prefix-Sum/"/>
+    
+      <category term="Binary Search" scheme="https://e99net.github.io/tags/Binary-Search/"/>
+    
+  </entry>
   
   <entry>
     <title>记两道2020年某企业秋招的算法编程题</title>
@@ -43,8 +70,8 @@
   
   <entry>
     <title>洛谷的刷题日常之P1880</title>
-    <link href="https://e99net.github.io/2019/09/24/luogu/"/>
-    <id>https://e99net.github.io/2019/09/24/luogu/</id>
+    <link href="https://e99net.github.io/2019/09/24/luogu_P1880/"/>
+    <id>https://e99net.github.io/2019/09/24/luogu_P1880/</id>
     <published>2019-09-24T03:16:45.340Z</published>
     <updated>2019-09-24T03:35:52.734Z</updated>
     
@@ -498,28 +525,6 @@
     
     
       <category term="Water" scheme="https://e99net.github.io/tags/Water/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>word中插入公式行距变大的问题</title>
-    <link href="https://e99net.github.io/2018/07/29/docEdit/"/>
-    <id>https://e99net.github.io/2018/07/29/docEdit/</id>
-    <published>2018-07-29T06:00:59.077Z</published>
-    <updated>2018-07-29T06:13:07.380Z</updated>
-    
-    <content type="html"><![CDATA[<p>使用Word的人难免有插入公式的时候，插入公式时容易出现段落行距变大的问题，解决方案如下。</p><a id="more"></a><ul><li>选中行距变大的那一行，右键选择”段落“</li><li><strong>在弹出的窗口中取消勾选”如果定义了文档网络，则对齐到网格“这一项</strong></li><li>点击确定按钮</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用Word的人难免有插入公式的时候，插入公式时容易出现段落行距变大的问题，解决方案如下。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
-    
-    
-      <category term="Latex" scheme="https://e99net.github.io/tags/Latex/"/>
     
   </entry>
   
