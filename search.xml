@@ -4,6 +4,41 @@
   
     
     <entry>
+      <title>洛谷的刷题日常之P1967</title>
+      <link href="/2019/10/06/luogu_P1967/"/>
+      <url>/2019/10/06/luogu_P1967/</url>
+      
+        <content type="html"><![CDATA[<h4 id="货车运输"><a href="#货车运输" class="headerlink" title="货车运输"></a>货车运输</h4><p>这是一道比较综合的题，非常的niubility（我不会做的题都niubility，QWQ），用到的知识包括图论、倍增、贪心、LCA、生成树、并查集。</p><ul><li>描述：</li></ul><p>A国有n座城市，编号从1到n，城市之间有m条双向道路。每一条道路对车辆都有重量限制，简称限重。现在有q辆货车在运输货物， 司机们想知道每辆车在不超过车辆限重的情况下，最多能运多重的货物。</p><a id="more"></a><ul><li>输入：</li></ul><p>第一行有两个用空格隔开的整数n和m，表示A国有n座城市和m条道路。<br>接下来的m行，每行有3个整数x,y,z，每两个整数之间用一个空格隔开，表示从x号城市到y号城市有一条限重为z的道路。<br>注意：x不等于 y，两座城市之间可能有多条道路。</p><p>接下来一行有一个整数q，表示有q辆货车需要运货。</p><p>接下来的q行，每行有两个整数x、y，用一个空格隔开，表示一辆货车需要从x城市运输货物到y城市。<br>注意：x不等于y。</p><ul><li>输出：</li></ul><p>共有q行，每行一个整数，表示对于每一辆货车，它的最大载重是多少。如果货车不能到达目的地，输出-1。</p><ul><li>输入样例：</li></ul><p>4 3<br>1 2 4<br>2 3 3<br>3 1 1<br>3<br>1 3<br>1 4<br>1 3</p><ul><li>输出样例：</li></ul><p>3<br>-1<br>3</p><ul><li><p>解题思路：</p><ul><li>贪心：因为要使得货车运的货物尽可能重，所以权值较小的边不会被走过。</li><li>图论：根据给出的数据建原始图，然后根据上一步的贪心策略建新图，构造最大生成树。</li><li>生成树：构造最大生成树可以使用Kruskal算法。</li><li>并查集：Kruskal算法可以用并查集维护节点的连通情况。</li><li>LCA：在最大生成树上求最近公共祖先，得到两个节点之间最小边权的最大值，即题中的最大载重。</li><li>倍增：树上倍增法求LCA。</li></ul></li><li><p>参考代码：</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define INF 0x3f3f3f3f</span><br><span class="line"></span><br><span class="line">struct road &#123;</span><br><span class="line">    int x,y,z;</span><br><span class="line">&#125;roads[50010];//原始图</span><br><span class="line"></span><br><span class="line">struct edge &#123;</span><br><span class="line">    int to,next,w;</span><br><span class="line">&#125;edges[50010];//存储最大生成树的新图</span><br><span class="line"></span><br><span class="line">//fa数组表示并查集中的父节点，f数组表示树上的父节点，w数组表示最大载重 </span><br><span class="line">int x,y,cnt,head[10010],fa[10010],f[10010][21],deep[10010],w[10010][21],n,m,q;</span><br><span class="line">bool vis[10010];</span><br><span class="line"></span><br><span class="line">//自定义排序规则，边权大的在前面</span><br><span class="line">bool cmp(road x,road y) &#123;</span><br><span class="line">    return x.z&gt;y.z;</span><br><span class="line">&#125;</span><br><span class="line">//前向星存新图</span><br><span class="line">void addroad(int start,int end,int w) &#123;</span><br><span class="line">    edges[++cnt].next=head[start];</span><br><span class="line">    edges[cnt].to=end;</span><br><span class="line">    edges[cnt].w=w;</span><br><span class="line">    head[start]=cnt;</span><br><span class="line">&#125;</span><br><span class="line">//并查集的查找操作</span><br><span class="line">int Find(int x) &#123;</span><br><span class="line">    if(x!=fa[x]) fa[x]=Find(fa[x]);</span><br><span class="line">    return fa[x];</span><br><span class="line">&#125;</span><br><span class="line">//Kruskal算法</span><br><span class="line">void kruskal() &#123;</span><br><span class="line">    sort(roads+1,roads+m+1,cmp);</span><br><span class="line">    for(int i=1;i&lt;=n;i++) fa[i]=i;//并查集的初始化操作</span><br><span class="line">    for(int i=1;i&lt;=m;i++) &#123;</span><br><span class="line">        //并查集的合并操作</span><br><span class="line">        int a=Find(roads[i].x);</span><br><span class="line">        int b=Find(roads[i].y);</span><br><span class="line">        if(a!=b) &#123;</span><br><span class="line">            fa[a]=b;</span><br><span class="line">            //无向图，双向边</span><br><span class="line">            addroad(roads[i].x,roads[i].y,roads[i].z);</span><br><span class="line">            addroad(roads[i].y,roads[i].x,roads[i].z);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//预处理：从根节点进行搜索，求节点深度</span><br><span class="line">void dfs(int node) &#123;</span><br><span class="line">    vis[node]=true;</span><br><span class="line">    for(int i=head[node];i;i=edges[i].next) &#123;//前向星遍历</span><br><span class="line">        int to=edges[i].to;</span><br><span class="line">        if(vis[to]) continue;</span><br><span class="line">        deep[to]=deep[node]+1;//计算深度</span><br><span class="line">        f[to][0]=node;//存父节点</span><br><span class="line">        w[to][0]=edges[i].w;//存节点到父节点的权值</span><br><span class="line">        dfs(to);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//树上倍增法优化求解LCA问题</span><br><span class="line">int lca(int x,int y) &#123;</span><br><span class="line">    int a=Find(x);</span><br><span class="line">    int b=Find(y);</span><br><span class="line">    if(a!=b) return -1;//不连通输出-1</span><br><span class="line">    int ans=INF;</span><br><span class="line">    if(deep[x]&gt;deep[y]) swap(x,y);//始终使得y节点更深</span><br><span class="line">    //将y节点提到与x节点相同的深度</span><br><span class="line">    for(int i=20;i&gt;=0;i--) &#123;</span><br><span class="line">        if(deep[f[y][i]]&gt;=deep[x]) &#123;</span><br><span class="line">            ans=min(ans,w[y][i]);//更新最大载重（最小边权）</span><br><span class="line">            y=f[y][i];//修改y的位置</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(x==y) return ans;//如果位置已经相等，直接返回答案</span><br><span class="line">    //寻找公共祖先</span><br><span class="line">    for(int i=20;i&gt;=0;i--) &#123;</span><br><span class="line">        if(f[x][i]!=f[y][i]) &#123;</span><br><span class="line">            ans=min(ans,min(w[x][i],w[y][i]));//更新最大载重（最小边权）</span><br><span class="line">            x=f[x][i];//修改x的位置</span><br><span class="line">            y=f[y][i];//修改y的位置</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ans=min(ans,min(w[x][0],w[y][0]));//更新x,y到公共祖先的最大载重，fa[x][0]、fa[y][0]即为公共祖先 </span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);</span><br><span class="line">    for(int i=1;i&lt;=m;i++) &#123;//存原始图</span><br><span class="line">        scanf(&quot;%d%d%d&quot;,&amp;roads[i].x,&amp;roads[i].y,&amp;roads[i].z);</span><br><span class="line">    &#125;</span><br><span class="line">    kruskal();</span><br><span class="line">    for(int i=1;i&lt;=n;i++) &#123;//预处理</span><br><span class="line">        if(!vis[i]) &#123;</span><br><span class="line">            deep[i]=1;</span><br><span class="line">            dfs(i);</span><br><span class="line">            f[i][0]=i;</span><br><span class="line">            w[i][0]=INF;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //LCA初始化</span><br><span class="line">    for(int i=1;i&lt;=20;i++) &#123;</span><br><span class="line">        for(int j=1;j&lt;=n;j++) &#123;</span><br><span class="line">            f[j][i]=f[f[j][i-1]][i-1];</span><br><span class="line">            w[j][i]=min(w[j][i-1],w[f[j][i-1]][i-1]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;q);</span><br><span class="line">    for(int i=1;i&lt;=q;i++) &#123;</span><br><span class="line">        scanf(&quot;%d%d&quot;,&amp;x,&amp;y);</span><br><span class="line">        printf(&quot;%d\n&quot;,lca(x,y));//O(logn)复杂度回答询问</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Graph theory </tag>
+            
+            <tag> LCA </tag>
+            
+            <tag> Greedy </tag>
+            
+            <tag> Union-Find Set </tag>
+            
+            <tag> Spanning tree </tag>
+            
+            <tag> Doubling </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>洛谷的刷题日常之P1147</title>
       <link href="/2019/10/05/luogu_P1147/"/>
       <url>/2019/10/05/luogu_P1147/</url>
@@ -60,7 +95,7 @@
       <link href="/2019/09/24/luogu_P1880/"/>
       <url>/2019/09/24/luogu_P1880/</url>
       
-        <content type="html"><![CDATA[<h4 id="石子合并"><a href="#石子合并" class="headerlink" title="石子合并"></a>石子合并</h4><p>先看一道比luogu p1880简单的题目。</p><ul><li>描述：</li></ul><p>有n堆石子排成一排，每堆石子有一定的数量，将n堆石子合并成一堆。合并的规则是每次只能合并相邻的两堆石子，合并的花费为这两堆石子的总数。石子经过n-1次合并后成为一堆，求总的最小花费和最大花费。</p><a id="more"></a><ul><li>输入：</li></ul><p>有多组测试数据，输入到文件结束。每组测试数据的第1行有一个整数n，表示有n堆石子，n&lt;250。接下来的一行有n个数，分别表示这n堆石子的数目。每堆石子至少一颗，最多10000颗。</p><ul><li>输出：</li></ul><p>总的最小花费和最大花费。</p><ul><li>输入样例：</li></ul><p>3<br>2 4 5</p><ul><li>输出样例：</li></ul><p>17<br>20</p><ul><li><p>解题思路：区间DP</p></li><li><p>参考代码:</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="环形石子合并"><a href="#环形石子合并" class="headerlink" title="环形石子合并"></a>环形石子合并</h4><p>接下来就可以着手解决luogu p1880了。</p><ul><li>描述：</li></ul><p>在一个圆形操场的四周摆放N堆石子,现要将石子有次序地合并成一堆.规定每次只能选相邻的2堆合并成新的一堆，并将新的一堆的石子数，记为该次合并的得分。</p><p>试设计出1个算法,计算出将N堆石子合并成1堆的最小得分和最大得分.</p><!-- more --><ul><li>输入：</li></ul><p>数据的第1行试正整数N,1≤N≤100,表示有N堆石子.第2行有N个数,分别表示每堆石子的个数.</p><ul><li>输出：</li></ul><p>输出共2行,第1行为最小得分,第2行为最大得分.</p><ul><li>输入样例：</li></ul><p>4<br>4 5 9 4</p><ul><li>输出样例：</li></ul><p>43<br>54</p><ul><li><p>解题思路：区间DP</p></li><li><p>参考代码:</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>相似题目：</li></ul><p>hdu 3506 “Monkey Party”</p>]]></content>
+        <content type="html"><![CDATA[<h4 id="石子合并"><a href="#石子合并" class="headerlink" title="石子合并"></a>石子合并</h4><p>先看一道比luogu p1880简单的题目。</p><ul><li>描述：</li></ul><p>有n堆石子排成一排，每堆石子有一定的数量，将n堆石子合并成一堆。合并的规则是每次只能合并相邻的两堆石子，合并的花费为这两堆石子的总数。石子经过n-1次合并后成为一堆，求总的最小花费和最大花费。</p><a id="more"></a><ul><li>输入：</li></ul><p>有多组测试数据，输入到文件结束。每组测试数据的第1行有一个整数n，表示有n堆石子，n&lt;250。接下来的一行有n个数，分别表示这n堆石子的数目。每堆石子至少一颗，最多10000颗。</p><ul><li>输出：</li></ul><p>总的最小花费和最大花费。</p><ul><li>输入样例：</li></ul><p>3<br>2 4 5</p><ul><li>输出样例：</li></ul><p>17<br>20</p><ul><li><p>解题思路：区间DP</p></li><li><p>参考代码:</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int INF=1&lt;&lt;30;</span><br><span class="line">const int N=300;</span><br><span class="line">int n,sum[N];</span><br><span class="line"></span><br><span class="line">int Minval()&#123;</span><br><span class="line">    int dp[N][N]；</span><br><span class="line">    for(int i=1;i&lt;=n;i++) dp[i][i]=0;</span><br><span class="line">    for(int len=1;len&lt;n;len++)</span><br><span class="line">        for(int i=1;i&lt;=n-len;i++) &#123;</span><br><span class="line">            int j=i+len;</span><br><span class="line">            dp[i][j]=INF;</span><br><span class="line">            for(int k=i;k&lt;j;k++)</span><br><span class="line">                dp[i][j]=min(dp[i][j],dp[i][k]+dp[k+1][j]+sum[j]-sum[i-1]);</span><br><span class="line">        &#125;</span><br><span class="line">    return dp[1][n];</span><br><span class="line">&#125;</span><br><span class="line">int Maxval()&#123;</span><br><span class="line">    int dp[N][N];</span><br><span class="line">    for(int i=1;i&lt;=n;i++) dp[i][i]=0;</span><br><span class="line">    for(int len=1;len&lt;n;len++)</span><br><span class="line">        for(int i=1;i&lt;=n-len;i++) &#123;</span><br><span class="line">            int j=i+len;</span><br><span class="line">            dp[i][j]=-INF;</span><br><span class="line">            for(int k=i;k&lt;j;k++)</span><br><span class="line">                dp[i][j]=max(dp[i][j],dp[i][k]+dp[k+1][j]+sum[j]-sum[i-1]);</span><br><span class="line">        &#125;</span><br><span class="line">    return dp[1][n];</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    sum[0]=0;</span><br><span class="line">    for(int i=1;i&lt;=n;i++) &#123;</span><br><span class="line">        int x;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;x);</span><br><span class="line">        sum[i]=sum[i-1]+x;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n%d&quot;,Minval(),Maxval());</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="环形石子合并"><a href="#环形石子合并" class="headerlink" title="环形石子合并"></a>环形石子合并</h4><p>接下来就可以着手解决luogu p1880了。如果按照上面的解法解这道题，会出现“min值永远比正确答案大1”的“奇怪”现象，这是因为没有考虑环形的缘故。</p><ul><li>描述：</li></ul><p>在一个圆形操场的四周摆放N堆石子,现要将石子有次序地合并成一堆.规定每次只能选相邻的2堆合并成新的一堆，并将新的一堆的石子数，记为该次合并的得分。</p><p>试设计出1个算法,计算出将N堆石子合并成1堆的最小得分和最大得分.</p><!-- more --><ul><li>输入：</li></ul><p>数据的第1行试正整数N,1≤N≤100,表示有N堆石子.第2行有N个数,分别表示每堆石子的个数.</p><ul><li>输出：</li></ul><p>输出共2行,第1行为最小得分,第2行为最大得分.</p><ul><li>输入样例：</li></ul><p>4<br>4 5 9 4</p><ul><li>输出样例：</li></ul><p>43<br>54</p><ul><li><p>解题思路：</p><ul><li>区间DP</li><li>处理环形情况的通用套路：在任意位置把环断开成链，复制一倍接在末尾</li></ul></li><li><p>参考代码:</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int INF=1&lt;&lt;30;</span><br><span class="line">const int N=240;</span><br><span class="line">int n,sum[N],x,arr[N];</span><br><span class="line"></span><br><span class="line">int Minval()&#123;</span><br><span class="line">    int dp[N][N],ans=INF;</span><br><span class="line">    for(int i=1;i&lt;=n;i++) dp[i][i]=0;</span><br><span class="line">    for(int len=1;len&lt;n;len++)</span><br><span class="line">        for(int i=1;i&lt;=2*n-len;i++) &#123;</span><br><span class="line">            int j=i+len;</span><br><span class="line">            dp[i][j]=INF;</span><br><span class="line">            for(int k=i;k&lt;j;k++)</span><br><span class="line">                dp[i][j]=min(dp[i][j],dp[i][k]+dp[k+1][j]+sum[j]-sum[i-1]);</span><br><span class="line">        &#125;</span><br><span class="line">    for(int i=1;i&lt;=n;i++) &#123;</span><br><span class="line">        ans=ans&gt;dp[i][i+n-1]?dp[i][i+n-1]:ans;</span><br><span class="line">    &#125;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br><span class="line">int Maxval()&#123;</span><br><span class="line">    int dp[N][N],ans=-INF;</span><br><span class="line">    for(int i=1;i&lt;=n;i++) dp[i][i]=0;</span><br><span class="line">    for(int len=1;len&lt;n;len++)</span><br><span class="line">        for(int i=1;i&lt;=2*n-len;i++) &#123;</span><br><span class="line">            int j=i+len;</span><br><span class="line">            dp[i][j]=-INF;</span><br><span class="line">            for(int k=i;k&lt;j;k++)</span><br><span class="line">                dp[i][j]=max(dp[i][j],dp[i][k]+dp[k+1][j]+sum[j]-sum[i-1]);</span><br><span class="line">        &#125;</span><br><span class="line">    for(int i=1;i&lt;=n;i++) &#123;</span><br><span class="line">        ans=ans&lt;dp[i][i+n-1]?dp[i][i+n-1]:ans;</span><br><span class="line">    &#125;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    sum[0]=0;</span><br><span class="line">    for(int i=1;i&lt;=n;i++) &#123;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;arr[i]);</span><br><span class="line">        arr[i+n]=arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i=1;i&lt;=2*n;i++) &#123;</span><br><span class="line">        sum[i]=sum[i-1]+arr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n%d&quot;,Minval(),Maxval());</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>相似题目：</li></ul><p>hdu 3506 “Monkey Party”</p>]]></content>
       
       
       <categories>
@@ -958,31 +993,6 @@
     
     
     <entry>
-      <title>搭建Hadoop过程中的虚拟机相关问题</title>
-      <link href="/2018/04/13/VirtualMachineOfHadoop/"/>
-      <url>/2018/04/13/VirtualMachineOfHadoop/</url>
-      
-        <content type="html"><![CDATA[<p>用多个CentOS6.5系统作为Hadoop集群的平台，在Vmware虚拟机中安装好一个CentOS6.5系统后再多复制几个即可模拟Hadoop集群的多个节点。</p><a id="more"></a><p>在操作过程中遇到了几个虚拟机的相关问题，先整理如下：<br>一、新安装好的CentOS6.5系统无法连接网络<br>解决方法：<br>二、复制的CentOS6.5系统无法连接网络<br>解决方法：</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Hadoop </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Ubuntu16.04安装WPS</title>
       <link href="/2018/04/13/WpsofUbuntu/"/>
       <url>/2018/04/13/WpsofUbuntu/</url>
@@ -1000,6 +1010,31 @@
         <tags>
             
             <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>搭建Hadoop过程中的虚拟机相关问题</title>
+      <link href="/2018/04/13/VirtualMachineOfHadoop/"/>
+      <url>/2018/04/13/VirtualMachineOfHadoop/</url>
+      
+        <content type="html"><![CDATA[<p>用多个CentOS6.5系统作为Hadoop集群的平台，在Vmware虚拟机中安装好一个CentOS6.5系统后再多复制几个即可模拟Hadoop集群的多个节点。</p><a id="more"></a><p>在操作过程中遇到了几个虚拟机的相关问题，先整理如下：<br>一、新安装好的CentOS6.5系统无法连接网络<br>解决方法：<br>二、复制的CentOS6.5系统无法连接网络<br>解决方法：</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
             
         </tags>
       
@@ -1083,31 +1118,6 @@
     
     
     <entry>
-      <title>Latex中的空格</title>
-      <link href="/2018/04/13/SpaceofLatex/"/>
-      <url>/2018/04/13/SpaceofLatex/</url>
-      
-        <content type="html"><![CDATA[<ul><li>两个quad空格 \qquad  两个m的宽度</li><li>quad空格 \quad  一个m的宽度<a id="more"></a></li><li>大空格 \   1/3m的宽度</li><li>中等空格 \;  2/7m的宽度</li><li>小空格 \,  1/6m的宽度</li><li>没有空格   </li><li>紧贴 !  缩进1/6m的宽度</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Latex </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>关于Windows通过远程桌面访问Ubuntu</title>
       <link href="/2018/04/13/RemoteAccess/"/>
       <url>/2018/04/13/RemoteAccess/</url>
@@ -1125,6 +1135,31 @@
         <tags>
             
             <tag> Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Latex中的空格</title>
+      <link href="/2018/04/13/SpaceofLatex/"/>
+      <url>/2018/04/13/SpaceofLatex/</url>
+      
+        <content type="html"><![CDATA[<ul><li>两个quad空格 \qquad  两个m的宽度</li><li>quad空格 \quad  一个m的宽度<a id="more"></a></li><li>大空格 \   1/3m的宽度</li><li>中等空格 \;  2/7m的宽度</li><li>小空格 \,  1/6m的宽度</li><li>没有空格   </li><li>紧贴 !  缩进1/6m的宽度</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Latex </tag>
             
         </tags>
       
