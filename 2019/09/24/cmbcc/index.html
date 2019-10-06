@@ -248,6 +248,13 @@
 </ul>
 <p>5 0 0 0 0</p>
 <p>说明：第1个任务有4个前置任务2、3、4、5，要想完成1，需先完成2、3、4、5，那么第1天至少完成5个任务。接下来的第2、3、4、5天每天完成0个任务，因为在第1天已完成全部5个任务。</p>
+<ul>
+<li><p>解题思路：开哈希数组</p>
+</li>
+<li><p>参考程序：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int N=10005;</span><br><span class="line">int n,res[N],v[N];</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int k,x;</span><br><span class="line">    memset(res,0,sizeof res);</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    for(int i=1;i&lt;=n;i++) &#123;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;k);</span><br><span class="line">        while(k--) &#123;</span><br><span class="line">            scanf(&quot;%d&quot;,&amp;x);</span><br><span class="line">            if(!v[x]) &#123;</span><br><span class="line">                v[x]=1;</span><br><span class="line">                res[i]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(!v[i]) &#123;</span><br><span class="line">            res[i]++;</span><br><span class="line">            v[i]=1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i=1;i&lt;=n;i++) &#123;</span><br><span class="line">        printf(&quot;%d &quot;,res[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="将数组元素变为非递减"><a href="#将数组元素变为非递减" class="headerlink" title="将数组元素变为非递减"></a>将数组元素变为非递减</h4><ul>
 <li>描述</li>
 </ul>
@@ -260,18 +267,48 @@
 <li>输出：</li>
 </ul>
 <p>一个整数，表示最少需要的操作次数。</p>
-
+<ul>
+<li>输入样例1：</li>
+</ul>
+<p>6 8<br>7 5 6 3 2 1</p>
+<ul>
+<li>输出样例1：</li>
+</ul>
+<p>3</p>
+<ul>
+<li>输入样例2：</li>
+</ul>
+<p>3 2<br>1 0 1</p>
+<ul>
+<li>输出样例2：</li>
+</ul>
+<p>1</p>
+<ul>
+<li>输入样例3：</li>
+</ul>
+<p>3 2<br>1 0 0</p>
+<ul>
+<li>输出样例3：</li>
+</ul>
+<p>1</p>
+<ul>
+<li><p>解题思路：线性dp</p>
+</li>
+<li><p>参考程序：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define INF 0x3f3f3f3f</span><br><span class="line">const int N=300005;</span><br><span class="line">int n,m,a[N],dp[N];</span><br><span class="line"></span><br><span class="line">inline int move(int i,int j) &#123;</span><br><span class="line">    int ans=j-a[i];</span><br><span class="line">    if(a[i]&gt;j) ans+=m;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int t,ans=INF;</span><br><span class="line">    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);</span><br><span class="line">    for(int i=0;i&lt;n;i++)</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;a[i]);</span><br><span class="line">    for(int i=0;i&lt;m;i++)   //初始化dp数组</span><br><span class="line">        dp[i]=move(0,i);</span><br><span class="line">    for(int i=1;i&lt;n;i++) &#123;</span><br><span class="line">        t=dp[0];</span><br><span class="line">        for(int j=0;j&lt;m;j++) &#123;</span><br><span class="line">            t=min(t,dp[j]);</span><br><span class="line">            dp[j]=max(t,move(i,j));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    for(int i=0;i&lt;m;i++)</span><br><span class="line">        ans=min(ans,dp[i]);</span><br><span class="line">    printf(&quot;%d\n&quot;,ans);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2019-09-26T21:07:40+08:00" content="2019-09-26"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-                &nbsp;2019-09-26
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-10-07T00:19:31+08:00" content="2019-10-07"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2019-10-07
               </time>
             
             
                 
-                <div class="metatag tags"><a class="tag" href="/tags/DFS/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;DFS</a></div>
+                <div class="metatag tags"><a class="tag" href="/tags/DFS/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;DFS</a></div> <div class="metatag tags"><a class="tag" href="/tags/Dynamic-Programming/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Dynamic Programming</a></div>
             
             
           </section>
@@ -493,7 +530,7 @@
 </header>
 
     <div class='content pure'>
-      <a href="/tags/Binary-Search/" style="font-size: 14px; color: #999">Binary Search</a> <a href="/tags/C-C/" style="font-size: 20px; color: #707070">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/DFS/" style="font-size: 14px; color: #999">DFS</a> <a href="/tags/Database/" style="font-size: 16px; color: #8b8b8b">Database</a> <a href="/tags/Doubling/" style="font-size: 14px; color: #999">Doubling</a> <a href="/tags/Dynamic-Programming/" style="font-size: 14px; color: #999">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Graph-theory/" style="font-size: 14px; color: #999">Graph theory</a> <a href="/tags/Greedy/" style="font-size: 14px; color: #999">Greedy</a> <a href="/tags/Hadoop/" style="font-size: 16px; color: #8b8b8b">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/LCA/" style="font-size: 14px; color: #999">LCA</a> <a href="/tags/Latex/" style="font-size: 22px; color: #636363">Latex</a> <a href="/tags/Linux/" style="font-size: 18px; color: #7e7e7e">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 20px; color: #707070">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Matlab/" style="font-size: 16px; color: #8b8b8b">Matlab</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/Number-theory/" style="font-size: 14px; color: #999">Number theory</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Paper/" style="font-size: 14px; color: #999">Paper</a> <a href="/tags/Prefix-Sum/" style="font-size: 14px; color: #999">Prefix Sum</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Spanning-tree/" style="font-size: 14px; color: #999">Spanning tree</a> <a href="/tags/String/" style="font-size: 14px; color: #999">String</a> <a href="/tags/Union-Find-Set/" style="font-size: 14px; color: #999">Union-Find Set</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a>
+      <a href="/tags/Binary-Search/" style="font-size: 14px; color: #999">Binary Search</a> <a href="/tags/C-C/" style="font-size: 20px; color: #707070">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/DFS/" style="font-size: 14px; color: #999">DFS</a> <a href="/tags/Database/" style="font-size: 16px; color: #8b8b8b">Database</a> <a href="/tags/Doubling/" style="font-size: 14px; color: #999">Doubling</a> <a href="/tags/Dynamic-Programming/" style="font-size: 16px; color: #8b8b8b">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Graph-theory/" style="font-size: 14px; color: #999">Graph theory</a> <a href="/tags/Greedy/" style="font-size: 14px; color: #999">Greedy</a> <a href="/tags/Hadoop/" style="font-size: 16px; color: #8b8b8b">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/LCA/" style="font-size: 14px; color: #999">LCA</a> <a href="/tags/Latex/" style="font-size: 22px; color: #636363">Latex</a> <a href="/tags/Linux/" style="font-size: 18px; color: #7e7e7e">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 20px; color: #707070">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Matlab/" style="font-size: 16px; color: #8b8b8b">Matlab</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/Number-theory/" style="font-size: 14px; color: #999">Number theory</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Paper/" style="font-size: 14px; color: #999">Paper</a> <a href="/tags/Prefix-Sum/" style="font-size: 14px; color: #999">Prefix Sum</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Spanning-tree/" style="font-size: 14px; color: #999">Spanning tree</a> <a href="/tags/String/" style="font-size: 14px; color: #999">String</a> <a href="/tags/Union-Find-Set/" style="font-size: 14px; color: #999">Union-Find Set</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a>
     </div>
   </section>
 
