@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Hadoop安装记事 | 99°</title>
+  <title>记一道算法编程题 | 99°</title>
   
   <meta name="keywords" content="blog">
   
@@ -154,13 +154,13 @@
   <div class="meta" id="header-meta">
     
       
-          <h1 class="title">Hadoop安装记事</h1>
+          <h1 class="title">记一道算法编程题</h1>
       
     
 
     
       <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-06-26
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-10-21
       </time>
     
 
@@ -168,7 +168,7 @@
       
     
     <div class='metatag cats'>
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/BigData/">BigData</a>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/Algorithm/">Algorithm</a>
     </div>
 
 
@@ -189,27 +189,51 @@
 
     <section class="article typo">
       <div class="article-entry" itemprop="articleBody">
-        <h3 id="Hadoop安装过程中遇到的问题及解决思路"><a href="#Hadoop安装过程中遇到的问题及解决思路" class="headerlink" title="Hadoop安装过程中遇到的问题及解决思路"></a>Hadoop安装过程中遇到的问题及解决思路</h3><a id="more"></a>
+        <h4 id="爱健身的小王"><a href="#爱健身的小王" class="headerlink" title="爱健身的小王"></a>爱健身的小王</h4><ul>
+<li>描述：</li>
+</ul>
+<p>小王是一个喜欢健身的人，他每天都会围着一个n * n的场地外侧跑步。<br>他是一个有强迫症的人，每跑n+1个单位长度，他就要在地上做一个标记。<br>当他在一个点重复标记的时候，他就会结束当天的锻炼。<br>显然当n一定时，他每天打标记的数量也是一定的。请你计算出来他每天要打多少标记（最后一次重复标记也要计数）。</p>
+<a id="more"></a>
 <ul>
-<li>DataNode用jps无法查看<ul>
-<li>slaves文件中加入hadoop01</li>
+<li>输入：</li>
 </ul>
+<p>第一行包含一个正整数t，表示询问的数量。</p>
+<p>第二行包含t个整数，中间用空格隔开，每个整数表示一个询问所给出的n，$1 \le n \le 1000$。</p>
+<ul>
+<li>输出：</li>
+</ul>
+<p>输出共t行，$1 \le t \le 10000$。</p>
+<p>每行包含一个正整数，其中第i行的整数表示第i个询问的答案。</p>
+<ul>
+<li>样例输入：</li>
+</ul>
+<p>2<br>4 8</p>
+<ul>
+<li>样例输出：</li>
+</ul>
+<p>17<br>33</p>
+<ul>
+<li>样例解释：</li>
+</ul>
+<p>对于4*4的场地而言，其边界上的16个点都会被标记，因为起点会被标记两次，所以共17次。</p>
+<ul>
+<li><p>解题思路：最小公倍数</p>
 </li>
-<li>“hadoop namenode -format”虽然提示过时，但仍然是可以用的，用于初始化hadoop，将data/name下的数据清空并将新的name信息写到data/name目录下</li>
-<li>可以在hdfs-site.xml文件中配置dfs.data.dir参数（此参数控制目录位置）</li>
+<li><p>参考代码:</p>
+</li>
 </ul>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int gcd(int a,int b)&#123;</span><br><span class="line">    return b?gcd(b,a%b):a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int T;</span><br><span class="line">    cin&gt;&gt;T;</span><br><span class="line">    while(T--) &#123;</span><br><span class="line">        int n;</span><br><span class="line">        cin&gt;&gt;n;</span><br><span class="line">        int d=gcd(4*n,n+1);</span><br><span class="line">        cout&lt;&lt;4*n/d+1&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2018-06-26T11:49:16+08:00" content="2018-06-26"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-                &nbsp;2018-06-26
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-10-21T11:48:51+08:00" content="2019-10-21"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2019-10-21
               </time>
             
             
                 
-                <div class="metatag tags"><a class="tag" href="/tags/Hadoop/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Hadoop</a></div>
+                <div class="metatag tags"><a class="tag" href="/tags/Number-theory/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Number theory</a></div>
             
             
           </section>
@@ -218,40 +242,21 @@
         
             <div class="prev-next">
                 
-                    <section class="prev">
-                        <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
-                            <h4>
-                                <a href="/2018/07/29/docEdit/" rel="prev" title="word中插入公式行距变大的问题">
-                                  
-                                      word中插入公式行距变大的问题
-                                  
-                                </a>
-                            </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <a class="tag" href="/tags/Latex/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Latex</a>
-                                </h6>
-                            
-                        </span>
-                    </section>
-                
                 
                     <section class="next">
                         <span class="art-item-right" aria-hidden="true">
                             <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2018/06/19/StartwithnewOperatingSystem/" rel="prev" title="重装系统后必做的几件事">
+                                <a href="/2019/10/07/netease/" rel="prev" title="记五道2020年某企业提前批招聘笔试题">
                                     
-                                        重装系统后必做的几件事
+                                        记五道2020年某企业提前批招聘笔试题
                                     
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/Water/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Water</a>
+                                    <a class="tag" href="/tags/Dynamic-Programming/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Dynamic Programming</a>
                                 </h6>
                             
                         </span>
@@ -265,6 +270,45 @@
 </article>
 
 <!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX","TeX"],
+      linebreaks: { automatic:true },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: { autoNumber: "AMS" },
+      noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+      Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+  });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += (all[i].SourceElement().parentNode.className ? ' ' : '') + 'has-jax';
+    }
+    console.log("mathjax did loaded!");
+  });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 
 
 <br>
@@ -283,13 +327,13 @@
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;Related Posts</h4>
         <ul>
             
-                <li><a href="https://e99net.github.io/2018/08/15/BookList/">程序员必读书单 1.0</a></li>
+                <li><a href="https://e99net.github.io/2019/10/07/netease/">记五道2020年某企业提前批招聘笔试题</a></li>
             
-                <li><a href="https://e99net.github.io/2018/07/29/docEdit/">word中插入公式行距变大的问题</a></li>
+                <li><a href="https://e99net.github.io/2019/10/06/luogu_P1967/">洛谷的刷题日常之P1967</a></li>
             
-                <li><a href="https://e99net.github.io/2018/06/19/StartwithnewOperatingSystem/">重装系统后必做的几件事</a></li>
+                <li><a href="https://e99net.github.io/2019/10/05/luogu_P1147/">洛谷的刷题日常之P1147</a></li>
             
-                <li><a href="https://e99net.github.io/2018/06/13/ResourcesofPSO/">粒子群算法的一些相关资源</a></li>
+                <li><a href="https://e99net.github.io/2019/09/26/tourSohu/">记两道2020年某企业秋招的算法编程题</a></li>
             
         </ul>
     </div>
@@ -305,7 +349,7 @@
 
 <script>
     window.subData = {
-        title: 'Hadoop安装记事',
+        title: '记一道算法编程题',
         tools: true
     }
 </script>
