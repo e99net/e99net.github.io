@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>记三道2020年某企业秋招笔试题 | 99°</title>
+  <title>几道比较有意思的字符串题 | 99°</title>
   
   <meta name="keywords" content="blog">
   
@@ -154,13 +154,13 @@
   <div class="meta" id="header-meta">
     
       
-          <h1 class="title">记三道2020年某企业秋招笔试题</h1>
+          <h1 class="title">几道比较有意思的字符串题</h1>
       
     
 
     
       <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-09-24
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-10-21
       </time>
     
 
@@ -189,130 +189,74 @@
 
     <section class="article typo">
       <div class="article-entry" itemprop="articleBody">
-        <h4 id="1-n-中每位数字乘积最大的值"><a href="#1-n-中每位数字乘积最大的值" class="headerlink" title="1 ~ n 中每位数字乘积最大的值"></a>1 ~ n 中每位数字乘积最大的值</h4><ul>
+        <h4 id="整数反转求和"><a href="#整数反转求和" class="headerlink" title="整数反转求和"></a>整数反转求和</h4><ul>
 <li>描述：</li>
 </ul>
-<p>99°是一位爱好爬山的小青年，他每次在爬山过程中都会遇到很多小猴子，小猴子们喜欢向他提这样一种问题：在1 ~ n中找一个数字m，使得m的各个数位乘积最大。99°不擅长回答这种问题，你能帮他写一个程序得到结果吗？</p>
+<p>请您写一个reverseAdd函数，该函数分别将输入的两个正整数a和b的数字按照高位在右的方式反转求和。<br>例如，reverseAdd(123,456)=321+654=975。</p>
 <a id="more"></a>
 <ul>
-<li>样例输入1：</li>
+<li>输入：</li>
 </ul>
-<p>100</p>
+<p>两个正整数a和b，以空格分隔，$1 \le a,b \e 70000$。</p>
 <ul>
-<li>样例输出1：</li>
+<li>输出：</li>
 </ul>
-<p>81</p>
-<p>提示：9 * 9 = 81</p>
+<p>输出一个整数，表示两个正整数反转求和的结果。</p>
 <ul>
-<li>样例输入2：</li>
+<li>样例输入：</li>
 </ul>
-<p>6</p>
+<p>123 456</p>
 <ul>
-<li>样例输出2：</li>
+<li>样例输出：</li>
 </ul>
-<p>6</p>
+<p>975</p>
 <ul>
-<li><p>解题思路：贪心</p>
+<li>解题思路：</li>
+</ul>
+<p>按照int型来处理两个输入参数会比较麻烦，按照字符串类型来处理两个输入参数则会大大简化处理过程。</p>
 <ul>
-<li>尽量把每一位变成9，每次都向前借一位来减</li>
-<li>n比10小就返回n，n为0就返回1</li>
+<li>参考代码:</li>
 </ul>
-</li>
-<li><p>参考代码:</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define ll long long</span><br><span class="line"></span><br><span class="line">ll solve(int n) &#123;</span><br><span class="line">    if(n==0) return 1;</span><br><span class="line">    if(n&lt;10) return n;</span><br><span class="line">    else return max(solve(n/10-1)*9,solve(n/10)*(n%10));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    printf(&quot;%lld&quot;,solve(n));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="完成可能有前置任务的任务"><a href="#完成可能有前置任务的任务" class="headerlink" title="完成可能有前置任务的任务"></a>完成可能有前置任务的任务</h4><ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    string n,m;</span><br><span class="line">    while(cin&gt;&gt;n&gt;&gt;m) &#123;</span><br><span class="line">        int x=0,y=0,i;</span><br><span class="line">        if(m[0]==&apos;0&apos;&amp;&amp;n[0]==&apos;0&apos;)</span><br><span class="line">            break;</span><br><span class="line">        for(i=m.size()-1;i&gt;=0;i--)</span><br><span class="line">            x=x*10+m[i]-&apos;0&apos;;</span><br><span class="line">        for(i=n.size()-1;i&gt;=0;i--)</span><br><span class="line">            y=y*10+n[i]-&apos;0&apos;;</span><br><span class="line">        cout&lt;&lt;x+y&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="字符串计数"><a href="#字符串计数" class="headerlink" title="字符串计数"></a>字符串计数</h4><ul>
 <li>描述：</li>
 </ul>
-<p>99°要完成n个任务，它制定了一个计划，计划第i天完成第i个任务，每个任务可能有前置任务，在完成第i个任务时，必须先完成它的前置任务才行。问99°要想实现它的计划，每天至少要完成多少个任务？</p>
+<p>给定一个仅由小写字母组成且长度不超过106的字符串，将首字符移到末尾并记录所得的字符串，不断重复该操作，虽然记录了无限个字符串，但其中不同字符串的数目却是有限的，那么一共记录了多少个不同的字符串？</p>
 <ul>
 <li>输入：</li>
 </ul>
-<p>一个整数n，表示要完成的任务数，2&lt;=n&lt;=10000。接下来n行，每行第一个数字k表示该任务的前置任务数，剩下的k个数字分别表示前置任务编号。</p>
+<p>给定的字符串。</p>
 <ul>
 <li>输出：</li>
 </ul>
-<p>n个数字，每个数字以一个空格间隔，表示每天至少完成的任务数。</p>
+<p>记录的不同字符串数目。</p>
 <ul>
-<li>样例输入：</li>
+<li>输入样例：</li>
 </ul>
-<p>3<br>1 2<br>0<br>2 1 2</p>
+<p>abab</p>
 <ul>
-<li>样例输出：</li>
+<li>输出样例：</li>
 </ul>
-<p>2 0 1</p>
-<p>说明：任务1有1个前置任务2，第1天要想完成任务1，需先完成任务2，所以第1天至少完成2个任务。第2天计划完成任务2，因为任务2已在第一天完成，且任务2无前置任务，所以第2天至少完成0个任务。第3天计划完成任务3，任务3有两个前置任务1、2，在前两天都已完成，所以这一天只需完成任务3，至少完成1个任务即可。</p>
+<p>2</p>
 <ul>
-<li>样例输入：</li>
+<li>解题思路：</li>
 </ul>
-<p>5<br>4 2 3 4 5<br>1 1<br>2 1 2<br>0<br>1 3</p>
+<p>模板题，考查KMP算法next数组的求解</p>
 <ul>
-<li>样例输出：</li>
+<li>参考代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int N=1000007;</span><br><span class="line">char s[N];</span><br><span class="line">int next[N];</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    scanf(&quot;%s&quot;,s);</span><br><span class="line">    int n=strlen(s);</span><br><span class="line">    next[0]=-1;</span><br><span class="line">    for(int i=0,j=-1;i&lt;n;)</span><br><span class="line">        if(j==-1||s[i]=s[j]) next[++i]=++j;</span><br><span class="line">        else j=next[j];</span><br><span class="line">    if(n%(n-next[n])) printf(&quot;%d&quot;,n)</span><br><span class="line">    else printf(&quot;%d&quot;,n-next[n]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>5 0 0 0 0</p>
-<p>说明：第1个任务有4个前置任务2、3、4、5，要想完成1，需先完成2、3、4、5，那么第1天至少完成5个任务。接下来的第2、3、4、5天每天完成0个任务，因为在第1天已完成全部5个任务。</p>
-<ul>
-<li><p>解题思路：开哈希数组</p>
-</li>
-<li><p>参考程序：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int N=10005;</span><br><span class="line">int n,res[N],v[N];</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int k,x;</span><br><span class="line">    memset(res,0,sizeof res);</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    for(int i=1;i&lt;=n;i++) &#123;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;k);</span><br><span class="line">        while(k--) &#123;</span><br><span class="line">            scanf(&quot;%d&quot;,&amp;x);</span><br><span class="line">            if(!v[x]) &#123;</span><br><span class="line">                v[x]=1;</span><br><span class="line">                res[i]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(!v[i]) &#123;</span><br><span class="line">            res[i]++;</span><br><span class="line">            v[i]=1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i=1;i&lt;=n;i++) &#123;</span><br><span class="line">        printf(&quot;%d &quot;,res[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="将数组元素变为非递减"><a href="#将数组元素变为非递减" class="headerlink" title="将数组元素变为非递减"></a>将数组元素变为非递减</h4><ul>
-<li>描述</li>
-</ul>
-<p>99°给出一个包含$n$个整数的数组$a_i$，99°每次可以选择数组中若干个下标不同的元素，对选中的每个元素执行下列改变：假设选中的元素为$x$，那么就将$x$替换为$(x+1) mod m$，即选中的每个元素自增1，如果变为$m$则归零。<br>请问最少执行多少次操作，99°可以把这个数组变为一个数组元素非递减的数组。</p>
-<ul>
-<li>输入：</li>
-</ul>
-<p>第一行两个整数$n$和$m$，用一个空格分隔；<br>第二行$n$个整数$a_1$,$a_2$,…,$a_n$表示数组，每两个整数之间用一个空格分隔。<br>输入满足$1&lt;=n,m&lt;=300000;0 &lt;= a_i &lt; m$ 。</p>
-<ul>
-<li>输出：</li>
-</ul>
-<p>一个整数，表示最少需要的操作次数。</p>
-<ul>
-<li>输入样例1：</li>
-</ul>
-<p>6 8<br>7 5 6 3 2 1</p>
-<ul>
-<li>输出样例1：</li>
-</ul>
-<p>3</p>
-<ul>
-<li>输入样例2：</li>
-</ul>
-<p>3 2<br>1 0 1</p>
-<ul>
-<li>输出样例2：</li>
-</ul>
-<p>1</p>
-<ul>
-<li>输入样例3：</li>
-</ul>
-<p>3 2<br>1 0 0</p>
-<ul>
-<li>输出样例3：</li>
-</ul>
-<p>1</p>
-<ul>
-<li><p>解题思路：线性dp</p>
-</li>
-<li><p>参考程序：</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define INF 0x3f3f3f3f</span><br><span class="line">const int N=300005;</span><br><span class="line">int n,m,a[N],dp[N];</span><br><span class="line"></span><br><span class="line">inline int move(int i,int j) &#123;</span><br><span class="line">    int ans=j-a[i];</span><br><span class="line">    if(a[i]&gt;j) ans+=m;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int t,ans=INF;</span><br><span class="line">    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);</span><br><span class="line">    for(int i=0;i&lt;n;i++)</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;a[i]);</span><br><span class="line">    for(int i=0;i&lt;m;i++)   //初始化dp数组</span><br><span class="line">        dp[i]=move(0,i);</span><br><span class="line">    for(int i=1;i&lt;n;i++) &#123;</span><br><span class="line">        t=dp[0];</span><br><span class="line">        for(int j=0;j&lt;m;j++) &#123;</span><br><span class="line">            t=min(t,dp[j]);</span><br><span class="line">            dp[j]=max(t,move(i,j));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    for(int i=0;i&lt;m;i++)</span><br><span class="line">        ans=min(ans,dp[i]);</span><br><span class="line">    printf(&quot;%d\n&quot;,ans);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       </div>
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2019-10-12T10:12:55+08:00" content="2019-10-12"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-                &nbsp;2019-10-12
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-10-21T16:58:13+08:00" content="2019-10-21"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2019-10-21
               </time>
             
             
                 
-                <div class="metatag tags"><a class="tag" href="/tags/Dynamic-Programming/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Dynamic Programming</a></div> <div class="metatag tags"><a class="tag" href="/tags/Greedy/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Greedy</a></div>
+                <div class="metatag tags"><a class="tag" href="/tags/String/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;String</a></div>
             
             
           </section>
@@ -321,40 +265,21 @@
         
             <div class="prev-next">
                 
-                    <section class="prev">
-                        <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
-                            <h4>
-                                <a href="/2019/09/24/luogu_P1880/" rel="prev" title="洛谷的刷题日常之P1880">
-                                  
-                                      洛谷的刷题日常之P1880
-                                  
-                                </a>
-                            </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <a class="tag" href="/tags/Dynamic-Programming/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Dynamic Programming</a>
-                                </h6>
-                            
-                        </span>
-                    </section>
-                
                 
                     <section class="next">
                         <span class="art-item-right" aria-hidden="true">
                             <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2019/09/21/spdb/" rel="prev" title="记一道2020年某企业提前批招聘的机试题">
+                                <a href="/2019/10/21/knapsack/" rel="prev" title="背包问题总结">
                                     
-                                        记一道2020年某企业提前批招聘的机试题
+                                        背包问题总结
                                     
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/String/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>String</a>
+                                    <a class="tag" href="/tags/Knapsack/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Knapsack</a>
                                 </h6>
                             
                         </span>
@@ -425,13 +350,13 @@
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;Related Posts</h4>
         <ul>
             
-                <li><a href="https://e99net.github.io/2019/09/26/tourSohu/">记两道2020年某企业秋招的算法编程题</a></li>
+                <li><a href="https://e99net.github.io/2019/10/21/knapsack/">背包问题总结</a></li>
             
-                <li><a href="https://e99net.github.io/2019/09/24/luogu_P1880/">洛谷的刷题日常之P1880</a></li>
+                <li><a href="https://e99net.github.io/2019/10/21/meituan2019/">记一道算法编程题</a></li>
             
-                <li><a href="https://e99net.github.io/2019/09/21/spdb/">记一道2020年某企业提前批招聘的机试题</a></li>
+                <li><a href="https://e99net.github.io/2019/10/07/netease/">记五道2020年某企业提前批招聘笔试题</a></li>
             
-                <li><a href="https://e99net.github.io/2019/08/25/InputandOutputOfCpp/">C++的输入与输出</a></li>
+                <li><a href="https://e99net.github.io/2019/10/06/luogu_P1967/">洛谷的刷题日常之P1967</a></li>
             
         </ul>
     </div>
@@ -447,7 +372,7 @@
 
 <script>
     window.subData = {
-        title: '记三道2020年某企业秋招笔试题',
+        title: '几道比较有意思的字符串题',
         tools: true
     }
 </script>
