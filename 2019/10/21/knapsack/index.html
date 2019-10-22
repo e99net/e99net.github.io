@@ -476,7 +476,43 @@
 <li>参考代码:</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;cstring&gt;</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int N=1010;</span><br><span class="line"></span><br><span class="line">int n,m;</span><br><span class="line">int v[N],w[N],f[N][N];</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    for(int i=1;i&lt;=n;i++) cin&gt;&gt;v[i]&gt;&gt;w[i];</span><br><span class="line">    for(int i=n;i&gt;=1;i--) &#123;</span><br><span class="line">        for(int j=0;j&lt;=m;j++) &#123;</span><br><span class="line">            f[i][j]=f[i+1][j];</span><br><span class="line">            if(j&gt;=v[i]) f[i][j]=max(f[i][j],f[i+1][j-v[i]]+w[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int vol=m;</span><br><span class="line">    for(int i=1;i&lt;=n;i++) &#123;</span><br><span class="line">        if(f[i][vol]==f[i+1][vol-v[i]]+w[i]) &#123;</span><br><span class="line">            cout&lt;&lt;i&lt;&lt;&apos; &apos;;</span><br><span class="line">            vol-=v[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="有依赖的背包问题"><a href="#有依赖的背包问题" class="headerlink" title="有依赖的背包问题"></a>有依赖的背包问题</h4><ul>
+<h4 id="有依赖的背包问题"><a href="#有依赖的背包问题" class="headerlink" title="有依赖的背包问题"></a>有依赖的背包问题</h4><h5 id="非树形依赖的背包问题"><a href="#非树形依赖的背包问题" class="headerlink" title="非树形依赖的背包问题"></a>非树形依赖的背包问题</h5><ul>
+<li>描述：</li>
+</ul>
+<p>金明今天很开心，家里购置的新房就要领钥匙了，新房里有一间金明自己专用的很宽敞的房间。更让他高兴的是，妈妈昨天对他说：“你的房间需要购买哪些物品，怎么布置，你说了算，只要不超过$N$元钱就行”。今天一早，金明就开始做预算了，他把想买的物品分为两类：主件与附件，附件是从属于某个主件的，下表就是一些主件与附件的例子：</p>
+<p>|主件| 附件|</p>
+<p>|电脑| 打印机，扫描仪|</p>
+<p>|书柜| 图书|</p>
+<p>|书桌| 台灯，文具|</p>
+<p>|工作椅| 无|</p>
+<p>如果要买归类为附件的物品，必须先买该附件所属的主件。每个主件可以有0个、1个或2个附件。附件不再有从属于自己的附件。金明想买的东西很多，肯定会超过妈妈限定的$N$元。于是，他把每件物品规定了一个重要度，分为5等：用整数1−5表示，第5等最重要。他还从因特网上查到了每件物品的价格（都是10元的整数倍）。他希望在不超过$N$元（可以等于$N$元）的前提下，使每件物品的价格与重要度的乘积的总和最大。</p>
+<p>设第$j$件物品的价格为$v_[j]$，重要度为$w_[j]$，共选中了$k$件物品，编号依次为$j_1,j_2,…,j_k$，则所求的总和为：<br>$$v_[j_1] \times w_[j_1]+v_[j_2] \times w_[j_2]+ …+v_[j_k] \times w_[j_k]$$</p>
+<p>请你帮助金明设计一个满足要求的购物单。</p>
+<ul>
+<li>输入：</li>
+</ul>
+<p>第1行为两个正整数$n$和$m$，分别表示总钱数和希望购买物品的个数，$n&lt;32000$，$m&lt;60$，用空格隔开。</p>
+<p>从第2行到第$m+1$行，第$j$行给出了编号为$j-1$的物品的基本数据，每行有3个非负整数$v$、$p$、$q$，分别表示该物品的价格、重要度（1-5）、是主件还是附件，$q=0$表示该物品为主件，$q&gt;0$表示该物品为附件且$q$是所属主件的编号，$v&lt;10000$。</p>
+<ul>
+<li>输出：</li>
+</ul>
+<p>一个正整数，为不超过总钱数的物品的价格与重要度乘积的总和的最大值。</p>
+<ul>
+<li>样例输入：</li>
+</ul>
+<p>1000 5<br>800 2 0<br>400 5 1<br>300 5 1<br>400 3 0<br>500 2 0</p>
+<ul>
+<li>样例输出：</li>
+</ul>
+<p>2200</p>
+<ul>
+<li><p>解题思路：分组背包</p>
+</li>
+<li><p>参考代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="树形依赖的背包问题"><a href="#树形依赖的背包问题" class="headerlink" title="树形依赖的背包问题"></a>树形依赖的背包问题</h5><ul>
 <li>描述：</li>
 </ul>
 <p>有$N$个物品和一个容量是$V$的背包。</p>
@@ -516,8 +552,8 @@
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2019-10-21T16:38:12+08:00" content="2019-10-21"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-                &nbsp;2019-10-21
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-10-22T23:00:50+08:00" content="2019-10-22"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2019-10-22
               </time>
             
             
@@ -635,13 +671,13 @@
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;Related Posts</h4>
         <ul>
             
+                <li><a href="https://e99net.github.io/2019/10/22/LeetCode_BestTimeToBuyAndSellStock/">总结买卖股票这一类型的几道题</a></li>
+            
                 <li><a href="https://e99net.github.io/2019/10/21/string/">几道比较有意思的字符串题</a></li>
             
                 <li><a href="https://e99net.github.io/2019/10/21/meituan2019/">记一道算法编程题</a></li>
             
                 <li><a href="https://e99net.github.io/2019/10/07/netease/">记五道2020年某企业提前批招聘笔试题</a></li>
-            
-                <li><a href="https://e99net.github.io/2019/10/06/luogu_P1967/">洛谷的刷题日常之P1967</a></li>
             
         </ul>
     </div>
@@ -716,7 +752,7 @@
     <div class='content pure'>
       <ul class="entry">
         
-          <li><a class="flat-box" title="/categories/Algorithm/" href="/categories/Algorithm/"><div class='name'>Algorithm</div><div class='badge'>(10)</div></a></li>
+          <li><a class="flat-box" title="/categories/Algorithm/" href="/categories/Algorithm/"><div class='name'>Algorithm</div><div class='badge'>(11)</div></a></li>
         
           <li><a class="flat-box" title="/categories/BigData/" href="/categories/BigData/"><div class='name'>BigData</div><div class='badge'>(1)</div></a></li>
         
@@ -744,7 +780,7 @@
 </header>
 
     <div class='content pure'>
-      <a href="/tags/Binary-Search/" style="font-size: 14px; color: #999">Binary Search</a> <a href="/tags/C-C/" style="font-size: 20px; color: #707070">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/Database/" style="font-size: 16px; color: #8b8b8b">Database</a> <a href="/tags/Doubling/" style="font-size: 14px; color: #999">Doubling</a> <a href="/tags/Dynamic-Programming/" style="font-size: 18px; color: #7e7e7e">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Graph-theory/" style="font-size: 14px; color: #999">Graph theory</a> <a href="/tags/Greedy/" style="font-size: 18px; color: #7e7e7e">Greedy</a> <a href="/tags/Hadoop/" style="font-size: 16px; color: #8b8b8b">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Knapsack/" style="font-size: 14px; color: #999">Knapsack</a> <a href="/tags/LCA/" style="font-size: 14px; color: #999">LCA</a> <a href="/tags/Latex/" style="font-size: 22px; color: #636363">Latex</a> <a href="/tags/Linux/" style="font-size: 18px; color: #7e7e7e">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 20px; color: #707070">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Matlab/" style="font-size: 16px; color: #8b8b8b">Matlab</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/Number-theory/" style="font-size: 16px; color: #8b8b8b">Number theory</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Paper/" style="font-size: 14px; color: #999">Paper</a> <a href="/tags/Prefix-Sum/" style="font-size: 14px; color: #999">Prefix Sum</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Spanning-tree/" style="font-size: 14px; color: #999">Spanning tree</a> <a href="/tags/String/" style="font-size: 16px; color: #8b8b8b">String</a> <a href="/tags/Union-Find-Set/" style="font-size: 14px; color: #999">Union-Find Set</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a>
+      <a href="/tags/Binary-Search/" style="font-size: 14px; color: #999">Binary Search</a> <a href="/tags/C-C/" style="font-size: 20px; color: #707070">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/Database/" style="font-size: 16px; color: #8b8b8b">Database</a> <a href="/tags/Doubling/" style="font-size: 14px; color: #999">Doubling</a> <a href="/tags/Dynamic-Programming/" style="font-size: 20px; color: #707070">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Graph-theory/" style="font-size: 14px; color: #999">Graph theory</a> <a href="/tags/Greedy/" style="font-size: 20px; color: #707070">Greedy</a> <a href="/tags/Hadoop/" style="font-size: 16px; color: #8b8b8b">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Knapsack/" style="font-size: 14px; color: #999">Knapsack</a> <a href="/tags/LCA/" style="font-size: 14px; color: #999">LCA</a> <a href="/tags/Latex/" style="font-size: 22px; color: #636363">Latex</a> <a href="/tags/Linux/" style="font-size: 18px; color: #7e7e7e">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 20px; color: #707070">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Matlab/" style="font-size: 16px; color: #8b8b8b">Matlab</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/Number-theory/" style="font-size: 16px; color: #8b8b8b">Number theory</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Paper/" style="font-size: 14px; color: #999">Paper</a> <a href="/tags/Prefix-Sum/" style="font-size: 14px; color: #999">Prefix Sum</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Spanning-tree/" style="font-size: 14px; color: #999">Spanning tree</a> <a href="/tags/String/" style="font-size: 16px; color: #8b8b8b">String</a> <a href="/tags/Union-Find-Set/" style="font-size: 14px; color: #999">Union-Find Set</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a>
     </div>
   </section>
 

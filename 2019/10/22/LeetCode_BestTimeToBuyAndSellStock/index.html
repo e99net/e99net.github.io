@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>总结买卖股票这一类型的几道题 | 99°</title>
+  
+  <meta name="keywords" content="blog">
+  
+  
+  <meta name="description" content="学习的本质就是重复">
+  
+
+  <link rel="alternate" href="/atom.xml" title="99°">
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  
+
+
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          99°
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="https:e99net.github.io"
+								 class="nav flat-box" href="https://e99net.github.io/">
+									<i class='fas fa-home fa-fw'></i>&nbsp;Home
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="about"
+								 class="nav flat-box" href="/about/">
+									<i class='fas fa-comment-dots fa-fw'></i>&nbsp;About
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="https:e99net.github.io" class="nav flat-box" href="https://e99net.github.io/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;Home
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="about" class="nav flat-box" href="/about/">
+											<i class='fas fa-comment-dots fa-fw'></i>&nbsp;About
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">总结买卖股票这一类型的几道题</h1>
+      
+    
+
+    
+      <time class="metatag time">
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-10-22
+      </time>
+    
+
+    
+      
+    
+    <div class='metatag cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/Algorithm/">Algorithm</a>
+    </div>
+
+
+    
+
+    
+      
+        <div class="metatag browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          &nbsp;<span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+      
+    
+
+    
+
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h4 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h4><ul>
+<li>描述：</li>
+</ul>
+<p>给一个数组，数组中的第i个元素代表第i天的股票价格。如果只允许完全至多一次交易（即买进一股股票并卖出这股股票），那么最大收益是多少？</p>
+<p>注意：卖出股票的时间不能早于买进股票的时间。</p>
+<a id="more"></a>
+<ul>
+<li>输入：</li>
+</ul>
+<p>一个数组。</p>
+<ul>
+<li>输出：</li>
+</ul>
+<p>买卖股票的最大收益。</p>
+<ul>
+<li>样例输入1：</li>
+</ul>
+<p>[7,1,5,3,6,4]</p>
+<ul>
+<li>样例输出1：</li>
+</ul>
+<p>5</p>
+<ul>
+<li>样例输入2：</li>
+</ul>
+<p>[7,6,4,3,1]</p>
+<ul>
+<li>样例输出2：</li>
+</ul>
+<p>0</p>
+<ul>
+<li><p>解题思路：贪心法</p>
+</li>
+<li><p>参考代码:</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//复杂度O(n)</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProfit(vector&lt;int&gt;&amp; prices) &#123;</span><br><span class="line">        if(prices.size()&lt;2)</span><br><span class="line">            return 0;</span><br><span class="line">        int max=0,diff=0;</span><br><span class="line">        for(int i=0;i&lt;prices.size()-1;i++) &#123;</span><br><span class="line">            for(int j=i+1;j&lt;prices.size();j++) &#123;</span><br><span class="line">                diff=prices[j]-prices[i];</span><br><span class="line">                if(diff&gt;max) max=diff;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h4><ul>
+<li>描述：</li>
+</ul>
+<p>给一个数组，数组中的第i个元素代表第i天的股票价格。如果允许完成多次交易（即多次买进一股股票并卖出这股股票），那么最大收益是多少？</p>
+<p>注意：不能同时进行多次交易，必须在再次买进股票前卖出股票。</p>
+<ul>
+<li>输入：</li>
+</ul>
+<p>一个数组。</p>
+<ul>
+<li>输出：</li>
+</ul>
+<p>买卖股票的最大收益。</p>
+<ul>
+<li>输入样例1：</li>
+</ul>
+<p>[7,1,5,3,6,4]</p>
+<ul>
+<li>输出样例1：</li>
+</ul>
+<p>7</p>
+<ul>
+<li><p>说明：第二天买进，第三天卖出，获得收益5-1=4；第四天买进，第五天卖出，获得收益6-3=3。总共获得收益4+3=7。</p>
+</li>
+<li><p>输入样例2：</p>
+</li>
+</ul>
+<p>[1,2,3,4,5]</p>
+<ul>
+<li>输出样例2：</li>
+</ul>
+<p>4</p>
+<ul>
+<li><p>说明：第一天买进，第五天卖出，获得收益5-1=4。不能在第一天买进，第二天买进，稍后再卖出它们，因为这算同时进行多次交易。</p>
+</li>
+<li><p>输入样例3：</p>
+</li>
+</ul>
+<p>[7,6,4,3,1]</p>
+<ul>
+<li>输出样例3：</li>
+</ul>
+<p>0</p>
+<ul>
+<li><p>解题思路：贪心法</p>
+</li>
+<li><p>参考代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProfit(vector&lt;int&gt;&amp; prices)&#123;</span><br><span class="line">        int sum=0;</span><br><span class="line">        for(int i=1;i&lt;prices.size();i++) &#123;</span><br><span class="line">            int diff=prices[i]-prices[i-1];</span><br><span class="line">            if(diff&gt;0) sum+=diff;</span><br><span class="line">        &#125;</span><br><span class="line">        return sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h4><ul>
+<li>描述：</li>
+</ul>
+<p>给一个数组，数组中的第i个元素代表第i天的股票价格。如果只允许完成最多两次交易（即最多两次买进股票并卖出股票），那么最大收益是多少？</p>
+<p>注意：不能同时进行多次交易，必须在再次买进股票前卖出股票。</p>
+<ul>
+<li>输入：</li>
+</ul>
+<p>一个数组。</p>
+<ul>
+<li>输出：</li>
+</ul>
+<p>买卖股票的最大收益。</p>
+<ul>
+<li>输入样例1：</li>
+</ul>
+<p>[3,3,5,0,0,3,1,4]</p>
+<ul>
+<li>输出样例1：</li>
+</ul>
+<p>6</p>
+<ul>
+<li><p>说明：第四天买进，第六天卖出，获得收益3-0=3；然后第七天买进，第八天卖出，获得收益4-1=3。总共获得收益3+3=6。</p>
+</li>
+<li><p>输入样例2：</p>
+</li>
+</ul>
+<p>[1,2,3,4,5]</p>
+<ul>
+<li>输出样例2：</li>
+</ul>
+<p>4</p>
+<ul>
+<li><p>说明：第一天买进，第五天卖出，获得收益5-1=4。不能在第一天买进，第二天买进，稍后再卖出它们，因为这算同时进行多次交易。</p>
+</li>
+<li><p>输入样例3：</p>
+</li>
+</ul>
+<p>[7,6,4,3,1]</p>
+<ul>
+<li>输出样例3：</li>
+</ul>
+<p>0</p>
+<ul>
+<li><p>解题思路：动态规划</p>
+</li>
+<li><p>参考代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProfit(vector&lt;int&gt;&amp; prices) &#123;</span><br><span class="line">        if(prices.size()&lt;2)return 0;</span><br><span class="line">        const int n=prices.size();</span><br><span class="line">        vector&lt;int&gt; f(n,0);</span><br><span class="line">        vector&lt;int&gt; g(n,0);</span><br><span class="line">        for(int i=1,valley=prices[0];i&lt;n;i++) &#123;</span><br><span class="line">            valley=min(valley,prices[i]);</span><br><span class="line">            f[i]=max(f[i-1],prices[i]-valley);</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i=n-2,peak=prices[n-1];i&gt;=0;i--) &#123;</span><br><span class="line">            peak=max(peak,prices[i]);</span><br><span class="line">            g[i]=max(g[i],peak-prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        int max_profit=0;</span><br><span class="line">        for(int i=0;i&lt;n;i++)</span><br><span class="line">            max_profit=max(max_profit,f[i]+g[i]);</span><br><span class="line">        return max_profit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h4><ul>
+<li>描述：</li>
+</ul>
+<p>给一个数组，数组中的第i个元素代表第i天的股票价格。如果只允许完成最多k次交易（即最多k次买进股票并卖出股票），那么最大收益是多少？</p>
+<p>注意：不能同时进行多次交易，必须在再次买进股票前卖出股票。</p>
+<ul>
+<li>输入：</li>
+</ul>
+<p>一个数组和一个数，用空格分隔。</p>
+<ul>
+<li>输出：</li>
+</ul>
+<p>买卖股票的最大收益。</p>
+<ul>
+<li>输入样例1：</li>
+</ul>
+<p>[2,4,1] 2</p>
+<ul>
+<li>输出样例1：</li>
+</ul>
+<p>2</p>
+<ul>
+<li><p>说明：第一天买进，第二天卖出，总共获得收益4-2=2。</p>
+</li>
+<li><p>输入样例2：</p>
+</li>
+</ul>
+<p>[3,2,6,5,0,3] 2</p>
+<ul>
+<li>输出样例2：</li>
+</ul>
+<p>7</p>
+<ul>
+<li><p>说明：第二天买进，第三天卖出，获得收益6-2=4；然后在第五天买进，第六天卖出，获得收益3-0=3。总共获得收益4+3=7。</p>
+</li>
+<li><p>解题思路：动态规划</p>
+</li>
+</ul>
+<p>这道题是第三题的推广<br>如果k的值远大于prices的天数，应该直接用第二题的解法，所以这道题又是第二题和第三题的结合</p>
+<ul>
+<li>参考代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProfit(int k, vector&lt;int&gt;&amp; prices) &#123;</span><br><span class="line">        if(prices.empty()) return 0;</span><br><span class="line">        const int n=prices.size();</span><br><span class="line">        if(k&gt;=n) return solveMaxProfit(prices);</span><br><span class="line">        int global[k+1]=&#123;0&#125;;</span><br><span class="line">        int local[k+1]=&#123;0&#125;;</span><br><span class="line">        for(int i=0;i&lt;n-1;i++) &#123;</span><br><span class="line">            int diff=prices[i+1]-prices[i];</span><br><span class="line">            for(int j=k;j&gt;=1;j--) &#123;</span><br><span class="line">                local[j]=max(global[j-1]+max(diff,0),local[j]+diff);</span><br><span class="line">                global[j]=max(global[j],local[j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return global[k];</span><br><span class="line">    &#125;</span><br><span class="line">    int solveMaxProfit(vector&lt;int&gt;&amp; prices) &#123;</span><br><span class="line">        int res=0;</span><br><span class="line">        for(int i=1;i&lt;prices.size();i++) &#123;</span><br><span class="line">            if(prices[i]-prices[i-1]&gt;0) &#123;</span><br><span class="line">                res+=prices[i]-prices[i-1];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="第五题"><a href="#第五题" class="headerlink" title="第五题"></a>第五题</h4><ul>
+<li>描述：</li>
+</ul>
+<p>给一个数组，数组中的第i个元素代表第i天的股票价格。如果允许按照以下限制完成多次交易（即多次买进股票并卖出股票），那么最大收益是多少？</p>
+<p>限制1：不能同时进行多次交易，必须在再次买进股票前卖出股票。<br>限制2：在卖出股票后，不能买进下一天的股票（冷却一天）。</p>
+<ul>
+<li>输入：</li>
+</ul>
+<p>一个数组。</p>
+<ul>
+<li>输出：</li>
+</ul>
+<p>买卖股票的最大收益。</p>
+<ul>
+<li>输入样例：</li>
+</ul>
+<p>[1,2,3,0,2]</p>
+<ul>
+<li>输出样例：</li>
+</ul>
+<p>3</p>
+<ul>
+<li><p>说明：第一天买进，第二天卖出，第三天冷却，第四天买进，第五天卖出，总共获得收益1+2=3。</p>
+</li>
+<li><p>解题思路：动态规划</p>
+</li>
+</ul>
+<p><img src="/2019/10/22/LeetCode_BestTimeToBuyAndSellStock/585082-20160229165036642-1352963708.png" alt=""></p>
+<p>状态转移图中：<br>S0 代表没有买入的状态<br>S1 代表买入后等待卖出的状态<br>S2 代表卖出后的状态</p>
+<p>S2与S0的区别是：因为题目要求卖出后必须cooldown一轮，所以卖出进入S2后，必须再进入S0这个等待买入的状态，这一状态转换代表cooldown一轮</p>
+<p>状态转移方程：<br>s0[i] = max(s0[i-1], s2[i-1])<br>s1[i] = max(s1[i-1], s0[i-1] - price[i])<br>s2[i] = s1[i-1] + price[i]</p>
+<ul>
+<li>参考代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProfit(vector&lt;int&gt;&amp; prices) &#123;</span><br><span class="line">        const int n=prices.size();</span><br><span class="line">        if(n&lt;=1) return 0;</span><br><span class="line">        vector&lt;int&gt; s0(n,0);</span><br><span class="line">        vector&lt;int&gt; s1(n,0);</span><br><span class="line">        vector&lt;int&gt; s2(n,0);</span><br><span class="line">        s1[0]=-prices[0];</span><br><span class="line">        s0[0]=0;</span><br><span class="line">        s2[0]=INT_MIN;</span><br><span class="line">        for(int i=1;i&lt;n;i++) &#123;</span><br><span class="line">            s0[i]=max(s0[i-1],s2[i-1]);</span><br><span class="line">            s1[i]=max(s1[i-1],s0[i-1]-prices[i]);</span><br><span class="line">            s2[i]=s1[i-1]+prices[i];</span><br><span class="line">        &#125;</span><br><span class="line">        return max(s0[n-1],s2[n-1]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="第六题"><a href="#第六题" class="headerlink" title="第六题"></a>第六题</h4><ul>
+<li>描述：</li>
+</ul>
+<p>给一个数组和一个数，数组中的第i个元素代表第i天的股票价格，那个数代表交易费。如果允许完成多次交易（即多次买进股票并卖出股票），且每次交易需要支付交易费，那么最大收益是多少？</p>
+<p>注意：不能同时进行多次交易，必须在再次买进股票前卖出股票。</p>
+<ul>
+<li>输入：</li>
+</ul>
+<p>一个数组prices（$0 &lt; prices.length \le 50000$，$0 &lt; prices[i] &lt; 50000$）和一个数fee（$0 \le fee &lt; 50000$），用空格分隔。</p>
+<ul>
+<li>输出：</li>
+</ul>
+<p>买卖股票的最大收益。</p>
+<ul>
+<li>输入样例：</li>
+</ul>
+<p>[1,3,2,8,4,9] 2</p>
+<ul>
+<li>输出样例：</li>
+</ul>
+<p>8</p>
+<ul>
+<li><p>说明：第一天买进，第四天卖出，第五天买进，第六天卖出，总共获得收益(8-1-2)+(9-4-2)=8。</p>
+</li>
+<li><p>解题思路：动态规划</p>
+</li>
+</ul>
+<p>贪心法不行，当卖出的利润小于交易费时，不应该卖出，否则会亏损。</p>
+<p>状态转移方程：<br>sold[i] = max(sold[i - 1], hold[i - 1] + prices[i] - fee)<br>hold[i] = max(hold[i - 1], sold[i - 1] - prices[i])</p>
+<p>不管是卖出还是保留，第i天的利润只跟第i-1天有关系，所以可以优化空间，用两个变量来表示当前的卖出和保留的利润，</p>
+<ul>
+<li>参考代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProfit(vector&lt;int&gt;&amp; prices, int fee) &#123;</span><br><span class="line">        int sold=0,hold=-prices[0];</span><br><span class="line">        for(int price:prices) &#123;</span><br><span class="line">            int t=sold;</span><br><span class="line">            sold=max(sold,hold+price-fee);</span><br><span class="line">            hold=max(hold,t-price);</span><br><span class="line">        &#125;</span><br><span class="line">        return sold;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-10-22T22:59:56+08:00" content="2019-10-22"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2019-10-22
+              </time>
+            
+            
+                
+                <div class="metatag tags"><a class="tag" href="/tags/Dynamic-Programming/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Dynamic Programming</a></div> <div class="metatag tags"><a class="tag" href="/tags/Greedy/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Greedy</a></div>
+            
+            
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/10/21/string/" rel="prev" title="几道比较有意思的字符串题">
+                                    
+                                        几道比较有意思的字符串题
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/String/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>String</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX","TeX"],
+      linebreaks: { automatic:true },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: { autoNumber: "AMS" },
+      noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+      Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+  });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += (all[i].SourceElement().parentNode.className ? ' ' : '') + 'has-jax';
+    }
+    console.log("mathjax did loaded!");
+  });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+
+      
+        
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;Related Posts</h4>
+        <ul>
+            
+                <li><a href="https://e99net.github.io/2019/10/21/string/">几道比较有意思的字符串题</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/10/21/knapsack/">背包问题总结</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/10/21/meituan2019/">记一道算法编程题</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/10/07/netease/">记五道2020年某企业提前批招聘笔试题</a></li>
+            
+        </ul>
+    </div>
+
+
+      
+
+      
+    </section>
+  </article>
+
+
+
+<script>
+    window.subData = {
+        title: '总结买卖股票这一类型的几道题',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://avatars3.githubusercontent.com/u/29162050?s=460&v=4'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:flyhacker666@gmail.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/e99net" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://stackoverflow.com/users/8868862/e99net" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-stack-overflow" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='category'>
+    
+<header class='pure'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Categories</div>
+  
+</header>
+
+    <div class='content pure'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Algorithm/" href="/categories/Algorithm/"><div class='name'>Algorithm</div><div class='badge'>(11)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/BigData/" href="/categories/BigData/"><div class='name'>BigData</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/EAs/" href="/categories/EAs/"><div class='name'>EAs</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/memo/" href="/categories/memo/"><div class='name'>memo</div><div class='badge'>(54)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/Binary-Search/" style="font-size: 14px; color: #999">Binary Search</a> <a href="/tags/C-C/" style="font-size: 20px; color: #707070">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/Database/" style="font-size: 16px; color: #8b8b8b">Database</a> <a href="/tags/Doubling/" style="font-size: 14px; color: #999">Doubling</a> <a href="/tags/Dynamic-Programming/" style="font-size: 20px; color: #707070">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Graph-theory/" style="font-size: 14px; color: #999">Graph theory</a> <a href="/tags/Greedy/" style="font-size: 20px; color: #707070">Greedy</a> <a href="/tags/Hadoop/" style="font-size: 16px; color: #8b8b8b">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Knapsack/" style="font-size: 14px; color: #999">Knapsack</a> <a href="/tags/LCA/" style="font-size: 14px; color: #999">LCA</a> <a href="/tags/Latex/" style="font-size: 22px; color: #636363">Latex</a> <a href="/tags/Linux/" style="font-size: 18px; color: #7e7e7e">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 20px; color: #707070">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Matlab/" style="font-size: 16px; color: #8b8b8b">Matlab</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/Number-theory/" style="font-size: 16px; color: #8b8b8b">Number theory</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Paper/" style="font-size: 14px; color: #999">Paper</a> <a href="/tags/Prefix-Sum/" style="font-size: 14px; color: #999">Prefix Sum</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Spanning-tree/" style="font-size: 14px; color: #999">Spanning tree</a> <a href="/tags/String/" style="font-size: 16px; color: #8b8b8b">String</a> <a href="/tags/Union-Find-Set/" style="font-size: 14px; color: #999">Union-Find Set</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a>
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:flyhacker666@gmail.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/e99net" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://stackoverflow.com/users/8868862/e99net" class="social fab fa-stack-overflow flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>Use <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> as theme, total visits <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> times. 
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+    <!-- fastclick -->
+    <script src="https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body)
+      }, false)
+    </script>
+  
+  
+
+
+  
+  
+  
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
