@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>两道算法编程题</title>
+      <link href="/2019/11/10/webank/"/>
+      <url>/2019/11/10/webank/</url>
+      
+        <content type="html"><![CDATA[<h4 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h4><ul><li>描述：</li></ul><p>你需要对一个数组进行排序（升序），每一次，你可以将一个数移动到任意位置，这一次操作的代价是这个数的大小。最少需要多少代价才能将整个数组排序？</p><a id="more"></a><ul><li>输入：</li></ul><p>第一行输入一个正整数N，$1 \le N \le 100$，表示数组元素个数。</p><p>第二行输入N个整数，整数之间用空格隔开。</p><ul><li>输出：</li></ul><p>输出一个整数，表示将整个数组排序的最小代价。</p><ul><li>样例输入：</li></ul><p>4<br>8 1 2 3</p><ul><li>样例输出：</li></ul><p>6</p><ul><li>解题思路：</li></ul><p>求出里面和最大的升序数组，用数组和减去它就是结果了。因为最终的数组和原来的数组，差别就在于那些移动了位置的数，要让移动位置的代价最小，当然就是让移动位置的数的和最小，等价于不移动位置的数的和最大，而最大的升序数组和就是能够不移动位置的最大子数组。<br>最大的升序数组和可用dp求出。</p><ul><li>参考代码:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><h4 id="取棋子"><a href="#取棋子" class="headerlink" title="取棋子"></a>取棋子</h4><ul><li>描述：</li></ul><p>西西有一个N行N列的棋盘，其中某些格子上放有棋子（黑子或白子）。西西不希望棋盘上有两个相邻的格子放 着颜色相同的棋子，与第i行 第j列的格子相邻的格子为：</p><p>第i-1行第j列的格子（当i&gt;1时）；</p><p>第i+1行第j列的格子（当i&lt;N时）；</p><p>第i行第i-1列的格子（当i&gt;1时）；</p><p>第i行第i+1列的格子（当i&lt;N时）。</p><p>现在，西西可以取走棋盘上的某些棋子，使得剩下的棋子中，任意两个颜色相同的棋子所在的格子不相邻。<br>那么， 棋盘上最多剩下多少个棋子？</p><ul><li>输入：</li></ul><p>第一行输入一个正整数N，$N \le 50$，表示棋盘的行列数。</p><p>接下来的N行，每行有N个整数，整数之间用空格隔开，表示棋盘每行每列防止棋子的情况。<br>整数取值只能是0、1、2，分别表示该格未放棋子、放的是黑子、放的是白子。</p><ul><li>输出：</li></ul><p>输出一个整数，表示棋盘上最多剩下的棋子数。</p><ul><li>样例输入：</li></ul><ul><li>样例输出：</li></ul><ul><li>解题思路：</li></ul><p>给每个棋子设置一个度(0 1 2 3 4)。一个棋子周围每有一个同样颜色的棋子，那就让它的度加1，最小为0，最大为4。然后从棋盘里逐个删掉度是4的并且更新棋盘(周围的同样颜色的棋子度要剪1)，然后删掉度是3的，以此类推知道所有棋子度是0，看这时候删了多少棋子。</p><p>用4个hash set分别保存度为1 2 3 4的点，每删一个度为4的点，就更新所有它周围的节点，然后再继续进行删除。对黑的进行一次删除，再对白的进行一次删除，就能求出结果了。</p><p>这个方法对相连的度为4的点还要额外讨论。<br><img src="/2019/11/10/webank/20191110200143.jpg" alt=""><br>图中的两个点度都为4，但删绿的总共删四个，删红的 总共删五个。<br>所以又想出一个方法：先取连通的区域 统计如果在国际象棋棋盘中 黑格和白格点数 然后删少的。<br>在上图中就是黑7白4，删白的。<br><img src="/2019/11/10/webank/20191110200530.jpg" alt=""><br>五个同色棋子，白格一个，黑格四个，删白格。<br>但这种方法还是有badcase。</p><p>所以……我也不知道咋做！</p><ul><li>参考代码:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Dynamic Programming </tag>
+            
+            <tag> Greedy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>宽搜手工写队列</title>
       <link href="/2019/10/26/bytedance_2019_2/"/>
       <url>/2019/10/26/bytedance_2019_2/</url>
@@ -1176,31 +1203,6 @@
     
     
     <entry>
-      <title>Ubuntu16.04安装WPS</title>
-      <link href="/2018/04/13/WpsofUbuntu/"/>
-      <url>/2018/04/13/WpsofUbuntu/</url>
-      
-        <content type="html"><![CDATA[<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><ul><li>下载：<a href="http://community.wps.cn/download" target="_blank" rel="noopener">WPS For Linux</a></li><li>安装命令<blockquote><p>sudo dpkg -i wps-office_10.1.0.5672_a21_amd64.deb</p></blockquote></li></ul><h3 id="字体缺失问题"><a href="#字体缺失问题" class="headerlink" title="字体缺失问题"></a>字体缺失问题</h3><ul><li>下载<a href="https://pan.baidu.com/s/1eS6xlzo" target="_blank" rel="noopener">wps_symbol_fonts.zip</a></li><li>创建目录：<a id="more"></a><blockquote><p>sudo mkdir /usr/share/fonts/wps-office</p></blockquote></li><li>将下载的字体复制到创建的目录：<blockquote><p>sudo cp -r wps_symbol_fonts.zip /usr/share/fonts/wps-office</p></blockquote></li><li>切换到创建的目录：<blockquote><p>cd /usr/share/fonts/wps-office</p></blockquote></li><li>解压字体包：<blockquote><p>sudo unzip wps_symbol_fonts.zip</p></blockquote></li><li>解压后删除字体包：<blockquote><p>sudo rm -r wps_symbol_fonts.zip</p></blockquote></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Water </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>搭建Hadoop过程中的虚拟机相关问题</title>
       <link href="/2018/04/13/VirtualMachineOfHadoop/"/>
       <url>/2018/04/13/VirtualMachineOfHadoop/</url>
@@ -1218,6 +1220,31 @@
         <tags>
             
             <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu16.04安装WPS</title>
+      <link href="/2018/04/13/WpsofUbuntu/"/>
+      <url>/2018/04/13/WpsofUbuntu/</url>
+      
+        <content type="html"><![CDATA[<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><ul><li>下载：<a href="http://community.wps.cn/download" target="_blank" rel="noopener">WPS For Linux</a></li><li>安装命令<blockquote><p>sudo dpkg -i wps-office_10.1.0.5672_a21_amd64.deb</p></blockquote></li></ul><h3 id="字体缺失问题"><a href="#字体缺失问题" class="headerlink" title="字体缺失问题"></a>字体缺失问题</h3><ul><li>下载<a href="https://pan.baidu.com/s/1eS6xlzo" target="_blank" rel="noopener">wps_symbol_fonts.zip</a></li><li>创建目录：<a id="more"></a><blockquote><p>sudo mkdir /usr/share/fonts/wps-office</p></blockquote></li><li>将下载的字体复制到创建的目录：<blockquote><p>sudo cp -r wps_symbol_fonts.zip /usr/share/fonts/wps-office</p></blockquote></li><li>切换到创建的目录：<blockquote><p>cd /usr/share/fonts/wps-office</p></blockquote></li><li>解压字体包：<blockquote><p>sudo unzip wps_symbol_fonts.zip</p></blockquote></li><li>解压后删除字体包：<blockquote><p>sudo rm -r wps_symbol_fonts.zip</p></blockquote></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
             
         </tags>
       
@@ -1301,11 +1328,11 @@
     
     
     <entry>
-      <title>关于Windows通过远程桌面访问Ubuntu</title>
-      <link href="/2018/04/13/RemoteAccess/"/>
-      <url>/2018/04/13/RemoteAccess/</url>
+      <title>ConEmu的些许设置</title>
+      <link href="/2018/04/13/SettingsOfConemu/"/>
+      <url>/2018/04/13/SettingsOfConemu/</url>
       
-        <content type="html"><![CDATA[<p>从Ubuntu13.10开始，据说是由于xrdp、gnome和unity之间的兼容性问题，在Ubuntu中无法使用xrdp登录gnome或unity的远程桌面，现象是登录后只有黑白点为背景，无图标也无法操作。</p><a id="more"></a><p>解决办法是：使用xrdp登录xfce的远程桌面，或者也可以使用xrdp登录Mate的远程桌面。</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="添加ConEmu到Windows右键菜单"><a href="#添加ConEmu到Windows右键菜单" class="headerlink" title="添加ConEmu到Windows右键菜单"></a>添加ConEmu到Windows右键菜单</h3><p>进行ConEmu界面,打开设置,如下图:<br><a id="more"></a></p><p><img src="http://image.bubuko.com/info/201709/20180111004357181665.png" alt=""></p><p>然后,打开Integreation,将“cmd -cur_console:n”改为“cmd -cur_console:n %P”,如图操作:</p><p><img src="http://image.bubuko.com/info/201709/20180111004357186548.png" alt=""></p><p>点击”Save settings”,回到Windows桌面或是TotalCommander界面就可以看到右键菜单里已经有ConEmu选项了.</p>]]></content>
       
       
       <categories>
@@ -1317,7 +1344,7 @@
       
         <tags>
             
-            <tag> Machine Learning </tag>
+            <tag> Water </tag>
             
         </tags>
       
@@ -1351,36 +1378,11 @@
     
     
     <entry>
-      <title>ConEmu的些许设置</title>
-      <link href="/2018/04/13/SettingsOfConemu/"/>
-      <url>/2018/04/13/SettingsOfConemu/</url>
+      <title>关于Windows通过远程桌面访问Ubuntu</title>
+      <link href="/2018/04/13/RemoteAccess/"/>
+      <url>/2018/04/13/RemoteAccess/</url>
       
-        <content type="html"><![CDATA[<h3 id="添加ConEmu到Windows右键菜单"><a href="#添加ConEmu到Windows右键菜单" class="headerlink" title="添加ConEmu到Windows右键菜单"></a>添加ConEmu到Windows右键菜单</h3><p>进行ConEmu界面,打开设置,如下图:<br><a id="more"></a></p><p><img src="http://image.bubuko.com/info/201709/20180111004357181665.png" alt=""></p><p>然后,打开Integreation,将“cmd -cur_console:n”改为“cmd -cur_console:n %P”,如图操作:</p><p><img src="http://image.bubuko.com/info/201709/20180111004357186548.png" alt=""></p><p>点击”Save settings”,回到Windows桌面或是TotalCommander界面就可以看到右键菜单里已经有ConEmu选项了.</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Water </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>技术面试</title>
-      <link href="/2018/04/13/Questions/"/>
-      <url>/2018/04/13/Questions/</url>
-      
-        <content type="html"><![CDATA[<h3 id="基础打牢了吗？"><a href="#基础打牢了吗？" class="headerlink" title="基础打牢了吗？"></a>基础打牢了吗？</h3><p>常问问题（Java）</p><ul><li>HashTable与HashMap有什么区别？</li><li>Servlet是线程安全的吗？<a id="more"></a></li><li>JSP中@include跟jsp：include的区别。</li><li>HTTP的respomse code 403和500分别代表什么？</li></ul><p>这些问题都很简单，但一些基础不牢的程序员往往会在这个时候露馅。</p><p>曾经碰到过一个在简历中说自己精通C++的应聘者，连成员变量的初始化顺序这样的问题都被问得一头雾水，那最终结果也就可想而知了。</p><h3 id="技术深度够吗？"><a href="#技术深度够吗？" class="headerlink" title="技术深度够吗？"></a>技术深度够吗？</h3><p>我们现在做项目时都会大量使用框架，这能使我们的开发效率和质量都得到提升和保障，但同时也降低了对程序员开发技能的要求。因此一般会询问面试者下面的问题，来考察对使用框架的掌握程度：</p><blockquote><p>请你描述一下，在这个项目中，从一个HTTP请求发起，到最终的Response返回，它在你的系统和框架内部是如何流转的？</p></blockquote><p>这个问题往往能够判断出面试者对于相关技术的掌握深度。较初级的开发人员描述的层级往往比较浅。比如，使用Spring MVC框架的，只能说到实现一个Controller继承BaseCommandController（甚至很多开发人员只知道继承了一个公司内部框架的基类），至于再往下Spring框架是如何进行内部流转的，就再也说不清楚了；而更资深的开发人员，往往能够说出框架内部的实现机制，以及如何调用和处理的。在面试者描述的过程中，会被穿插询问一些比较有深度的问题，比如，框架中某个类这样设计是哪一种设计模式的体现，采用这样的设计有什么好处，等等。这比让面试者默写一个设计模式代码要有效，也自然得多。<br>除了技术层面上的考察之外，对于资深开发人员，还需要考察他们的设计能力。说到软件设计，大部分面试者都能熟练地背出面向对象的3个基本特性：继承、封装、多态，也能把它们的概念描述清楚。但一般被问及下面的这个问题来考察面向对象设计能力：</p><blockquote><p>请用一段程序代码描述我们所在的这间房间。</p></blockquote><p>至少有一半都很难准确使用Interface和Class来给房间建模，也有一些人会将最基本的代码语法或关键字写错。</p><h3 id="适合所在企业文化"><a href="#适合所在企业文化" class="headerlink" title="适合所在企业文化"></a>适合所在企业文化</h3><p>让我们看看GitHub负责人的一段话：</p><blockquote><p>我们很严肃地看待我们自己关于招聘流程的哲学。我们希望每一个GitHub员工都了解他们所要面对的环境，并保证他们是能够很好适应的。这包括我们所创造的文化、哲学、计划、错误甚至是晚餐。比起他们的技能是否满足要求，我们更看重他们的潜力，以及是否能够适应我们的企业文化。</p></blockquote><h3 id="虚拟任务"><a href="#虚拟任务" class="headerlink" title="虚拟任务"></a>虚拟任务</h3><blockquote><p>写一个小程序：将一个以特定格式（如CSV）存储的文本文件转换为XML格式，并存储为另一个文件。</p></blockquote><h3 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h3><p>基于Spring Boot及其他第三方库所提供的API来开发出基于REST的服务；然后，在前端利用AngularJS将应用分为几个模块（UserManager，ResourceManger，FeedbackManager）分别开发；最后，通过$http调用后端服务来进行业务处理和数据交互。<br>在整个开发过程中，仍需要去解决一些问题：</p><pre><code>* 前后端分离之后，如何进行Session的管理* 如何实现安全的跨域请求。* 在Spring Boot中如何整合MyBatis框架。* 如何利用Spring Security来构建安全的REST服务。* 如何利用云服务实现图片的上传与处理。</code></pre><h3 id="重构——系统改善之道"><a href="#重构——系统改善之道" class="headerlink" title="重构——系统改善之道"></a>重构——系统改善之道</h3><pre><code>* 引入构建工具    对于后端Java程序来说，最常使用的便是Groovy，也可尝试使用Gradle。而对于前端来说，Grunt或更新的Gulp都是不错的选择。</code></pre><h3 id="编程习惯"><a href="#编程习惯" class="headerlink" title="编程习惯"></a>编程习惯</h3><p>如果应聘者先写单元测试用例，再写解决问题的函数，那么面试官定会刮目相看，因为能做到测试在前、开发在后的程序员实在是太稀缺了，他会毫不犹豫地抛出橄榄枝。</p><p>调试功底：熟练地设置断点、单步跟踪、查看内存、分析调用栈。</p>]]></content>
+        <content type="html"><![CDATA[<p>从Ubuntu13.10开始，据说是由于xrdp、gnome和unity之间的兼容性问题，在Ubuntu中无法使用xrdp登录gnome或unity的远程桌面，现象是登录后只有黑白点为背景，无图标也无法操作。</p><a id="more"></a><p>解决办法是：使用xrdp登录xfce的远程桌面，或者也可以使用xrdp登录Mate的远程桌面。</p>]]></content>
       
       
       <categories>
@@ -1392,7 +1394,7 @@
       
         <tags>
             
-            <tag> Water </tag>
+            <tag> Machine Learning </tag>
             
         </tags>
       
@@ -1418,6 +1420,31 @@
         <tags>
             
             <tag> Database </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>技术面试</title>
+      <link href="/2018/04/13/Questions/"/>
+      <url>/2018/04/13/Questions/</url>
+      
+        <content type="html"><![CDATA[<h3 id="基础打牢了吗？"><a href="#基础打牢了吗？" class="headerlink" title="基础打牢了吗？"></a>基础打牢了吗？</h3><p>常问问题（Java）</p><ul><li>HashTable与HashMap有什么区别？</li><li>Servlet是线程安全的吗？<a id="more"></a></li><li>JSP中@include跟jsp：include的区别。</li><li>HTTP的respomse code 403和500分别代表什么？</li></ul><p>这些问题都很简单，但一些基础不牢的程序员往往会在这个时候露馅。</p><p>曾经碰到过一个在简历中说自己精通C++的应聘者，连成员变量的初始化顺序这样的问题都被问得一头雾水，那最终结果也就可想而知了。</p><h3 id="技术深度够吗？"><a href="#技术深度够吗？" class="headerlink" title="技术深度够吗？"></a>技术深度够吗？</h3><p>我们现在做项目时都会大量使用框架，这能使我们的开发效率和质量都得到提升和保障，但同时也降低了对程序员开发技能的要求。因此一般会询问面试者下面的问题，来考察对使用框架的掌握程度：</p><blockquote><p>请你描述一下，在这个项目中，从一个HTTP请求发起，到最终的Response返回，它在你的系统和框架内部是如何流转的？</p></blockquote><p>这个问题往往能够判断出面试者对于相关技术的掌握深度。较初级的开发人员描述的层级往往比较浅。比如，使用Spring MVC框架的，只能说到实现一个Controller继承BaseCommandController（甚至很多开发人员只知道继承了一个公司内部框架的基类），至于再往下Spring框架是如何进行内部流转的，就再也说不清楚了；而更资深的开发人员，往往能够说出框架内部的实现机制，以及如何调用和处理的。在面试者描述的过程中，会被穿插询问一些比较有深度的问题，比如，框架中某个类这样设计是哪一种设计模式的体现，采用这样的设计有什么好处，等等。这比让面试者默写一个设计模式代码要有效，也自然得多。<br>除了技术层面上的考察之外，对于资深开发人员，还需要考察他们的设计能力。说到软件设计，大部分面试者都能熟练地背出面向对象的3个基本特性：继承、封装、多态，也能把它们的概念描述清楚。但一般被问及下面的这个问题来考察面向对象设计能力：</p><blockquote><p>请用一段程序代码描述我们所在的这间房间。</p></blockquote><p>至少有一半都很难准确使用Interface和Class来给房间建模，也有一些人会将最基本的代码语法或关键字写错。</p><h3 id="适合所在企业文化"><a href="#适合所在企业文化" class="headerlink" title="适合所在企业文化"></a>适合所在企业文化</h3><p>让我们看看GitHub负责人的一段话：</p><blockquote><p>我们很严肃地看待我们自己关于招聘流程的哲学。我们希望每一个GitHub员工都了解他们所要面对的环境，并保证他们是能够很好适应的。这包括我们所创造的文化、哲学、计划、错误甚至是晚餐。比起他们的技能是否满足要求，我们更看重他们的潜力，以及是否能够适应我们的企业文化。</p></blockquote><h3 id="虚拟任务"><a href="#虚拟任务" class="headerlink" title="虚拟任务"></a>虚拟任务</h3><blockquote><p>写一个小程序：将一个以特定格式（如CSV）存储的文本文件转换为XML格式，并存储为另一个文件。</p></blockquote><h3 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h3><p>基于Spring Boot及其他第三方库所提供的API来开发出基于REST的服务；然后，在前端利用AngularJS将应用分为几个模块（UserManager，ResourceManger，FeedbackManager）分别开发；最后，通过$http调用后端服务来进行业务处理和数据交互。<br>在整个开发过程中，仍需要去解决一些问题：</p><pre><code>* 前后端分离之后，如何进行Session的管理* 如何实现安全的跨域请求。* 在Spring Boot中如何整合MyBatis框架。* 如何利用Spring Security来构建安全的REST服务。* 如何利用云服务实现图片的上传与处理。</code></pre><h3 id="重构——系统改善之道"><a href="#重构——系统改善之道" class="headerlink" title="重构——系统改善之道"></a>重构——系统改善之道</h3><pre><code>* 引入构建工具    对于后端Java程序来说，最常使用的便是Groovy，也可尝试使用Gradle。而对于前端来说，Grunt或更新的Gulp都是不错的选择。</code></pre><h3 id="编程习惯"><a href="#编程习惯" class="headerlink" title="编程习惯"></a>编程习惯</h3><p>如果应聘者先写单元测试用例，再写解决问题的函数，那么面试官定会刮目相看，因为能做到测试在前、开发在后的程序员实在是太稀缺了，他会毫不犹豫地抛出橄榄枝。</p><p>调试功底：熟练地设置断点、单步跟踪、查看内存、分析调用栈。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
             
         </tags>
       

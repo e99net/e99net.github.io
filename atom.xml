@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://e99net.github.io/"/>
-  <updated>2019-10-26T07:52:46.047Z</updated>
+  <updated>2019-11-10T12:07:22.337Z</updated>
   <id>https://e99net.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>两道算法编程题</title>
+    <link href="https://e99net.github.io/2019/11/10/webank/"/>
+    <id>https://e99net.github.io/2019/11/10/webank/</id>
+    <published>2019-11-10T11:15:19.892Z</published>
+    <updated>2019-11-10T12:07:22.337Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h4><ul><li>描述：</li></ul><p>你需要对一个数组进行排序（升序），每一次，你可以将一个数移动到任意位置，这一次操作的代价是这个数的大小。最少需要多少代价才能将整个数组排序？</p><a id="more"></a><ul><li>输入：</li></ul><p>第一行输入一个正整数N，$1 \le N \le 100$，表示数组元素个数。</p><p>第二行输入N个整数，整数之间用空格隔开。</p><ul><li>输出：</li></ul><p>输出一个整数，表示将整个数组排序的最小代价。</p><ul><li>样例输入：</li></ul><p>4<br>8 1 2 3</p><ul><li>样例输出：</li></ul><p>6</p><ul><li>解题思路：</li></ul><p>求出里面和最大的升序数组，用数组和减去它就是结果了。因为最终的数组和原来的数组，差别就在于那些移动了位置的数，要让移动位置的代价最小，当然就是让移动位置的数的和最小，等价于不移动位置的数的和最大，而最大的升序数组和就是能够不移动位置的最大子数组。<br>最大的升序数组和可用dp求出。</p><ul><li>参考代码:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><h4 id="取棋子"><a href="#取棋子" class="headerlink" title="取棋子"></a>取棋子</h4><ul><li>描述：</li></ul><p>西西有一个N行N列的棋盘，其中某些格子上放有棋子（黑子或白子）。西西不希望棋盘上有两个相邻的格子放 着颜色相同的棋子，与第i行 第j列的格子相邻的格子为：</p><p>第i-1行第j列的格子（当i&gt;1时）；</p><p>第i+1行第j列的格子（当i&lt;N时）；</p><p>第i行第i-1列的格子（当i&gt;1时）；</p><p>第i行第i+1列的格子（当i&lt;N时）。</p><p>现在，西西可以取走棋盘上的某些棋子，使得剩下的棋子中，任意两个颜色相同的棋子所在的格子不相邻。<br>那么， 棋盘上最多剩下多少个棋子？</p><ul><li>输入：</li></ul><p>第一行输入一个正整数N，$N \le 50$，表示棋盘的行列数。</p><p>接下来的N行，每行有N个整数，整数之间用空格隔开，表示棋盘每行每列防止棋子的情况。<br>整数取值只能是0、1、2，分别表示该格未放棋子、放的是黑子、放的是白子。</p><ul><li>输出：</li></ul><p>输出一个整数，表示棋盘上最多剩下的棋子数。</p><ul><li>样例输入：</li></ul><ul><li>样例输出：</li></ul><ul><li>解题思路：</li></ul><p>给每个棋子设置一个度(0 1 2 3 4)。一个棋子周围每有一个同样颜色的棋子，那就让它的度加1，最小为0，最大为4。然后从棋盘里逐个删掉度是4的并且更新棋盘(周围的同样颜色的棋子度要剪1)，然后删掉度是3的，以此类推知道所有棋子度是0，看这时候删了多少棋子。</p><p>用4个hash set分别保存度为1 2 3 4的点，每删一个度为4的点，就更新所有它周围的节点，然后再继续进行删除。对黑的进行一次删除，再对白的进行一次删除，就能求出结果了。</p><p>这个方法对相连的度为4的点还要额外讨论。<br><img src="/2019/11/10/webank/20191110200143.jpg" alt=""><br>图中的两个点度都为4，但删绿的总共删四个，删红的 总共删五个。<br>所以又想出一个方法：先取连通的区域 统计如果在国际象棋棋盘中 黑格和白格点数 然后删少的。<br>在上图中就是黑7白4，删白的。<br><img src="/2019/11/10/webank/20191110200530.jpg" alt=""><br>五个同色棋子，白格一个，黑格四个，删白格。<br>但这种方法还是有badcase。</p><p>所以……我也不知道咋做！</p><ul><li>参考代码:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;数组排序&quot;&gt;&lt;a href=&quot;#数组排序&quot; class=&quot;headerlink&quot; title=&quot;数组排序&quot;&gt;&lt;/a&gt;数组排序&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;描述：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;你需要对一个数组进行排序（升序），每一次，你可以将一个数移动到任意位置，这一次操作的代价是这个数的大小。最少需要多少代价才能将整个数组排序？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="https://e99net.github.io/categories/Algorithm/"/>
+    
+    
+      <category term="Dynamic Programming" scheme="https://e99net.github.io/tags/Dynamic-Programming/"/>
+    
+      <category term="Greedy" scheme="https://e99net.github.io/tags/Greedy/"/>
+    
+  </entry>
   
   <entry>
     <title>宽搜手工写队列</title>
@@ -530,33 +557,6 @@
     
     
       <category term="Water" scheme="https://e99net.github.io/tags/Water/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu上的各种软件问题解决之道</title>
-    <link href="https://e99net.github.io/2019/02/02/SolofMatlabOnUbuntu/"/>
-    <id>https://e99net.github.io/2019/02/02/SolofMatlabOnUbuntu/</id>
-    <published>2019-02-02T14:17:20.516Z</published>
-    <updated>2019-02-02T14:41:36.433Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Ubuntu上的Matlab无法以普通用户身份运行"><a href="#Ubuntu上的Matlab无法以普通用户身份运行" class="headerlink" title="Ubuntu上的Matlab无法以普通用户身份运行"></a>Ubuntu上的Matlab无法以普通用户身份运行</h2><p>给“/home/用户名/.matlab”这个文件目录递归授予超级权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 .matlab -R</span><br></pre></td></tr></table></figure></p><h2 id="CLion无法用快捷方式启动"><a href="#CLion无法用快捷方式启动" class="headerlink" title="CLion无法用快捷方式启动"></a>CLion无法用快捷方式启动</h2><p>先在Terminal中启动CLion，然后点击菜单栏Tools下面的Create Desktop Entry即可</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Ubuntu上的Matlab无法以普通用户身份运行&quot;&gt;&lt;a href=&quot;#Ubuntu上的Matlab无法以普通用户身份运行&quot; class=&quot;headerlink&quot; title=&quot;Ubuntu上的Matlab无法以普通用户身份运行&quot;&gt;&lt;/a&gt;Ubuntu上的Mat
-      
-    
-    </summary>
-    
-      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
-    
-    
-      <category term="Linux" scheme="https://e99net.github.io/tags/Linux/"/>
-    
-      <category term="Matlab" scheme="https://e99net.github.io/tags/Matlab/"/>
     
   </entry>
   
