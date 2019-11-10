@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>两道算法编程题 | 99°</title>
+  <title>一道算法编程题 | 99°</title>
   
   <meta name="keywords" content="blog">
   
@@ -152,7 +152,7 @@
   <div class="meta" id="header-meta">
     
       
-          <h1 class="title">两道算法编程题</h1>
+          <h1 class="title">一道算法编程题</h1>
       
     
 
@@ -217,7 +217,89 @@
 <li>解题思路：</li>
 </ul>
 <p>题目要求找到所有时间中同时在车站的列车的最大数量。一个简单的方案是逐个检查每个车辆的停发时间段，然后看有多少个时间段区间与其有重合，记录最多的重合区间数目，即为待求解的答案。易知，此方法的时间复杂度为O(n^2)。<br>认真思考后，其实可以有O(nlog_2 n)时间复杂度的方法。思路是将所有的事件 (到达或离开)按时间顺序排序，然后只记录当前还在车站（未离开的）列车。所有时间点中最多数量列车即待求解的答案。<br>例如，对于上面样例输入，将所有事件按时间排序后得到：</p>
-<p>| 时间 | 事件 | 需要的站台数量 |<br>| 9:00 | Arrival | 1 |<br>| 9:10 | Departure | 0 |<br>| 9:40 | Arrival | 1 |<br>| 9:50 | Arrival | 2 |<br>| 11:00 | Arrival | <em>3</em> |<br>| 11:20 | Departure | 2 |<br>| 11:30 | Departure | 1 |<br>| 12:00 | Departure | 0 |<br>| 15:00 | Arrival | 1 |<br>| 18:00 | Arrival | 2 |<br>| 19:00 | Departure | 1 |<br>| 20:00 | Departure | 0 |</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>事件</th>
+<th>需要的站台数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9:00</td>
+<td>Arrival</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>9:10</td>
+<td>Departure</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>9:40</td>
+<td>Arrival</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>9:50</td>
+<td>Arrival</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>11:00</td>
+<td>Arrival</td>
+<td><strong>3</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>11:20</td>
+<td>Departure</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>11:30</td>
+<td>Departure</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>12:00</td>
+<td>Departure</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>15:00</td>
+<td>Arrival</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>18:00</td>
+<td>Arrival</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>19:00</td>
+<td>Departure</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>20:00</td>
+<td>Departure</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>最多需要的站台数量是3，时间段为11:00 ~ 11:20</p>
 <p>注意，在算法实现时，只需对到达时间arr数组，和离开时间dep数组进行单独排序，然后将两个有序数组再进行归并操作。</p>
 <ul>
@@ -228,7 +310,7 @@
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2019-11-10T20:23:18+08:00" content="2019-11-10"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-11-10T20:31:33+08:00" content="2019-11-10"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
                 &nbsp;2019-11-10
               </time>
             
@@ -350,7 +432,7 @@
 
 <script>
     window.subData = {
-        title: '两道算法编程题',
+        title: '一道算法编程题',
         tools: true
     }
 </script>
