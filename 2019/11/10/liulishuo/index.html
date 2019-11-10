@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>Tag: Binary Search | 99°</title>
+  <title>两道算法编程题 | 99°</title>
   
   <meta name="keywords" content="blog">
   
@@ -145,181 +145,20 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            
-    <script>
-        window.subData= { title:'Hot Tags : Binary Search'}
-    </script>
-
-
-<section class="post-list">
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-        <div class='post-wrapper'>
-          <article class="post reveal ">
-    
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
 <section class='meta'>
   
   <div class="meta" id="header-meta">
     
-      <h2 class="title">
-          <a href="/2019/10/05/luogu_P1147/">
-              
-                  洛谷的刷题日常之P1147
-              
-          </a>
-      </h2>
+      
+          <h1 class="title">两道算法编程题</h1>
+      
     
 
     
       <time class="metatag time">
-        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-10-05
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-11-10
       </time>
     
 
@@ -334,6 +173,12 @@
     
 
     
+      
+        <div class="metatag browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          &nbsp;<span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+      
+    
 
     
 
@@ -341,43 +186,93 @@
 </section>
 
     <section class="article typo">
-        <h4 id="连续自然数和"><a href="#连续自然数和" class="headerlink" title="连续自然数和"></a>连续自然数和</h4><ul>
-<li>描述：</li>
+      <div class="article-entry" itemprop="articleBody">
+        <h4 id="火车站台数量"><a href="#火车站台数量" class="headerlink" title="火车站台数量"></a>火车站台数量</h4><ul>
+<li>描述：假设已知某个火车站的所有过往列车的到达arrival和离开departure时间（同一天），如果要求所有列车都不等待直接进站，问至少需要多少个站台。无需考虑晚点等特殊情况。</li>
 </ul>
-<p>对一个给定的自然数$M$，求出所有的连续的自然数段，这些连续的自然数段中的全部数之和为$M$。<br>例子：1998+1999+2000+2001+2002 = 10000，所以从1998到2002的一个自然数段为$M=10000$的一个解。</p>
+<a id="more"></a>
+<ul>
+<li>输入：</li>
+</ul>
+<p>第一行输入一个正整数N，$1 \le N \le 100$，表示过往列车数。</p>
+<p>第二行输入N个字符串，每个字符串表示列车的到达时间，字符串之间用空格隔开。</p>
+<p>第三行输入N个字符串，每个字符串表示列车的离开时间，字符串之间用空格隔开。</p>
+<ul>
+<li>输出：</li>
+</ul>
+<p>输出一个整数，表示最少需要的站台数。</p>
+<ul>
+<li>样例输入：</li>
+</ul>
+<p>6<br>9:00 9:40 9:50 11:00 15:00 18:00<br>9:10 12:00 11:20 11:30 19:00 20:00</p>
+<ul>
+<li>样例输出：</li>
+</ul>
+<p>3</p>
+<ul>
+<li>样例解释：</li>
+</ul>
+<p>最多有3辆列车同时进站（在11:00到11:20之间），所以至少需要3个火车站台。</p>
+<ul>
+<li>解题思路：</li>
+</ul>
+<p>题目要求找到所有时间中同时在车站的列车的最大数量。一个简单的方案是逐个检查每个车辆的停发时间段，然后看有多少个时间段区间与其有重合，记录最多的重合区间数目，即为待求解的答案。易知，此方法的时间复杂度为O(n^2)。<br>认真思考后，其实可以有O(nlog_2 n)时间复杂度的方法。思路是将所有的事件 (到达或离开)按时间顺序排序，然后只记录当前还在车站（未离开的）列车。所有时间点中最多数量列车即待求解的答案。<br>例如，对于上面样例输入，将所有事件按时间排序后得到：</p>
+<p>| 时间 | 事件 | 需要的站台数量 |<br>| 9:00 | Arrival | 1 |<br>| 9:10 | Departure | 0 |<br>| 9:40 | Arrival | 1 |<br>| 9:50 | Arrival | 2 |<br>| 11:00 | Arrival | <em>3</em> |<br>| 11:20 | Departure | 2 |<br>| 11:30 | Departure | 1 |<br>| 12:00 | Departure | 0 |<br>| 15:00 | Arrival | 1 |<br>| 18:00 | Arrival | 2 |<br>| 19:00 | Departure | 1 |<br>| 20:00 | Departure | 0 |</p>
+<p>最多需要的站台数量是3，时间段为11:00 ~ 11:20</p>
+<p>注意，在算法实现时，只需对到达时间arr数组，和离开时间dep数组进行单独排序，然后将两个有序数组再进行归并操作。</p>
+<ul>
+<li>参考代码:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      </div>
         
-            <div class="readmore">
-                <a href="/2019/10/05/luogu_P1147/" class="flat-box">
-                    <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-                    Read More
-                </a>
-            </div>
+          <section class='meta' id="footer-meta">
+            
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-11-10T20:23:18+08:00" content="2019-11-10"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2019-11-10
+              </time>
+            
+            
+                
+                <div class="metatag tags"><a class="tag" href="/tags/Simulation/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Simulation</a></div>
+            
+            
+          </section>
         
 
         
-            <div class="full-width auto-padding tags">
+            <div class="prev-next">
                 
-                    <a href="/tags/Prefix-Sum/"><i class="fas fa-hashtag fa-fw"></i>Prefix Sum</a>
                 
-                    <a href="/tags/Binary-Search/"><i class="fas fa-hashtag fa-fw"></i>Binary Search</a>
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/11/10/webank/" rel="prev" title="两道算法编程题">
+                                    
+                                        两道算法编程题
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Dynamic-Programming/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Dynamic Programming</a> <a class="tag" href="/tags/Greedy/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Greedy</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
                 
             </div>
         
+
     </section>
+
 </article>
 
-        </div>
-      
-    
-</section>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
 
-
-
-<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-
-
-
-  <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     "HTML-CSS": {
@@ -415,6 +310,50 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+
+      
+        
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;Related Posts</h4>
+        <ul>
+            
+                <li><a href="https://e99net.github.io/2019/11/10/webank/">两道算法编程题</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/10/26/bytedance_2019_2/">宽搜手工写队列</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/10/26/bytedance_2019_1/">立方体塔</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/10/22/LeetCode_BestTimeToBuyAndSellStock/">总结买卖股票这一类型的几道题</a></li>
+            
+        </ul>
+    </div>
+
+
+      
+
+      
+    </section>
+  </article>
+
+
+
+<script>
+    window.subData = {
+        title: '两道算法编程题',
+        tools: true
+    }
+</script>
 
 
         </div>

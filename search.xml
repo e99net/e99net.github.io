@@ -5,6 +5,31 @@
     
     <entry>
       <title>两道算法编程题</title>
+      <link href="/2019/11/10/liulishuo/"/>
+      <url>/2019/11/10/liulishuo/</url>
+      
+        <content type="html"><![CDATA[<h4 id="火车站台数量"><a href="#火车站台数量" class="headerlink" title="火车站台数量"></a>火车站台数量</h4><ul><li>描述：假设已知某个火车站的所有过往列车的到达arrival和离开departure时间（同一天），如果要求所有列车都不等待直接进站，问至少需要多少个站台。无需考虑晚点等特殊情况。</li></ul><a id="more"></a><ul><li>输入：</li></ul><p>第一行输入一个正整数N，$1 \le N \le 100$，表示过往列车数。</p><p>第二行输入N个字符串，每个字符串表示列车的到达时间，字符串之间用空格隔开。</p><p>第三行输入N个字符串，每个字符串表示列车的离开时间，字符串之间用空格隔开。</p><ul><li>输出：</li></ul><p>输出一个整数，表示最少需要的站台数。</p><ul><li>样例输入：</li></ul><p>6<br>9:00 9:40 9:50 11:00 15:00 18:00<br>9:10 12:00 11:20 11:30 19:00 20:00</p><ul><li>样例输出：</li></ul><p>3</p><ul><li>样例解释：</li></ul><p>最多有3辆列车同时进站（在11:00到11:20之间），所以至少需要3个火车站台。</p><ul><li>解题思路：</li></ul><p>题目要求找到所有时间中同时在车站的列车的最大数量。一个简单的方案是逐个检查每个车辆的停发时间段，然后看有多少个时间段区间与其有重合，记录最多的重合区间数目，即为待求解的答案。易知，此方法的时间复杂度为O(n^2)。<br>认真思考后，其实可以有O(nlog_2 n)时间复杂度的方法。思路是将所有的事件 (到达或离开)按时间顺序排序，然后只记录当前还在车站（未离开的）列车。所有时间点中最多数量列车即待求解的答案。<br>例如，对于上面样例输入，将所有事件按时间排序后得到：</p><p>| 时间 | 事件 | 需要的站台数量 |<br>| 9:00 | Arrival | 1 |<br>| 9:10 | Departure | 0 |<br>| 9:40 | Arrival | 1 |<br>| 9:50 | Arrival | 2 |<br>| 11:00 | Arrival | <em>3</em> |<br>| 11:20 | Departure | 2 |<br>| 11:30 | Departure | 1 |<br>| 12:00 | Departure | 0 |<br>| 15:00 | Arrival | 1 |<br>| 18:00 | Arrival | 2 |<br>| 19:00 | Departure | 1 |<br>| 20:00 | Departure | 0 |</p><p>最多需要的站台数量是3，时间段为11:00 ~ 11:20</p><p>注意，在算法实现时，只需对到达时间arr数组，和离开时间dep数组进行单独排序，然后将两个有序数组再进行归并操作。</p><ul><li>参考代码:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Simulation </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>两道算法编程题</title>
       <link href="/2019/11/10/webank/"/>
       <url>/2019/11/10/webank/</url>
       
@@ -202,6 +227,8 @@
         <tags>
             
             <tag> Dynamic Programming </tag>
+            
+            <tag> Simulation </tag>
             
         </tags>
       
@@ -1203,31 +1230,6 @@
     
     
     <entry>
-      <title>搭建Hadoop过程中的虚拟机相关问题</title>
-      <link href="/2018/04/13/VirtualMachineOfHadoop/"/>
-      <url>/2018/04/13/VirtualMachineOfHadoop/</url>
-      
-        <content type="html"><![CDATA[<p>用多个CentOS6.5系统作为Hadoop集群的平台，在Vmware虚拟机中安装好一个CentOS6.5系统后再多复制几个即可模拟Hadoop集群的多个节点。</p><a id="more"></a><p>在操作过程中遇到了几个虚拟机的相关问题，先整理如下：<br>一、新安装好的CentOS6.5系统无法连接网络<br>解决方法：<br>二、复制的CentOS6.5系统无法连接网络<br>解决方法：</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Hadoop </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Ubuntu16.04安装WPS</title>
       <link href="/2018/04/13/WpsofUbuntu/"/>
       <url>/2018/04/13/WpsofUbuntu/</url>
@@ -1245,6 +1247,31 @@
         <tags>
             
             <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>搭建Hadoop过程中的虚拟机相关问题</title>
+      <link href="/2018/04/13/VirtualMachineOfHadoop/"/>
+      <url>/2018/04/13/VirtualMachineOfHadoop/</url>
+      
+        <content type="html"><![CDATA[<p>用多个CentOS6.5系统作为Hadoop集群的平台，在Vmware虚拟机中安装好一个CentOS6.5系统后再多复制几个即可模拟Hadoop集群的多个节点。</p><a id="more"></a><p>在操作过程中遇到了几个虚拟机的相关问题，先整理如下：<br>一、新安装好的CentOS6.5系统无法连接网络<br>解决方法：<br>二、复制的CentOS6.5系统无法连接网络<br>解决方法：</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
             
         </tags>
       
@@ -1328,31 +1355,6 @@
     
     
     <entry>
-      <title>ConEmu的些许设置</title>
-      <link href="/2018/04/13/SettingsOfConemu/"/>
-      <url>/2018/04/13/SettingsOfConemu/</url>
-      
-        <content type="html"><![CDATA[<h3 id="添加ConEmu到Windows右键菜单"><a href="#添加ConEmu到Windows右键菜单" class="headerlink" title="添加ConEmu到Windows右键菜单"></a>添加ConEmu到Windows右键菜单</h3><p>进行ConEmu界面,打开设置,如下图:<br><a id="more"></a></p><p><img src="http://image.bubuko.com/info/201709/20180111004357181665.png" alt=""></p><p>然后,打开Integreation,将“cmd -cur_console:n”改为“cmd -cur_console:n %P”,如图操作:</p><p><img src="http://image.bubuko.com/info/201709/20180111004357186548.png" alt=""></p><p>点击”Save settings”,回到Windows桌面或是TotalCommander界面就可以看到右键菜单里已经有ConEmu选项了.</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Water </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Latex中的空格</title>
       <link href="/2018/04/13/SpaceofLatex/"/>
       <url>/2018/04/13/SpaceofLatex/</url>
@@ -1370,6 +1372,31 @@
         <tags>
             
             <tag> Latex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ConEmu的些许设置</title>
+      <link href="/2018/04/13/SettingsOfConemu/"/>
+      <url>/2018/04/13/SettingsOfConemu/</url>
+      
+        <content type="html"><![CDATA[<h3 id="添加ConEmu到Windows右键菜单"><a href="#添加ConEmu到Windows右键菜单" class="headerlink" title="添加ConEmu到Windows右键菜单"></a>添加ConEmu到Windows右键菜单</h3><p>进行ConEmu界面,打开设置,如下图:<br><a id="more"></a></p><p><img src="http://image.bubuko.com/info/201709/20180111004357181665.png" alt=""></p><p>然后,打开Integreation,将“cmd -cur_console:n”改为“cmd -cur_console:n %P”,如图操作:</p><p><img src="http://image.bubuko.com/info/201709/20180111004357186548.png" alt=""></p><p>点击”Save settings”,回到Windows桌面或是TotalCommander界面就可以看到右键菜单里已经有ConEmu选项了.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
             
         </tags>
       
@@ -1553,11 +1580,11 @@
     
     
     <entry>
-      <title>如何知道自己是什么级别的程序员</title>
-      <link href="/2018/04/13/level/"/>
-      <url>/2018/04/13/level/</url>
+      <title>Linux系统IO模式</title>
+      <link href="/2018/04/13/IO/"/>
+      <url>/2018/04/13/IO/</url>
       
-        <content type="html"><![CDATA[<p>你们按照下面自行对号入座吧。</p><a id="more"></a><p>level 1: 被人带着做事的<br>level 2: 不需要人带就能做事的<br>level 3: 比level 2做得快的<br>level 4: 可以带人的<br>level 5: 可以带三个人的<br>level 6: 可以带七个人的<br>level 7: 可以带很多人的<br>level 8: 带带人的人的<br>level 9: 带level 8的</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="Linux系统有以下五种网络模式的方案"><a href="#Linux系统有以下五种网络模式的方案" class="headerlink" title="Linux系统有以下五种网络模式的方案"></a>Linux系统有以下五种网络模式的方案</h3><a id="more"></a><ul><li>阻塞I/O（blocking IO）</li><li>非阻塞I/O（nonblocking IO）</li><li>I/O多路复用（IO multiplexing）</li><li>信号驱动I/O（signal driven IO）</li><li>异步I/O（asynchronous IO）</li></ul><p>注：signal driven IO在实际中并不常用</p>]]></content>
       
       
       <categories>
@@ -1569,7 +1596,7 @@
       
         <tags>
             
-            <tag> Water </tag>
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1603,11 +1630,11 @@
     
     
     <entry>
-      <title>Linux系统IO模式</title>
-      <link href="/2018/04/13/IO/"/>
-      <url>/2018/04/13/IO/</url>
+      <title>如何知道自己是什么级别的程序员</title>
+      <link href="/2018/04/13/level/"/>
+      <url>/2018/04/13/level/</url>
       
-        <content type="html"><![CDATA[<h3 id="Linux系统有以下五种网络模式的方案"><a href="#Linux系统有以下五种网络模式的方案" class="headerlink" title="Linux系统有以下五种网络模式的方案"></a>Linux系统有以下五种网络模式的方案</h3><a id="more"></a><ul><li>阻塞I/O（blocking IO）</li><li>非阻塞I/O（nonblocking IO）</li><li>I/O多路复用（IO multiplexing）</li><li>信号驱动I/O（signal driven IO）</li><li>异步I/O（asynchronous IO）</li></ul><p>注：signal driven IO在实际中并不常用</p>]]></content>
+        <content type="html"><![CDATA[<p>你们按照下面自行对号入座吧。</p><a id="more"></a><p>level 1: 被人带着做事的<br>level 2: 不需要人带就能做事的<br>level 3: 比level 2做得快的<br>level 4: 可以带人的<br>level 5: 可以带三个人的<br>level 6: 可以带七个人的<br>level 7: 可以带很多人的<br>level 8: 带带人的人的<br>level 9: 带level 8的</p>]]></content>
       
       
       <categories>
@@ -1619,7 +1646,7 @@
       
         <tags>
             
-            <tag> Linux </tag>
+            <tag> Water </tag>
             
         </tags>
       
