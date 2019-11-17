@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://e99net.github.io/"/>
-  <updated>2019-11-10T12:31:33.803Z</updated>
+  <updated>2019-11-17T06:25:13.405Z</updated>
   <id>https://e99net.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>记一道这么简单我都不会的编程题</title>
+    <link href="https://e99net.github.io/2019/11/17/simpleproblemofjump/"/>
+    <id>https://e99net.github.io/2019/11/17/simpleproblemofjump/</id>
+    <published>2019-11-17T06:01:03.776Z</published>
+    <updated>2019-11-17T06:25:13.405Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="跳跃游戏"><a href="#跳跃游戏" class="headerlink" title="跳跃游戏"></a>跳跃游戏</h4><ul><li>描述：给定数组arr，arr[i]=k代表可以从位置i向右跳1 ~ k个距离。比如，arr[2]=3，代表从位置2可以跳到位置3、位置4或位置5。如果从位置0出发，返回最少跳几次能跳到arr最后的位置上。如果arr长度为N，要求实现时间复杂度为O(N)、额外空间复杂度为O(1)的解法。</li></ul><a id="more"></a><ul><li>输入：</li></ul><p>第一行输入一个正整数N，$1 \le N \le 100$，表示数组的元素数。</p><p>第二行输入N个数，用空格隔开，表示一个数组中的所有数。</p><ul><li>输出：</li></ul><p>输出一个整数，表示最少跳几次。</p><ul><li>样例输入：</li></ul><p>6<br>3 2 3 1 1 4</p><ul><li>样例输出：</li></ul><p>2</p><ul><li>样例解释：</li></ul><p>arr[0]=3，选择跳到位置2；arr[2]=3，可以跳到最后的位置。所以返回2。</p><ul><li>解题思路：</li></ul><p>这道题是一道简单的不能再简单的“水题”，可以说是动态规划的入门题。但是……我还是不会，在它上面栽了跟头。也许我真的不适合学计算机，不适合做程序员。但即便是这样，又能如何？我偏要学计算机，偏要做程序员，偏要一条路走到黑，偏要强求，这是谁也阻挡不了的。在它上面栽了跟头，那就爬起来，弄懂它。以后还会在其他题上栽跟头，栽跟头就栽跟头，跟头栽的越多不会把人栽死，只会把人栽的更强大。会者不难，难者不会，就是这个道理。</p><p>思路太简单，略，←_←。直接上代码，也许代码比那些啰里啰嗦的解释更易懂，不是吗？<br>感觉和剑指offer上“股票的最大利润”一题有点像。</p><ul><li>参考代码:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int jump(vector&lt;int&gt;&amp; arr) &#123;</span><br><span class="line">        if(arr.empty()) return 0;</span><br><span class="line">        int jump=0;</span><br><span class="line">        int cur=0;</span><br><span class="line">        int next=0;</span><br><span class="line">        for(int i=0;i&lt;arr.size();i++) &#123;</span><br><span class="line">            if(cur&lt;i) &#123;</span><br><span class="line">                jump++;</span><br><span class="line">                cur=next;</span><br><span class="line">            &#125;</span><br><span class="line">            next=max(next,i+arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        return jump;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;跳跃游戏&quot;&gt;&lt;a href=&quot;#跳跃游戏&quot; class=&quot;headerlink&quot; title=&quot;跳跃游戏&quot;&gt;&lt;/a&gt;跳跃游戏&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;描述：给定数组arr，arr[i]=k代表可以从位置i向右跳1 ~ k个距离。比如，arr[2]=3，代表从位置2可以跳到位置3、位置4或位置5。如果从位置0出发，返回最少跳几次能跳到arr最后的位置上。如果arr长度为N，要求实现时间复杂度为O(N)、额外空间复杂度为O(1)的解法。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="https://e99net.github.io/categories/Algorithm/"/>
+    
+    
+      <category term="Dynamic Programming" scheme="https://e99net.github.io/tags/Dynamic-Programming/"/>
+    
+  </entry>
   
   <entry>
     <title>一道算法编程题</title>
@@ -530,32 +554,6 @@
     
     
       <category term="C/C++" scheme="https://e99net.github.io/tags/C-C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Win7开机界面英文转中文</title>
-    <link href="https://e99net.github.io/2019/02/10/EnToChOfBootloader/"/>
-    <id>https://e99net.github.io/2019/02/10/EnToChOfBootloader/</id>
-    <published>2019-02-10T03:56:23.237Z</published>
-    <updated>2019-02-10T07:44:35.550Z</updated>
-    
-    <content type="html"><![CDATA[<p>打开cmd命令提示符并执行如下命令</p><ul><li>将操作系统启动选择菜单的显示语言修改为简体中文<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /set &#123;bootmgr&#125; locale zh-CN</span><br></pre></td></tr></table></figure></li></ul><a id="more"></a><ul><li><p>将当前Windows操作系统F8高级启动菜单的显示语言修改为简体中文</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /set &#123;current&#125; locale zh-CN</span><br></pre></td></tr></table></figure></li><li><p>将Windows内存诊断工具的显示语言修改为简体中文</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /set &#123;memdiag&#125; locale zh-CN</span><br></pre></td></tr></table></figure></li><li><p>将休眠恢复时的显示语言修改为简体中文</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /set &#123;视机器而定的一段字符&#125; locale zh-CN</span><br></pre></td></tr></table></figure></li></ul><p>注意：视机器而定的一段字符形如526bf864-88ef-11de-9b8c-e613e975374f，这段字符可通过以下命令进行查看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /enum all</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;打开cmd命令提示符并执行如下命令&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;将操作系统启动选择菜单的显示语言修改为简体中文&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bcdedit /set &amp;#123;bootmgr&amp;#125; locale zh-CN&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
-    
-    
-      <category term="Water" scheme="https://e99net.github.io/tags/Water/"/>
     
   </entry>
   

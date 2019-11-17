@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>记一道这么简单我都不会的编程题 | 99°</title>
+  
+  <meta name="keywords" content="blog">
+  
+  
+
+  <link rel="alternate" href="/atom.xml" title="99°">
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  
+
+
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          99°
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="https:e99net.github.io"
+								 class="nav flat-box" href="https://e99net.github.io/">
+									<i class='fas fa-home fa-fw'></i>&nbsp;Home
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="about"
+								 class="nav flat-box" href="/about/">
+									<i class='fas fa-comment-dots fa-fw'></i>&nbsp;About
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="https:e99net.github.io" class="nav flat-box" href="https://e99net.github.io/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;Home
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="about" class="nav flat-box" href="/about/">
+											<i class='fas fa-comment-dots fa-fw'></i>&nbsp;About
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">记一道这么简单我都不会的编程题</h1>
+      
+    
+
+    
+      <time class="metatag time">
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-11-17
+      </time>
+    
+
+    
+      
+    
+    <div class='metatag cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/Algorithm/">Algorithm</a>
+    </div>
+
+
+    
+
+    
+      
+        <div class="metatag browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          &nbsp;<span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+      
+    
+
+    
+
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h4 id="跳跃游戏"><a href="#跳跃游戏" class="headerlink" title="跳跃游戏"></a>跳跃游戏</h4><ul>
+<li>描述：给定数组arr，arr[i]=k代表可以从位置i向右跳1 ~ k个距离。比如，arr[2]=3，代表从位置2可以跳到位置3、位置4或位置5。如果从位置0出发，返回最少跳几次能跳到arr最后的位置上。如果arr长度为N，要求实现时间复杂度为O(N)、额外空间复杂度为O(1)的解法。</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>输入：</li>
+</ul>
+<p>第一行输入一个正整数N，$1 \le N \le 100$，表示数组的元素数。</p>
+<p>第二行输入N个数，用空格隔开，表示一个数组中的所有数。</p>
+<ul>
+<li>输出：</li>
+</ul>
+<p>输出一个整数，表示最少跳几次。</p>
+<ul>
+<li>样例输入：</li>
+</ul>
+<p>6<br>3 2 3 1 1 4</p>
+<ul>
+<li>样例输出：</li>
+</ul>
+<p>2</p>
+<ul>
+<li>样例解释：</li>
+</ul>
+<p>arr[0]=3，选择跳到位置2；arr[2]=3，可以跳到最后的位置。所以返回2。</p>
+<ul>
+<li>解题思路：</li>
+</ul>
+<p>这道题是一道简单的不能再简单的“水题”，可以说是动态规划的入门题。但是……我还是不会，在它上面栽了跟头。也许我真的不适合学计算机，不适合做程序员。但即便是这样，又能如何？我偏要学计算机，偏要做程序员，偏要一条路走到黑，偏要强求，这是谁也阻挡不了的。在它上面栽了跟头，那就爬起来，弄懂它。以后还会在其他题上栽跟头，栽跟头就栽跟头，跟头栽的越多不会把人栽死，只会把人栽的更强大。会者不难，难者不会，就是这个道理。</p>
+<p>思路太简单，略，←_←。直接上代码，也许代码比那些啰里啰嗦的解释更易懂，不是吗？<br>感觉和剑指offer上“股票的最大利润”一题有点像。</p>
+<ul>
+<li>参考代码:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int jump(vector&lt;int&gt;&amp; arr) &#123;</span><br><span class="line">        if(arr.empty()) return 0;</span><br><span class="line">        int jump=0;</span><br><span class="line">        int cur=0;</span><br><span class="line">        int next=0;</span><br><span class="line">        for(int i=0;i&lt;arr.size();i++) &#123;</span><br><span class="line">            if(cur&lt;i) &#123;</span><br><span class="line">                jump++;</span><br><span class="line">                cur=next;</span><br><span class="line">            &#125;</span><br><span class="line">            next=max(next,i+arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        return jump;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            
+              <time class="metatag time" itemprop="dateUpdated" datetime="2019-11-17T14:25:13+08:00" content="2019-11-17"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2019-11-17
+              </time>
+            
+            
+                
+                <div class="metatag tags"><a class="tag" href="/tags/Dynamic-Programming/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Dynamic Programming</a></div>
+            
+            
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/11/10/liulishuo/" rel="prev" title="一道算法编程题">
+                                    
+                                        一道算法编程题
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Simulation/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Simulation</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX","TeX"],
+      linebreaks: { automatic:true },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: { autoNumber: "AMS" },
+      noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+      Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+  });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += (all[i].SourceElement().parentNode.className ? ' ' : '') + 'has-jax';
+    }
+    console.log("mathjax did loaded!");
+  });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+
+      
+        
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;Related Posts</h4>
+        <ul>
+            
+                <li><a href="https://e99net.github.io/2019/11/10/liulishuo/">一道算法编程题</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/11/10/webank/">两道算法编程题</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/10/26/bytedance_2019_2/">宽搜手工写队列</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/10/26/bytedance_2019_1/">立方体塔</a></li>
+            
+        </ul>
+    </div>
+
+
+      
+
+      
+    </section>
+  </article>
+
+
+
+<script>
+    window.subData = {
+        title: '记一道这么简单我都不会的编程题',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://avatars3.githubusercontent.com/u/29162050?s=460&v=4'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:flyhacker666@gmail.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/e99net" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='category'>
+    
+<header class='pure'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Categories</div>
+  
+</header>
+
+    <div class='content pure'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Algorithm/" href="/categories/Algorithm/"><div class='name'>Algorithm</div><div class='badge'>(16)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/BigData/" href="/categories/BigData/"><div class='name'>BigData</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/EAs/" href="/categories/EAs/"><div class='name'>EAs</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/memo/" href="/categories/memo/"><div class='name'>memo</div><div class='badge'>(54)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/BFS/" style="font-size: 14px; color: #999">BFS</a> <a href="/tags/Binary-Search/" style="font-size: 14px; color: #999">Binary Search</a> <a href="/tags/C-C/" style="font-size: 18.29px; color: #7c7c7c">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/DFS/" style="font-size: 14px; color: #999">DFS</a> <a href="/tags/Database/" style="font-size: 15.43px; color: #8f8f8f">Database</a> <a href="/tags/Doubling/" style="font-size: 14px; color: #999">Doubling</a> <a href="/tags/Dynamic-Programming/" style="font-size: 21.14px; color: #686868">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Graph-theory/" style="font-size: 14px; color: #999">Graph theory</a> <a href="/tags/Greedy/" style="font-size: 19.71px; color: #727272">Greedy</a> <a href="/tags/Hadoop/" style="font-size: 15.43px; color: #8f8f8f">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Knapsack/" style="font-size: 15.43px; color: #8f8f8f">Knapsack</a> <a href="/tags/LCA/" style="font-size: 14px; color: #999">LCA</a> <a href="/tags/Latex/" style="font-size: 22.57px; color: #5f5f5f">Latex</a> <a href="/tags/Linux/" style="font-size: 16.86px; color: #868686">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 18.29px; color: #7c7c7c">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Matlab/" style="font-size: 15.43px; color: #8f8f8f">Matlab</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/Number-theory/" style="font-size: 15.43px; color: #8f8f8f">Number theory</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Paper/" style="font-size: 14px; color: #999">Paper</a> <a href="/tags/Prefix-Sum/" style="font-size: 14px; color: #999">Prefix Sum</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Simulation/" style="font-size: 15.43px; color: #8f8f8f">Simulation</a> <a href="/tags/Spanning-tree/" style="font-size: 14px; color: #999">Spanning tree</a> <a href="/tags/String/" style="font-size: 15.43px; color: #8f8f8f">String</a> <a href="/tags/Union-Find-Set/" style="font-size: 14px; color: #999">Union-Find Set</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a>
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:flyhacker666@gmail.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/e99net" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>Use <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> as theme, total visits <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> times. 
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+    <!-- fastclick -->
+    <script src="https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body)
+      }, false)
+    </script>
+  
+  
+
+
+  
+  
+  
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
