@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>记一道这么简单我都不会的编程题 | 99°</title>
+  <title>数组跳跃问题 | 99°</title>
   
   <meta name="keywords" content="blog">
   
@@ -152,7 +152,7 @@
   <div class="meta" id="header-meta">
     
       
-          <h1 class="title">记一道这么简单我都不会的编程题</h1>
+          <h1 class="title">数组跳跃问题</h1>
       
     
 
@@ -215,8 +215,8 @@
 <ul>
 <li>解题思路：</li>
 </ul>
-<p>这道题是一道简单的不能再简单的“水题”，可以说是动态规划的入门题。但是……我还是不会，在它上面栽了跟头。也许我真的不适合学计算机，不适合做程序员。但即便是这样，又能如何？我偏要学计算机，偏要做程序员，偏要一条路走到黑，偏要强求，这是谁也阻挡不了的。在它上面栽了跟头，那就爬起来，弄懂它。以后还会在其他题上栽跟头，栽跟头就栽跟头，跟头栽的越多不会把人栽死，只会把人栽的更强大。会者不难，难者不会，就是这个道理。</p>
-<p>思路太简单，略，←_←。直接上代码，也许代码比那些啰里啰嗦的解释更易懂，不是吗？<br>感觉和剑指offer上“股票的最大利润”一题有点像。</p>
+<p>这道题是一道简单的不能再简单的“水题”，可以说是动态规划的入门题。会者不难，难者不会。</p>
+<p>思路太简单，略，←_←。直接上代码。<br>感觉和剑指offer上“股票的最大利润”一题有点像。</p>
 <ul>
 <li>参考代码:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int jump(vector&lt;int&gt;&amp; arr) &#123;</span><br><span class="line">        if(arr.empty()) return 0;</span><br><span class="line">        int jump=0;</span><br><span class="line">        int cur=0;</span><br><span class="line">        int next=0;</span><br><span class="line">        for(int i=0;i&lt;arr.size();i++) &#123;</span><br><span class="line">            if(cur&lt;i) &#123;</span><br><span class="line">                jump++;</span><br><span class="line">                cur=next;</span><br><span class="line">            &#125;</span><br><span class="line">            next=max(next,i+arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        return jump;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 </ul>
@@ -225,8 +225,8 @@
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2019-11-17T14:25:13+08:00" content="2019-11-17"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-                &nbsp;2019-11-17
+              <time class="metatag time" itemprop="dateUpdated" datetime="2020-03-15T13:06:51+08:00" content="2020-03-15"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2020-03-15
               </time>
             
             
@@ -239,6 +239,25 @@
 
         
             <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                            <h4>
+                                <a href="/2020/03/15/first_n_small_sum/" rel="prev" title="前n小的和">
+                                  
+                                      前n小的和
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Heap/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Heap</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
                 
                 
                     <section class="next">
@@ -325,13 +344,13 @@
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;Related Posts</h4>
         <ul>
             
+                <li><a href="https://e99net.github.io/2020/03/15/first_n_small_sum/">前n小的和</a></li>
+            
                 <li><a href="https://e99net.github.io/2019/11/10/liulishuo/">一道算法编程题</a></li>
             
                 <li><a href="https://e99net.github.io/2019/11/10/webank/">两道算法编程题</a></li>
             
                 <li><a href="https://e99net.github.io/2019/10/26/bytedance_2019_2/">宽搜手工写队列</a></li>
-            
-                <li><a href="https://e99net.github.io/2019/10/26/bytedance_2019_1/">立方体塔</a></li>
             
         </ul>
     </div>
@@ -347,7 +366,7 @@
 
 <script>
     window.subData = {
-        title: '记一道这么简单我都不会的编程题',
+        title: '数组跳跃问题',
         tools: true
     }
 </script>
@@ -402,7 +421,7 @@
     <div class='content pure'>
       <ul class="entry">
         
-          <li><a class="flat-box" title="/categories/Algorithm/" href="/categories/Algorithm/"><div class='name'>Algorithm</div><div class='badge'>(16)</div></a></li>
+          <li><a class="flat-box" title="/categories/Algorithm/" href="/categories/Algorithm/"><div class='name'>Algorithm</div><div class='badge'>(17)</div></a></li>
         
           <li><a class="flat-box" title="/categories/BigData/" href="/categories/BigData/"><div class='name'>BigData</div><div class='badge'>(1)</div></a></li>
         
@@ -430,7 +449,7 @@
 </header>
 
     <div class='content pure'>
-      <a href="/tags/BFS/" style="font-size: 14px; color: #999">BFS</a> <a href="/tags/Binary-Search/" style="font-size: 14px; color: #999">Binary Search</a> <a href="/tags/C-C/" style="font-size: 18.29px; color: #7c7c7c">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/DFS/" style="font-size: 14px; color: #999">DFS</a> <a href="/tags/Database/" style="font-size: 15.43px; color: #8f8f8f">Database</a> <a href="/tags/Doubling/" style="font-size: 14px; color: #999">Doubling</a> <a href="/tags/Dynamic-Programming/" style="font-size: 21.14px; color: #686868">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Graph-theory/" style="font-size: 14px; color: #999">Graph theory</a> <a href="/tags/Greedy/" style="font-size: 19.71px; color: #727272">Greedy</a> <a href="/tags/Hadoop/" style="font-size: 15.43px; color: #8f8f8f">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Knapsack/" style="font-size: 15.43px; color: #8f8f8f">Knapsack</a> <a href="/tags/LCA/" style="font-size: 14px; color: #999">LCA</a> <a href="/tags/Latex/" style="font-size: 22.57px; color: #5f5f5f">Latex</a> <a href="/tags/Linux/" style="font-size: 16.86px; color: #868686">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 18.29px; color: #7c7c7c">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Matlab/" style="font-size: 15.43px; color: #8f8f8f">Matlab</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/Number-theory/" style="font-size: 15.43px; color: #8f8f8f">Number theory</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Paper/" style="font-size: 14px; color: #999">Paper</a> <a href="/tags/Prefix-Sum/" style="font-size: 14px; color: #999">Prefix Sum</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Simulation/" style="font-size: 15.43px; color: #8f8f8f">Simulation</a> <a href="/tags/Spanning-tree/" style="font-size: 14px; color: #999">Spanning tree</a> <a href="/tags/String/" style="font-size: 15.43px; color: #8f8f8f">String</a> <a href="/tags/Union-Find-Set/" style="font-size: 14px; color: #999">Union-Find Set</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a>
+      <a href="/tags/BFS/" style="font-size: 14px; color: #999">BFS</a> <a href="/tags/Binary-Search/" style="font-size: 14px; color: #999">Binary Search</a> <a href="/tags/C-C/" style="font-size: 18.29px; color: #7c7c7c">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/DFS/" style="font-size: 14px; color: #999">DFS</a> <a href="/tags/Database/" style="font-size: 15.43px; color: #8f8f8f">Database</a> <a href="/tags/Doubling/" style="font-size: 14px; color: #999">Doubling</a> <a href="/tags/Dynamic-Programming/" style="font-size: 21.14px; color: #686868">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Graph-theory/" style="font-size: 14px; color: #999">Graph theory</a> <a href="/tags/Greedy/" style="font-size: 19.71px; color: #727272">Greedy</a> <a href="/tags/Hadoop/" style="font-size: 15.43px; color: #8f8f8f">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Heap/" style="font-size: 14px; color: #999">Heap</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Knapsack/" style="font-size: 15.43px; color: #8f8f8f">Knapsack</a> <a href="/tags/LCA/" style="font-size: 14px; color: #999">LCA</a> <a href="/tags/Latex/" style="font-size: 22.57px; color: #5f5f5f">Latex</a> <a href="/tags/Linux/" style="font-size: 16.86px; color: #868686">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 18.29px; color: #7c7c7c">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Matlab/" style="font-size: 15.43px; color: #8f8f8f">Matlab</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/Number-theory/" style="font-size: 15.43px; color: #8f8f8f">Number theory</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Paper/" style="font-size: 14px; color: #999">Paper</a> <a href="/tags/Prefix-Sum/" style="font-size: 14px; color: #999">Prefix Sum</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Simulation/" style="font-size: 15.43px; color: #8f8f8f">Simulation</a> <a href="/tags/Spanning-tree/" style="font-size: 14px; color: #999">Spanning tree</a> <a href="/tags/String/" style="font-size: 15.43px; color: #8f8f8f">String</a> <a href="/tags/Union-Find-Set/" style="font-size: 14px; color: #999">Union-Find Set</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a>
     </div>
   </section>
 

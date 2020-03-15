@@ -4,11 +4,36 @@
   
     
     <entry>
-      <title>记一道这么简单我都不会的编程题</title>
+      <title>前n小的和</title>
+      <link href="/2020/03/15/first_n_small_sum/"/>
+      <url>/2020/03/15/first_n_small_sum/</url>
+      
+        <content type="html"><![CDATA[<h4 id="两序列前n小的两数和"><a href="#两序列前n小的两数和" class="headerlink" title="两序列前n小的两数和"></a>两序列前n小的两数和</h4><ul><li>描述：有两个长度都是N的序列A和B，在A和B中各取一个数相加可以得到$N^2$个和，求这$N^2$个和中最小的N个。</li></ul><a id="more"></a><ul><li>输入：</li></ul><p>第一行输入一个正整数N，$1 \le N \le 100000$，表示序列长度；</p><p>第二行输入N个整数$A_i$，满足$A_i \le A_{i+1}$且$A_i \le 10^9$；</p><p>第二行输入N个整数$B_i$，满足$B_i \le B_{i+1}$且$B_i \le 10^9$。</p><ul><li>输出：</li></ul><p>输出仅一行，包含N个整数，从小到大输出这N个最小的和，相邻数字之间用空格隔开。</p><ul><li>样例输入：</li></ul><p>3<br>2 6 6<br>1 4 8</p><ul><li>样例输出：</li></ul><p>3 6 7</p><ul><li>解题思路：</li></ul><p>由题意可得A和B是两个升序排列的序列，其中：</p><p>A[1]+B[1] &lt;= A[2]+B[1] &lt;= … &lt;= A[N]+B[1]</p><p>A[1]+B[2] &lt;= A[2]+B[2] &lt;= … &lt;= A[N]+B[2]</p><p>……</p><p>A[1]+B[N] &lt;= A[2]+B[N] &lt;= … &lt;= A[N]+B[N]</p><p>接下来，就相当于要将这N个有序队列进行合并排序：</p><p>首先，将这N个队列中的第一个元素放入一个堆中；</p><p>然后；每次取出堆中的最小值。若这个最小值来自于第k个队列，那么，就将第k个队列的下一个元素放入堆中。</p><p>时间复杂度：O(NlogN)。</p><p>堆可用优先队列实现，此题需要的是一个小顶堆。</p><ul><li>参考代码:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e5+10;</span><br><span class="line">typedef pair&lt;int,int&gt; PII;</span><br><span class="line">int n;</span><br><span class="line">int a[N],b[N],next_of_a[N];</span><br><span class="line">int i;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    priority_queue&lt;PII,vector&lt;PII&gt;,greater&lt;PII&gt; &gt; pq;//小顶堆</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    for(i=1;i&lt;=n;i++)</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;a[i]);</span><br><span class="line">    for(i=1;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;b[i]);</span><br><span class="line">        next_of_a[i]=2;</span><br><span class="line">        pq.push(&#123;a[1]+b[i],i&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    while(n--)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%d &quot;,pq.top().first);</span><br><span class="line">        i=pq.top().second;</span><br><span class="line">        pq.pop();</span><br><span class="line">        pq.push(&#123;a[next_of_a[i]++]+b[i],i&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Heap </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数组跳跃问题</title>
       <link href="/2019/11/17/simpleproblemofjump/"/>
       <url>/2019/11/17/simpleproblemofjump/</url>
       
-        <content type="html"><![CDATA[<h4 id="跳跃游戏"><a href="#跳跃游戏" class="headerlink" title="跳跃游戏"></a>跳跃游戏</h4><ul><li>描述：给定数组arr，arr[i]=k代表可以从位置i向右跳1 ~ k个距离。比如，arr[2]=3，代表从位置2可以跳到位置3、位置4或位置5。如果从位置0出发，返回最少跳几次能跳到arr最后的位置上。如果arr长度为N，要求实现时间复杂度为O(N)、额外空间复杂度为O(1)的解法。</li></ul><a id="more"></a><ul><li>输入：</li></ul><p>第一行输入一个正整数N，$1 \le N \le 100$，表示数组的元素数。</p><p>第二行输入N个数，用空格隔开，表示一个数组中的所有数。</p><ul><li>输出：</li></ul><p>输出一个整数，表示最少跳几次。</p><ul><li>样例输入：</li></ul><p>6<br>3 2 3 1 1 4</p><ul><li>样例输出：</li></ul><p>2</p><ul><li>样例解释：</li></ul><p>arr[0]=3，选择跳到位置2；arr[2]=3，可以跳到最后的位置。所以返回2。</p><ul><li>解题思路：</li></ul><p>这道题是一道简单的不能再简单的“水题”，可以说是动态规划的入门题。但是……我还是不会，在它上面栽了跟头。也许我真的不适合学计算机，不适合做程序员。但即便是这样，又能如何？我偏要学计算机，偏要做程序员，偏要一条路走到黑，偏要强求，这是谁也阻挡不了的。在它上面栽了跟头，那就爬起来，弄懂它。以后还会在其他题上栽跟头，栽跟头就栽跟头，跟头栽的越多不会把人栽死，只会把人栽的更强大。会者不难，难者不会，就是这个道理。</p><p>思路太简单，略，←_←。直接上代码，也许代码比那些啰里啰嗦的解释更易懂，不是吗？<br>感觉和剑指offer上“股票的最大利润”一题有点像。</p><ul><li>参考代码:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int jump(vector&lt;int&gt;&amp; arr) &#123;</span><br><span class="line">        if(arr.empty()) return 0;</span><br><span class="line">        int jump=0;</span><br><span class="line">        int cur=0;</span><br><span class="line">        int next=0;</span><br><span class="line">        for(int i=0;i&lt;arr.size();i++) &#123;</span><br><span class="line">            if(cur&lt;i) &#123;</span><br><span class="line">                jump++;</span><br><span class="line">                cur=next;</span><br><span class="line">            &#125;</span><br><span class="line">            next=max(next,i+arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        return jump;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+        <content type="html"><![CDATA[<h4 id="跳跃游戏"><a href="#跳跃游戏" class="headerlink" title="跳跃游戏"></a>跳跃游戏</h4><ul><li>描述：给定数组arr，arr[i]=k代表可以从位置i向右跳1 ~ k个距离。比如，arr[2]=3，代表从位置2可以跳到位置3、位置4或位置5。如果从位置0出发，返回最少跳几次能跳到arr最后的位置上。如果arr长度为N，要求实现时间复杂度为O(N)、额外空间复杂度为O(1)的解法。</li></ul><a id="more"></a><ul><li>输入：</li></ul><p>第一行输入一个正整数N，$1 \le N \le 100$，表示数组的元素数。</p><p>第二行输入N个数，用空格隔开，表示一个数组中的所有数。</p><ul><li>输出：</li></ul><p>输出一个整数，表示最少跳几次。</p><ul><li>样例输入：</li></ul><p>6<br>3 2 3 1 1 4</p><ul><li>样例输出：</li></ul><p>2</p><ul><li>样例解释：</li></ul><p>arr[0]=3，选择跳到位置2；arr[2]=3，可以跳到最后的位置。所以返回2。</p><ul><li>解题思路：</li></ul><p>这道题是一道简单的不能再简单的“水题”，可以说是动态规划的入门题。会者不难，难者不会。</p><p>思路太简单，略，←_←。直接上代码。<br>感觉和剑指offer上“股票的最大利润”一题有点像。</p><ul><li>参考代码:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int jump(vector&lt;int&gt;&amp; arr) &#123;</span><br><span class="line">        if(arr.empty()) return 0;</span><br><span class="line">        int jump=0;</span><br><span class="line">        int cur=0;</span><br><span class="line">        int next=0;</span><br><span class="line">        for(int i=0;i&lt;arr.size();i++) &#123;</span><br><span class="line">            if(cur&lt;i) &#123;</span><br><span class="line">                jump++;</span><br><span class="line">                cur=next;</span><br><span class="line">            &#125;</span><br><span class="line">            next=max(next,i+arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        return jump;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
       
       
       <categories>
@@ -1255,31 +1280,6 @@
     
     
     <entry>
-      <title>搭建Hadoop过程中的虚拟机相关问题</title>
-      <link href="/2018/04/13/VirtualMachineOfHadoop/"/>
-      <url>/2018/04/13/VirtualMachineOfHadoop/</url>
-      
-        <content type="html"><![CDATA[<p>用多个CentOS6.5系统作为Hadoop集群的平台，在Vmware虚拟机中安装好一个CentOS6.5系统后再多复制几个即可模拟Hadoop集群的多个节点。</p><a id="more"></a><p>在操作过程中遇到了几个虚拟机的相关问题，先整理如下：<br>一、新安装好的CentOS6.5系统无法连接网络<br>解决方法：<br>二、复制的CentOS6.5系统无法连接网络<br>解决方法：</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Hadoop </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Ubuntu16.04安装WPS</title>
       <link href="/2018/04/13/WpsofUbuntu/"/>
       <url>/2018/04/13/WpsofUbuntu/</url>
@@ -1297,6 +1297,31 @@
         <tags>
             
             <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>搭建Hadoop过程中的虚拟机相关问题</title>
+      <link href="/2018/04/13/VirtualMachineOfHadoop/"/>
+      <url>/2018/04/13/VirtualMachineOfHadoop/</url>
+      
+        <content type="html"><![CDATA[<p>用多个CentOS6.5系统作为Hadoop集群的平台，在Vmware虚拟机中安装好一个CentOS6.5系统后再多复制几个即可模拟Hadoop集群的多个节点。</p><a id="more"></a><p>在操作过程中遇到了几个虚拟机的相关问题，先整理如下：<br>一、新安装好的CentOS6.5系统无法连接网络<br>解决方法：<br>二、复制的CentOS6.5系统无法连接网络<br>解决方法：</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
             
         </tags>
       
@@ -1380,6 +1405,31 @@
     
     
     <entry>
+      <title>ConEmu的些许设置</title>
+      <link href="/2018/04/13/SettingsOfConemu/"/>
+      <url>/2018/04/13/SettingsOfConemu/</url>
+      
+        <content type="html"><![CDATA[<h3 id="添加ConEmu到Windows右键菜单"><a href="#添加ConEmu到Windows右键菜单" class="headerlink" title="添加ConEmu到Windows右键菜单"></a>添加ConEmu到Windows右键菜单</h3><p>进行ConEmu界面,打开设置,如下图:<br><a id="more"></a></p><p><img src="http://image.bubuko.com/info/201709/20180111004357181665.png" alt=""></p><p>然后,打开Integreation,将“cmd -cur_console:n”改为“cmd -cur_console:n %P”,如图操作:</p><p><img src="http://image.bubuko.com/info/201709/20180111004357186548.png" alt=""></p><p>点击”Save settings”,回到Windows桌面或是TotalCommander界面就可以看到右键菜单里已经有ConEmu选项了.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于Windows通过远程桌面访问Ubuntu</title>
       <link href="/2018/04/13/RemoteAccess/"/>
       <url>/2018/04/13/RemoteAccess/</url>
@@ -1422,31 +1472,6 @@
         <tags>
             
             <tag> Latex </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>ConEmu的些许设置</title>
-      <link href="/2018/04/13/SettingsOfConemu/"/>
-      <url>/2018/04/13/SettingsOfConemu/</url>
-      
-        <content type="html"><![CDATA[<h3 id="添加ConEmu到Windows右键菜单"><a href="#添加ConEmu到Windows右键菜单" class="headerlink" title="添加ConEmu到Windows右键菜单"></a>添加ConEmu到Windows右键菜单</h3><p>进行ConEmu界面,打开设置,如下图:<br><a id="more"></a></p><p><img src="http://image.bubuko.com/info/201709/20180111004357181665.png" alt=""></p><p>然后,打开Integreation,将“cmd -cur_console:n”改为“cmd -cur_console:n %P”,如图操作:</p><p><img src="http://image.bubuko.com/info/201709/20180111004357186548.png" alt=""></p><p>点击”Save settings”,回到Windows桌面或是TotalCommander界面就可以看到右键菜单里已经有ConEmu选项了.</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Water </tag>
             
         </tags>
       
@@ -1605,31 +1630,6 @@
     
     
     <entry>
-      <title>Markdown语法</title>
-      <link href="/2018/04/13/KnowledOfMarkdown/"/>
-      <url>/2018/04/13/KnowledOfMarkdown/</url>
-      
-        <content type="html"><![CDATA[<h3 id="Markdown原生语法"><a href="#Markdown原生语法" class="headerlink" title="Markdown原生语法"></a>Markdown原生语法</h3><ul><li>中划线。语法如下：<blockquote><p><del>要划除的行内内容</del></p></blockquote></li></ul><a id="more"></a><h3 id="Markdown中的转义字符为-，可以转义的有："><a href="#Markdown中的转义字符为-，可以转义的有：" class="headerlink" title="Markdown中的转义字符为\，可以转义的有："></a>Markdown中的转义字符为\，可以转义的有：</h3><blockquote><p>\ 反斜杠<br>` 反引号<br>* 星号<br>_ 下划线<br>{} 大括号<br>[] 中括号<br>() 小括号<br># 井号<br>+ 加号<br>- 减号<br>. 英文句号<br>! 感叹号</p></blockquote><h3 id="使用Markdown时，如何为文字加下划线"><a href="#使用Markdown时，如何为文字加下划线" class="headerlink" title="使用Markdown时，如何为文字加下划线"></a>使用Markdown时，如何为文字加下划线</h3><ul><li>Markdown并无下划线的原生语法，因为会和链接的默认样式产生混淆。这里可以使用行内样式HTML使其产生下划线效果，如下：<blockquote><p><u>Underlined Text</u></p></blockquote></li><li>使用html的span标签、设置行内CSS的border-bottom属性 来添加下划线。这种方式自定义程度最高。语法如下：<blockquote><p><span style="border-bottom:2px dashed yellow;">所添加的需要加下划线的行内文字</span></p></blockquote></li><li>用数学公式：<blockquote><p>#上划线<br>$\overline{X}$<br>#下划线<br>$\underline{X}$</p></blockquote></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Markdown </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>如何知道自己是什么级别的程序员</title>
       <link href="/2018/04/13/level/"/>
       <url>/2018/04/13/level/</url>
@@ -1647,6 +1647,31 @@
         <tags>
             
             <tag> Water </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Markdown语法</title>
+      <link href="/2018/04/13/KnowledOfMarkdown/"/>
+      <url>/2018/04/13/KnowledOfMarkdown/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Markdown原生语法"><a href="#Markdown原生语法" class="headerlink" title="Markdown原生语法"></a>Markdown原生语法</h3><ul><li>中划线。语法如下：<blockquote><p><del>要划除的行内内容</del></p></blockquote></li></ul><a id="more"></a><h3 id="Markdown中的转义字符为-，可以转义的有："><a href="#Markdown中的转义字符为-，可以转义的有：" class="headerlink" title="Markdown中的转义字符为\，可以转义的有："></a>Markdown中的转义字符为\，可以转义的有：</h3><blockquote><p>\ 反斜杠<br>` 反引号<br>* 星号<br>_ 下划线<br>{} 大括号<br>[] 中括号<br>() 小括号<br># 井号<br>+ 加号<br>- 减号<br>. 英文句号<br>! 感叹号</p></blockquote><h3 id="使用Markdown时，如何为文字加下划线"><a href="#使用Markdown时，如何为文字加下划线" class="headerlink" title="使用Markdown时，如何为文字加下划线"></a>使用Markdown时，如何为文字加下划线</h3><ul><li>Markdown并无下划线的原生语法，因为会和链接的默认样式产生混淆。这里可以使用行内样式HTML使其产生下划线效果，如下：<blockquote><p><u>Underlined Text</u></p></blockquote></li><li>使用html的span标签、设置行内CSS的border-bottom属性 来添加下划线。这种方式自定义程度最高。语法如下：<blockquote><p><span style="border-bottom:2px dashed yellow;">所添加的需要加下划线的行内文字</span></p></blockquote></li><li>用数学公式：<blockquote><p>#上划线<br>$\overline{X}$<br>#下划线<br>$\underline{X}$</p></blockquote></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
             
         </tags>
       
