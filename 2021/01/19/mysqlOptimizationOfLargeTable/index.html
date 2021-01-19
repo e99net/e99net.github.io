@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>千万级大表的MySQL优化 | 99°</title>
+  
+  <meta name="keywords" content="blog">
+  
+  
+
+  <link rel="alternate" href="/atom.xml" title="99°">
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/style.css">
+  
+
+  
+
+
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          99°
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="https:e99net.github.io"
+								 class="nav flat-box" href="https://e99net.github.io/">
+									<i class='fas fa-home fa-fw'></i>&nbsp;Home
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="about"
+								 class="nav flat-box" href="/about/">
+									<i class='fas fa-comment-dots fa-fw'></i>&nbsp;About
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="https:e99net.github.io" class="nav flat-box" href="https://e99net.github.io/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;Home
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="about" class="nav flat-box" href="/about/">
+											<i class='fas fa-comment-dots fa-fw'></i>&nbsp;About
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">千万级大表的MySQL优化</h1>
+      
+    
+
+    
+      <time class="metatag time">
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2021-01-19
+      </time>
+    
+
+    
+      
+    
+    <div class='metatag cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/Database/">Database</a>
+    </div>
+
+
+    
+
+    
+      
+        <div class="metatag browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          &nbsp;<span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+      
+    
+
+    
+
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h3 id="SQL语句优化"><a href="#SQL语句优化" class="headerlink" title="SQL语句优化"></a>SQL语句优化</h3><ul>
+<li>避免select * <ul>
+<li>在解析的过程中，会将“*”依次转换成所有的列名，这个工作是通过查询数据字典完成的，这意味着将耗费更多的时间</li>
+<li>应该养成一个需要什么就取什么的好习惯</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>ORDER BY语句优化 </p>
+<ul>
+<li>任何在ORDER BY语句的非索引项或者有计算表达式都将降低查询速度</li>
+<li>方法：<ul>
+<li>重写ORDER BY语句以使用索引</li>
+<li>为所使用的列建立另外一个索引</li>
+<li>绝对避免在ORDER BY子句中使用表达式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>GROUP BY语句优化</p>
+<p>提高GROUP BY语句的效率, 可以通过将不需要的记录在GROUP BY 之前过滤掉（如下例，先用where语句过滤掉一部分数据）</p>
+<p>低效：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> JOB, <span class="keyword">AVG</span>(SAL)</span><br><span class="line"><span class="keyword">FROM</span> EMP</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">by</span> JOB</span><br><span class="line"><span class="keyword">HAVING</span> JOB = <span class="string">'PRESIDENT'</span></span><br><span class="line"><span class="keyword">OR</span> JOB = <span class="string">'MANAGER'</span></span><br></pre></td></tr></table></figure>
+<p>高效：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> JOB, <span class="keyword">AVG</span>(SAL)</span><br><span class="line"><span class="keyword">FROM</span> EMP</span><br><span class="line"><span class="keyword">WHERE</span> JOB = <span class="string">'PRESIDENT'</span></span><br><span class="line"><span class="keyword">OR</span> JOB = <span class="string">'MANAGER'</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">by</span> JOB</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用exists代替in</p>
+<p>很多时候用exists代替in是一个好的选择，如</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">num</span> <span class="keyword">from</span> a <span class="keyword">where</span> <span class="keyword">num</span> <span class="keyword">in</span>(<span class="keyword">select</span> <span class="keyword">num</span> <span class="keyword">from</span> b)</span><br></pre></td></tr></table></figure>
+<p>用下面的语句替换：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">num</span> <span class="keyword">from</span> a <span class="keyword">where</span> <span class="keyword">exists</span>(<span class="keyword">select</span> <span class="number">1</span> <span class="keyword">from</span> b <span class="keyword">where</span> <span class="keyword">num</span>=a.num)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>尽量使用varchar/nvarchar代替char/nchar </p>
+<ul>
+<li>变长字段存储空间小，可以节省存储空间</li>
+<li>对于查询来说，在一个相对较小的字段内搜索效率显然要高些</li>
+</ul>
+</li>
+<li><p>能用DISTINCT的就不用GROUP BY</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> OrderID <span class="keyword">FROM</span> Details <span class="keyword">WHERE</span> UnitPrice &gt; <span class="number">10</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> OrderID</span><br></pre></td></tr></table></figure>
+<p>可改为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> OrderID <span class="keyword">FROM</span> Details <span class="keyword">WHERE</span> UnitPrice &gt; <span class="number">10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>能用UNION ALL就不要用UNION</p>
+<p>UNION ALL不执行SELECT DISTINCT函数，这样就会减少很多不必要的资源。（UNION ALL允许重复）</p>
+</li>
+<li><p>在join表的时候使用相同类型的字段，并将其索引</p>
+<ul>
+<li>如果应用程序有很多join查询，应该确认两个表中join的字段是被建过索引的。这样，MySQL内部会启动优化join的SQL语句的机制</li>
+<li>被用来join的字段应该具有相同的类型。例如，如果把DECIMAL字段和一个INT字段join在一起，MySQL将无法使用它们的索引。对于那些STRING类型，还需要有相同的字符集才行（两个表的字符集有可能不一样）</li>
+</ul>
+</li>
+</ul>
+<h3 id="索引优化"><a href="#索引优化" class="headerlink" title="索引优化"></a>索引优化</h3><ul>
+<li>在<strong>适合建索引的地方</strong>建立索引（索引并非越多越好）<ul>
+<li>适合建索引的情况<ul>
+<li>主键会自动建立唯一索引</li>
+<li>频繁作为 where 条件语句查询的字段</li>
+<li>关联字段，例如外键字段</li>
+<li>排序字段，因为排序字段若通过索引去访问将大大提高排序速度（索引干两件事：<br>检索和排序）</li>
+<li>分组字段，因为分组的前提是排序</li>
+<li>统计字段，例如 count()、max()</li>
+<li>高并发下倾向于创建组合索引，而不是单键索引。组合索引是由多个字段构成的索<br>引，组合索引中的字段顺序是非常重要的，越是唯一的字段越是要靠前（根据最左<br>前缀准则）。</li>
+</ul>
+</li>
+<li>不适合建索引的情况<ul>
+<li>表记录太少的情况下</li>
+<li>频繁更新的字段、经常增删改的字段，因为修改性能和检索性能是互相矛盾的，每<br>次更新不仅会更新记录还会更新索引</li>
+<li>where 条件中用不到的字段，在查询中很少使用或参考的列</li>
+<li>数据重复且分布比较均匀的字段，即唯一性太差的字段，例如性别、真假值</li>
+<li>参与计算的列</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>避免有索引但未被用到的情况（索引失效时，MySQL 会进行全表扫描）<ul>
+<li>无查询条件</li>
+<li>一些关键字会导致索引失效<ul>
+<li>where 语句中使用&lt;&gt;、!=、not in、not exist、is null、is not unll（使用&gt;或<br>&lt;会比较高效）</li>
+<li>where 语句中使用 or（注意：or 中所有的字段都加上索引才会使用索引）</li>
+<li>以通配符“%”开头的 like 查询（注意：以“%”结尾的 like 查询会使用索引）</li>
+<li>避免 where 条件不符合最左前缀原则，最左前缀原则：mysql 会一直向右匹配直到遇到<br>范围查询(&gt;、&lt;、between、like)就停止匹配，比如 a = 1 and b = 2 and c &gt; 3 and d<br>= 4 如果建立(a,b,c,d)顺序的索引，d 是用不到索引的，如果建立(a,b,d,c)的索引则<br>都可以用到，a,b,d 的顺序可以任意调整（IN 和=可以乱序）。（多列索引没有遵循最左<br>匹配原则，未使用第一个）</li>
+<li>如果列类型是字符串，那一定要在条件中将数据用引号引起来,否则不使用索引</li>
+<li>隐式转换会导致索引失效，比如数据库中的 id 是 number 类型，在查询时却出现“……<br>where id=”123””。</li>
+<li>对索引字段应用内部函数</li>
+<li>对索引字段进行运算</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            
+              <time class="metatag time" itemprop="dateUpdated" datetime="2021-01-19T23:14:43+08:00" content="2021-01-19"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2021-01-19
+              </time>
+            
+            
+                
+                <div class="metatag tags"><a class="tag" href="/tags/MySQL/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;MySQL</a></div>
+            
+            
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2021/01/19/weaknessOfGolang/" rel="prev" title="Go语言做的不好的几个地方">
+                                    
+                                        Go语言做的不好的几个地方
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Go/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Go</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+
+      
+        
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;Related Posts</h4>
+        <ul>
+            
+                <li><a href="https://e99net.github.io/2021/01/19/weaknessOfGolang/">Go语言做的不好的几个地方</a></li>
+            
+                <li><a href="https://e99net.github.io/2020/10/05/new_to_macOS/">macOS新手上路</a></li>
+            
+                <li><a href="https://e99net.github.io/2020/03/15/first_n_small_sum/">前n小的和</a></li>
+            
+                <li><a href="https://e99net.github.io/2019/11/17/simpleproblemofjump/">数组跳跃问题</a></li>
+            
+        </ul>
+    </div>
+
+
+      
+
+      
+    </section>
+  </article>
+
+
+
+<script>
+    window.subData = {
+        title: '千万级大表的MySQL优化',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://avatars3.githubusercontent.com/u/29162050?s=460&v=4'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:flyhacker666@gmail.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/e99net" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='category'>
+    
+<header class='pure'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Categories</div>
+  
+</header>
+
+    <div class='content pure'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Algorithm/" href="/categories/Algorithm/"><div class='name'>Algorithm</div><div class='badge'>(17)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/BigData/" href="/categories/BigData/"><div class='name'>BigData</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Database/" href="/categories/Database/"><div class='name'>Database</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/EAs/" href="/categories/EAs/"><div class='name'>EAs</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/memo/" href="/categories/memo/"><div class='name'>memo</div><div class='badge'>(56)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/BFS/" style="font-size: 14px; color: #999">BFS</a> <a href="/tags/Binary-Search/" style="font-size: 14px; color: #999">Binary Search</a> <a href="/tags/C-C/" style="font-size: 18.29px; color: #7c7c7c">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/DFS/" style="font-size: 14px; color: #999">DFS</a> <a href="/tags/Database/" style="font-size: 15.43px; color: #8f8f8f">Database</a> <a href="/tags/Doubling/" style="font-size: 14px; color: #999">Doubling</a> <a href="/tags/Dynamic-Programming/" style="font-size: 21.14px; color: #686868">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Go/" style="font-size: 14px; color: #999">Go</a> <a href="/tags/Graph-theory/" style="font-size: 14px; color: #999">Graph theory</a> <a href="/tags/Greedy/" style="font-size: 19.71px; color: #727272">Greedy</a> <a href="/tags/Hadoop/" style="font-size: 15.43px; color: #8f8f8f">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Heap/" style="font-size: 14px; color: #999">Heap</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Knapsack/" style="font-size: 15.43px; color: #8f8f8f">Knapsack</a> <a href="/tags/LCA/" style="font-size: 14px; color: #999">LCA</a> <a href="/tags/Latex/" style="font-size: 22.57px; color: #5f5f5f">Latex</a> <a href="/tags/Linux/" style="font-size: 16.86px; color: #868686">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 18.29px; color: #7c7c7c">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Matlab/" style="font-size: 15.43px; color: #8f8f8f">Matlab</a> <a href="/tags/MySQL/" style="font-size: 14px; color: #999">MySQL</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/Number-theory/" style="font-size: 15.43px; color: #8f8f8f">Number theory</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Paper/" style="font-size: 14px; color: #999">Paper</a> <a href="/tags/Prefix-Sum/" style="font-size: 14px; color: #999">Prefix Sum</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Simulation/" style="font-size: 15.43px; color: #8f8f8f">Simulation</a> <a href="/tags/Spanning-tree/" style="font-size: 14px; color: #999">Spanning tree</a> <a href="/tags/String/" style="font-size: 15.43px; color: #8f8f8f">String</a> <a href="/tags/Union-Find-Set/" style="font-size: 14px; color: #999">Union-Find Set</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a>
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:flyhacker666@gmail.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/e99net" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>Use <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> as theme, total visits <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> times. 
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+    <!-- fastclick -->
+    <script src="https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body)
+      }, false)
+    </script>
+  
+  
+
+
+  
+  
+  
+  
+    <script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+  
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://e99net.github.io/"/>
-  <updated>2021-01-19T14:44:07.044Z</updated>
+  <updated>2021-01-19T15:14:43.912Z</updated>
   <id>https://e99net.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>千万级大表的MySQL优化</title>
+    <link href="https://e99net.github.io/2021/01/19/mysqlOptimizationOfLargeTable/"/>
+    <id>https://e99net.github.io/2021/01/19/mysqlOptimizationOfLargeTable/</id>
+    <published>2021-01-19T14:52:53.672Z</published>
+    <updated>2021-01-19T15:14:43.912Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="SQL语句优化"><a href="#SQL语句优化" class="headerlink" title="SQL语句优化"></a>SQL语句优化</h3><ul><li>避免select * <ul><li>在解析的过程中，会将“*”依次转换成所有的列名，这个工作是通过查询数据字典完成的，这意味着将耗费更多的时间</li><li>应该养成一个需要什么就取什么的好习惯</li></ul></li></ul><a id="more"></a><ul><li><p>ORDER BY语句优化 </p><ul><li>任何在ORDER BY语句的非索引项或者有计算表达式都将降低查询速度</li><li>方法：<ul><li>重写ORDER BY语句以使用索引</li><li>为所使用的列建立另外一个索引</li><li>绝对避免在ORDER BY子句中使用表达式</li></ul></li></ul></li><li><p>GROUP BY语句优化</p><p>提高GROUP BY语句的效率, 可以通过将不需要的记录在GROUP BY 之前过滤掉（如下例，先用where语句过滤掉一部分数据）</p><p>低效：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> JOB, <span class="keyword">AVG</span>(SAL)</span><br><span class="line"><span class="keyword">FROM</span> EMP</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">by</span> JOB</span><br><span class="line"><span class="keyword">HAVING</span> JOB = <span class="string">'PRESIDENT'</span></span><br><span class="line"><span class="keyword">OR</span> JOB = <span class="string">'MANAGER'</span></span><br></pre></td></tr></table></figure><p>高效：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> JOB, <span class="keyword">AVG</span>(SAL)</span><br><span class="line"><span class="keyword">FROM</span> EMP</span><br><span class="line"><span class="keyword">WHERE</span> JOB = <span class="string">'PRESIDENT'</span></span><br><span class="line"><span class="keyword">OR</span> JOB = <span class="string">'MANAGER'</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">by</span> JOB</span><br></pre></td></tr></table></figure></li><li><p>用exists代替in</p><p>很多时候用exists代替in是一个好的选择，如</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">num</span> <span class="keyword">from</span> a <span class="keyword">where</span> <span class="keyword">num</span> <span class="keyword">in</span>(<span class="keyword">select</span> <span class="keyword">num</span> <span class="keyword">from</span> b)</span><br></pre></td></tr></table></figure><p>用下面的语句替换：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">num</span> <span class="keyword">from</span> a <span class="keyword">where</span> <span class="keyword">exists</span>(<span class="keyword">select</span> <span class="number">1</span> <span class="keyword">from</span> b <span class="keyword">where</span> <span class="keyword">num</span>=a.num)</span><br></pre></td></tr></table></figure></li><li><p>尽量使用varchar/nvarchar代替char/nchar </p><ul><li>变长字段存储空间小，可以节省存储空间</li><li>对于查询来说，在一个相对较小的字段内搜索效率显然要高些</li></ul></li><li><p>能用DISTINCT的就不用GROUP BY</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> OrderID <span class="keyword">FROM</span> Details <span class="keyword">WHERE</span> UnitPrice &gt; <span class="number">10</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> OrderID</span><br></pre></td></tr></table></figure><p>可改为：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> OrderID <span class="keyword">FROM</span> Details <span class="keyword">WHERE</span> UnitPrice &gt; <span class="number">10</span></span><br></pre></td></tr></table></figure></li><li><p>能用UNION ALL就不要用UNION</p><p>UNION ALL不执行SELECT DISTINCT函数，这样就会减少很多不必要的资源。（UNION ALL允许重复）</p></li><li><p>在join表的时候使用相同类型的字段，并将其索引</p><ul><li>如果应用程序有很多join查询，应该确认两个表中join的字段是被建过索引的。这样，MySQL内部会启动优化join的SQL语句的机制</li><li>被用来join的字段应该具有相同的类型。例如，如果把DECIMAL字段和一个INT字段join在一起，MySQL将无法使用它们的索引。对于那些STRING类型，还需要有相同的字符集才行（两个表的字符集有可能不一样）</li></ul></li></ul><h3 id="索引优化"><a href="#索引优化" class="headerlink" title="索引优化"></a>索引优化</h3><ul><li>在<strong>适合建索引的地方</strong>建立索引（索引并非越多越好）<ul><li>适合建索引的情况<ul><li>主键会自动建立唯一索引</li><li>频繁作为 where 条件语句查询的字段</li><li>关联字段，例如外键字段</li><li>排序字段，因为排序字段若通过索引去访问将大大提高排序速度（索引干两件事：<br>检索和排序）</li><li>分组字段，因为分组的前提是排序</li><li>统计字段，例如 count()、max()</li><li>高并发下倾向于创建组合索引，而不是单键索引。组合索引是由多个字段构成的索<br>引，组合索引中的字段顺序是非常重要的，越是唯一的字段越是要靠前（根据最左<br>前缀准则）。</li></ul></li><li>不适合建索引的情况<ul><li>表记录太少的情况下</li><li>频繁更新的字段、经常增删改的字段，因为修改性能和检索性能是互相矛盾的，每<br>次更新不仅会更新记录还会更新索引</li><li>where 条件中用不到的字段，在查询中很少使用或参考的列</li><li>数据重复且分布比较均匀的字段，即唯一性太差的字段，例如性别、真假值</li><li>参与计算的列</li></ul></li></ul></li><li>避免有索引但未被用到的情况（索引失效时，MySQL 会进行全表扫描）<ul><li>无查询条件</li><li>一些关键字会导致索引失效<ul><li>where 语句中使用&lt;&gt;、!=、not in、not exist、is null、is not unll（使用&gt;或<br>&lt;会比较高效）</li><li>where 语句中使用 or（注意：or 中所有的字段都加上索引才会使用索引）</li><li>以通配符“%”开头的 like 查询（注意：以“%”结尾的 like 查询会使用索引）</li><li>避免 where 条件不符合最左前缀原则，最左前缀原则：mysql 会一直向右匹配直到遇到<br>范围查询(&gt;、&lt;、between、like)就停止匹配，比如 a = 1 and b = 2 and c &gt; 3 and d<br>= 4 如果建立(a,b,c,d)顺序的索引，d 是用不到索引的，如果建立(a,b,d,c)的索引则<br>都可以用到，a,b,d 的顺序可以任意调整（IN 和=可以乱序）。（多列索引没有遵循最左<br>匹配原则，未使用第一个）</li><li>如果列类型是字符串，那一定要在条件中将数据用引号引起来,否则不使用索引</li><li>隐式转换会导致索引失效，比如数据库中的 id 是 number 类型，在查询时却出现“……<br>where id=”123””。</li><li>对索引字段应用内部函数</li><li>对索引字段进行运算</li></ul></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;SQL语句优化&quot;&gt;&lt;a href=&quot;#SQL语句优化&quot; class=&quot;headerlink&quot; title=&quot;SQL语句优化&quot;&gt;&lt;/a&gt;SQL语句优化&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;避免select * &lt;ul&gt;
+&lt;li&gt;在解析的过程中，会将“*”依次转换成所有的列名，这个工作是通过查询数据字典完成的，这意味着将耗费更多的时间&lt;/li&gt;
+&lt;li&gt;应该养成一个需要什么就取什么的好习惯&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Database" scheme="https://e99net.github.io/categories/Database/"/>
+    
+    
+      <category term="MySQL" scheme="https://e99net.github.io/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>Go语言做的不好的几个地方</title>
@@ -532,28 +560,6 @@
     
     
       <category term="String" scheme="https://e99net.github.io/tags/String/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++的输入与输出</title>
-    <link href="https://e99net.github.io/2019/08/25/InputandOutputOfCpp/"/>
-    <id>https://e99net.github.io/2019/08/25/InputandOutputOfCpp/</id>
-    <published>2019-08-25T07:35:30.848Z</published>
-    <updated>2019-08-25T07:38:59.207Z</updated>
-    
-    <content type="html"><![CDATA[<p>输入时：<br>float型输入用%f。<br>double型输入用%lf。</p><a id="more"></a><p>输出时：<br>最好是都用%f输出。<br>在G++中，double类型若用%lf输出可能会错，而在C++中，double类型用%lf输出是正确的。<br>printf() 函数中不存在 %lf。</p><p>总结：<br>输入 double 用 %lf 输出用 %f。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;输入时：&lt;br&gt;float型输入用%f。&lt;br&gt;double型输入用%lf。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="memo" scheme="https://e99net.github.io/categories/memo/"/>
-    
-    
-      <category term="C/C++" scheme="https://e99net.github.io/tags/C-C/"/>
     
   </entry>
   
