@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Go语言做的不好的几个地方</title>
+      <link href="/2021/01/19/weaknessOfGolang/"/>
+      <url>/2021/01/19/weaknessOfGolang/</url>
+      
+        <content type="html"><![CDATA[<h3 id="浮点型比其他语言要差"><a href="#浮点型比其他语言要差" class="headerlink" title="浮点型比其他语言要差"></a>浮点型比其他语言要差</h3><ul><li><p>运算时，计算结果不准</p></li><li><p>四舍五入时，用的是银行舍入法，和其他语言四舍五入的值对不上。解决方法如下：</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//四舍五入 取精度</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ToFixed</span><span class="params">(f <span class="keyword">float64</span>,places <span class="keyword">int</span>)</span> <span class="title">float64</span></span>&#123;</span><br><span class="line">    shift := math.Pow(<span class="number">10</span>, <span class="keyword">float64</span>(places))</span><br><span class="line">    fv := <span class="number">0.0000000001</span> + f        <span class="comment">//对浮点数产生.xxx999999999 计算不准进行处理</span></span><br><span class="line">    <span class="keyword">return</span> math.Floor(fv * shift + <span class="number">.5</span>) / shift</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><a id="more"></a><h3 id="自带的json不好用"><a href="#自带的json不好用" class="headerlink" title="自带的json不好用"></a>自带的json不好用</h3><ul><li>Golang中自带的json包可以用来解析json数据，但是Golang自带的json解析是通过反射机制实现json数据的解析的，这样就造成了解析性能的低下</li><li>json包在解析本地配置文件的场景下使用的较多，但在一些高并发的场景下就显得不足</li><li>对于json的解析，可以选择使用<strong>easyjson</strong>包，避免使用反射，从而提高解析的性能，在众多Golang高性能解析json的框架中，easyjson名列前茅，比go语言自带的json序列化快几倍<ul><li>easyjson在解析json数据的时候，并不是使用反射机制，而只针对预先定义好的json结构体对输入的json字符串进行纯字符串的截取，并将对应的json字段赋值给结构体</li><li>easyjson在解析json数据的时候虽然并不会使用反射机制，但是在使用easyjson生成解析代码的时候，easyjson还是会使用反射机制的，所以我们需要为每个解析字段指定FieldTag，否则easyjson就会将变量名当作解析字段生成解析代码，当然解析代码生成之后，easyjson解析json数据就和反射机制没有关系了</li><li>使用Benchmark测试Golang内置的json包以及eashjson包的性能，解析相同的json数据并对解析好的Struct进行json转换， 测试结果表明，easyjson的运行时间大约是json包的三分之一，easyjson在单次运行占用内存和内存分配次数上也要比Golang内置的json包表现好很多。</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>macOS新手上路</title>
       <link href="/2020/10/05/new_to_macOS/"/>
       <url>/2020/10/05/new_to_macOS/</url>
@@ -1430,31 +1455,6 @@
     
     
     <entry>
-      <title>ConEmu的些许设置</title>
-      <link href="/2018/04/13/SettingsOfConemu/"/>
-      <url>/2018/04/13/SettingsOfConemu/</url>
-      
-        <content type="html"><![CDATA[<h3 id="添加ConEmu到Windows右键菜单"><a href="#添加ConEmu到Windows右键菜单" class="headerlink" title="添加ConEmu到Windows右键菜单"></a>添加ConEmu到Windows右键菜单</h3><p>进行ConEmu界面,打开设置,如下图:<br><a id="more"></a></p><p><img src="http://image.bubuko.com/info/201709/20180111004357181665.png" alt=""></p><p>然后,打开Integreation,将“cmd -cur_console:n”改为“cmd -cur_console:n %P”,如图操作:</p><p><img src="http://image.bubuko.com/info/201709/20180111004357186548.png" alt=""></p><p>点击”Save settings”,回到Windows桌面或是TotalCommander界面就可以看到右键菜单里已经有ConEmu选项了.</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Water </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>关于Windows通过远程桌面访问Ubuntu</title>
       <link href="/2018/04/13/RemoteAccess/"/>
       <url>/2018/04/13/RemoteAccess/</url>
@@ -1472,6 +1472,31 @@
         <tags>
             
             <tag> Machine Learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ConEmu的些许设置</title>
+      <link href="/2018/04/13/SettingsOfConemu/"/>
+      <url>/2018/04/13/SettingsOfConemu/</url>
+      
+        <content type="html"><![CDATA[<h3 id="添加ConEmu到Windows右键菜单"><a href="#添加ConEmu到Windows右键菜单" class="headerlink" title="添加ConEmu到Windows右键菜单"></a>添加ConEmu到Windows右键菜单</h3><p>进行ConEmu界面,打开设置,如下图:<br><a id="more"></a></p><p><img src="http://image.bubuko.com/info/201709/20180111004357181665.png" alt=""></p><p>然后,打开Integreation,将“cmd -cur_console:n”改为“cmd -cur_console:n %P”,如图操作:</p><p><img src="http://image.bubuko.com/info/201709/20180111004357186548.png" alt=""></p><p>点击”Save settings”,回到Windows桌面或是TotalCommander界面就可以看到右键菜单里已经有ConEmu选项了.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
             
         </tags>
       
@@ -1655,31 +1680,6 @@
     
     
     <entry>
-      <title>如何知道自己是什么级别的程序员</title>
-      <link href="/2018/04/13/level/"/>
-      <url>/2018/04/13/level/</url>
-      
-        <content type="html"><![CDATA[<p>你们按照下面自行对号入座吧。</p><a id="more"></a><p>level 1: 被人带着做事的<br>level 2: 不需要人带就能做事的<br>level 3: 比level 2做得快的<br>level 4: 可以带人的<br>level 5: 可以带三个人的<br>level 6: 可以带七个人的<br>level 7: 可以带很多人的<br>level 8: 带带人的人的<br>level 9: 带level 8的</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Water </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Markdown语法</title>
       <link href="/2018/04/13/KnowledOfMarkdown/"/>
       <url>/2018/04/13/KnowledOfMarkdown/</url>
@@ -1697,6 +1697,31 @@
         <tags>
             
             <tag> Markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何知道自己是什么级别的程序员</title>
+      <link href="/2018/04/13/level/"/>
+      <url>/2018/04/13/level/</url>
+      
+        <content type="html"><![CDATA[<p>你们按照下面自行对号入座吧。</p><a id="more"></a><p>level 1: 被人带着做事的<br>level 2: 不需要人带就能做事的<br>level 3: 比level 2做得快的<br>level 4: 可以带人的<br>level 5: 可以带三个人的<br>level 6: 可以带七个人的<br>level 7: 可以带很多人的<br>level 8: 带带人的人的<br>level 9: 带level 8的</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Water </tag>
             
         </tags>
       
@@ -1755,31 +1780,6 @@
     
     
     <entry>
-      <title>Latex中设置字体大小</title>
-      <link href="/2018/04/13/FontsizeofLatex/"/>
-      <url>/2018/04/13/FontsizeofLatex/</url>
-      
-        <content type="html"><![CDATA[<h3 id="Latex设置字体大小的命令由小到大依次为"><a href="#Latex设置字体大小的命令由小到大依次为" class="headerlink" title="Latex设置字体大小的命令由小到大依次为"></a>Latex设置字体大小的命令由小到大依次为</h3><a id="more"></a><ul><li>\tiny</li><li>\scriptsize</li><li>\footnotesize</li><li>\small</li><li>\normalsize(注：此为默认的正文字体大小)</li><li>\large</li><li>\Large</li><li>\LARGE</li><li>\huge</li><li>\Huge</li></ul><h3 id="Latex打勾和叉"><a href="#Latex打勾和叉" class="headerlink" title="Latex打勾和叉"></a>Latex打勾和叉</h3><ul><li>首先在导言区调用bbding包</li></ul><blockquote><p>\usepackage{bbding}</p></blockquote><ul><li>然后使用如下命令，5种命令分别代表不同样式的勾和叉</li></ul><blockquote><p>\Checkmark        %标准的勾<br>\XSolidBrush<br>\XSolid           %标准的叉<br>\CheckmarkBold<br>\XSolidBold</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> memo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Latex </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>函数式编程初探</title>
       <link href="/2018/04/13/FuncProgExp/"/>
       <url>/2018/04/13/FuncProgExp/</url>
@@ -1797,6 +1797,31 @@
         <tags>
             
             <tag> Haskell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Latex中设置字体大小</title>
+      <link href="/2018/04/13/FontsizeofLatex/"/>
+      <url>/2018/04/13/FontsizeofLatex/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Latex设置字体大小的命令由小到大依次为"><a href="#Latex设置字体大小的命令由小到大依次为" class="headerlink" title="Latex设置字体大小的命令由小到大依次为"></a>Latex设置字体大小的命令由小到大依次为</h3><a id="more"></a><ul><li>\tiny</li><li>\scriptsize</li><li>\footnotesize</li><li>\small</li><li>\normalsize(注：此为默认的正文字体大小)</li><li>\large</li><li>\Large</li><li>\LARGE</li><li>\huge</li><li>\Huge</li></ul><h3 id="Latex打勾和叉"><a href="#Latex打勾和叉" class="headerlink" title="Latex打勾和叉"></a>Latex打勾和叉</h3><ul><li>首先在导言区调用bbding包</li></ul><blockquote><p>\usepackage{bbding}</p></blockquote><ul><li>然后使用如下命令，5种命令分别代表不同样式的勾和叉</li></ul><blockquote><p>\Checkmark        %标准的勾<br>\XSolidBrush<br>\XSolid           %标准的叉<br>\CheckmarkBold<br>\XSolidBold</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Latex </tag>
             
         </tags>
       
