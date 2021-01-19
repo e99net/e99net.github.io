@@ -198,10 +198,13 @@
 <h3 id="自带的json不好用"><a href="#自带的json不好用" class="headerlink" title="自带的json不好用"></a>自带的json不好用</h3><ul>
 <li>Golang中自带的json包可以用来解析json数据，但是Golang自带的json解析是通过反射机制实现json数据的解析的，这样就造成了解析性能的低下</li>
 <li>json包在解析本地配置文件的场景下使用的较多，但在一些高并发的场景下就显得不足</li>
-<li>对于json的解析，可以选择使用<strong>easyjson</strong>包，避免使用反射，从而提高解析的性能，在众多Golang高性能解析json的框架中，easyjson名列前茅，比go语言自带的json序列化快几倍<ul>
-<li>easyjson在解析json数据的时候，并不是使用反射机制，而只针对预先定义好的json结构体对输入的json字符串进行纯字符串的截取，并将对应的json字段赋值给结构体</li>
-<li>easyjson在解析json数据的时候虽然并不会使用反射机制，但是在使用easyjson生成解析代码的时候，easyjson还是会使用反射机制的，所以我们需要为每个解析字段指定FieldTag，否则easyjson就会将变量名当作解析字段生成解析代码，当然解析代码生成之后，easyjson解析json数据就和反射机制没有关系了</li>
-<li>使用Benchmark测试Golang内置的json包以及eashjson包的性能，解析相同的json数据并对解析好的Struct进行json转换， 测试结果表明，easyjson的运行时间大约是json包的三分之一，easyjson在单次运行占用内存和内存分配次数上也要比Golang内置的json包表现好很多。</li>
+<li><p>对于json的解析，可以选择使用<strong>easyjson</strong>包，避免使用反射，从而提高解析的性能，在众多Golang高性能解析json的框架中，easyjson名列前茅，比go语言自带的json序列化快几倍</p>
+<ul>
+<li><p>easyjson在解析json数据的时候，并不是使用反射机制，而只针对预先定义好的json结构体对输入的json字符串进行纯字符串的截取，并将对应的json字段赋值给结构体</p>
+</li>
+<li><p>easyjson在解析json数据的时候虽然并不会使用反射机制，但是在使用easyjson生成解析代码的时候，easyjson还是会使用反射机制的，所以我们需要为每个解析字段指定FieldTag，否则easyjson就会将变量名当作解析字段生成解析代码，当然解析代码生成之后，easyjson解析json数据就和反射机制没有关系了</p>
+</li>
+<li>使用Benchmark测试Golang内置的json包以及eashjson包的性能，解析相同的json数据并对解析好的Struct进行json转换， 测试结果表明，easyjson的运行时间大约是json包的三分之一，easyjson在单次运行占用内存和内存分配次数上也要比Golang内置的json包表现好很多</li>
 </ul>
 </li>
 </ul>
@@ -210,13 +213,13 @@
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2021-01-19T22:37:40+08:00" content="2021-01-19"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+              <time class="metatag time" itemprop="dateUpdated" datetime="2021-01-19T22:44:07+08:00" content="2021-01-19"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
                 &nbsp;2021-01-19
               </time>
             
             
                 
-                <div class="metatag tags"><a class="tag" href="/tags/Markdown/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Markdown</a></div>
+                <div class="metatag tags"><a class="tag" href="/tags/Go/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Go</a></div>
             
             
           </section>
@@ -376,7 +379,7 @@
 </header>
 
     <div class='content pure'>
-      <a href="/tags/BFS/" style="font-size: 14px; color: #999">BFS</a> <a href="/tags/Binary-Search/" style="font-size: 14px; color: #999">Binary Search</a> <a href="/tags/C-C/" style="font-size: 18.29px; color: #7c7c7c">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/DFS/" style="font-size: 14px; color: #999">DFS</a> <a href="/tags/Database/" style="font-size: 15.43px; color: #8f8f8f">Database</a> <a href="/tags/Doubling/" style="font-size: 14px; color: #999">Doubling</a> <a href="/tags/Dynamic-Programming/" style="font-size: 21.14px; color: #686868">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Graph-theory/" style="font-size: 14px; color: #999">Graph theory</a> <a href="/tags/Greedy/" style="font-size: 19.71px; color: #727272">Greedy</a> <a href="/tags/Hadoop/" style="font-size: 15.43px; color: #8f8f8f">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Heap/" style="font-size: 14px; color: #999">Heap</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Knapsack/" style="font-size: 15.43px; color: #8f8f8f">Knapsack</a> <a href="/tags/LCA/" style="font-size: 14px; color: #999">LCA</a> <a href="/tags/Latex/" style="font-size: 22.57px; color: #5f5f5f">Latex</a> <a href="/tags/Linux/" style="font-size: 16.86px; color: #868686">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 18.29px; color: #7c7c7c">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 15.43px; color: #8f8f8f">Markdown</a> <a href="/tags/Matlab/" style="font-size: 15.43px; color: #8f8f8f">Matlab</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/Number-theory/" style="font-size: 15.43px; color: #8f8f8f">Number theory</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Paper/" style="font-size: 14px; color: #999">Paper</a> <a href="/tags/Prefix-Sum/" style="font-size: 14px; color: #999">Prefix Sum</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Simulation/" style="font-size: 15.43px; color: #8f8f8f">Simulation</a> <a href="/tags/Spanning-tree/" style="font-size: 14px; color: #999">Spanning tree</a> <a href="/tags/String/" style="font-size: 15.43px; color: #8f8f8f">String</a> <a href="/tags/Union-Find-Set/" style="font-size: 14px; color: #999">Union-Find Set</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a>
+      <a href="/tags/BFS/" style="font-size: 14px; color: #999">BFS</a> <a href="/tags/Binary-Search/" style="font-size: 14px; color: #999">Binary Search</a> <a href="/tags/C-C/" style="font-size: 18.29px; color: #7c7c7c">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/DFS/" style="font-size: 14px; color: #999">DFS</a> <a href="/tags/Database/" style="font-size: 15.43px; color: #8f8f8f">Database</a> <a href="/tags/Doubling/" style="font-size: 14px; color: #999">Doubling</a> <a href="/tags/Dynamic-Programming/" style="font-size: 21.14px; color: #686868">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Go/" style="font-size: 14px; color: #999">Go</a> <a href="/tags/Graph-theory/" style="font-size: 14px; color: #999">Graph theory</a> <a href="/tags/Greedy/" style="font-size: 19.71px; color: #727272">Greedy</a> <a href="/tags/Hadoop/" style="font-size: 15.43px; color: #8f8f8f">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Heap/" style="font-size: 14px; color: #999">Heap</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Knapsack/" style="font-size: 15.43px; color: #8f8f8f">Knapsack</a> <a href="/tags/LCA/" style="font-size: 14px; color: #999">LCA</a> <a href="/tags/Latex/" style="font-size: 22.57px; color: #5f5f5f">Latex</a> <a href="/tags/Linux/" style="font-size: 16.86px; color: #868686">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 18.29px; color: #7c7c7c">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Matlab/" style="font-size: 15.43px; color: #8f8f8f">Matlab</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/Number-theory/" style="font-size: 15.43px; color: #8f8f8f">Number theory</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Paper/" style="font-size: 14px; color: #999">Paper</a> <a href="/tags/Prefix-Sum/" style="font-size: 14px; color: #999">Prefix Sum</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Simulation/" style="font-size: 15.43px; color: #8f8f8f">Simulation</a> <a href="/tags/Spanning-tree/" style="font-size: 14px; color: #999">Spanning tree</a> <a href="/tags/String/" style="font-size: 15.43px; color: #8f8f8f">String</a> <a href="/tags/Union-Find-Set/" style="font-size: 14px; color: #999">Union-Find Set</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a>
     </div>
   </section>
 
