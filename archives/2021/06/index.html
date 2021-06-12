@@ -9,6 +9,8 @@
   <meta name="keywords" content="blog">
   
   
+  <meta name="description" content="记录一些备查的内容和个人成长过程中的感想，希望也能让你有所收获~~">
+  
 
   <link rel="alternate" href="/atom.xml" title="99°">
 
@@ -359,49 +361,13 @@
 
     <section class="article typo">
         <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>YAPI是一个很炫酷的企业级api自动化测试平台，最早是由<u>去哪儿</u>开发，后来移交给<u>百度</u>进行维护。</p>
-<h4 id="记录几个玩docker-yapi时踩的坑"><a href="#记录几个玩docker-yapi时踩的坑" class="headerlink" title="记录几个玩docker-yapi时踩的坑"></a>记录几个玩docker-yapi时踩的坑</h4><p>在windows7中安装docker-yapi体验学习一下如何使用YAPI，在此过程中遇到如下几个问题：</p>
-<ul>
-<li><p>Error: getaddrinfo ENOTFOUND yapi.demo.qunar.com</p>
-<p>此错误可忽略，貌似在配置文件中重定向到了<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></p>
-</li>
-<li><p>镜像build了好多次, 模块找不到</p>
-<blockquote>
-<p>internal/modules/cjs/loader.js:818<br>throw err;<br>^</p>
-<p>Error: Cannot find module ‘/my-yapi/vendors/server/app.js’<br>at Function.Module._resolveFilename (internal/modules/cjs/loader.js:815:15)<br>at Function.Module._load (internal/modules/cjs/loader.js:667:27)<br>at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)<br>at internal/main/run_main_module.js:17:47 {<br>code: ‘MODULE_NOT_FOUND’,<br>requireStack: []<br>}</p>
-</blockquote>
-<p>第一次修改docker-compose.yml里的command指令：</p>
-<p>由</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">yapi:</span></span><br><span class="line"><span class="attr">build:</span></span><br><span class="line"><span class="attr">context:</span> <span class="string">./</span></span><br><span class="line"><span class="attr">dockerfile:</span> <span class="string">Dockerfile</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">yapi</span></span><br><span class="line"><span class="comment"># 第一次启动使用</span></span><br><span class="line"><span class="comment"># command: "yapi server"</span></span><br><span class="line"><span class="comment"># 之后使用下面的命令</span></span><br><span class="line"><span class="attr">command:</span> <span class="string">"node /my-yapi/vendors/server/app.js"</span></span><br></pre></td></tr></table></figure>
-<p>修改成</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">yapi:</span></span><br><span class="line"><span class="attr">build:</span></span><br><span class="line"><span class="attr">context:</span> <span class="string">./</span></span><br><span class="line"><span class="attr">dockerfile:</span> <span class="string">Dockerfile</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">yapi</span></span><br><span class="line"><span class="comment"># 第一次启动使用</span></span><br><span class="line"><span class="attr">command:</span> <span class="string">"yapi server"</span></span><br><span class="line"><span class="comment"># 之后使用下面的命令</span></span><br><span class="line"><span class="comment"># command: "node /my-yapi/vendors/server/app.js"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Operation not permitted.</p>
-<p>此错误在web配置页面中显示为：</p>
-<blockquote>
-<p>Error: 连接数据库失败 Error: getaddrinfo ENOTFOUND mongo at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:66:26) { name: ‘MongoError’ }]</p>
-<p>Error: 连接数据库失败, failed to connect to server [mongo:27017]</p>
-</blockquote>
-<p>查询一下docker中与mongo相关的环境（此处镜像为mongo:4，docker-yapi起的容器名为docker-yapi_mongo_1）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-<p>发现docker-yapi的mongo环境没有启动成功。</p>
-<p>这是因为Windows和OS X上的默认Docker设置使用VirtualBox VM来托管Docker守护程序。不幸的是，VirtualBox用于在主机系统和Docker容器之间共享文件夹的机制与MongoDB使用的内存映射文件不兼容（请参阅vbox bug，docs.mongodb.org和相关的jira.mongodb.org错误）。这意味着无法运行映射到主机的数据目录的MongoDB容器。原文见<a href="https://hub.docker.com/_/mongo" target="_blank" rel="noopener">Docker Hub中mongoDB官方镜像</a>对此的描述：</p>
-<blockquote>
-<p>WARNING (Windows &amp; OS X): The default Docker setup on Windows and OS X uses a VirtualBox VM to host the Docker daemon. Unfortunately, the mechanism VirtualBox uses to share folders between the host system and the Docker container is not compatible with the memory mapped files used by MongoDB (see vbox bug, docs.mongodb.org and related jira.mongodb.org bug). This means that it is not possible to run a MongoDB container with the data directory mapped to the host.</p>
-</blockquote>
-<p>解决方案是创建docker数据卷（Volume）作为保存持久化数据的目录，数据卷Volume可理解为虚拟磁盘。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 创建Volume虚拟磁盘</span><br><span class="line">docker volume create --name &lt;名称&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 删除Volume虚拟磁盘</span><br><span class="line">docker volume rm &lt;名称&gt;</span><br></pre></td></tr></table></figure>
-<p>例如此处可以创建名为<em>mongodata</em>的数据卷，并与docker-yapi中配置的mongo数据目录建立映射：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker volume create --name mongodata</span><br><span class="line">docker run --name mongodb -v mongodata:/data/db -p 27017:27017 -d mongo:latest</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>“msg”:”Authentication failed”,”attr”:{“mechanism”:”SCRAM-SHA-1”,”speculative”:false,”principalName”:”yapi”,”authenticationDatabase”:”yapi”,”error”:”UserNotFound: Could not find user \”yapi\” for db \”yapi\””}</p>
-<p>此错误在web配置页面中显示为：</p>
-<blockquote>
-<p>Error: 连接数据库失败, Authentication failed.</p>
-</blockquote>
-<p>这是因为新版本的MongoDB权限管理更加严格，可手动登入docker中的mongo环境配置用户yapi的权限（根据docker-yapi自带的配置文件进行配置即可）</p>
-</li>
-</ul>
-
+        
+            <div class="readmore">
+                <a href="/2021/06/12/the_problem_of_play_docker-yapi/" class="flat-box">
+                    <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+                    Read More
+                </a>
+            </div>
         
 
         
