@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>记录几个玩Golang微服务生态时踩的坑</title>
+      <link href="/2021/06/12/the_problem_of_play_go-related_framework/"/>
+      <url>/2021/06/12/the_problem_of_play_go-related_framework/</url>
+      
+        <content type="html"><![CDATA[<h4 id="go-micro"><a href="#go-micro" class="headerlink" title="go-micro"></a>go-micro</h4><ul><li>invalid character ‘\‘’ looking for beginning of value</li></ul><p>go micro官方文档给的实例里面</p><p>Make an RPC call via the CLI. The query is sent as json.<br><a id="more"></a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">micro call go.micro.srv.example Example.Call '&#123;"name": "John"&#125;'</span><br></pre></td></tr></table></figure><p>在windows控制台中执行会返回:</p><blockquote><p>invalid character ‘\‘’ looking for beginning of value</p></blockquote><p>经过测试，正确写法是：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">micro call go.micro.srv.example Example.Call "&#123;\"name\":\"John\"&#125;"</span><br></pre></td></tr></table></figure><h4 id="consul-go-micro"><a href="#consul-go-micro" class="headerlink" title="consul + go-micro"></a>consul + go-micro</h4><ul><li>Go-Micro客户端请求报<strong>500错误和408错误</strong></li></ul><blockquote><p>{“id”:”go.micro.client”,”code”:500,”detail”:”service not found”}</p><p>{“id”:”go.micro.client”,”code”:408,”detail”:”call timeout: context deadline exceeded”,”status”:”Request Timeout”}</p></blockquote><p>查看一下服务列表和服务详细信息</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">micro list services</span><br><span class="line">比如得到结果：go.micro.srv.example</span><br><span class="line"></span><br><span class="line">micro get service go.micro.srv.example</span><br></pre></td></tr></table></figure><p>此现象有可能是因为服务没有在consul中注册成功所导致，这里提供一种解决思路：</p><p>确保在“告诉consul即将注册的服务的配置信息”时有以下配置项</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">registerService:=api.AgentServiceRegistration&#123;</span><br><span class="line">    ID:<span class="string">"xxx"</span>,</span><br><span class="line">    Tags:[]<span class="keyword">string</span>&#123;<span class="string">"grpc"</span>,<span class="string">"consul"</span>&#125;,</span><br><span class="line">    Name:<span class="string">"grpc And Consul"</span>,</span><br><span class="line">    Address:<span class="string">"127.0.0.1"</span>,</span><br><span class="line">    Port:<span class="number">8800</span>,</span><br><span class="line">    Check:&amp;api.AgentServiceCheck&#123;</span><br><span class="line">        CheckID:<span class="string">"consul grpc test"</span>,</span><br><span class="line">        TCP:<span class="string">"127.0.0.1:8800"</span>,</span><br><span class="line">        Timeout:<span class="string">"1s"</span>,</span><br><span class="line">        Interval:<span class="string">"5s"</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h4><ul><li>VBoxManage.exe: error: Details: code E_FAIL (0x80004005)……</li></ul><p>windows7利用DockerToolBox安装Docker出现此问题，经测试，以下方法能解决此问题：</p><p>卸载掉VirtualBox，然后从<a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">https://www.virtualbox.org/wiki/Downloads</a> 更新最新版本安装，安装完成后再启动docker的客户端</p><h4 id="elasticsearch"><a href="#elasticsearch" class="headerlink" title="elasticsearch"></a>elasticsearch</h4><ul><li>post 中文数据到elasticsearch restful接口报json_parse_exception 问题</li></ul><blockquote><p>{“error”:{“root_cause”:[{“type”:”json_parse_exception”,”reason”:”Invalid UTF-8 middle byte……</p></blockquote><p>在windows7 cmd命令行下执行会报此错误，可尝试通过专业的<strong>postman</strong>工具进行操作</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Golang </tag>
+            
+            <tag> Microservice </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>手写堆(以小根堆为例)</title>
       <link href="/2021/06/12/write_a_heap/"/>
       <url>/2021/06/12/write_a_heap/</url>
