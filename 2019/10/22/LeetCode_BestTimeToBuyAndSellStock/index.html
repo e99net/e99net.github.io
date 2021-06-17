@@ -191,36 +191,31 @@
       <div class="article-entry" itemprop="articleBody">
         <h4 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h4><p>LeetCode 121 Easy [<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/]" target="_blank" rel="noopener">https://leetcode.com/problems/best-time-to-buy-and-sell-stock/]</a></p>
 <ul>
-<li>描述：</li>
-</ul>
+<li><p>描述：</p>
 <p>给一个数组，数组中的第i个元素代表第i天的股票价格。如果<strong>只允许完全至多一次交易（即买进一股股票并卖出这股股票）</strong>，那么最大收益是多少？</p>
 <p>注意：卖出股票的时间不能早于买进股票的时间。</p>
+</li>
+</ul>
 <a id="more"></a>
 <ul>
-<li>输入：</li>
-</ul>
+<li><p>输入：</p>
 <p>一个数组。</p>
-<ul>
-<li>输出：</li>
-</ul>
+</li>
+<li><p>输出：</p>
 <p>买卖股票的最大收益。</p>
-<ul>
-<li>样例输入1：</li>
-</ul>
+</li>
+<li><p>样例输入1：</p>
 <p>[7,1,5,3,6,4]</p>
-<ul>
-<li>样例输出1：</li>
-</ul>
+</li>
+<li><p>样例输出1：</p>
 <p>5</p>
-<ul>
-<li>样例输入2：</li>
-</ul>
+</li>
+<li><p>样例输入2：</p>
 <p>[7,6,4,3,1]</p>
-<ul>
-<li>样例输出2：</li>
-</ul>
+</li>
+<li><p>样例输出2：</p>
 <p>0</p>
-<ul>
+</li>
 <li><p>解题思路：贪心法</p>
 <p>遍历一次数组，用一个变量记录遍历过的数中的最小值，然后每次计算当前值和最小值之间的差值作为利润，每次选较大的利润来更新，遍历完成后，当前利润即所求。</p>
 </li>
@@ -238,49 +233,36 @@
 </ul>
 <h4 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h4><p>LeetCode 122 Easy [<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/]" target="_blank" rel="noopener">https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/]</a></p>
 <ul>
-<li>描述：</li>
-</ul>
+<li><p>描述：</p>
 <p>给一个数组，数组中的第i个元素代表第i天的股票价格。如果<strong>允许完成多次交易（即多次买进一股股票并卖出这股股票）</strong>，那么最大收益是多少？</p>
 <p>注意：不能同时进行多次交易，必须在再次买进股票前卖出股票。</p>
-<ul>
-<li>输入：</li>
-</ul>
+</li>
+<li><p>输入：</p>
 <p>一个数组。</p>
-<ul>
-<li>输出：</li>
-</ul>
+</li>
+<li><p>输出：</p>
 <p>买卖股票的最大收益。</p>
-<ul>
-<li>输入样例1：</li>
-</ul>
+</li>
+<li><p>输入样例1：</p>
 <p>[7,1,5,3,6,4]</p>
-<ul>
-<li>输出样例1：</li>
-</ul>
+</li>
+<li><p>输出样例1：</p>
 <p>7</p>
-<ul>
-<li><p>说明：第二天买进，第三天卖出，获得收益5-1=4；第四天买进，第五天卖出，获得收益6-3=3。总共获得收益4+3=7。</p>
+<p>说明：第二天买进，第三天卖出，获得收益5-1=4；第四天买进，第五天卖出，获得收益6-3=3。总共获得收益4+3=7。</p>
 </li>
 <li><p>输入样例2：</p>
-</li>
-</ul>
 <p>[1,2,3,4,5]</p>
-<ul>
-<li>输出样例2：</li>
-</ul>
+</li>
+<li><p>输出样例2：</p>
 <p>4</p>
-<ul>
-<li><p>说明：第一天买进，第五天卖出，获得收益5-1=4。不能在第一天买进，第二天买进，稍后再卖出它们，因为这算同时进行多次交易。</p>
+<p>说明：第一天买进，第五天卖出，获得收益5-1=4。不能在第一天买进，第二天买进，稍后再卖出它们，因为这算同时进行多次交易。</p>
 </li>
 <li><p>输入样例3：</p>
-</li>
-</ul>
 <p>[7,6,4,3,1]</p>
-<ul>
-<li>输出样例3：</li>
-</ul>
+</li>
+<li><p>输出样例3：</p>
 <p>0</p>
-<ul>
+</li>
 <li><p>解题思路：贪心法</p>
 <p>从第二天开始，如果当前价格比之前价格高，则把差值加入利润中，因为我们可以昨天买入，今日卖出，若明日价更高的话，还可以今日买入，明日再抛出。以此类推，遍历完整个数组后即可求得最大利润。 </p>
 </li>
@@ -289,64 +271,47 @@
 <li><p>代码1，时间复杂度$O(n)$</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;prices.size();i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(prices[i]&gt;prices[i<span class="number">-1</span>])</span><br><span class="line">                sum+=prices[i]-prices[i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-</li>
-</ul>
-<ul>
 <li><p>代码2</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;prices.size();i++) &#123;</span><br><span class="line">            sum+=max(<span class="number">0</span>,prices[i]-prices[i<span class="number">-1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<ul>
 <li><p>代码3，类比第一题</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sell=<span class="number">0</span>,buy=INT_MIN;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> p:prices) &#123;</span><br><span class="line">            buy=max(buy,sell-p);</span><br><span class="line">            sell=max(sell,buy+p);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sell;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+</li>
+</ul>
 <h4 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h4><p>LeetCode 123 Hard [<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/]" target="_blank" rel="noopener">https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/]</a></p>
 <ul>
-<li>描述：</li>
-</ul>
+<li><p>描述：</p>
 <p>给一个数组，数组中的第i个元素代表第i天的股票价格。如果<strong>只允许完成最多两次交易（即最多两次买进股票并卖出股票）</strong>，那么最大收益是多少？</p>
 <p>注意：不能同时进行多次交易，必须在再次买进股票前卖出股票。</p>
-<ul>
-<li>输入：</li>
-</ul>
+</li>
+<li><p>输入：</p>
 <p>一个数组。</p>
-<ul>
-<li>输出：</li>
-</ul>
+</li>
+<li><p>输出：</p>
 <p>买卖股票的最大收益。</p>
-<ul>
-<li>输入样例1：</li>
-</ul>
+</li>
+<li><p>输入样例1：</p>
 <p>[3,3,5,0,0,3,1,4]</p>
-<ul>
-<li>输出样例1：</li>
-</ul>
+</li>
+<li><p>输出样例1：</p>
 <p>6</p>
-<ul>
-<li><p>说明：第四天买进，第六天卖出，获得收益3-0=3；然后第七天买进，第八天卖出，获得收益4-1=3。总共获得收益3+3=6。</p>
+<p>说明：第四天买进，第六天卖出，获得收益3-0=3；然后第七天买进，第八天卖出，获得收益4-1=3。总共获得收益3+3=6。</p>
 </li>
 <li><p>输入样例2：</p>
-</li>
-</ul>
 <p>[1,2,3,4,5]</p>
-<ul>
-<li>输出样例2：</li>
-</ul>
+</li>
+<li><p>输出样例2：</p>
 <p>4</p>
-<ul>
-<li><p>说明：第一天买进，第五天卖出，获得收益5-1=4。不能在第一天买进，第二天买进，稍后再卖出它们，因为这算同时进行多次交易。</p>
+<p>说明：第一天买进，第五天卖出，获得收益5-1=4。不能在第一天买进，第二天买进，稍后再卖出它们，因为这算同时进行多次交易。</p>
 </li>
 <li><p>输入样例3：</p>
-</li>
-</ul>
 <p>[7,6,4,3,1]</p>
-<ul>
-<li>输出样例3：</li>
-</ul>
+</li>
+<li><p>输出样例3：</p>
 <p>0</p>
-<ul>
+</li>
 <li><p>解题思路：动态规划</p>
 <p>题目规定最多交易两次，而不是一定要交易两次，故允许在同一天既买进又卖出，这相当于不交易</p>
 <p>因为最多允许两次交易且交易分先后，所以可将区间分成两段，分别使用动态规划求每段的最大利润</p>
@@ -359,55 +324,41 @@
 <li><p>代码1，时间复杂度O(n)，空间复杂度O(n)</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(prices.size()&lt;<span class="number">2</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">int</span> n=prices.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; f(n,<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; g(n,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>,valley=prices[<span class="number">0</span>];i&lt;n;i++) &#123;</span><br><span class="line">            valley=min(valley,prices[i]);</span><br><span class="line">            <span class="comment">// 第i天一定卖出的最大利润 包括 第i-1天一定卖出的最大利润</span></span><br><span class="line">            f[i]=max(f[i<span class="number">-1</span>],prices[i]-valley);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-2</span>,peak=prices[n<span class="number">-1</span>];i&gt;=<span class="number">0</span>;i--) &#123;</span><br><span class="line">            peak=max(peak,prices[i]);</span><br><span class="line">            <span class="comment">// 第i天买入且最后一天一定卖出的最大利润 不包括 第i+1天买入且最后一天卖出的最大利润</span></span><br><span class="line">            g[i]=max(g[i],peak-prices[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> max_profit=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">            max_profit=max(max_profit,f[i]+g[i]);</span><br><span class="line">        <span class="keyword">return</span> max_profit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-</li>
-</ul>
-<ul>
 <li><p>代码2，第四题代码2的特例，将k改成2所得</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">    	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; sells(<span class="number">3</span>,<span class="number">0</span>), buys(<span class="number">3</span>,INT_MIN);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> p:prices) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">2</span>;i++) &#123;</span><br><span class="line">                buys[i]=max(buys[i],sells[i<span class="number">-1</span>]-p);</span><br><span class="line">            	sells[i]=max(sells[i],buys[i]+p);</span><br><span class="line">        	&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sells[<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+</li>
+</ul>
 <h4 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h4><p>LeetCode 188 Hard [<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/]" target="_blank" rel="noopener">https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/]</a></p>
 <ul>
-<li>描述：</li>
-</ul>
+<li><p>描述：</p>
 <p>给一个数组，数组中的第i个元素代表第i天的股票价格。如果<strong>只允许完成最多k次交易（即最多k次买进股票并卖出股票）</strong>，那么最大收益是多少？</p>
 <p>注意：不能同时进行多次交易，必须在再次买进股票前卖出股票。</p>
-<ul>
-<li>输入：</li>
-</ul>
+</li>
+<li><p>输入：</p>
 <p>一个数组和一个数，用空格分隔。</p>
-<ul>
-<li>输出：</li>
-</ul>
+</li>
+<li><p>输出：</p>
 <p>买卖股票的最大收益。</p>
-<ul>
-<li>输入样例1：</li>
-</ul>
+</li>
+<li><p>输入样例1：</p>
 <p>[2,4,1] 2</p>
-<ul>
-<li>输出样例1：</li>
-</ul>
+</li>
+<li><p>输出样例1：</p>
 <p>2</p>
-<ul>
-<li><p>说明：第一天买进，第二天卖出，总共获得收益4-2=2。</p>
+<p>说明：第一天买进，第二天卖出，总共获得收益4-2=2。</p>
 </li>
 <li><p>输入样例2：</p>
-</li>
-</ul>
 <p>[3,2,6,5,0,3] 2</p>
-<ul>
-<li>输出样例2：</li>
-</ul>
+</li>
+<li><p>输出样例2：</p>
 <p>7</p>
-<ul>
-<li><p>说明：第二天买进，第三天卖出，获得收益6-2=4；然后在第五天买进，第六天卖出，获得收益3-0=3。总共获得收益4+3=7。</p>
+<p>说明：第二天买进，第三天卖出，获得收益6-2=4；然后在第五天买进，第六天卖出，获得收益3-0=3。总共获得收益4+3=7。</p>
 </li>
 <li><p>解题思路：动态规划</p>
-</li>
-</ul>
 <p>这道题是第三题的推广<br>如果k的值远大于prices的天数，应该直接用第二题的解法，所以这道题又是第二题和第三题的结合</p>
-<ul>
+</li>
 <li><p>参考代码：</p>
 <ul>
 <li><p>代码1</p>
@@ -421,36 +372,30 @@
 </ul>
 <h4 id="第五题"><a href="#第五题" class="headerlink" title="第五题"></a>第五题</h4><p>LeetCode 309 Medium [<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/]" target="_blank" rel="noopener">https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/]</a></p>
 <ul>
-<li>描述：</li>
-</ul>
+<li><p>描述：</p>
 <p>给一个数组，数组中的第i个元素代表第i天的股票价格。如果<strong>允许按照以下限制完成多次交易（即多次买进股票并卖出股票）</strong>，那么最大收益是多少？</p>
 <p><strong>限制1：不能同时进行多次交易，必须在再次买进股票前卖出股票。</strong><br><strong>限制2：在卖出股票后，不能买进下一天的股票（冷却一天）。</strong></p>
-<ul>
-<li>输入：</li>
-</ul>
+</li>
+<li><p>输入：</p>
 <p>一个数组。</p>
-<ul>
-<li>输出：</li>
-</ul>
+</li>
+<li><p>输出：</p>
 <p>买卖股票的最大收益。</p>
-<ul>
-<li>输入样例：</li>
-</ul>
+</li>
+<li><p>输入样例：</p>
 <p>[1,2,3,0,2]</p>
-<ul>
-<li>输出样例：</li>
-</ul>
+</li>
+<li><p>输出样例：</p>
 <p>3</p>
-<ul>
-<li><p>说明：第一天买进，第二天卖出，第三天冷却，第四天买进，第五天卖出，总共获得收益1+2=3。</p>
+<p>说明：第一天买进，第二天卖出，第三天冷却，第四天买进，第五天卖出，总共获得收益1+2=3。</p>
 </li>
 <li><p>解题思路：动态规划</p>
 </li>
 </ul>
 <p><img src="/2019/10/22/LeetCode_BestTimeToBuyAndSellStock/585082-20160229165036642-1352963708.png" alt=""></p>
-<p>状态转移图中：<br>S0 代表没有买入的状态<br>S1 代表买入后等待卖出的状态<br>S2 代表卖出后的状态</p>
-<p>S2与S0的区别是：因为题目要求卖出后必须cooldown一轮，所以卖出进入S2后，必须再进入S0这个等待买入的状态，这一状态转换代表cooldown一轮</p>
-<p>状态转移方程：<br>$s0[i] = max(s0[i-1], s2[i-1])$<br>$s1[i] = max(s1[i-1], s0[i-1] - price[i])$<br>$s2[i] = s1[i-1] + price[i]$</p>
+<p>​        状态转移图中：<br>​        S0 代表没有买入的状态<br>​        S1 代表买入后等待卖出的状态<br>​        S2 代表卖出后的状态</p>
+<p>​        S2与S0的区别是：因为题目要求卖出后必须cooldown一轮，所以卖出进入S2后，必须再进入S0这个等待买入的状态，这一状态转换代表cooldown一轮</p>
+<p>​        状态转移方程：<br>​        $s0[i] = max(s0[i-1], s2[i-1])$<br>​        $s1[i] = max(s1[i-1], s0[i-1] - price[i])$<br>​        $s2[i] = s1[i-1] + price[i]$</p>
 <ul>
 <li><p>参考代码：</p>
 <ul>
@@ -465,36 +410,28 @@
 </ul>
 <h4 id="第六题"><a href="#第六题" class="headerlink" title="第六题"></a>第六题</h4><p>LeetCode 714 Medium [<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/]" target="_blank" rel="noopener">https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/]</a></p>
 <ul>
-<li>描述：</li>
-</ul>
+<li><p>描述：</p>
 <p>给一个数组和一个数，数组中的第i个元素代表第i天的股票价格，那个数代表交易费。如果<strong>允许完成多次交易（即多次买进股票并卖出股票），且每次交易需要支付交易费</strong>，那么最大收益是多少？</p>
 <p>注意：不能同时进行多次交易，必须在再次买进股票前卖出股票。</p>
-<ul>
-<li>输入：</li>
-</ul>
+</li>
+<li><p>输入：</p>
 <p>一个数组prices（$0 &lt; prices.length \le 50000$，$0 &lt; prices[i] &lt; 50000$）和一个数fee（$0 \le fee &lt; 50000$），用空格分隔。</p>
-<ul>
-<li>输出：</li>
-</ul>
+</li>
+<li><p>输出：</p>
 <p>买卖股票的最大收益。</p>
-<ul>
-<li>输入样例：</li>
-</ul>
+</li>
+<li><p>输入样例：</p>
 <p>[1,3,2,8,4,9] 2</p>
-<ul>
-<li>输出样例：</li>
-</ul>
+</li>
+<li><p>输出样例：</p>
 <p>8</p>
-<ul>
-<li><p>说明：第一天买进，第四天卖出，第五天买进，第六天卖出，总共获得收益(8-1-2)+(9-4-2)=8。</p>
+<p>说明：第一天买进，第四天卖出，第五天买进，第六天卖出，总共获得收益(8-1-2)+(9-4-2)=8。</p>
 </li>
 <li><p>解题思路：动态规划</p>
-</li>
-</ul>
 <p>贪心法不行，当卖出的利润小于交易费时，不应该卖出，否则会亏损。</p>
 <p>状态转移方程：<br>$sold[i] = max(sold[i - 1], hold[i - 1] + prices[i] - fee)$<br>$hold[i] = max(hold[i - 1], sold[i - 1] - prices[i])$</p>
 <p>不管是卖出还是保留，第i天的利润只跟第i-1天有关系，所以可以优化空间，用两个变量来表示当前的卖出和保留的利润，</p>
-<ul>
+</li>
 <li><p>参考代码：</p>
 <ul>
 <li><p>代码1</p>
@@ -511,13 +448,13 @@
         
           <section class='meta' id="footer-meta">
             
-              <time class="metatag time" itemprop="dateUpdated" datetime="2021-06-12T16:13:34+08:00" content="2021-06-12"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
-                &nbsp;2021-06-12
+              <time class="metatag time" itemprop="dateUpdated" datetime="2021-06-17T20:22:35+08:00" content="2021-06-17"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2021-06-17
               </time>
             
             
                 
-                <div class="metatag tags"><a class="tag" href="/tags/Dynamic-Programming/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Dynamic Programming</a></div> <div class="metatag tags"><a class="tag" href="/tags/Greedy/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Greedy</a></div>
+                <div class="metatag tags"><a class="tag" href="/tags/Dynamic-Programming/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Dynamic Programming</a></div> <div class="metatag tags"><a class="tag" href="/tags/Greedy/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Greedy</a></div> <div class="metatag tags"><a class="tag" href="/tags/LeetCode/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;LeetCode</a></div>
             
             
           </section>
@@ -707,7 +644,7 @@
     <div class='content pure'>
       <ul class="entry">
         
-          <li><a class="flat-box" title="/categories/Algorithm/" href="/categories/Algorithm/"><div class='name'>Algorithm</div><div class='badge'>(18)</div></a></li>
+          <li><a class="flat-box" title="/categories/Algorithm/" href="/categories/Algorithm/"><div class='name'>Algorithm</div><div class='badge'>(19)</div></a></li>
         
           <li><a class="flat-box" title="/categories/BigData/" href="/categories/BigData/"><div class='name'>BigData</div><div class='badge'>(1)</div></a></li>
         
@@ -737,7 +674,7 @@
 </header>
 
     <div class='content pure'>
-      <a href="/tags/BFS/" style="font-size: 14px; color: #999">BFS</a> <a href="/tags/Binary-Search/" style="font-size: 14px; color: #999">Binary Search</a> <a href="/tags/C-C/" style="font-size: 18.29px; color: #7c7c7c">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/DFS/" style="font-size: 14px; color: #999">DFS</a> <a href="/tags/Database/" style="font-size: 15.43px; color: #8f8f8f">Database</a> <a href="/tags/Doubling/" style="font-size: 14px; color: #999">Doubling</a> <a href="/tags/Dynamic-Programming/" style="font-size: 21.14px; color: #686868">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Go/" style="font-size: 14px; color: #999">Go</a> <a href="/tags/Golang/" style="font-size: 15.43px; color: #8f8f8f">Golang</a> <a href="/tags/Graph-theory/" style="font-size: 14px; color: #999">Graph theory</a> <a href="/tags/Greedy/" style="font-size: 19.71px; color: #727272">Greedy</a> <a href="/tags/Hadoop/" style="font-size: 15.43px; color: #8f8f8f">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Heap/" style="font-size: 15.43px; color: #8f8f8f">Heap</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Knapsack/" style="font-size: 15.43px; color: #8f8f8f">Knapsack</a> <a href="/tags/LCA/" style="font-size: 14px; color: #999">LCA</a> <a href="/tags/Latex/" style="font-size: 22.57px; color: #5f5f5f">Latex</a> <a href="/tags/Linux/" style="font-size: 16.86px; color: #868686">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 18.29px; color: #7c7c7c">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Matlab/" style="font-size: 15.43px; color: #8f8f8f">Matlab</a> <a href="/tags/Microservice/" style="font-size: 15.43px; color: #8f8f8f">Microservice</a> <a href="/tags/MySQL/" style="font-size: 14px; color: #999">MySQL</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/Number-theory/" style="font-size: 15.43px; color: #8f8f8f">Number theory</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Paper/" style="font-size: 14px; color: #999">Paper</a> <a href="/tags/Prefix-Sum/" style="font-size: 14px; color: #999">Prefix Sum</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Simulation/" style="font-size: 15.43px; color: #8f8f8f">Simulation</a> <a href="/tags/Spanning-tree/" style="font-size: 14px; color: #999">Spanning tree</a> <a href="/tags/String/" style="font-size: 15.43px; color: #8f8f8f">String</a> <a href="/tags/Union-Find-Set/" style="font-size: 14px; color: #999">Union-Find Set</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a>
+      <a href="/tags/BFS/" style="font-size: 15.67px; color: #8e8e8e">BFS</a> <a href="/tags/Binary-Search/" style="font-size: 14px; color: #999">Binary Search</a> <a href="/tags/C-C/" style="font-size: 19px; color: #777">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/DFS/" style="font-size: 15.67px; color: #8e8e8e">DFS</a> <a href="/tags/Database/" style="font-size: 15.67px; color: #8e8e8e">Database</a> <a href="/tags/Doubling/" style="font-size: 14px; color: #999">Doubling</a> <a href="/tags/Dynamic-Programming/" style="font-size: 22.33px; color: #606060">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Go/" style="font-size: 14px; color: #999">Go</a> <a href="/tags/Golang/" style="font-size: 15.67px; color: #8e8e8e">Golang</a> <a href="/tags/Graph-theory/" style="font-size: 14px; color: #999">Graph theory</a> <a href="/tags/Greedy/" style="font-size: 20.67px; color: #6c6c6c">Greedy</a> <a href="/tags/Hadoop/" style="font-size: 15.67px; color: #8e8e8e">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Heap/" style="font-size: 15.67px; color: #8e8e8e">Heap</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Knapsack/" style="font-size: 15.67px; color: #8e8e8e">Knapsack</a> <a href="/tags/LCA/" style="font-size: 14px; color: #999">LCA</a> <a href="/tags/Latex/" style="font-size: 22.33px; color: #606060">Latex</a> <a href="/tags/LeetCode/" style="font-size: 15.67px; color: #8e8e8e">LeetCode</a> <a href="/tags/Linux/" style="font-size: 17.33px; color: #828282">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 19px; color: #777">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Matlab/" style="font-size: 15.67px; color: #8e8e8e">Matlab</a> <a href="/tags/Microservice/" style="font-size: 15.67px; color: #8e8e8e">Microservice</a> <a href="/tags/MySQL/" style="font-size: 14px; color: #999">MySQL</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/Number-theory/" style="font-size: 15.67px; color: #8e8e8e">Number theory</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Paper/" style="font-size: 14px; color: #999">Paper</a> <a href="/tags/Prefix-Sum/" style="font-size: 14px; color: #999">Prefix Sum</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Simulation/" style="font-size: 15.67px; color: #8e8e8e">Simulation</a> <a href="/tags/Spanning-tree/" style="font-size: 14px; color: #999">Spanning tree</a> <a href="/tags/String/" style="font-size: 15.67px; color: #8e8e8e">String</a> <a href="/tags/Union-Find-Set/" style="font-size: 14px; color: #999">Union-Find Set</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a>
     </div>
   </section>
 
