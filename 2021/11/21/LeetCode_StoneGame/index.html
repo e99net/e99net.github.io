@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>总结LeetCode上石头游戏这一类型的几道题 | 99°</title>
+  
+  <meta name="keywords" content="blog">
+  
+  
+  <meta name="description" content="记录一些备查的内容和个人成长过程中的感想，希望也能让你有所收获~~">
+  
+
+  <link rel="alternate" href="/atom.xml" title="99°" type="application/atom+xml">
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+  <!-- link -->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css">
+
+  
+
+  
+  
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  
+
+
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          99°
+        
+      </a>
+			<div class='menu'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a id="https:e99net.github.io"
+								 class="nav flat-box" href="https://e99net.github.io/">
+									<i class='fas fa-home fa-fw'></i>&nbsp;Home
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="archives"
+								 class="nav flat-box" href="/archives/">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+								</a>
+							</li>
+      			
+  						<li>
+								<a id="about"
+								 class="nav flat-box" href="/about/">
+									<i class='fas fa-comment-dots fa-fw'></i>&nbsp;About
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+				<li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu">
+      <ul>
+          
+              
+                  <li>
+										<a id="https:e99net.github.io" class="nav flat-box" href="https://e99net.github.io/">
+											<i class='fas fa-home fa-fw'></i>&nbsp;Home
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="archives" class="nav flat-box" href="/archives/">
+											<i class='fas fa-archive fa-fw'></i>&nbsp;Archives
+										</a>
+                  </li>
+              
+                  <li>
+										<a id="about" class="nav flat-box" href="/about/">
+											<i class='fas fa-comment-dots fa-fw'></i>&nbsp;About
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+  
+<section class='meta'>
+  
+  <div class="meta" id="header-meta">
+    
+      
+          <h1 class="title">总结LeetCode上石头游戏这一类型的几道题</h1>
+      
+    
+
+    
+      <time class="metatag time">
+        <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2021-11-21
+      </time>
+    
+
+    
+      
+    
+    <div class='metatag cats'>
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;<a class="categories" href="/categories/Algorithm/">Algorithm</a>
+    </div>
+
+
+    
+
+    
+      
+        <div class="metatag browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+          &nbsp;<span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+        </div>
+      
+    
+
+    
+
+  </div>
+</section>
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h4 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h4><p>LeetCode 877 Medium [<a target="_blank" rel="noopener" href="https://leetcode.com/problems/stone-game]">https://leetcode.com/problems/stone-game]</a></p>
+<ul>
+<li>描述：</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li><p>输入：</p>
+</li>
+<li><p>输出：</p>
+</li>
+<li><p>样例输入1：</p>
+</li>
+<li><p>样例输出1：</p>
+</li>
+<li><p>样例输入2：</p>
+</li>
+<li><p>样例输出2：</p>
+</li>
+<li><p>数据范围</p>
+</li>
+<li><p>解题思路：</p>
+</li>
+<li><p>参考代码:</p>
+<ul>
+<li><p>代码1</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">    </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h4 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h4><p>LeetCode 1140 Medium [<a target="_blank" rel="noopener" href="https://leetcode.com/problems/stone-game-ii]">https://leetcode.com/problems/stone-game-ii]</a></p>
+<ul>
+<li><p>描述：</p>
+</li>
+<li><p>输入：</p>
+</li>
+<li><p>输出：</p>
+</li>
+<li><p>输入样例1：</p>
+</li>
+<li><p>输出样例1：</p>
+</li>
+<li><p>输入样例2：</p>
+</li>
+<li><p>输出样例2：</p>
+</li>
+<li><p>数据范围：</p>
+</li>
+<li><p>解题思路：</p>
+</li>
+<li><p>参考代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h4><p>LeetCode 1406 Hard [<a target="_blank" rel="noopener" href="https://leetcode.com/problems/stone-game-iii]">https://leetcode.com/problems/stone-game-iii]</a></p>
+<ul>
+<li><p>描述：</p>
+</li>
+<li><p>输入：</p>
+</li>
+<li><p>输出：</p>
+</li>
+<li><p>输入样例1：</p>
+</li>
+<li><p>输出样例1：</p>
+</li>
+<li><p>输入样例2：</p>
+</li>
+<li><p>输出样例2：</p>
+</li>
+<li><p>数据范围：</p>
+</li>
+<li><p>解题思路：</p>
+</li>
+<li><p>参考代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h4><p>LeetCode 1510 Hard [<a target="_blank" rel="noopener" href="https://leetcode.com/problems/stone-game-iv]">https://leetcode.com/problems/stone-game-iv]</a></p>
+<ul>
+<li><p>描述：</p>
+</li>
+<li><p>输入：</p>
+</li>
+<li><p>输出：</p>
+</li>
+<li><p>输入样例1：</p>
+</li>
+<li><p>输出样例1：</p>
+</li>
+<li><p>输入样例2：</p>
+</li>
+<li><p>输出样例2：</p>
+</li>
+<li><p>输入样例3：</p>
+</li>
+<li><p>输出样例3：</p>
+</li>
+<li><p>输入样例4：</p>
+</li>
+<li><p>输出样例4：</p>
+</li>
+<li><p>输入样例5：</p>
+</li>
+<li><p>输出样例5：</p>
+</li>
+<li><p>数据范围：</p>
+</li>
+<li><p>解题思路：</p>
+</li>
+<li><p>参考代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="第五题"><a href="#第五题" class="headerlink" title="第五题"></a>第五题</h4><p>LeetCode 1563 Hard [<a target="_blank" rel="noopener" href="https://leetcode.com/problems/stone-game-v]">https://leetcode.com/problems/stone-game-v]</a></p>
+<ul>
+<li><p>描述：</p>
+</li>
+<li><p>输入：</p>
+</li>
+<li><p>输出：</p>
+</li>
+<li><p>输入样例1：</p>
+</li>
+<li><p>输出样例1：</p>
+</li>
+<li><p>输入样例2：</p>
+</li>
+<li><p>输出样例2：</p>
+</li>
+</ul>
+<ul>
+<li><p>输入样例3：</p>
+</li>
+<li><p>输出样例3：</p>
+</li>
+<li><p>输入样例4：</p>
+</li>
+<li><p>输出样例4：</p>
+</li>
+<li><p>输入样例5：</p>
+</li>
+<li><p>输出样例5：</p>
+</li>
+</ul>
+<ul>
+<li><p>数据范围：</p>
+</li>
+<li><p>解题思路：动态规划</p>
+</li>
+<li><p>参考代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="第六题"><a href="#第六题" class="headerlink" title="第六题"></a>第六题</h4><p>LeetCode 1686 Medium [<a target="_blank" rel="noopener" href="https://leetcode.com/problems/stone-game-vi]">https://leetcode.com/problems/stone-game-vi]</a></p>
+<ul>
+<li><p>描述：</p>
+</li>
+<li><p>输入：</p>
+</li>
+<li><p>输出：</p>
+</li>
+<li><p>输入样例1：</p>
+</li>
+<li><p>输出样例1：</p>
+</li>
+</ul>
+<ul>
+<li><p>输入样例2：</p>
+</li>
+<li><p>输出样例2：</p>
+</li>
+<li><p>输入样例3：</p>
+</li>
+<li><p>输出样例3：</p>
+</li>
+</ul>
+<ul>
+<li><p>数据范围：</p>
+</li>
+<li><p>解题思路：动态规划</p>
+</li>
+<li><p>参考代码：</p>
+<ul>
+<li><p>代码1</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">    </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h4 id="第七题"><a href="#第七题" class="headerlink" title="第七题"></a>第七题</h4><p>LeetCode 1690 Medium [<a target="_blank" rel="noopener" href="https://leetcode.com/problems/stone-game-vii]">https://leetcode.com/problems/stone-game-vii]</a></p>
+<ul>
+<li><p>描述：</p>
+</li>
+<li><p>输入：</p>
+</li>
+<li><p>输出：</p>
+</li>
+</ul>
+<ul>
+<li>输入样例1：</li>
+</ul>
+<ul>
+<li><p>输出样例1：</p>
+</li>
+<li><p>输入样例2：</p>
+</li>
+</ul>
+<ul>
+<li>输出样例2：</li>
+</ul>
+<ul>
+<li>数据范围：</li>
+</ul>
+<ul>
+<li><p>解题思路：</p>
+</li>
+<li><p>参考代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="第八题"><a href="#第八题" class="headerlink" title="第八题"></a>第八题</h4><p>LeetCode 1872 Hard [<a target="_blank" rel="noopener" href="https://leetcode.com/problems/stone-game-viii]">https://leetcode.com/problems/stone-game-viii]</a></p>
+<ul>
+<li><p>描述：</p>
+<p>Alice 和 Bob 玩一个游戏，两人轮流操作， <strong>Alice 先手</strong> 。</p>
+<p>总共有 n 个石子排成一行。轮到某个玩家的回合时，如果石子的数目 <strong>大于 1</strong> ，他将执行以下操作：</p>
+<ul>
+<li>选择一个整数 x &gt; 1 ，并且 <strong>移除</strong> 最左边的 x 个石子。</li>
+<li>将 <strong>移除</strong> 的石子价值之 <strong>和</strong> 累加到该玩家的分数中。</li>
+<li>将一个 <strong>新的石子</strong> 放在最左边，且新石子的值为被移除石子值之和。</li>
+</ul>
+<p>当只剩下 一个 石子时，游戏结束。</p>
+<p>Alice 和 Bob 的 <strong>分数之差</strong> 为 (Alice 的分数 - Bob 的分数) 。 Alice 的目标是 <strong>最大化</strong> 分数差，Bob 的目标是 <strong>最小化</strong> 分数差。</p>
+<p>给你一个长度为 n 的整数数组 stones ，其中 stones[i] 是 <strong>从左边起</strong> 第 i 个石子的价值。请你返回在双方都采用 <strong>最优</strong> 策略的情况下，Alice 和 Bob 的 <strong>分数之差</strong> 。</p>
+</li>
+<li><p>输入：</p>
+<p>一个整数数组</p>
+</li>
+<li><p>输出：</p>
+<p>一个整数</p>
+</li>
+</ul>
+<ul>
+<li><p>输入样例1：</p>
+<p>[-1,2,-3,4,-5]</p>
+</li>
+</ul>
+<ul>
+<li><p>输出样例1：</p>
+<p>5</p>
+<p>说明：</p>
+<ul>
+<li>Alice 移除最左边的 4 个石子，得分增加 (-1) + 2 + (-3) + 4 = 2 ，并且将一个价值为 2 的石子放在最左边。stones = [2,-5] 。</li>
+<li>Bob 移除最左边的 2 个石子，得分增加 2 + (-5) = -3 ，并且将一个价值为 -3 的石子放在最左边。stones = [-3] 。</li>
+</ul>
+<p>两者分数之差为 2 - (-3) = 5 。</p>
+</li>
+<li><p>输入样例2：</p>
+<p>[7,-6,5,10,5,-2,-6]</p>
+</li>
+</ul>
+<ul>
+<li><p>输出样例2：</p>
+<p>13</p>
+<p>说明：</p>
+<ul>
+<li>Alice 移除所有石子，得分增加 7 + (-6) + 5 + 10 + 5 + (-2) + (-6) = 13 ，并且将一个价值为 13 的石子放在最左边。stones = [13] 。</li>
+</ul>
+<p>两者分数之差为 13 - 0 = 13 。</p>
+</li>
+<li><p>输入样例3：</p>
+<p>[-10,-12]</p>
+</li>
+</ul>
+<ul>
+<li><p>输出样例3：</p>
+<p>-22</p>
+<p>说明：</p>
+<ul>
+<li>Alice 只有一种操作，就是移除所有石子。得分增加 (-10) + (-12) = -22 ，并且将一个价值为 -22 的石子放在最左边。stones = [-22] 。</li>
+</ul>
+<p>两者分数之差为 (-22) - 0 = -22 。</p>
+</li>
+</ul>
+<ul>
+<li><p>数据范围：</p>
+<p>$n == stones.length$</p>
+<p>$2 &lt;= n &lt;= 10^5$</p>
+<p>$-10^4 &lt;= stones[i] &lt;= 10^4$</p>
+</li>
+</ul>
+<ul>
+<li><p>解题思路：动态规划+前缀和</p>
+<p>首先要明白一点，不管是谁进行操作，数组的总和是不变的。</p>
+<p>这里对玩家操作进行抽象，抽象成对前缀和数组进行操作，所以要预先计算出前缀和数组。一名玩家在石子值前缀和数组中选取第 i 个值，然后另一玩家在 [i + 1, n - 1] 区间内选取下一前缀和数值。</p>
+<p>Alice和Bob都会采取最优策略，Alice每次操作要尽量增大他和Bob的分数差，Bob每次操作要尽量减小Alice和他的分数差，<strong>实际上就是无论轮到谁操作，都尽量获得最大分数的意思</strong>。那么，在同一条件下 Alice 和 Bob 的操作就完全相同。注意：这里求得统一都是且只是（Alice的分数-Bob的分数）。</p>
+<p>设计一个动态规划数组dp表示玩家的最优策略即可，dp[i]表示区间 [i, n - 1] 范围内能够获得的最大分数差，则对位置 i，根据<strong>是否选取第 i 个前缀和</strong>可得到状态转移方程 dp[i] = max(dp[i + 1], preSum[i] - dp[i + 1])。</p>
+<p>这里再详细解释一下状态转移方程：如果不选取第i个前缀和，那么区间[i, n-1]范围内能够获得的最大分数差就是区间[i+1, n-1]范围内能够获得的最大分数差。如果选取第i个前缀和，那么区间[i, n-1]范围内能够获得的最大分数差就是选取的第i个前缀和得到的分数<strong>减去</strong>区间[i+1, n-1]范围内能够获得的最大分数差，之所以<strong>减</strong>是因为这次和下一次的操作者不同，从下一次操作者的视角来看，dp[i+1]得到的是他与另一个人的最大分数差，而这次操作要求的是操作者与下一次操作者的分数差，即$x1-x2=-(x2-x1)$。</p>
+<p>由于第 n - 1 个前缀和一定会被选取，可<strong>从后向前进行动态规划</strong>。又因为第一次选取操作时只能从第 2 个石子开始，Alice 的有效起始点为 dp[1]，所以最后要求的结果就是dp[1]（区间 [1, n - 1] 范围内能够获得的最大分数差）。</p>
+</li>
+<li><p>参考代码：</p>
+<ul>
+<li><p>代码1，按照解题思路写的</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">stoneGameVIII</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; stones)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=stones.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;<span class="keyword">int</span>&gt; preSum;</span><br><span class="line">        <span class="built_in">partial_sum</span>(stones.<span class="built_in">begin</span>(),stones.<span class="built_in">end</span>(),<span class="built_in">back_inserter</span>(preSum));</span><br><span class="line">        <span class="comment">//copy(preSum.begin(),preSum.end(),ostream_iterator&lt;int&gt;(cout,&quot; &quot;));</span></span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n)</span></span>;</span><br><span class="line">        dp[n<span class="number">-1</span>]=preSum[n<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-2</span>;i&gt;=<span class="number">1</span>;i--) &#123;</span><br><span class="line">            dp[i]=<span class="built_in">max</span>(dp[i+<span class="number">1</span>],preSum[i]-dp[i+<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><p>代码2，另一种解题思路，与代码1的解题思路并无太大区别，动态规划数组定义不同</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">stoneGameVIII</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; stones)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=stones.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">presum</span><span class="params">(n+<span class="number">1</span>)</span></span>; <span class="comment">// 前缀和数组</span></span><br><span class="line">        <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n+<span class="number">1</span>)</span></span>; <span class="comment">// d</span></span><br><span class="line">        <span class="comment">// 求前缀和数组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">            presum[i]=presum[i<span class="number">-1</span>]+stones[i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        dp[<span class="number">1</span>]=<span class="number">0</span>; <span class="comment">// 剩一堆石子时，先手-后手 的最大分数差为0</span></span><br><span class="line">        dp[<span class="number">2</span>]=presum[n]-dp[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=n;i++) &#123;</span><br><span class="line">            dp[i]=<span class="built_in">max</span>(dp[i<span class="number">-1</span>],presum[n-i+<span class="number">2</span>]-dp[i<span class="number">-1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];<span class="comment">// 剩n堆石子的最大分数差</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+        
+          <section class='meta' id="footer-meta">
+            
+              <time class="metatag time" itemprop="dateUpdated" datetime="2021-06-18T13:22:57+08:00" content="2021-06-18"><i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>
+                &nbsp;2021-06-18
+              </time>
+            
+            
+                
+                <div class="metatag tags"><a class="tag" href="/tags/Dynamic-Programming/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;Dynamic Programming</a></div> <div class="metatag tags"><a class="tag" href="/tags/LeetCode/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>&nbsp;LeetCode</a></div>
+            
+            
+          </section>
+        
+
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                            <h4>
+                                <a href="/2021/11/21/NewbieOfRust/" rel="prev" title="Rust新手上路">
+                                  
+                                      Rust新手上路
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/Rust/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Rust</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2021/06/17/LeetCode_JumpGame/" rel="prev" title="总结LeetCode上跳跃游戏这一类型的几道题">
+                                    
+                                        总结LeetCode上跳跃游戏这一类型的几道题
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/DFS/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>DFS</a> <a class="tag" href="/tags/Dynamic-Programming/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Dynamic Programming</a> <a class="tag" href="/tags/Greedy/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>Greedy</a> <a class="tag" href="/tags/BFS/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>BFS</a> <a class="tag" href="/tags/LeetCode/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>LeetCode</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX","TeX"],
+      linebreaks: { automatic:true },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: { autoNumber: "AMS" },
+      noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+      Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+  });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += (all[i].SourceElement().parentNode.className ? ' ' : '') + 'has-jax';
+    }
+    console.log("mathjax did loaded!");
+  });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments">
+    <section class="article typo">
+
+      
+        
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;Related Posts</h4>
+        <ul>
+            
+                <li><a href="https://e99net.github.io/2021/11/21/NewbieOfRust/">Rust新手上路</a></li>
+            
+                <li><a href="https://e99net.github.io/2021/06/17/LeetCode_JumpGame/">总结LeetCode上跳跃游戏这一类型的几道题</a></li>
+            
+                <li><a href="https://e99net.github.io/2021/06/12/the_problem_of_play_docker-yapi/">YAPI——api自动化测试平台</a></li>
+            
+                <li><a href="https://e99net.github.io/2021/06/12/the_problem_of_play_go-related_framework/">记录几个玩Golang微服务生态时踩的坑</a></li>
+            
+        </ul>
+    </div>
+
+
+      
+
+      
+    </section>
+  </article>
+
+
+
+<script>
+    window.subData = {
+        title: '总结LeetCode上石头游戏这一类型的几道题',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+  
+  
+    
+      
+      
+        <section class='author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://avatars3.githubusercontent.com/u/29162050?s=460&v=4'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:flyhacker666@gmail.com" class="social flat-btn" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/e99net" class="social flat-btn" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='category'>
+    
+<header class='pure'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Categories</div>
+  
+</header>
+
+    <div class='content pure'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Algorithm/" href="/categories/Algorithm/"><div class='name'>Algorithm</div><div class='badge'>(20)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/BigData/" href="/categories/BigData/"><div class='name'>BigData</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Database/" href="/categories/Database/"><div class='name'>Database</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/EAs/" href="/categories/EAs/"><div class='name'>EAs</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/memo/" href="/categories/memo/"><div class='name'>memo</div><div class='badge'>(59)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+      
+    
+  
+    
+      
+      
+        
+  <section class='tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/BFS/" style="font-size: 15.43px; color: #8f8f8f">BFS</a> <a href="/tags/Binary-Search/" style="font-size: 14px; color: #999">Binary Search</a> <a href="/tags/C-C/" style="font-size: 18.29px; color: #7c7c7c">C/C++</a> <a href="/tags/DE/" style="font-size: 14px; color: #999">DE</a> <a href="/tags/DFS/" style="font-size: 15.43px; color: #8f8f8f">DFS</a> <a href="/tags/Database/" style="font-size: 15.43px; color: #8f8f8f">Database</a> <a href="/tags/Doubling/" style="font-size: 14px; color: #999">Doubling</a> <a href="/tags/Dynamic-Programming/" style="font-size: 22.57px; color: #5f5f5f">Dynamic Programming</a> <a href="/tags/Git/" style="font-size: 14px; color: #999">Git</a> <a href="/tags/Go/" style="font-size: 14px; color: #999">Go</a> <a href="/tags/Golang/" style="font-size: 15.43px; color: #8f8f8f">Golang</a> <a href="/tags/Graph-theory/" style="font-size: 14px; color: #999">Graph theory</a> <a href="/tags/Greedy/" style="font-size: 19.71px; color: #727272">Greedy</a> <a href="/tags/Hadoop/" style="font-size: 15.43px; color: #8f8f8f">Hadoop</a> <a href="/tags/Haskell/" style="font-size: 14px; color: #999">Haskell</a> <a href="/tags/Heap/" style="font-size: 15.43px; color: #8f8f8f">Heap</a> <a href="/tags/Java/" style="font-size: 14px; color: #999">Java</a> <a href="/tags/Knapsack/" style="font-size: 15.43px; color: #8f8f8f">Knapsack</a> <a href="/tags/LCA/" style="font-size: 14px; color: #999">LCA</a> <a href="/tags/Latex/" style="font-size: 21.14px; color: #686868">Latex</a> <a href="/tags/LeetCode/" style="font-size: 16.86px; color: #868686">LeetCode</a> <a href="/tags/Linux/" style="font-size: 16.86px; color: #868686">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 18.29px; color: #7c7c7c">Machine Learning</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/Matlab/" style="font-size: 15.43px; color: #8f8f8f">Matlab</a> <a href="/tags/Microservice/" style="font-size: 15.43px; color: #8f8f8f">Microservice</a> <a href="/tags/MySQL/" style="font-size: 14px; color: #999">MySQL</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 14px; color: #999">Natural Language Processing</a> <a href="/tags/Number-theory/" style="font-size: 15.43px; color: #8f8f8f">Number theory</a> <a href="/tags/PSO/" style="font-size: 14px; color: #999">PSO</a> <a href="/tags/Paper/" style="font-size: 14px; color: #999">Paper</a> <a href="/tags/Prefix-Sum/" style="font-size: 14px; color: #999">Prefix Sum</a> <a href="/tags/Reinforcement-Learning/" style="font-size: 14px; color: #999">Reinforcement Learning</a> <a href="/tags/Rust/" style="font-size: 14px; color: #999">Rust</a> <a href="/tags/Simulation/" style="font-size: 15.43px; color: #8f8f8f">Simulation</a> <a href="/tags/Spanning-tree/" style="font-size: 14px; color: #999">Spanning tree</a> <a href="/tags/String/" style="font-size: 15.43px; color: #8f8f8f">String</a> <a href="/tags/Union-Find-Set/" style="font-size: 14px; color: #999">Union-Find Set</a> <a href="/tags/Water/" style="font-size: 24px; color: #555">Water</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Windows-Programming/" style="font-size: 14px; color: #999">Windows Programming</a>
+    </div>
+  </section>
+
+
+      
+    
+  
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+    <footer id="footer" class="clearfix">
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:flyhacker666@gmail.com" class="social fas fa-envelope flat-btn" target="_blank" rel="external"></a>
+        
+      
+        
+          <a href="https://github.com/e99net" class="social fab fa-github flat-btn" target="_blank" rel="external"></a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>Use <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> as theme, total visits <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> times. 
+  </div>
+</footer>
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        const $reveal = $('.reveal');
+    		if ($reveal.length === 0) return;
+    		const sr = ScrollReveal({ distance: 0 });
+    		sr.reveal('.reveal');
+      });
+    </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        Waves.attach('.flat-btn', ['waves-button']);
+        Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+        Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.flat-box', ['waves-block']);
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.waves-image');
+        Waves.init();
+      });
+    </script>
+  
+  
+    <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+  
+  
+    <!-- fastclick -->
+    <script src="https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body)
+      }, false)
+    </script>
+  
+  
+
+
+  
+  
+  
+  
+    
+<script src="/js/app.js"></script>
+<script src="/js/search.js"></script>
+
+  
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
